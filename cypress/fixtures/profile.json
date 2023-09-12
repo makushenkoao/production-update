@@ -1,0 +1,11 @@
+{
+  "id": "1",
+  "firstname": "test",
+  "lastname": "test",
+  "age": 33,
+  "currency": "PLN",
+  "country": "Ukraine",
+  "city": "Cherkasy",
+  "username": "testuser",
+  "avatar": "https://www.shareicon.net/data/512x512/2016/09/01/822726_user_512x512.png"
+}

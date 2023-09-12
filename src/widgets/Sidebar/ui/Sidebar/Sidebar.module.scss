@@ -1,0 +1,86 @@
+.Sidebar {
+    height: calc(100vh - var(--navbar-height));
+    width: var(--sidebar-width);
+    background: var(--inverted-bg-color);
+    position: relative;
+    padding: 0 30px;
+
+    .link {
+        opacity: 1;
+    }
+
+    .switchers {
+        position: absolute;
+        bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .items {
+        margin-top: 20px;
+    }
+
+    .collapseBtn {
+        position: absolute;
+        right: -32px;
+        bottom: 0;
+        z-index: 10;
+    }
+}
+
+.collapsed.Sidebar {
+    padding: 0;
+    text-align: center;
+}
+
+.collapsed {
+    width: var(--sidebar-width-collapsed);
+
+    .switchers {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+// ---REDESIGNED---
+
+.SidebarRedesigned {
+    position: relative;
+    background: var(--light-bg-redesigned);
+    width: 220px;
+    height: 100%;
+    border-radius: 32px;
+
+    .appLogo {
+        padding-top: 20px;
+    }
+
+    .items {
+        padding-top: 40px;
+    }
+
+    .collapseBtn {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: rotate(90deg) translateX(-50%);
+        z-index: 10;
+    }
+
+    .switchers {
+        position: absolute;
+        bottom: 40px;
+        width: 100%;
+    }
+}
+
+.collapsedRedesigned {
+    width: 50px;
+
+    .collapseBtn {
+        transform: rotate(-90deg) translateX(50%);
+    }
+}

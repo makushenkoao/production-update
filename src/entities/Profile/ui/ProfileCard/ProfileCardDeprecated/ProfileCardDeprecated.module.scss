@@ -1,0 +1,14 @@
+.ProfileCard {
+    padding: 20px;
+    border: 2px solid var(--inverted-bg-color);
+    opacity: 0.8;
+}
+
+.loading,
+.error {
+    height: 300px;
+}
+
+.editing {
+    opacity: 1;
+}

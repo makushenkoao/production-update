@@ -1,0 +1,23 @@
+.ArticleViewSelector {
+    .notSelected {
+        fill: var(--secondary-color);
+    }
+}
+
+// REDESIGNED
+
+.ArticleViewSelectorRedesigned {
+    .selectedRedesigned {
+        background: var(--light-bg-redesigned);
+    }
+
+    .left {
+        border-top-left-radius: 45px;
+        border-bottom-left-radius: 45px;
+    }
+
+    .right {
+        border-bottom-right-radius: 45px;
+        border-top-right-radius: 45px;
+    }
+}

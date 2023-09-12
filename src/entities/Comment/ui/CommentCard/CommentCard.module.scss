@@ -1,0 +1,11 @@
+.CommentCard {
+    padding: 10px;
+    border: 1px solid var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.CommentCardRedesigned:hover {
+    opacity: 0.7;
+}
