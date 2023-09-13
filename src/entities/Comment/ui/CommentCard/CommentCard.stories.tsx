@@ -10,6 +10,7 @@ const comment = {
         id: '1',
         username: 'Username1',
     },
+    likes: ['1', '2', '3'],
 };
 
 const meta: Meta<typeof CommentCard> = {

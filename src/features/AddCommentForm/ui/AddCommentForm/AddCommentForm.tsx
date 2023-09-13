@@ -55,35 +55,33 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
     return (
         <DynamicModuleLoader reducers={reducers}>
             <Card
-                                    padding="24"
-                                    max
-                                    border="round"
-                                    className={classNames(
-                                        cls.AddCommentFormRedesigned,
-                                        {},
-                                        [className],
-                                    )}
-                                >
-                                    <HStack
-                                        data-testid="AddCommentForm"
-                                        gap="16"
-                                        max
-                                    >
-                                        <Input
-                                            className={cls.input}
-                                            value={text}
-                                            onChange={onCommentTextChange}
-                                            placeholder={t('Введіть коментар')}
-                                            data-testid="AddCommentForm.Input"
-                                        />
-                                        <Button
-                                            data-testid="AddCommentForm.Button"
-                                            onClick={onSendHandler}
-                                        >
-                                            {t('Відправити')}
-                                        </Button>
-                                    </HStack>
-                                </Card>
+                padding="24"
+                max
+                border="round"
+                className={classNames(cls.AddCommentFormRedesigned, {}, [
+                    className,
+                ])}
+            >
+                <HStack
+                    data-testid="AddCommentForm"
+                    gap="16"
+                    max
+                >
+                    <Input
+                        className={cls.input}
+                        value={text}
+                        onChange={onCommentTextChange}
+                        placeholder={t('Введіть коментар')}
+                        data-testid="AddCommentForm.Input"
+                    />
+                    <Button
+                        data-testid="AddCommentForm.Button"
+                        onClick={onSendHandler}
+                    >
+                        {t('Відправити')}
+                    </Button>
+                </HStack>
+            </Card>
         </DynamicModuleLoader>
     );
 });

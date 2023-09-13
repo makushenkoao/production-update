@@ -16,6 +16,6 @@ i18n.use(Backend)
         backend: {
             loadPath: '/locales/{{lng}}/{{ns}}.json',
         },
-    });
+    }).then(() => console.log('i18n connect.'));
 
 export default i18n;

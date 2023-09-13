@@ -124,8 +124,9 @@
     {
       "id": "1694609005326",
       "username": "register",
-      "firstname": "register",
-      "lastname": "register"
+      "firstname": "registerg",
+      "lastname": "register",
+      "age": 233
     }
   ],
   "articles": [
@@ -2310,73 +2311,136 @@
       "id": "1",
       "text": "some comment",
       "articleId": "1",
-      "userId": "1"
+      "userId": "1",
+      "likes": []
     },
     {
       "id": "2",
       "text": "some comment 2",
       "articleId": "1",
-      "userId": "1"
+      "userId": "1",
+      "likes": []
     },
     {
       "id": "3",
       "text": "some comment 3",
       "articleId": "1",
-      "userId": "1"
+      "userId": "1",
+      "likes": []
     },
     {
       "articleId": "1",
       "userId": "1",
       "text": "Hello",
-      "id": "5UslMsE"
+      "id": "5UslMsE",
+      "likes": []
     },
     {
       "articleId": "1",
       "userId": "1",
       "text": "hello world",
-      "id": "hbARbIq"
+      "id": "hbARbIq",
+      "likes": []
     },
     {
       "articleId": "1",
       "userId": "1",
       "text": "vxcvxcv",
-      "id": "q7pamZm"
+      "id": "q7pamZm",
+      "likes": []
     },
     {
       "articleId": "1",
       "userId": "1",
       "text": "adf",
-      "id": "dQk082c"
+      "id": "dQk082c",
+      "likes": []
     },
     {
       "articleId": "1",
       "userId": "1",
       "text": "sdf",
-      "id": "oFBLADN"
+      "id": "oFBLADN",
+      "likes": []
     },
     {
       "articleId": "2",
       "userId": "1",
       "text": "dfg",
-      "id": "d0HccS6"
+      "id": "d0HccS6",
+      "likes": [],
+      "user": {
+        "id": "1",
+        "username": "admin",
+        "password": "111",
+        "jsonSettings": {
+          "theme": "app_dark_theme",
+          "isArticlesPageWasOpened": true
+        },
+        "features": {
+          "isAppRedesigned": false
+        },
+        "roles": [
+          "ADMIN"
+        ],
+        "avatar": "https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-blue-tie-and-beard-face-png-image_5809515.png"
+      }
     },
     {
       "articleId": "5",
       "userId": "1690123631680",
       "text": "gsdfgsdfg",
-      "id": "kPXdvW5"
+      "id": "kPXdvW5",
+      "likes": []
     },
     {
       "articleId": "1690392205042",
       "userId": "1690123631680",
       "text": "ГУД РЕЦЕПТ, ПРИГОТОВИЛ, ОЧЕНЬ ВКУСНО!!!",
-      "id": "aLPuewP"
+      "id": "aLPuewP",
+      "likes": []
     },
     {
       "articleId": "2",
       "userId": "1",
       "text": "Comment",
-      "id": "aUqIJMR"
+      "id": "aUqIJMR",
+      "likes": [
+        "2"
+      ],
+      "user": {
+        "id": "1",
+        "username": "admin",
+        "password": "111",
+        "jsonSettings": {
+          "theme": "app_dark_theme",
+          "isArticlesPageWasOpened": true
+        },
+        "features": {
+          "isAppRedesigned": false
+        },
+        "roles": [
+          "ADMIN"
+        ],
+        "avatar": "https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-blue-tie-and-beard-face-png-image_5809515.png"
+      }
+    },
+    {
+      "articleId": "2",
+      "userId": "1694609005326",
+      "likes": [
+        "1694609005326"
+      ],
+      "text": "new comment",
+      "id": "Q3uVUej",
+      "user": {
+        "id": "1694609005326",
+        "username": "register",
+        "password": "register",
+        "jsonSettings": {
+          "isArticlesPageWasOpened": true
+        }
+      }
     }
   ],
   "users": [
@@ -2491,7 +2555,10 @@
     {
       "id": "1694609005326",
       "username": "register",
-      "password": "register"
+      "password": "register",
+      "jsonSettings": {
+        "isArticlesPageWasOpened": true
+      }
     }
   ],
   "article-ratings": [

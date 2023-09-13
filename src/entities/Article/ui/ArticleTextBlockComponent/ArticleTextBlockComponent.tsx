@@ -27,6 +27,7 @@ export const ArticleTextBlockComponent = memo(
                 )}
                 {block.paragraphs.map((paragraph, index) => (
                     <Text
+                        key={index}
                         text={paragraph}
                         className={cls.paragraph}
                     />

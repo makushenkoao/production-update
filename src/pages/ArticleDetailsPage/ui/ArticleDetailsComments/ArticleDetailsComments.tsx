@@ -16,6 +16,8 @@ import {
 } from '../../model/selectors/comments';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { addLikeToComment } from '@/pages/ArticleDetailsPage/model/services/addLikeToComment/addLikeToComment';
+import { Comment } from '@/entities/Comment';
 
 interface ArticleDetailsCommentsProps {
     className?: string;
@@ -30,6 +32,11 @@ export const ArticleDetailsComments = memo(
         const comments = useSelector(getArticleComments.selectAll);
         const isLoading = useSelector(getArticleCommentsIsLoading);
         const error = useSelector(getArticleCommentsError);
+
+        const onLikeClick = useCallback((comment?: Comment) => {
+            if (!comment) return;
+            dispatch(addLikeToComment(comment));
+        }, [dispatch]);
 
         const onSendComment = useCallback(
             (text: string) => {
@@ -55,15 +62,17 @@ export const ArticleDetailsComments = memo(
                 className={classNames('', {}, [className])}
             >
                 <Text
-                                            size="l"
-                                            title={t('Коментарі')}
-                                        />
+                    size="l"
+                    title={t('Коментарі')}
+                />
                 <Suspense fallback={<Loader />}>
                     <AddCommentForm onSendComment={onSendComment} />
                 </Suspense>
                 <CommentList
                     comments={comments}
                     isLoading={isLoading}
+                    // @ts-ignore
+                    onLikeClick={onLikeClick}
                 />
             </VStack>
         );

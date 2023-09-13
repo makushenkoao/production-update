@@ -11,6 +11,7 @@ const comments = [
             id: '1',
             username: 'Username1',
         },
+        likes: ['1', '2', '3'],
     },
     {
         id: '2',
@@ -19,6 +20,7 @@ const comments = [
             id: '2',
             username: 'Username2',
         },
+        likes: ['1', '2', '3'],
     },
 ];
 

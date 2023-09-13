@@ -42,13 +42,7 @@ export const StarRating = memo((props: StarRatingProps) => {
     };
 
     return (
-        <div
-            className={classNames(
-                cls.StarRatingRedesigned,
-                {},
-                [className],
-            )}
-        >
+        <div className={classNames(cls.StarRatingRedesigned, {}, [className])}>
             {stars.map((starNumber, index) => {
                 const commonProps = {
                     className: classNames(
@@ -68,13 +62,14 @@ export const StarRating = memo((props: StarRatingProps) => {
                     onClick: onClick(starNumber),
                     'data-testid': `StarRating.${starNumber}`,
                     'data-selected': currentStarsCount >= starNumber,
+                    key: index,
                 };
 
                 return (
                     <Icon
-                                                    clickable={!isSelected}
-                                                    {...commonProps}
-                                                />
+                        clickable={!isSelected}
+                        {...commonProps}
+                    />
                 );
             })}
         </div>
