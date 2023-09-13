@@ -2,12 +2,12 @@ import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
-import { Text, TextSize } from '@/shared/ui/deprecated/Text';
 import { Article } from '../../model/types/article';
 import cls from './ArticleList.module.scss';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleView } from '../../model/consts/consts';
 import { HStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 interface ArticleListProps {
     className?: string;
@@ -57,7 +57,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
                 ])}
             >
                 <Text
-                    size={TextSize.L}
+                    size="l"
                     title={t('Статті не знайдені')}
                 />
             </div>
@@ -66,16 +66,14 @@ export const ArticleList = memo((props: ArticleListProps) => {
 
     return (
         <HStack
-                            gap="8"
-                            className={classNames(cls.ArticleListRedesigned, {}, [
-                                className,
-                            ])}
-                            data-testid="ArticleList"
-                            wrap="wrap"
-                        >
-                            {articles.length > 0 && articles.map(renderArticle)}
-                            {isLoading && getSkeletons(view)}
-                            {articles.length < 0 && null}
-                        </HStack>
+            gap="8"
+            className={classNames(cls.ArticleListRedesigned, {}, [className])}
+            data-testid="ArticleList"
+            wrap="wrap"
+        >
+            {articles.length > 0 && articles.map(renderArticle)}
+            {isLoading && getSkeletons(view)}
+            {articles.length < 0 && null}
+        </HStack>
     );
 });

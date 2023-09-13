@@ -62,9 +62,6 @@ server.post('/register', (req, res) => {
             id,
             username,
             password,
-            features: {
-                isAppRedesigned: true,
-            },
         };
 
         const newProfile = {
@@ -102,4 +99,3 @@ server.use(router);
 server.listen(PORT, () => {
     console.log(`server is running on port ${PORT}`);
 });
-

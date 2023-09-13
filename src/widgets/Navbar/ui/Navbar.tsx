@@ -3,7 +3,6 @@ import { memo, useCallback, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
-
 import { Button } from '@/shared/ui/redesigned/Button';
 import { LoginModal } from '@/features/AuthByUsername';
 import { NotificationButton } from '@/features/notificationButton';
@@ -46,32 +45,24 @@ export const Navbar = memo((props: NavbarProps) => {
     if (userAuthData) {
         return (
             <header
-                                    className={classNames(cls.NavbarRedesigned, {}, [
-                                        className,
-                                    ])}
-                                >
-                                    <HStack gap="16">
-                                        <NotificationButton />
-                                        <AvatarDropdown />
-                                    </HStack>
-                                </header>
+                className={classNames(cls.NavbarRedesigned, {}, [className])}
+            >
+                <HStack gap="16">
+                    <NotificationButton />
+                    <AvatarDropdown />
+                </HStack>
+            </header>
         );
     }
 
     return (
-        <header
-            className={classNames(
-                cls.NavbarRedesigned,
-                {},
-                [className],
-            )}
-        >
+        <header className={classNames(cls.NavbarRedesigned, {}, [className])}>
             <Button
-                                    variant="clear"
-                                    onClick={onShowModal}
-                                >
-                                    {t('Увійти')}
-                                </Button>
+                variant="clear"
+                onClick={onShowModal}
+            >
+                {t('Увійти')}
+            </Button>
             {isAuthModal && (
                 <LoginModal
                     onClose={onCloseModal}

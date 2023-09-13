@@ -102,6 +102,30 @@
       "lastname": "box",
       "currency": "USD",
       "age": 23
+    },
+    {
+      "id": "1694606431960",
+      "username": "",
+      "firstname": "",
+      "lastname": ""
+    },
+    {
+      "id": "1694607290876",
+      "username": "barsik",
+      "firstname": "barsik",
+      "lastname": "barsik"
+    },
+    {
+      "id": "1694607342533",
+      "username": "aaa",
+      "firstname": "aaa",
+      "lastname": "aaa"
+    },
+    {
+      "id": "1694609005326",
+      "username": "register",
+      "firstname": "register",
+      "lastname": "register"
     }
   ],
   "articles": [
@@ -2212,6 +2236,73 @@
         ],
         "avatar": "https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-blue-tie-and-beard-face-png-image_5809515.png"
       }
+    },
+    {
+      "id": "1694602081602",
+      "title": "WIKIPEDIA",
+      "userId": "1",
+      "subtitle": "",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/H._G._Wells_by_Alvin_Langdon_Coburn%2C_November_2%2C_1905%2C_photogravure%2C_from_the_National_Portrait_Gallery_-_NPG-S-NPG_87_288_f.jpg/170px-H._G._Wells_by_Alvin_Langdon_Coburn%2C_November_2%2C_1905%2C_photogravure%2C_from_the_National_Portrait_Gallery_-_NPG-S-NPG_87_288_f.jpg",
+      "type": [
+        "SCIENCE"
+      ],
+      "createdAt": 1694602081602,
+      "views": 0,
+      "blocks": [
+        {
+          "type": "TEXT",
+          "id": "1694602083557",
+          "title": "Современная Утопия",
+          "paragraphs": [
+            "«Современная Утопия» (также «Утопия-Модерн», англ. A Modern Utopia) — публицистическое произведение Герберта Уэллса, часто именуемое романом. Публиковалось с продолжением в 1904—1905 годах; книжное издание на английском языке вышло в 1905 году, включалось в собрание сочинений Г. Уэллса 1924—1927 годов, неоднократно переиздавалось позднее. При жизни писателя выходили переводы на французский (1907) и немецкий языки (1911). Переводы на русский язык начала XX века были более или менее сокращёнными, полный перевод вышел на правах рукописи в 2022 году.",
+            "Сочинение было написано под впечатлением от поездок Уэллса в Швейцарию и его раздумий о судьбе Фабианского общества. По жанру представляет собой синтез утопического романа и философского эссе в форме романа-фельетона. Роман может рассматриваться как предшественник постмодернизма, так как основан на оригинальной концепции нарратива: главные герои — джентльмен-ботаник и Голос автора — постоянно вовлечены в диалог и независимы от автора-повествователя. По сюжету они неведомым образом оказываются на географически неотличимой от Земли планете Утопия, расположенной где-то за Сириусом. На этой планете построено всемирное государство, картины которого предстают через непрестанный диалог Голоса автора и ботаника с самим повествователем. Современная Утопия не является статичным венцом творения, а является динамическим обществом, постоянно пребывающим в стадии становления и обновления. Невозможность регресса обеспечивается Орденом самураев — своего рода монахов-чиновников, рекрутируемых из самых талантливых интеллектуалов мира, которые прошли жёсткий отбор. Население всемирного государства говорит на одном языке и переезжает в более тёплые или холодные широты в зависимости от сезона. Государство контролирует важнейшие стратегические отрасли экономики и транспорт, однако существует и частная собственность. Сохранился институт моногамной семьи, однако практикуются евгеника и эвтаназия, а преступники и хронически больные люди лишены права иметь потомство и ссылаются на специальные острова. Утопия Уэллса произвела впечатление на современников, хотя и вызвала полярно противоположные мнения."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1694602161998",
+      "title": "gsdfgsdfgsdfg",
+      "userId": "1",
+      "subtitle": "",
+      "img": "",
+      "type": [],
+      "createdAt": 1694602161998,
+      "views": 0,
+      "blocks": [
+        {
+          "type": "TEXT",
+          "id": "1694602164763",
+          "title": "twertwert",
+          "paragraphs": [
+            "tewrtwert",
+            "ewrtewrtwer",
+            "rtwertewrtwert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1694602625100",
+      "title": "Lorem ipsum",
+      "userId": "1",
+      "subtitle": "Lorem ipsum ",
+      "img": "https://www.forbes.com/advisor/wp-content/uploads/2020/07/getty_how_to_write_a_check_071820pm_jpg_6-3vHxAc-1.jpg",
+      "type": [
+        "SCIENCE"
+      ],
+      "createdAt": 1694602625100,
+      "views": 0,
+      "blocks": [
+        {
+          "type": "TEXT",
+          "id": "1694602649768",
+          "title": "Lorem",
+          "paragraphs": [
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          ]
+        }
+      ]
     }
   ],
   "comments": [
@@ -2294,7 +2385,7 @@
       "username": "admin",
       "password": "111",
       "jsonSettings": {
-        "theme": "app_light_theme",
+        "theme": "app_dark_theme",
         "isArticlesPageWasOpened": true
       },
       "features": {
@@ -2381,6 +2472,26 @@
         "isArticlesPageWasOpened": true,
         "theme": "app_dark_theme"
       }
+    },
+    {
+      "id": "1694606431960",
+      "username": "",
+      "password": ""
+    },
+    {
+      "id": "1694607290876",
+      "username": "barsik",
+      "password": "barsik"
+    },
+    {
+      "id": "1694607342533",
+      "username": "aaa",
+      "password": "aaa"
+    },
+    {
+      "id": "1694609005326",
+      "username": "register",
+      "password": "register"
     }
   ],
   "article-ratings": [
