@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { AddCommentForm } from '@/features/AddCommentForm';
-import { CommentList } from '@/entities/Comment';
+import { CommentList , Comment } from '@/entities/Comment';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { VStack } from '@/shared/ui/redesigned/Stack';
@@ -16,8 +16,7 @@ import {
 } from '../../model/selectors/comments';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { addLikeToComment } from '@/pages/ArticleDetailsPage/model/services/addLikeToComment/addLikeToComment';
-import { Comment } from '@/entities/Comment';
+import { addLikeToComment } from '../../model/services/addLikeToComment/addLikeToComment';
 
 interface ArticleDetailsCommentsProps {
     className?: string;

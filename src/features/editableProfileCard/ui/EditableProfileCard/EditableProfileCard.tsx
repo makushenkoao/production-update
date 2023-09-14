@@ -1,12 +1,12 @@
 import { useTranslation } from 'react-i18next';
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Currency } from '@/entities/Currency';
 import { Country } from '@/entities/Country';
-import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
+import { Text } from '@/shared/ui/redesigned/Text';
 import { ProfileCard } from '@/entities/Profile';
 import {
     DynamicModuleLoader,
@@ -22,6 +22,8 @@ import { getProfileValidateErrors } from '../../model/selectors/getProfileValida
 import { profileActions, profileReducer } from '../../model/slice/ProfileSlice';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
+import { followProfile } from '../../model/services/followProfile/followProfile';
+import { getUserAuthData } from '@/entities/User';
 
 const reducers: ReducersList = {
     profile: profileReducer,
@@ -35,12 +37,22 @@ interface EditableProfileCardProps {
 export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
     const { className, id } = props;
     const { t } = useTranslation();
+    const [userIsFollowing, setUserIsFollowing] = useState<boolean | undefined>(
+        false,
+    );
+    const [isLoadingFoll, setIsLoadingFoll] = useState(false)
     const dispatch = useAppDispatch();
+    const authData = useSelector(getUserAuthData);
     const formData = useSelector(getProfileForm);
     const isLoading = useSelector(getProfileIsLoading);
     const error = useSelector(getProfileError);
     const readonly = useSelector(getProfileReadonly);
     const validateErrors = useSelector(getProfileValidateErrors);
+
+    useEffect(() => {
+        const isFollowing = formData?.followers?.includes(authData?.id || '');
+        setUserIsFollowing(isFollowing);
+    }, [authData?.id, formData?.followers]);
 
     const validateErrorTranslate = {
         [ValidateProfileError.SERVER_ERROR]: t('Серверна помилка'),
@@ -113,6 +125,13 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
         [dispatch],
     );
 
+    const onFollowClick = useCallback(() => {
+        setIsLoadingFoll(true)
+        dispatch(followProfile()).then(() => {
+            setIsLoadingFoll(false)
+        })
+    }, [dispatch]);
+
     return (
         <DynamicModuleLoader
             reducers={reducers}
@@ -123,12 +142,16 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
                 gap="16"
                 className={classNames('', {}, [className])}
             >
-                <EditableProfileCardHeader />
+                <EditableProfileCardHeader
+                    onFollowClick={onFollowClick}
+                    userIsFollowing={userIsFollowing}
+                    isLoading={isLoadingFoll}
+                />
                 {validateErrors?.length &&
                     validateErrors.map((error) => (
                         <Text
                             key={error}
-                            theme={TextTheme.ERROR}
+                            variant="error"
                             text={validateErrorTranslate[error]}
                             data-testid="EditableProfileCard.Error"
                         />

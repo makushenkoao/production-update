@@ -11,5 +11,7 @@ export interface Profile {
     city?: string;
     username?: string;
     avatar?: string;
-    rate?: number
+    rate?: number;
+    followers?: string[];
+    following?: string[];
 }

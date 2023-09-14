@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useGetArticlesQuery } from '@/entities/Article';
 import { VStack } from '@/shared/ui/redesigned/Stack';
@@ -10,7 +10,7 @@ import cls from './popularArticlesList.module.scss';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 import { AppImage } from '@/shared/ui/redesigned/AppImage';
 
-export const PopularArticlesList = () => {
+export const PopularArticlesList = memo(() => {
     const { t } = useTranslation();
     const { data, isLoading, error } = useGetArticlesQuery();
 
@@ -25,7 +25,10 @@ export const PopularArticlesList = () => {
                 <Skeleton height={30} />
                 <VStack gap="16">
                     {[...Array(5)].map((_, index) => (
-                        <Card padding="0" key={index}>
+                        <Card
+                            padding="0"
+                            key={index}
+                        >
                             <VStack gap="4">
                                 <Skeleton
                                     width="100%"
@@ -72,4 +75,4 @@ export const PopularArticlesList = () => {
             </VStack>
         </VStack>
     );
-};
+});

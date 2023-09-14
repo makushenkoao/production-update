@@ -7,8 +7,6 @@ import { getUserAuthData } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { HStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
-
-
 import { Button } from '@/shared/ui/redesigned/Button';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { profileActions } from '../../model/slice/ProfileSlice';
@@ -17,8 +15,16 @@ import { getProfileData } from '../../model/selectors/getProfileData/getProfileD
 import { Card } from '@/shared/ui/redesigned/Card';
 import { getRouteChat } from '@/shared/const/router';
 
+interface EditableProfileCardHeaderProps {
+    className?: string;
+    onFollowClick?: () => void;
+    userIsFollowing?: boolean;
+    isLoading?: boolean;
+}
+
 export const EditableProfileCardHeader = memo(
-    ({ className }: { className?: string }) => {
+    (props: EditableProfileCardHeaderProps) => {
+        const { className, onFollowClick, userIsFollowing, isLoading } = props;
         const { t } = useTranslation();
         const navigate = useNavigate();
         const authData = useSelector(getUserAuthData);
@@ -45,51 +51,67 @@ export const EditableProfileCardHeader = memo(
             }
         }, [navigate, profileData?.id]);
 
+        const onFollowHandleClick = useCallback(() => {
+            onFollowClick?.();
+        }, [onFollowClick]);
+
         return (
             <Card
-                                    padding="24"
-                                    max
+                padding="24"
+                max
+            >
+                <HStack
+                    justify="between"
+                    max
+                    className={classNames('', {}, [className])}
+                >
+                    <Text title={t('Профіль')} />
+                    {isLoading && <Text text={t('Зачекайте будь-ласка...')} />}
+                    {canEdit ? (
+                        <HStack gap="8">
+                            <Button
+                                color={readonly ? 'normal' : 'error'}
+                                onClick={readonly ? onEdit : onCancel}
+                                data-testid={
+                                    readonly
+                                        ? 'EditableProfileCardHeader.EditButton'
+                                        : 'EditableProfileCardHeader.CancelButton'
+                                }
+                            >
+                                {t(readonly ? 'Редагувати' : 'Скасувати')}
+                            </Button>
+                            {!readonly && (
+                                <Button
+                                    color="success"
+                                    onClick={onSave}
+                                    data-testid="EditableProfileCardHeader.SaveButton"
                                 >
-                                    <HStack
-                                        justify="between"
-                                        max
-                                        className={classNames('', {}, [className])}
-                                    >
-                                        <Text title={t('Профіль')} />
-                                        {canEdit ? (
-                                            <HStack gap="8">
-                                                <Button
-                                                    color={readonly ? 'normal' : 'error'}
-                                                    onClick={readonly ? onEdit : onCancel}
-                                                    data-testid={
-                                                        readonly
-                                                            ? 'EditableProfileCardHeader.EditButton'
-                                                            : 'EditableProfileCardHeader.CancelButton'
-                                                    }
-                                                >
-                                                    {t(
-                                                        readonly
-                                                            ? 'Редагувати'
-                                                            : 'Скасувати',
-                                                    )}
-                                                </Button>
-                                                {!readonly && (
-                                                    <Button
-                                                        color="success"
-                                                        onClick={onSave}
-                                                        data-testid="EditableProfileCardHeader.SaveButton"
-                                                    >
-                                                        {t('Зберегти')}
-                                                    </Button>
-                                                )}
-                                            </HStack>
-                                        ) : (
-                                            <Button onClick={onNavigateToChat}>
-                                                {t('Написати')}
-                                            </Button>
-                                        )}
-                                    </HStack>
-                                </Card>
+                                    {t('Зберегти')}
+                                </Button>
+                            )}
+                        </HStack>
+                    ) : (
+                        <HStack gap="8">
+                            <Button
+                                onClick={onNavigateToChat}
+                                variant="filled"
+                            >
+                                {t('Написати')}
+                            </Button>
+                            <Button
+                                onClick={onFollowHandleClick}
+                                color={userIsFollowing ? 'error' : 'normal'}
+                            >
+                                {t(
+                                    userIsFollowing
+                                        ? 'Відписатися'
+                                        : 'Підписатися',
+                                )}
+                            </Button>
+                        </HStack>
+                    )}
+                </HStack>
+            </Card>
         );
     },
 );

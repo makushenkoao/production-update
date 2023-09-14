@@ -145,6 +145,16 @@ export const ProfileCardRedesigned = (props: ProfileCardProps) => {
                         alt="User Avatar"
                     />
                 </HStack>
+                <HStack max justify="center" gap="32">
+                    <VStack align="center">
+                        <Text text={t('Читачі')} />
+                        <Text text={String(data?.followers?.length)} />
+                    </VStack>
+                    <VStack align="center">
+                        <Text text={t('Відстежуються')} />
+                        <Text text={String(data?.following?.length)} />
+                    </VStack>
+                </HStack>
                 <HStack
                     gap="24"
                     max

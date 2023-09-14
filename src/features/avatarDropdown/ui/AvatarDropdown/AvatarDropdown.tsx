@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
-
 import { Text } from '@/shared/ui/redesigned/Text';
 import {
     getUserAuthData,
@@ -63,10 +62,10 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
         {
             content: (
                 <Text
-                                            align="center"
-                                            text={t('Вийти')}
-                                            variant="error"
-                                        />
+                    align="center"
+                    text={t('Вийти')}
+                    variant="error"
+                />
             ),
             onClick: onLogout,
         },
@@ -74,17 +73,17 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
 
     return (
         <Dropdown
-                            className={classNames('', {}, [className])}
-                            items={items}
-                            trigger={
-                                <Avatar
-                                    src={userAuthData.avatar}
-                                    height={30}
-                                    width={30}
-                                    alt="User"
-                                />
-                            }
-                            direction="bottom left"
-                        />
+            className={classNames('', {}, [className])}
+            items={items}
+            trigger={
+                <Avatar
+                    src={userAuthData.avatar}
+                    height={30}
+                    width={30}
+                    alt="User"
+                />
+            }
+            direction="bottom left"
+        />
     );
 });

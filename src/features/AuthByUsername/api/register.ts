@@ -11,6 +11,8 @@ interface RegisterProfileArgs {
     username: string;
     firstname: string;
     lastname: string;
+    followers: any;
+    following: any;
 }
 
 export const register = rtkApi.injectEndpoints({

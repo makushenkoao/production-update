@@ -43,7 +43,9 @@
       "country": "Ukraine",
       "city": "Cherkasy",
       "username": "admin",
-      "avatar": "https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-blue-tie-and-beard-face-png-image_5809515.png"
+      "avatar": "https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-blue-tie-and-beard-face-png-image_5809515.png",
+      "followers": [],
+      "following": []
     },
     {
       "id": "2",
@@ -54,7 +56,11 @@
       "country": "Canada",
       "city": "Quebec",
       "username": "user",
-      "avatar": "https://static.vecteezy.com/system/resources/previews/019/896/008/original/male-user-avatar-icon-in-flat-design-style-person-signs-illustration-png.png"
+      "avatar": "https://static.vecteezy.com/system/resources/previews/019/896/008/original/male-user-avatar-icon-in-flat-design-style-person-signs-illustration-png.png",
+      "followers": [
+        "1694609005326"
+      ],
+      "following": []
     },
     {
       "id": "3",
@@ -65,7 +71,9 @@
       "country": "Canada",
       "city": "Quebec",
       "username": "manager",
-      "avatar": "https://www.shareicon.net/data/512x512/2016/09/01/822726_user_512x512.png"
+      "avatar": "https://www.shareicon.net/data/512x512/2016/09/01/822726_user_512x512.png",
+      "followers": [],
+      "following": []
     },
     {
       "id": "4",
@@ -76,7 +84,9 @@
       "country": "Ukraine",
       "city": "Cherkasy",
       "username": "testuser",
-      "avatar": "https://www.shareicon.net/data/512x512/2016/09/01/822726_user_512x512.png"
+      "avatar": "https://www.shareicon.net/data/512x512/2016/09/01/822726_user_512x512.png",
+      "followers": [],
+      "following": []
     },
     {
       "id": "1690116539675",
@@ -87,13 +97,17 @@
       "age": 12,
       "city": "Bob",
       "currency": "EUR",
-      "country": "USA"
+      "country": "USA",
+      "followers": [],
+      "following": []
     },
     {
       "id": "1690122879171",
       "username": "ggg",
       "firstname": "df",
-      "lastname": "fas"
+      "lastname": "fas",
+      "followers": [],
+      "following": []
     },
     {
       "id": "1690123631680",
@@ -101,32 +115,45 @@
       "firstname": "box",
       "lastname": "box",
       "currency": "USD",
-      "age": 23
+      "age": 23,
+      "followers": [],
+      "following": []
     },
     {
       "id": "1694606431960",
       "username": "",
       "firstname": "",
-      "lastname": ""
+      "lastname": "",
+      "followers": [],
+      "following": []
     },
     {
       "id": "1694607290876",
       "username": "barsik",
       "firstname": "barsik",
-      "lastname": "barsik"
+      "lastname": "barsik",
+      "followers": [],
+      "following": []
     },
     {
       "id": "1694607342533",
       "username": "aaa",
       "firstname": "aaa",
-      "lastname": "aaa"
+      "lastname": "aaa",
+      "followers": [],
+      "following": []
     },
     {
       "id": "1694609005326",
       "username": "register",
       "firstname": "registerg",
       "lastname": "register",
-      "age": 233
+      "age": 233,
+      "avatar": "https://blush-design.imgix.net/collections/rChdrB8vX8xQJunpDPp8/v16/Master/Avataaar/cropped/Default.svg?w=500&auto=compress&cs=srgb",
+      "followers": [],
+      "following": [
+        "2"
+      ]
     }
   ],
   "articles": [
@@ -2675,6 +2702,20 @@
       "rate": 4,
       "feedback": "000",
       "id": 8
+    },
+    {
+      "userId": "1694609005326",
+      "profileId": "1",
+      "rate": 4,
+      "feedback": "GGGG",
+      "id": 9
+    },
+    {
+      "userId": "1694609005326",
+      "profileId": "2",
+      "rate": 1,
+      "feedback": "",
+      "id": 10
     }
   ],
   "messages": [
@@ -2809,6 +2850,13 @@
       "message": "no",
       "id": "1692889333703",
       "fromUser": "1",
+      "toUser": "2"
+    },
+    {
+      "sendAt": 1694731139491,
+      "message": "Hello",
+      "id": "1694731139491",
+      "fromUser": "1694609005326",
       "toUser": "2"
     }
   ]
