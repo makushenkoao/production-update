@@ -145,15 +145,18 @@
     },
     {
       "id": "1694609005326",
-      "username": "register",
-      "firstname": "registerg",
-      "lastname": "register",
-      "age": 233,
-      "avatar": "https://blush-design.imgix.net/collections/rChdrB8vX8xQJunpDPp8/v16/Master/Avataaar/cropped/Default.svg?w=500&auto=compress&cs=srgb",
+      "username": "makushenkoao",
+      "firstname": "Anton",
+      "lastname": "Makushenko",
+      "age": 18,
+      "avatar": "https://marketplace.canva.com/EAFewoMXU-4/1/0/1600w/canva-purple-pink-gradient-man-3d-avatar-0o0qE2T_kr8.jpg",
       "followers": [],
       "following": [
         "2"
-      ]
+      ],
+      "city": "Cherkasy",
+      "currency": "UAH",
+      "country": "Ukraine"
     }
   ],
   "articles": [
@@ -2585,7 +2588,8 @@
       "password": "register",
       "jsonSettings": {
         "isArticlesPageWasOpened": true
-      }
+      },
+      "avatar": "https://marketplace.canva.com/EAFewoMXU-4/1/0/1600w/canva-purple-pink-gradient-man-3d-avatar-0o0qE2T_kr8.jpg"
     }
   ],
   "article-ratings": [
