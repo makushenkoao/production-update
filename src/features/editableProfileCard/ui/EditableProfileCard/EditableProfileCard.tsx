@@ -3,7 +3,6 @@ import { memo, useCallback, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Currency } from '@/entities/Currency';
 import { Country } from '@/entities/Country';
 import { Text } from '@/shared/ui/redesigned/Text';
@@ -40,7 +39,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
     const [userIsFollowing, setUserIsFollowing] = useState<boolean | undefined>(
         false,
     );
-    const [isLoadingFoll, setIsLoadingFoll] = useState(false)
+    const [isLoadingFoll, setIsLoadingFoll] = useState(false);
     const dispatch = useAppDispatch();
     const authData = useSelector(getUserAuthData);
     const formData = useSelector(getProfileForm);
@@ -63,11 +62,13 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
         [ValidateProfileError.NO_DATA]: t('Дані не вказані'),
     };
 
-    useInitialEffect(() => {
-        if (id) {
-            dispatch(fetchProfileData(id));
+    useEffect(() => {
+        if (__PROJECT__ !== 'storybook' && __PROJECT__ !== 'jest') {
+            if (id) {
+                dispatch(fetchProfileData(id));
+            }
         }
-    });
+    }, [dispatch, id]);
 
     const onChangeFirstname = useCallback(
         (value?: string) => {
@@ -126,10 +127,10 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
     );
 
     const onFollowClick = useCallback(() => {
-        setIsLoadingFoll(true)
+        setIsLoadingFoll(true);
         dispatch(followProfile()).then(() => {
-            setIsLoadingFoll(false)
-        })
+            setIsLoadingFoll(false);
+        });
     }, [dispatch]);
 
     return (
