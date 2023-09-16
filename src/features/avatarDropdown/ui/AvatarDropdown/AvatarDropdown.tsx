@@ -18,7 +18,6 @@ import {
 } from '@/shared/const/router';
 import { Dropdown } from '@/shared/ui/redesigned/Popups';
 import { Avatar } from '@/shared/ui/redesigned/Avatar';
-import {updateProfileData} from "@/features/editableProfileCard/model/services/updateProfileData/updateProfileData";
 
 interface AvatarDropdownProps {
     className?: string;

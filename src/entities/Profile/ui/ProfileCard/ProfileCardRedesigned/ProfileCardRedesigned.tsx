@@ -2,8 +2,6 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { CurrencySelect } from '@/entities/Currency';
 import { CountrySelect } from '@/entities/Country';
-// TODO
-// eslint-disable-next-line
 import { ProfileRating } from '@/features/profileRating';
 import { Input } from '@/shared/ui/redesigned/Input';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
@@ -12,8 +10,6 @@ import { Text } from '@/shared/ui/redesigned/Text';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 import { Avatar } from '@/shared/ui/redesigned/Avatar';
 import { ProfileCardProps } from '../ProfileCard';
-// TODO
-// eslint-disable-next-line
 import { AverageUserRating } from '@/features/averageUserRating';
 import cls from './ProfileCardRedesigned.module.scss';
 

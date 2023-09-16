@@ -1,15 +1,21 @@
-import { memo } from 'react';
+import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Page } from '@/widgets/Page';
-import { VStack } from '@/shared/ui/redesigned/Stack';
+import { DeleteAccountButton } from './DeleteAccountButton/DeleteAccountButton';
 import { Text } from '@/shared/ui/redesigned/Text';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 
 const SettingsPage = () => {
     const { t } = useTranslation();
+
     return (
         <Page>
-            <VStack gap="16">
+            <VStack
+                max
+                gap="16"
+            >
                 <Text title={t('Налаштування користувача')} />
+                <DeleteAccountButton />
             </VStack>
         </Page>
     );
