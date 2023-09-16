@@ -2,8 +2,8 @@ import { memo, useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { isMobile } from 'react-device-detect';
 import { Modal } from '@/shared/ui/redesigned/Modal';
-import { Text, TextAlign } from '@/shared/ui/deprecated/Text';
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import { Text } from '@/shared/ui/redesigned/Text';
+import { Button } from '@/shared/ui/redesigned/Button';
 import { saveJsonSettings, useJsonSettings } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
@@ -37,14 +37,12 @@ export const ArticlePageGreeting = memo(() => {
             align="normal"
         >
             <Text
-                align={TextAlign.CENTER}
                 title={t('Ласкаво просимо на сторінку статей')}
                 text={t('Ви можете знайти та переглядати статті на різні теми')}
             />
             {!isMobile && (
                 <HStack justify="end">
                     <Button
-                        theme={ButtonTheme.OUTLINE}
                         onClick={onClose}
                     >
                         {t('Закрити')}

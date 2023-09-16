@@ -157,6 +157,30 @@
       "city": "Cherkasy",
       "currency": "UAH",
       "country": "Ukraine"
+    },
+    {
+      "id": "1694873514328",
+      "username": "reg",
+      "firstname": "reg",
+      "lastname": "reg",
+      "following": [],
+      "followers": []
+    },
+    {
+      "id": "1694875239677",
+      "username": "fasdf",
+      "firstname": "fasdf",
+      "lastname": "fasdf",
+      "following": [],
+      "followers": []
+    },
+    {
+      "id": "1694875293753",
+      "username": "fasfds",
+      "firstname": "fasd",
+      "lastname": "fasdf",
+      "following": [],
+      "followers": []
     }
   ],
   "articles": [
@@ -2590,6 +2614,21 @@
         "isArticlesPageWasOpened": true
       },
       "avatar": "https://marketplace.canva.com/EAFewoMXU-4/1/0/1600w/canva-purple-pink-gradient-man-3d-avatar-0o0qE2T_kr8.jpg"
+    },
+    {
+      "id": "1694873514328",
+      "username": "reg",
+      "password": "reg"
+    },
+    {
+      "id": "1694875239677",
+      "username": "fasdf",
+      "password": "fasdf"
+    },
+    {
+      "id": "1694875293753",
+      "username": "fasfds",
+      "password": "fgsag"
     }
   ],
   "article-ratings": [

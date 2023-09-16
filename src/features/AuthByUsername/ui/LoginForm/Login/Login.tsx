@@ -44,6 +44,7 @@ export const Login = (props: LoginProps) => {
     );
 
     const onLoginClick = useCallback(async () => {
+        if (!username || !password) return;
         const result = await dispatch(loginByUsername({ username, password }));
         if (result.meta.requestStatus === 'fulfilled') {
             onSuccess();
