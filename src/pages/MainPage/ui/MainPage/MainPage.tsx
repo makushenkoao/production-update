@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { Page } from '@/widgets/Page';
 import { getUserAuthData } from '@/entities/User';
 import { useGetProfileDataQuery } from '../../api/getProfileDataApi/getProfileDataApi';
@@ -10,8 +11,10 @@ import {
     useGetArticlesQuery,
 } from '@/entities/Article';
 import { VStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 const MainPage = () => {
+    const { t } = useTranslation();
     const authData = useSelector(getUserAuthData);
     const { data: profile, isLoading } = useGetProfileDataQuery(authData?.id);
     const {
@@ -19,6 +22,20 @@ const MainPage = () => {
         isLoading: articlesIsLoading,
         error,
     } = useGetArticlesQuery();
+
+    if (!authData) {
+        return (
+            <Page data-testid="MainPage">
+                <Text
+                    align="center"
+                    title={t('Зачекайте')}
+                    text={t(
+                        'Увійдіть до облікового запису щоб мати весь функціонал нашого сайту.',
+                    )}
+                />
+            </Page>
+        );
+    }
 
     if (isLoading) {
         return (
