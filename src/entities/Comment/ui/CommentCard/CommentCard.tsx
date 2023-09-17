@@ -11,6 +11,9 @@ import { Card } from '@/shared/ui/redesigned/Card';
 import LikeIcon from '@/shared/assets/icons/like.svg';
 import cls from './CommentCard.module.scss';
 import { Icon } from '@/shared/ui/redesigned/Icon';
+import { Button } from '@/shared/ui/redesigned/Button';
+import { useTranslation } from 'react-i18next';
+import ReplyIcon from '@/shared/assets/icons/reply.svg';
 
 interface CommentCardProps {
     className?: string;
@@ -21,6 +24,7 @@ interface CommentCardProps {
 
 export const CommentCard = memo((props: CommentCardProps) => {
     const { className, comment, isLoading, onLikeClick } = props;
+    const { t } = useTranslation();
 
     const Skeleton = SkeletonRedesigned;
 
@@ -87,7 +91,21 @@ export const CommentCard = memo((props: CommentCardProps) => {
                             />
                         </HStack>
                     </AppLink>
-                    <Text text={comment.text} />
+                    <Text
+                        text={comment.text}
+                    />
+                    <Button
+                        className={cls.replyBtn}
+                        variant="filled"
+                        addonRight={
+                            <Icon
+                                svg={ReplyIcon}
+                                className={cls.icon}
+                            />
+                        }
+                    >
+                        {t('Відповісти')}
+                    </Button>
                 </VStack>
                 <VStack align="center">
                     <Icon
