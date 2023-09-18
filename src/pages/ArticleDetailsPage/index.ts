@@ -3,3 +3,4 @@ export { type ArticleDetailsCommentsSchema } from './model/types/ArticleDetailsC
 export { type ArticleDetailsRecommendationsSchema } from './model/types/ArticleDetailsRecommendationsSchema';
 export { type ArticleDetailsPageSchema } from './model/types';
 export { addCommentForArticle } from './model/services/addCommentForArticle/addCommentForArticle';
+export { incrementViews } from './model/services/incrementViews/incrementViews';

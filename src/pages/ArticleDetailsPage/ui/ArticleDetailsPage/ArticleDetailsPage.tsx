@@ -33,21 +33,21 @@ export const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
             removeAfterUnmount
         >
             <StickyContentLayout
-                                    content={
-                                        <Page className={classNames('', {}, [className])}>
-                                            <VStack
-                                                max
-                                                gap="16"
-                                            >
-                                                <DetailsContainer />
-                                                <ArticleRating articleId={id} />
-                                                <ArticleRecommendationsList />
-                                                <ArticleDetailsComments id={id} />
-                                            </VStack>
-                                        </Page>
-                                    }
-                                    right={<AdditionalInfoContainer />}
-                                />
+                content={
+                    <Page className={classNames('', {}, [className])}>
+                        <VStack
+                            max
+                            gap="16"
+                        >
+                            <DetailsContainer />
+                            <ArticleRating articleId={id} />
+                            <ArticleRecommendationsList />
+                            <ArticleDetailsComments id={id} />
+                        </VStack>
+                    </Page>
+                }
+                right={<AdditionalInfoContainer />}
+            />
         </DynamicModuleLoader>
     );
 };

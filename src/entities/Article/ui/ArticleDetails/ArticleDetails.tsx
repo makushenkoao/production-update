@@ -7,10 +7,7 @@ import {
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import {
-    Text as TextDeprecated,
-    TextSize,
-} from '@/shared/ui/deprecated/Text';
+import { Text as TextDeprecated, TextSize } from '@/shared/ui/deprecated/Text';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
 import { Avatar } from '@/shared/ui/deprecated/Avatar';
@@ -28,7 +25,8 @@ import {
 } from '../../model/selectors/articleDetails';
 import { renderBlock } from './renderBlock';
 import { AppImage } from '@/shared/ui/redesigned/AppImage';
-import {formatDate} from "@/shared/lib/utils/formatDate/formatDate";
+import { formatDate } from '@/shared/lib/utils/formatDate/formatDate';
+import { incrementViews } from '@/pages/ArticleDetailsPage';
 
 interface ArticleDetailsProps {
     className?: string;
@@ -94,6 +92,11 @@ const Deprecated = () => {
 
 const Redesigned = () => {
     const article = useSelector(getArticleDetailsData);
+    const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        dispatch(incrementViews(article));
+    }, [article, dispatch]);
 
     return (
         <>
@@ -170,14 +173,12 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     } else if (error) {
         content = (
             <Text
-                                    align="center"
-                                    title={t('Помилка сервера')}
-                                />
+                align="center"
+                title={t('Помилка сервера')}
+            />
         );
     } else {
-        content = (
-            <Redesigned />
-        );
+        content = <Redesigned />;
     }
 
     return (

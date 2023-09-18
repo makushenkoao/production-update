@@ -22,7 +22,7 @@ export const ArticleBlocks = memo((props: ArticleBlocksProps) => {
         (index: number) => {
             setArticle((prevArticle) => {
                 const updatedBlocks = [...prevArticle.blocks];
-                updatedBlocks.splice(index, 1); // Удаляем блок с указанным индексом
+                updatedBlocks.splice(index, 1);
                 return { ...prevArticle, blocks: updatedBlocks };
             });
         },
