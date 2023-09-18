@@ -13,14 +13,17 @@ import { getLoginIsLoading } from '../../../model/selectors/getLoginIsLoading/ge
 import { loginActions } from '../../../model/slice/loginSlice';
 import { loginByUsername } from '../../../model/services/loginByUsername/loginByUsername';
 import { useForceUpdate } from '@/shared/lib/render/forceUpdate';
+import cls from '../LoginForm.module.scss';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 interface LoginProps {
     setIsRegister: Dispatch<SetStateAction<boolean>>;
     onSuccess: () => void;
+    className?: string;
 }
 
 export const Login = (props: LoginProps) => {
-    const { setIsRegister, onSuccess } = props;
+    const { setIsRegister, onSuccess, className } = props;
     const { t } = useTranslation();
     const forceUpdate = useForceUpdate();
     const dispatch = useAppDispatch();
@@ -43,55 +46,69 @@ export const Login = (props: LoginProps) => {
         [dispatch],
     );
 
-    const onLoginClick = useCallback(async () => {
-        if (!username || !password) return;
-        const result = await dispatch(loginByUsername({ username, password }));
-        if (result.meta.requestStatus === 'fulfilled') {
-            onSuccess();
-            forceUpdate();
-        }
-    }, [dispatch, onSuccess, password, username, forceUpdate]);
+    const onLogin = useCallback(
+        async (e: React.FormEvent<HTMLFormElement>) => {
+            e.preventDefault();
+            if (!username || !password) return;
+            const result = await dispatch(
+                loginByUsername({ username, password }),
+            );
+            if (result.meta.requestStatus === 'fulfilled') {
+                onSuccess();
+                forceUpdate();
+            }
+        },
+        [dispatch, onSuccess, password, username, forceUpdate],
+    );
 
     return (
-        <>
-            <Text title={t('Форма авторизації')} />
-            {error && (
-                <Text
-                    text={t('Невірний логін або пароль :(')}
-                    variant="error"
-                />
-            )}
-            <Input
-                placeholder={t('Введіть юзернейм')}
-                autofocus
-                onChange={onChangeUsername}
-                value={username}
-            />
-            <Input
-                type="password"
-                placeholder={t('Введіть пароль')}
-                onChange={onChangePassword}
-                value={password}
-            />
+        <form
+            onSubmit={onLogin}
+            className={classNames(cls.LoginFormRedesigned, {}, [className])}
+        >
             <VStack
                 max
-                align="end"
-                gap="8"
+                gap="16"
             >
-                <Button
-                    variant="outline"
-                    onClick={onLoginClick}
-                    disabled={isLoading}
+                <Text title={t('Форма авторизації')} />
+                {error && (
+                    <Text
+                        text={t('Невірний логін або пароль :(')}
+                        variant="error"
+                    />
+                )}
+                <Input
+                    placeholder={t('Введіть юзернейм')}
+                    autofocus
+                    onChange={onChangeUsername}
+                    value={username}
+                />
+                <Input
+                    type="password"
+                    placeholder={t('Введіть пароль')}
+                    onChange={onChangePassword}
+                    value={password}
+                />
+                <VStack
+                    max
+                    align="end"
+                    gap="8"
                 >
-                    {t('Увійти')}
-                </Button>
-                <Button
-                    variant="clear"
-                    onClick={() => setIsRegister((prevState) => !prevState)}
-                >
-                    {t('Зареєструватися')}
-                </Button>
+                    <Button
+                        variant="outline"
+                        type="submit"
+                        disabled={isLoading}
+                    >
+                        {t('Увійти')}
+                    </Button>
+                    <Button
+                        variant="clear"
+                        onClick={() => setIsRegister((prevState) => !prevState)}
+                    >
+                        {t('Зареєструватися')}
+                    </Button>
+                </VStack>
             </VStack>
-        </>
+        </form>
     );
 };

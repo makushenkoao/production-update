@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react';
+import { FormEvent, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -47,10 +47,14 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
         [dispatch],
     );
 
-    const onSendHandler = useCallback(() => {
-        onSendComment(text || '');
-        onCommentTextChange('');
-    }, [onCommentTextChange, onSendComment, text]);
+    const onSubmit = useCallback(
+        (e: FormEvent<HTMLFormElement>) => {
+            e.preventDefault();
+            onSendComment(text || '');
+            onCommentTextChange('');
+        },
+        [onCommentTextChange, onSendComment, text],
+    );
 
     return (
         <DynamicModuleLoader reducers={reducers}>
@@ -62,25 +66,27 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
                     className,
                 ])}
             >
-                <HStack
-                    data-testid="AddCommentForm"
-                    gap="16"
-                    max
-                >
-                    <Input
-                        className={cls.input}
-                        value={text}
-                        onChange={onCommentTextChange}
-                        placeholder={t('Введіть коментар')}
-                        data-testid="AddCommentForm.Input"
-                    />
-                    <Button
-                        data-testid="AddCommentForm.Button"
-                        onClick={onSendHandler}
+                <form onSubmit={onSubmit}>
+                    <HStack
+                        data-testid="AddCommentForm"
+                        gap="16"
+                        max
                     >
-                        {t('Відправити')}
-                    </Button>
-                </HStack>
+                        <Input
+                            className={cls.input}
+                            value={text}
+                            onChange={onCommentTextChange}
+                            placeholder={t('Введіть коментар')}
+                            data-testid="AddCommentForm.Input"
+                        />
+                        <Button
+                            data-testid="AddCommentForm.Button"
+                            type="submit"
+                        >
+                            {t('Відправити')}
+                        </Button>
+                    </HStack>
+                </form>
             </Card>
         </DynamicModuleLoader>
     );

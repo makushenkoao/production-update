@@ -1,4 +1,4 @@
-import { memo, useCallback, useState } from 'react';
+import { FormEvent, memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -35,27 +35,31 @@ export const CommentCard = memo((props: CommentCardProps) => {
     const authData = useSelector(getUserAuthData);
     const dispatch = useAppDispatch();
 
-    const onReplyHandler = useCallback(() => {
-        // // @ts-ignore
-        // const replyComment: Comment = {
-        //     id: 'your-generated-id',
-        //     articleId: comment?.articleId,
-        //     userId: authData?.id,
-        //     likes: [],
-        //     text: replyText,
-        //     parentId: comment?.id,
-        // };
+    const onSubmit = useCallback(
+        (e: FormEvent<HTMLFormElement>) => {
+            e.preventDefault();
+            // // @ts-ignore
+            // const replyComment: Comment = {
+            //     id: 'your-generated-id',
+            //     articleId: comment?.articleId,
+            //     userId: authData?.id,
+            //     likes: [],
+            //     text: replyText,
+            //     parentId: comment?.id,
+            // };
 
-        dispatch(
-            addCommentForArticle({
-                text: replyText,
-                parentId: comment?.id || '',
-            }),
-        );
+            dispatch(
+                addCommentForArticle({
+                    text: replyText,
+                    parentId: comment?.id || '',
+                }),
+            );
 
-        setReplyText('');
-        setIsReplying(false);
-    }, [comment?.id, dispatch, replyText]);
+            setReplyText('');
+            setIsReplying(false);
+        },
+        [comment?.id, dispatch, replyText],
+    );
 
     const toggleReply = useCallback(() => {
         setIsReplying(!isReplying);
@@ -145,20 +149,20 @@ export const CommentCard = memo((props: CommentCardProps) => {
                         {t(isReplying ? 'Заховати' : 'Відповісти')}
                     </Button>
                     {isReplying && (
-                        <HStack
-                            max
-                            gap="16"
-                            className={cls.replyBtn}
-                        >
-                            <Input
-                                value={replyText}
-                                onChange={onReplyTextChange}
-                                placeholder={t('Введіть відповідь')}
-                            />
-                            <Button onClick={onReplyHandler}>
-                                {t('Відправити')}
-                            </Button>
-                        </HStack>
+                        <form onSubmit={onSubmit} className={cls.form}>
+                            <HStack
+                                max
+                                gap="16"
+                                className={cls.replyBtn}
+                            >
+                                <Input
+                                    value={replyText}
+                                    onChange={onReplyTextChange}
+                                    placeholder={t('Введіть відповідь')}
+                                />
+                                <Button type="submit">{t('Відправити')}</Button>
+                            </HStack>
+                        </form>
                     )}
                 </VStack>
                 <VStack align="center">

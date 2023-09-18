@@ -30,23 +30,17 @@ const LoginForm = memo((props: LoginFormProps) => {
             reducers={initialReducers}
             removeAfterUnmount
         >
-            <VStack
-                gap="16"
-                className={classNames(cls.LoginFormRedesigned, {}, [className])}
-                max
-            >
-                {isRegister ? (
-                    <Register
-                        setIsRegister={setIsRegister}
-                        onSuccess={onSuccess}
-                    />
-                ) : (
-                    <Login
-                        setIsRegister={setIsRegister}
-                        onSuccess={onSuccess}
-                    />
-                )}
-            </VStack>
+            {isRegister ? (
+                <Register
+                    setIsRegister={setIsRegister}
+                    onSuccess={onSuccess}
+                />
+            ) : (
+                <Login
+                    setIsRegister={setIsRegister}
+                    onSuccess={onSuccess}
+                />
+            )}
         </DynamicModuleLoader>
     );
 });
