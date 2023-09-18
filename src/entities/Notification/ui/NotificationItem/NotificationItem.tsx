@@ -17,16 +17,12 @@ export const NotificationItem = memo((props: NotificationItemProps) => {
     } = props;
 
     const content = (
-        <Card
-                            className={classNames(cls.NotificationItem, {}, [
-                                className,
-                            ])}
-                        >
-                            <Text
-                                title={title}
-                                text={description}
-                            />
-                        </Card>
+        <Card className={classNames(cls.NotificationItem, {}, [className])}>
+            <Text
+                title={title}
+                text={description}
+            />
+        </Card>
     );
 
     if (href) {

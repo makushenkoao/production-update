@@ -2,7 +2,6 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-
 import { AppLink } from '@/shared/ui/redesigned/AppLink';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { getUserAuthData } from '@/entities/User';
@@ -27,14 +26,14 @@ export const SidebarItem = memo((props: SidebarItemProps) => {
 
     return (
         <AppLink
-                            to={item.path}
-                            className={classNames(cls.SidebarItemRedesigned, {
-                                [cls.collapsedRedesigned]: collapsed,
-                            })}
-                            activeClassName={cls.active}
-                        >
-                            <Icon svg={item.icon} />
-                            <span className={cls.link}>{t(item.text)}</span>
-                        </AppLink>
+            to={item.path}
+            className={classNames(cls.SidebarItemRedesigned, {
+                [cls.collapsedRedesigned]: collapsed,
+            })}
+            activeClassName={cls.active}
+        >
+            <Icon svg={item.icon} />
+            <span className={cls.link}>{t(item.text)}</span>
+        </AppLink>
     );
 });

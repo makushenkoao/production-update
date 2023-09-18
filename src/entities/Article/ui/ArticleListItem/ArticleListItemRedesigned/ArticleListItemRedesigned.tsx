@@ -16,12 +16,11 @@ import { Button } from '@/shared/ui/redesigned/Button';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import EyeIcon from '@/shared/assets/icons/eye-re.svg';
 import cls from './ArticleListItemRedesigned.module.scss';
-import {formatDate} from "@/shared/lib/utils/formatDate/formatDate";
+import { formatDate } from '@/shared/lib/utils/formatDate/formatDate';
 
 export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
     const { className, article, view, target } = props;
     const { t } = useTranslation();
-
 
     const userInfo = (
         <>

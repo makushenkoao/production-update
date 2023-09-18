@@ -11,7 +11,5 @@ export interface ArticleListItemProps {
 }
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
-    return (
-        <ArticleListItemRedesigned {...props} />
-    );
+    return <ArticleListItemRedesigned {...props} />;
 });

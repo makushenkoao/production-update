@@ -9,8 +9,6 @@ export interface ArticleListItemSkeletonProps {
 
 export const ArticleListItemSkeleton = memo(
     (props: ArticleListItemSkeletonProps) => {
-        return (
-            <ArticleListItemRedesignedSkeleton {...props} />
-        );
+        return <ArticleListItemRedesignedSkeleton {...props} />;
     },
 );

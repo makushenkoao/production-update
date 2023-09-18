@@ -28,9 +28,9 @@ export const ArticleImageBlockComponent = memo(
                 />
                 {block.title && (
                     <Text
-                                                    text={block.title}
-                                                    align="center"
-                                                />
+                        text={block.title}
+                        align="center"
+                    />
                 )}
             </div>
         );

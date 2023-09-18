@@ -36,9 +36,9 @@ export const CurrencySelect = memo((props: CurrencySelectProps) => {
 
     return (
         <ListBox
-                            overflow="auto"
-                            height={150}
-                            {...listBoxProps}
-                        />
+            overflow="auto"
+            height={150}
+            {...listBoxProps}
+        />
     );
 });

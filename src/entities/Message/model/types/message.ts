@@ -3,5 +3,5 @@ export interface Message {
     toUser: string;
     fromUser: string;
     message: string;
-    sendAt: number
+    sendAt: number;
 }

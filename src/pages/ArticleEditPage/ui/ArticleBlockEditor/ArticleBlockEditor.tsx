@@ -6,7 +6,7 @@ import { Input } from '@/shared/ui/redesigned/Input';
 import AddIcon from '@/shared/assets/icons/create.svg';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 import DeleteIcon from '@/shared/assets/icons/delete.svg';
-import {TextArea} from "@/shared/ui/redesigned/TextArea";
+import { TextArea } from '@/shared/ui/redesigned/TextArea';
 
 interface ArticleBlockEditorProps {
     index: number;

@@ -42,11 +42,7 @@ export const ArticlePageGreeting = memo(() => {
             />
             {!isMobile && (
                 <HStack justify="end">
-                    <Button
-                        onClick={onClose}
-                    >
-                        {t('Закрити')}
-                    </Button>
+                    <Button onClick={onClose}>{t('Закрити')}</Button>
                 </HStack>
             )}
         </VStack>

@@ -2,7 +2,6 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
-
 import { ArticleView } from '@/entities/Article';
 import { VIEW_TYPES } from '../../model/consts';
 import cls from './ArticleViewSelector.module.scss';
@@ -26,30 +25,27 @@ export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
 
     return (
         <Card
-                            className={classNames(
-                                cls.ArticleViewSelectorRedesigned,
-                                {},
-                                [className],
-                            )}
-                            padding="1"
-                            border="round"
-                        >
-                            <HStack>
-                                {VIEW_TYPES.map((viewType, index) => (
-                                    <Icon
-                                        key={viewType.view}
-                                        svg={viewType.icon}
-                                        className={classNames('', {
-                                            [cls.selectedRedesigned]:
-                                                viewType.view === view,
-                                            [cls.left]: index === 0,
-                                            [cls.right]: index === 1,
-                                        })}
-                                        clickable
-                                        onClick={onClick(viewType.view)}
-                                    />
-                                ))}
-                            </HStack>
-                        </Card>
+            className={classNames(cls.ArticleViewSelectorRedesigned, {}, [
+                className,
+            ])}
+            padding="1"
+            border="round"
+        >
+            <HStack>
+                {VIEW_TYPES.map((viewType, index) => (
+                    <Icon
+                        key={viewType.view}
+                        svg={viewType.icon}
+                        className={classNames('', {
+                            [cls.selectedRedesigned]: viewType.view === view,
+                            [cls.left]: index === 0,
+                            [cls.right]: index === 1,
+                        })}
+                        clickable
+                        onClick={onClick(viewType.view)}
+                    />
+                ))}
+            </HStack>
+        </Card>
     );
 });

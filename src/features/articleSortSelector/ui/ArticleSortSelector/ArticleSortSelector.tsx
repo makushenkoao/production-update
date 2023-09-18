@@ -55,25 +55,23 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
 
     return (
         <div
-                            className={classNames(
-                                cls.ArticleSortSelectorRedesigned,
-                                {},
-                                [className],
-                            )}
-                        >
-                            <VStack gap="8">
-                                <Text text={t('Сортувати ЗА')} />
-                                <ListBox
-                                    items={orderFieldOptions}
-                                    value={sort}
-                                    onChange={onChangeSort}
-                                />
-                                <ListBox
-                                    items={orderOptions}
-                                    value={order}
-                                    onChange={onChangeOrder}
-                                />
-                            </VStack>
-                        </div>
+            className={classNames(cls.ArticleSortSelectorRedesigned, {}, [
+                className,
+            ])}
+        >
+            <VStack gap="8">
+                <Text text={t('Сортувати ЗА')} />
+                <ListBox
+                    items={orderFieldOptions}
+                    value={sort}
+                    onChange={onChangeSort}
+                />
+                <ListBox
+                    items={orderOptions}
+                    value={order}
+                    onChange={onChangeOrder}
+                />
+            </VStack>
+        </div>
     );
 });

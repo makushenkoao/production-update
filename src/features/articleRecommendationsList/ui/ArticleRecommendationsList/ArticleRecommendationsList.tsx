@@ -33,9 +33,9 @@ export const ArticleRecommendationsList = memo(
                 className={classNames('', {}, [className])}
             >
                 <Text
-                                            size="l"
-                                            title={t('Рекомендації')}
-                                        />
+                    size="l"
+                    title={t('Рекомендації')}
+                />
                 <ArticleList
                     articles={articles}
                     isLoading={isLoading}

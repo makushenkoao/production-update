@@ -22,7 +22,5 @@ export interface ProfileCardProps {
 }
 
 export const ProfileCard = (props: ProfileCardProps) => {
-    return (
-        <ProfileCardRedesigned {...props} />
-    );
+    return <ProfileCardRedesigned {...props} />;
 };

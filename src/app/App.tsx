@@ -27,28 +27,28 @@ const App = () => {
     if (!mounted) {
         return (
             <div
-                                    id="app"
-                                    className={classNames('app_redesigned', {}, [theme])}
-                                >
-                                    <AppLoaderLayout />{' '}
-                                </div>
+                id="app"
+                className={classNames('app_redesigned', {}, [theme])}
+            >
+                <AppLoaderLayout />{' '}
+            </div>
         );
     }
 
     return (
         <div
-                            id="app"
-                            className={classNames('app_redesigned', {}, [theme])}
-                        >
-                            <Suspense fallback="">
-                                <MainLayout
-                                    header={<Navbar />}
-                                    sidebar={<Sidebar />}
-                                    content={<AppRouter />}
-                                    toolbar={toolbar}
-                                />
-                            </Suspense>
-                        </div>
+            id="app"
+            className={classNames('app_redesigned', {}, [theme])}
+        >
+            <Suspense fallback="">
+                <MainLayout
+                    header={<Navbar />}
+                    sidebar={<Sidebar />}
+                    content={<AppRouter />}
+                    toolbar={toolbar}
+                />
+            </Suspense>
+        </div>
     );
 };
 

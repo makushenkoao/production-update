@@ -6,7 +6,6 @@ import { Text } from '@/shared/ui/redesigned/Text';
 import { StarRating } from '@/shared/ui/redesigned/StarRating';
 import { Modal } from '@/shared/ui/redesigned/Modal';
 
-
 import { Drawer } from '@/shared/ui/redesigned/Drawer';
 import { Input } from '@/shared/ui/redesigned/Input';
 import { Button } from '@/shared/ui/redesigned/Button';
@@ -61,14 +60,14 @@ export const RatingCard = memo((props: RatingCardProps) => {
 
     const modalContent = (
         <>
-                            <Text title={feedbackTitle} />
-                            <Input
-                                data-testid="RatingCard.Input"
-                                value={feedback}
-                                onChange={setFeedback}
-                                placeholder={t('Ваш відгук')}
-                            />
-                        </>
+            <Text title={feedbackTitle} />
+            <Input
+                data-testid="RatingCard.Input"
+                value={feedback}
+                onChange={setFeedback}
+                placeholder={t('Ваш відгук')}
+            />
+        </>
     );
 
     const content = (
@@ -78,9 +77,7 @@ export const RatingCard = memo((props: RatingCardProps) => {
                 gap="8"
                 max
             >
-                <Text
-                                            title={starsCount ? t('Дякую за оцінку!') : title}
-                                        />
+                <Text title={starsCount ? t('Дякую за оцінку!') : title} />
                 <StarRating
                     selectedStars={starsCount}
                     size={40}
@@ -98,23 +95,23 @@ export const RatingCard = memo((props: RatingCardProps) => {
                     >
                         {modalContent}
                         <HStack
-                                                            max
-                                                            gap="16"
-                                                            justify="end"
-                                                        >
-                                                            <Button
-                                                                data-testid="RatingCard.Close"
-                                                                onClick={cancelHandle}
-                                                            >
-                                                                {t('Закрити')}
-                                                            </Button>
-                                                            <Button
-                                                                data-testid="RatingCard.Send"
-                                                                onClick={acceptHandle}
-                                                            >
-                                                                {t('Відправити')}
-                                                            </Button>
-                                                        </HStack>
+                            max
+                            gap="16"
+                            justify="end"
+                        >
+                            <Button
+                                data-testid="RatingCard.Close"
+                                onClick={cancelHandle}
+                            >
+                                {t('Закрити')}
+                            </Button>
+                            <Button
+                                data-testid="RatingCard.Send"
+                                onClick={acceptHandle}
+                            >
+                                {t('Відправити')}
+                            </Button>
+                        </HStack>
                     </VStack>
                 </Modal>
             </BrowserView>
@@ -127,12 +124,12 @@ export const RatingCard = memo((props: RatingCardProps) => {
                     <VStack gap="32">
                         {modalContent}
                         <Button
-                                                            fullWidth
-                                                            onClick={acceptHandle}
-                                                            size="l"
-                                                        >
-                                                            {t('Відправити')}
-                                                        </Button>
+                            fullWidth
+                            onClick={acceptHandle}
+                            size="l"
+                        >
+                            {t('Відправити')}
+                        </Button>
                     </VStack>
                 </Drawer>
             </MobileView>
@@ -141,11 +138,11 @@ export const RatingCard = memo((props: RatingCardProps) => {
 
     return (
         <Card
-                            max
-                            border="round"
-                            padding="24"
-                        >
-                            {content}
-                        </Card>
+            max
+            border="round"
+            padding="24"
+        >
+            {content}
+        </Card>
     );
 });

@@ -36,9 +36,9 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
 
     return (
         <ListBox
-                            overflow="auto"
-                            height={200}
-                            {...listBoxProps}
-                        />
+            overflow="auto"
+            height={200}
+            {...listBoxProps}
+        />
     );
 });

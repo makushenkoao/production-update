@@ -1,1 +1,1 @@
-export { AverageUserRating } from './ui/averageUserRating'
+export { AverageUserRating } from './ui/averageUserRating';

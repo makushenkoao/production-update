@@ -50,17 +50,14 @@ export const followProfile = createAsyncThunk<
             return rejectWithValue([ValidateProfileError.SERVER_ERROR]);
         }
 
-        await extra.api.put<Profile>(
-            `/profile/${currentProfile.id}`,
-            {
-                ...currentProfile,
-                following: isFollowing
-                    ? currentProfile.following.filter(
-                          (id) => id !== followingProfile?.id,
-                      )
-                    : [...currentProfile.following, followingProfile?.id],
-            },
-        );
+        await extra.api.put<Profile>(`/profile/${currentProfile.id}`, {
+            ...currentProfile,
+            following: isFollowing
+                ? currentProfile.following.filter(
+                      (id) => id !== followingProfile?.id,
+                  )
+                : [...currentProfile.following, followingProfile?.id],
+        });
 
         dispatch(profileActions.updateProfile(followingProfile));
     } catch (e) {

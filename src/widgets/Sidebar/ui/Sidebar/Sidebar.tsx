@@ -42,52 +42,52 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
 
     return (
         <aside
-                            data-testid="sidebar"
-                            className={classNames(
-                                cls.SidebarRedesigned,
-                                { [cls.collapsedRedesigned]: collapsed },
-                                [className],
-                            )}
-                        >
-                            <AppLink to="/">
-                                <AppLogo
-                                    className={cls.appLogo}
-                                    width={collapsed ? 30 : 50}
-                                    height={collapsed ? 30 : 50}
-                                />
-                            </AppLink>
-                            <VStack
-                                role="navigation"
-                                align={collapsed ? 'center' : 'start'}
-                                gap="4"
-                                className={cls.items}
-                            >
-                                {itemsList}
-                            </VStack>
-                            <Icon
-                                data-testid="sidebar-toggle"
-                                clickable
-                                onClick={onToggle}
-                                className={cls.collapseBtn}
-                                svg={ArrowIcon}
-                            />
-                            {collapsed ? (
-                                <VStack
-                                    align="center"
-                                    className={cls.switchers}
-                                    gap="4"
-                                >
-                                    {switchers}
-                                </VStack>
-                            ) : (
-                                <HStack
-                                    className={cls.switchers}
-                                    justify="center"
-                                    gap="8"
-                                >
-                                    {switchers}
-                                </HStack>
-                            )}
-                        </aside>
+            data-testid="sidebar"
+            className={classNames(
+                cls.SidebarRedesigned,
+                { [cls.collapsedRedesigned]: collapsed },
+                [className],
+            )}
+        >
+            <AppLink to="/">
+                <AppLogo
+                    className={cls.appLogo}
+                    width={collapsed ? 30 : 50}
+                    height={collapsed ? 30 : 50}
+                />
+            </AppLink>
+            <VStack
+                role="navigation"
+                align={collapsed ? 'center' : 'start'}
+                gap="4"
+                className={cls.items}
+            >
+                {itemsList}
+            </VStack>
+            <Icon
+                data-testid="sidebar-toggle"
+                clickable
+                onClick={onToggle}
+                className={cls.collapseBtn}
+                svg={ArrowIcon}
+            />
+            {collapsed ? (
+                <VStack
+                    align="center"
+                    className={cls.switchers}
+                    gap="4"
+                >
+                    {switchers}
+                </VStack>
+            ) : (
+                <HStack
+                    className={cls.switchers}
+                    justify="center"
+                    gap="8"
+                >
+                    {switchers}
+                </HStack>
+            )}
+        </aside>
     );
 });

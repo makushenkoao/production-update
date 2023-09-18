@@ -1,1 +1,1 @@
-export {UserArticles} from './ui/UserArticles/UserArticles'
+export { UserArticles } from './ui/UserArticles/UserArticles';
