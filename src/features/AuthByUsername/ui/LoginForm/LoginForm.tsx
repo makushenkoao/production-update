@@ -1,12 +1,9 @@
 import { memo, useState } from 'react';
-import { classNames } from '@/shared/lib/classNames/classNames';
 import {
     DynamicModuleLoader,
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { loginReducer } from '../../model/slice/loginSlice';
-import cls from './LoginForm.module.scss';
-import { VStack } from '@/shared/ui/redesigned/Stack';
 import { registerReducer } from '../../model/slice/registerSlice';
 import { Register } from './Register/Register';
 import { Login } from './Login/Login';
