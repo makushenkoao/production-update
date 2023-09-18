@@ -61,6 +61,7 @@ export const SearchPage = memo(() => {
                             style={{
                                 width: '250px',
                             }}
+                            key={data.id}
                         >
                             <Card
                                 border="partial"

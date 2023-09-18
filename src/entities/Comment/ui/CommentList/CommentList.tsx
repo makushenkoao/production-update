@@ -42,6 +42,7 @@ export const CommentList = memo((props: CommentListProps) => {
                     max
                     gap="16"
                     align="normal"
+                    key={comment.id}
                     className={cls.child}
                 >
                     <CommentCard

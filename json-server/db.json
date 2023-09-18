@@ -189,7 +189,7 @@
       "title": "Javascript news",
       "subtitle": "Що нового за 2023 рік?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1027,
+      "views": 1030,
       "createdAt": 433412341234,
       "userId": "1",
       "type": [
@@ -2339,7 +2339,7 @@
       "img": "",
       "type": [],
       "createdAt": 1694602161998,
-      "views": 0,
+      "views": 1,
       "blocks": [
         {
           "type": "TEXT",
@@ -2351,7 +2351,23 @@
             "rtwertewrtwert"
           ]
         }
-      ]
+      ],
+      "user": {
+        "id": "1",
+        "username": "admin",
+        "password": "111",
+        "jsonSettings": {
+          "theme": "app_dark_theme",
+          "isArticlesPageWasOpened": true
+        },
+        "features": {
+          "isAppRedesigned": false
+        },
+        "roles": [
+          "ADMIN"
+        ],
+        "avatar": "https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-blue-tie-and-beard-face-png-image_5809515.png"
+      }
     },
     {
       "id": "1694602625100",
