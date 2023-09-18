@@ -26,7 +26,9 @@ import {
 import { renderBlock } from './renderBlock';
 import { AppImage } from '@/shared/ui/redesigned/AppImage';
 import { formatDate } from '@/shared/lib/utils/formatDate/formatDate';
-import { incrementViews } from '@/pages/ArticleDetailsPage';
+// TODO: fix circular dependency
+// eslint-disable-next-line makushenkoao-plugin/public-api-imports
+import { incrementViews } from '@/pages/ArticleDetailsPage/model/services/incrementViews/incrementViews';
 
 interface ArticleDetailsProps {
     className?: string;
