@@ -97,7 +97,7 @@ export const ArticleEditorHeader = memo((props: ArticleEditorHeaderProps) => {
                 {article?.type.map((item, index) => (
                     <HStack
                         max
-                        // key={item}
+                        key={item}
                         gap="8"
                     >
                         <Text text={item} />
