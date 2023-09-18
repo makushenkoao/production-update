@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { AddCommentForm } from '@/features/AddCommentForm';
-import { CommentList , Comment } from '@/entities/Comment';
+import { CommentList, Comment } from '@/entities/Comment';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { VStack } from '@/shared/ui/redesigned/Stack';
@@ -32,14 +32,17 @@ export const ArticleDetailsComments = memo(
         const isLoading = useSelector(getArticleCommentsIsLoading);
         const error = useSelector(getArticleCommentsError);
 
-        const onLikeClick = useCallback((comment?: Comment) => {
-            if (!comment) return;
-            dispatch(addLikeToComment(comment));
-        }, [dispatch]);
+        const onLikeClick = useCallback(
+            (comment?: Comment) => {
+                if (!comment) return;
+                dispatch(addLikeToComment(comment));
+            },
+            [dispatch],
+        );
 
         const onSendComment = useCallback(
             (text: string) => {
-                dispatch(addCommentForArticle(text));
+                dispatch(addCommentForArticle({ text }));
             },
             [dispatch],
         );

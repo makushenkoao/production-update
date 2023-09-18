@@ -6,11 +6,16 @@ import { addCommentFormActions } from '@/features/AddCommentForm';
 import { getArticleDetailsData } from '@/entities/Article';
 import { fetchCommentsByArticleId } from '../fetchCommentsByArticleId/fetchCommentsByArticleId';
 
+interface addCommentForArticleProps {
+    text: string;
+    parentId?: string;
+}
+
 export const addCommentForArticle = createAsyncThunk<
     Comment,
-    string,
+    addCommentForArticleProps,
     ThunkConfig<string>
->('article/addCommentForArticle', async (text, ThunkApi) => {
+>('article/addCommentForArticle', async ({ text, parentId }, ThunkApi) => {
     const { rejectWithValue, extra, getState, dispatch } = ThunkApi;
     const userData = getUserAuthData(getState());
     const article = getArticleDetailsData(getState());
@@ -20,13 +25,24 @@ export const addCommentForArticle = createAsyncThunk<
     }
 
     try {
-        const { data } = await extra.api.post<Comment>('/comments', {
+        const requestData: Omit<Comment, 'id' | 'user'> = {
             articleId: article?.id,
             userId: userData.id,
             likes: [],
             text,
-        });
+        };
+
+        if (parentId) {
+            requestData.parentId = parentId;
+        }
+
+        const { data } = await extra.api.post<Comment>(
+            '/comments',
+            requestData,
+        );
+
         if (!data) throw new Error();
+
         dispatch(addCommentFormActions.setText(''));
         dispatch(fetchCommentsByArticleId(article.id));
         return data;

@@ -2362,13 +2362,99 @@
   ],
   "comments": [
     {
-      "id": "1",
-      "text": "some comment",
+      "articleId": "1",
+      "userId": "1",
+      "likes": [],
+      "text": "first parent comment",
+      "id": 1
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "likes": [],
+      "text": "asdfasdf",
+      "id": 2
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "likes": [],
+      "text": "first child 1 comment",
+      "parentId": 1,
+      "id": 3
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "likes": [],
+      "text": "first child-child 1 comment",
+      "parentId": 3,
+      "id": 4
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "likes": [],
+      "text": "second child 2 comment",
+      "parentId": 1,
+      "id": 5
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "likes": [],
+      "text": "test",
+      "parentId": "1",
+      "id": 6
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "likes": [],
+      "text": "11111",
+      "parentId": null,
+      "id": 7
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "likes": [],
+      "text": "canada",
+      "id": 8
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "likes": [],
+      "text": "canada child 1",
+      "parentId": 8,
+      "id": 9
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "likes": [],
+      "text": "3232323",
+      "parentId": 2,
+      "id": 10
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "likes": [],
+      "text": "fsdf",
+      "parentId": 9,
+      "id": 11
+    },
+    {
       "articleId": "1",
       "userId": "1",
       "likes": [
         "1"
       ],
+      "text": "213123",
+      "parentId": 11,
+      "id": 12,
       "user": {
         "id": "1",
         "username": "admin",
@@ -2387,11 +2473,30 @@
       }
     },
     {
-      "articleId": "1690392205042",
-      "userId": "1690123631680",
-      "text": "ГУД РЕЦЕПТ, ПРИГОТОВИЛ, ОЧЕНЬ ВКУСНО!!!",
-      "id": "aLPuewP",
-      "likes": []
+      "articleId": "1",
+      "userId": "1",
+      "likes": [
+        "1"
+      ],
+      "text": "canada child child 1",
+      "parentId": 9,
+      "id": 13,
+      "user": {
+        "id": "1",
+        "username": "admin",
+        "password": "111",
+        "jsonSettings": {
+          "theme": "app_dark_theme",
+          "isArticlesPageWasOpened": true
+        },
+        "features": {
+          "isAppRedesigned": false
+        },
+        "roles": [
+          "ADMIN"
+        ],
+        "avatar": "https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-blue-tie-and-beard-face-png-image_5809515.png"
+      }
     }
   ],
   "users": [

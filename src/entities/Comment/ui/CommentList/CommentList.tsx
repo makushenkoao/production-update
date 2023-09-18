@@ -5,6 +5,7 @@ import { Text } from '@/shared/ui/redesigned/Text';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { CommentCard } from '../CommentCard/CommentCard';
 import { Comment } from '../../model/types/comment';
+import cls from './CommentList.module.scss';
 
 interface CommentListProps {
     className?: string;
@@ -33,6 +34,26 @@ export const CommentList = memo((props: CommentListProps) => {
         );
     }
 
+    const renderComments = (parentCommentId?: string) => {
+        return comments
+            ?.filter((comment) => comment.parentId === parentCommentId)
+            .map((comment) => (
+                <VStack
+                    max
+                    gap="16"
+                    align="normal"
+                    className={cls.child}
+                >
+                    <CommentCard
+                        comment={comment}
+                        isLoading={isLoading}
+                        onLikeClick={onLikeClick}
+                    />
+                    {renderComments(comment.id)}
+                </VStack>
+            ));
+    };
+
     return (
         <div className={classNames('', {}, [className])}>
             {comments?.length ? (
@@ -41,14 +62,7 @@ export const CommentList = memo((props: CommentListProps) => {
                     gap="16"
                     align="normal"
                 >
-                    {comments.map((comment) => (
-                        <CommentCard
-                            key={comment.id}
-                            comment={comment}
-                            isLoading={isLoading}
-                            onLikeClick={onLikeClick}
-                        />
-                    ))}
+                    {renderComments(undefined)}{' '}
                 </VStack>
             ) : (
                 <Text text={t('Коментарі відсутні')} />

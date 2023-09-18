@@ -1,4 +1,6 @@
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Avatar } from '@/shared/ui/redesigned/Avatar';
 import { Text } from '@/shared/ui/redesigned/Text';
@@ -8,12 +10,15 @@ import { Comment } from '../../model/types/comment';
 import { getRouteProfile } from '@/shared/const/router';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Card } from '@/shared/ui/redesigned/Card';
-import LikeIcon from '@/shared/assets/icons/like.svg';
-import cls from './CommentCard.module.scss';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 import { Button } from '@/shared/ui/redesigned/Button';
-import { useTranslation } from 'react-i18next';
+import { getUserAuthData } from '@/entities/User';
+import { Input } from '@/shared/ui/redesigned/Input';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { addCommentForArticle } from '@/pages/ArticleDetailsPage';
+import LikeIcon from '@/shared/assets/icons/like.svg';
 import ReplyIcon from '@/shared/assets/icons/reply.svg';
+import cls from './CommentCard.module.scss';
 
 interface CommentCardProps {
     className?: string;
@@ -25,6 +30,40 @@ interface CommentCardProps {
 export const CommentCard = memo((props: CommentCardProps) => {
     const { className, comment, isLoading, onLikeClick } = props;
     const { t } = useTranslation();
+    const [isReplying, setIsReplying] = useState(false);
+    const [replyText, setReplyText] = useState('');
+    const authData = useSelector(getUserAuthData);
+    const dispatch = useAppDispatch();
+
+    const onReplyHandler = useCallback(() => {
+        // // @ts-ignore
+        // const replyComment: Comment = {
+        //     id: 'your-generated-id',
+        //     articleId: comment?.articleId,
+        //     userId: authData?.id,
+        //     likes: [],
+        //     text: replyText,
+        //     parentId: comment?.id,
+        // };
+
+        dispatch(
+            addCommentForArticle({
+                text: replyText,
+                parentId: comment?.id || '',
+            }),
+        );
+
+        setReplyText('');
+        setIsReplying(false);
+    }, [comment?.id, dispatch, replyText]);
+
+    const toggleReply = useCallback(() => {
+        setIsReplying(!isReplying);
+    }, [isReplying]);
+
+    const onReplyTextChange = useCallback((v: string) => {
+        setReplyText(v);
+    }, []);
 
     const Skeleton = SkeletonRedesigned;
 
@@ -91,9 +130,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
                             />
                         </HStack>
                     </AppLink>
-                    <Text
-                        text={comment.text}
-                    />
+                    <Text text={comment.text} />
                     <Button
                         className={cls.replyBtn}
                         variant="filled"
@@ -103,9 +140,26 @@ export const CommentCard = memo((props: CommentCardProps) => {
                                 className={cls.icon}
                             />
                         }
+                        onClick={toggleReply}
                     >
-                        {t('Відповісти')}
+                        {t(isReplying ? 'Заховати' : 'Відповісти')}
                     </Button>
+                    {isReplying && (
+                        <HStack
+                            max
+                            gap="16"
+                            className={cls.replyBtn}
+                        >
+                            <Input
+                                value={replyText}
+                                onChange={onReplyTextChange}
+                                placeholder={t('Введіть відповідь')}
+                            />
+                            <Button onClick={onReplyHandler}>
+                                {t('Відправити')}
+                            </Button>
+                        </HStack>
+                    )}
                 </VStack>
                 <VStack align="center">
                     <Icon
