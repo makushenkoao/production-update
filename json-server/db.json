@@ -26,6 +26,13 @@
       "description": "Nice article!",
       "href": "/articles/1",
       "userId": "1"
+    },
+    {
+      "id": "1695167735148",
+      "title": "Ваш коментарій оцінив user",
+      "description": "first parent comment",
+      "href": "/articles/1",
+      "userId": "1"
     }
   ],
   "profile": [
@@ -192,7 +199,7 @@
       "title": "Javascript news",
       "subtitle": "Що нового за 2023 рік?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1032,
+      "views": 1034,
       "createdAt": 433412341234,
       "userId": "1",
       "type": [
@@ -2480,9 +2487,27 @@
     {
       "articleId": "1",
       "userId": "1",
-      "likes": [],
+      "likes": [
+        "2"
+      ],
       "text": "first parent comment",
-      "id": 1
+      "id": 1,
+      "user": {
+        "id": "1",
+        "username": "admin",
+        "password": "111",
+        "jsonSettings": {
+          "theme": "app_dark_theme",
+          "isArticlesPageWasOpened": true
+        },
+        "features": {
+          "isAppRedesigned": false
+        },
+        "roles": [
+          "ADMIN"
+        ],
+        "avatar": "https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-blue-tie-and-beard-face-png-image_5809515.png"
+      }
     },
     {
       "articleId": "1",

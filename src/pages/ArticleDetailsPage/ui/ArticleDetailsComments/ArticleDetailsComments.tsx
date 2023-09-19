@@ -17,6 +17,10 @@ import {
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { addLikeToComment } from '../../model/services/addLikeToComment/addLikeToComment';
+import { sendNotification } from '@/entities/Notification';
+import { getRouteArticleDetails } from '@/shared/const/router';
+import { getUserAuthData } from '@/entities/User';
+import { getArticleDetailsData } from '@/entities/Article';
 
 interface ArticleDetailsCommentsProps {
     className?: string;
@@ -31,13 +35,24 @@ export const ArticleDetailsComments = memo(
         const comments = useSelector(getArticleComments.selectAll);
         const isLoading = useSelector(getArticleCommentsIsLoading);
         const error = useSelector(getArticleCommentsError);
+        const authData = useSelector(getUserAuthData);
+        const article = useSelector(getArticleDetailsData);
 
         const onLikeClick = useCallback(
             (comment?: Comment) => {
                 if (!comment) return;
                 dispatch(addLikeToComment(comment));
+                dispatch(
+                    sendNotification({
+                        id: Date.now().toString(),
+                        title: `Ваш коментарій оцінив ${authData?.username}`,
+                        description: comment.text,
+                        href: getRouteArticleDetails(article?.id || ''),
+                        userId: comment.userId,
+                    }),
+                );
             },
-            [dispatch],
+            [article?.id, authData?.username, dispatch],
         );
 
         const onSendComment = useCallback(
@@ -73,7 +88,6 @@ export const ArticleDetailsComments = memo(
                 <CommentList
                     comments={comments}
                     isLoading={isLoading}
-                    // @ts-ignore
                     onLikeClick={onLikeClick}
                 />
             </VStack>
