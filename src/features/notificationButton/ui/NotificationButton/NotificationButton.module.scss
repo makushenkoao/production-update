@@ -4,3 +4,16 @@
     width: 500px;
     overflow-y: auto;
 }
+
+.icon {
+    position: relative;
+}
+
+.text {
+    position: absolute;
+    bottom: -5px;
+    right: -10px;
+    border-radius: 50%;
+    background: #f89797;
+    padding: 0 7px;
+}

@@ -1,35 +1,17 @@
 {
   "notifications": [
     {
-      "id": "1",
-      "title": "Повідомлення 1",
-      "description": "Сталася якась подія",
-      "userId": "1"
+      "id": "1695076602001",
+      "title": "Нове повідомлення",
+      "description": "На ваш профіль підписався admin",
+      "href": "/profile/1",
+      "userId": "2"
     },
     {
-      "id": "2",
-      "title": "Повідомлення 2",
-      "description": "Сталася якась подія",
-      "userId": "1",
-      "href": "http://localhost:3000/admin"
-    },
-    {
-      "id": "3",
-      "title": "Повідомлення 3",
-      "description": "Сталася якась подія",
-      "userId": "1",
-      "href": "http://localhost:3000/admin"
-    },
-    {
-      "id": "4",
-      "title": "Повідомлення 4",
-      "description": "Сталася якась подія",
-      "userId": "1"
-    },
-    {
-      "id": "5",
-      "title": "Повідомлення 5",
-      "description": "Сталася якась подія",
+      "id": "1695122232138",
+      "title": "Нове повідомлення",
+      "description": "На ваш профіль підписався manager",
+      "href": "/profile/3",
       "userId": "2"
     }
   ],
@@ -45,7 +27,9 @@
       "username": "admin",
       "avatar": "https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-blue-tie-and-beard-face-png-image_5809515.png",
       "followers": [],
-      "following": []
+      "following": [
+        "2"
+      ]
     },
     {
       "id": "2",
@@ -58,7 +42,8 @@
       "username": "user",
       "avatar": "https://static.vecteezy.com/system/resources/previews/019/896/008/original/male-user-avatar-icon-in-flat-design-style-person-signs-illustration-png.png",
       "followers": [
-        "1694609005326"
+        "1",
+        "3"
       ],
       "following": []
     },
@@ -73,7 +58,9 @@
       "username": "manager",
       "avatar": "https://www.shareicon.net/data/512x512/2016/09/01/822726_user_512x512.png",
       "followers": [],
-      "following": []
+      "following": [
+        "2"
+      ]
     },
     {
       "id": "4",
@@ -2339,7 +2326,7 @@
       "img": "",
       "type": [],
       "createdAt": 1694602161998,
-      "views": 1,
+      "views": 3,
       "blocks": [
         {
           "type": "TEXT",
@@ -2737,6 +2724,13 @@
       "rate": 3,
       "feedback": "GOOD",
       "id": "9eVMjmz"
+    },
+    {
+      "userId": "1",
+      "articleId": "1694602161998",
+      "rate": 2,
+      "feedback": "",
+      "id": "bLfokHk"
     }
   ],
   "profile-ratings": [

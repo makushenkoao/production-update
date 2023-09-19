@@ -149,7 +149,10 @@ export const CommentCard = memo((props: CommentCardProps) => {
                         {t(isReplying ? 'Заховати' : 'Відповісти')}
                     </Button>
                     {isReplying && (
-                        <form onSubmit={onSubmit} className={cls.form}>
+                        <form
+                            onSubmit={onSubmit}
+                            className={cls.form}
+                        >
                             <HStack
                                 max
                                 gap="16"

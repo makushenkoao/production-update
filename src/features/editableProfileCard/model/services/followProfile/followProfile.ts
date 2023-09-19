@@ -5,6 +5,8 @@ import { ValidateProfileError } from '../../consts/consts';
 import { getProfileForm } from '../../selectors/getProfileForm/getProfileForm';
 import { getUserAuthData } from '@/entities/User';
 import { profileActions } from '../../slice/ProfileSlice';
+import { getRouteProfile } from '@/shared/const/router';
+import { sendNotification } from '@/entities/Notification';
 
 // TODO Переделать эту дичь!!!!
 export const followProfile = createAsyncThunk<
@@ -60,6 +62,19 @@ export const followProfile = createAsyncThunk<
         });
 
         dispatch(profileActions.updateProfile(followingProfile));
+
+        if (!isFollowing) {
+            console.log('bla');
+            dispatch(
+                sendNotification({
+                    id: Date.now().toString(),
+                    title: 'Нове повідомлення',
+                    description: `На ваш профіль підписався ${currentUser?.username}`,
+                    href: getRouteProfile(currentUser?.id || ''),
+                    userId: followingProfile.id,
+                }),
+            );
+        }
     } catch (e) {
         return rejectWithValue([ValidateProfileError.SERVER_ERROR]);
     }

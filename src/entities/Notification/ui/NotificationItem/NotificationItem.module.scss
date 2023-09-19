@@ -1,7 +1,19 @@
 .NotificationItem {
     width: 100%;
+    position: relative;
 }
 
 .link {
     width: 100% !important;
+}
+
+.content {
+    position: relative;
+}
+
+.icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
 }

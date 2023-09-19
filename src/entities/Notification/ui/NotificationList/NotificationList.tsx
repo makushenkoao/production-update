@@ -1,19 +1,23 @@
 import { memo } from 'react';
+import { SerializedError } from '@reduxjs/toolkit';
+import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
-import { useGetNotificationsQuery } from '../../api/notifictionApi';
 import { NotificationItem } from '../NotificationItem/NotificationItem';
+import { Notification } from '../../model/types/notification';
 
 interface NotificationListProps {
     className?: string;
+    notifications?: Notification[];
+    error?: FetchBaseQueryError | SerializedError;
+    isLoading?: boolean;
+    onDeleteNotification?: (id?: string) => void;
 }
 
 export const NotificationList = memo((props: NotificationListProps) => {
-    const { className } = props;
-    const { data, isLoading, error } = useGetNotificationsQuery(null, {
-        pollingInterval: 5000,
-    });
+    const { className, notifications, isLoading, error, onDeleteNotification } =
+        props;
 
     const Skeleton = SkeletonRedesigned;
 
@@ -54,10 +58,11 @@ export const NotificationList = memo((props: NotificationListProps) => {
             max
             className={classNames('', {}, [className])}
         >
-            {data?.map((item) => (
+            {notifications?.map((item) => (
                 <NotificationItem
                     key={item.id}
                     item={item}
+                    onDeleteNotification={onDeleteNotification}
                 />
             ))}
         </VStack>
