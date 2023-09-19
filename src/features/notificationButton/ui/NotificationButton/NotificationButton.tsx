@@ -2,18 +2,19 @@ import React, { memo, useCallback, useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
-
 import {
     NotificationList,
+    deleteNotification,
     useGetNotificationsQuery,
 } from '@/entities/Notification';
 import { Drawer } from '@/shared/ui/redesigned/Drawer';
 import { Icon } from '@/shared/ui/redesigned/Icon';
-import NotificationIcon from '@/shared/assets/icons/notification-re.svg';
-import cls from './NotificationButton.module.scss';
 import { Popover } from '@/shared/ui/redesigned/Popups';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { getUserAuthData } from '@/entities/User';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import NotificationIcon from '@/shared/assets/icons/notification-re.svg';
+import cls from './NotificationButton.module.scss';
 
 interface NotificationButtonProps {
     className?: string;
@@ -22,7 +23,8 @@ interface NotificationButtonProps {
 export const NotificationButton = memo((props: NotificationButtonProps) => {
     const { className } = props;
     const authData = useSelector(getUserAuthData);
-    const { data, isLoading, error } = useGetNotificationsQuery(
+    const dispatch = useAppDispatch();
+    const { data, isLoading, error, refetch } = useGetNotificationsQuery(
         authData?.id || '',
         {
             pollingInterval: 5000,
@@ -38,9 +40,13 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
         setIsOpen(false);
     }, []);
 
-    const onDeleteNotification = useCallback((id?: string) => {
-        console.log(`delete notification with id ${id}`);
-    }, []);
+    const onDeleteNotification = useCallback(
+        async (id?: string) => {
+            await dispatch(deleteNotification(id || ''));
+            await refetch();
+        },
+        [dispatch, refetch],
+    );
 
     const trigger = data?.length ? (
         <>

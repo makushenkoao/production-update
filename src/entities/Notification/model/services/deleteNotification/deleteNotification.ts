@@ -1,16 +1,15 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from '@/app/providers/StoreProvider';
-import { Notification } from '../../types/notification';
 
-export const sendNotification = createAsyncThunk<
+export const deleteNotification = createAsyncThunk<
     void,
-    Notification,
+    string,
     ThunkConfig<string>
->('profile/sendNotification', async (notification, ThunkApi) => {
+>('profile/deleteNotification', async (id, ThunkApi) => {
     const { rejectWithValue, extra } = ThunkApi;
 
     try {
-        await extra.api.post('/notifications', notification);
+        await extra.api.delete(`/notifications/${id}`);
     } catch (e) {
         return rejectWithValue('errir');
     }

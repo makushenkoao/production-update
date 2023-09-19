@@ -1,18 +1,18 @@
 {
   "notifications": [
     {
-      "id": "1695076602001",
-      "title": "Нове повідомлення",
-      "description": "На ваш профіль підписався admin",
-      "href": "/profile/1",
-      "userId": "2"
-    },
-    {
-      "id": "1695122232138",
+      "id": "1695142756980",
       "title": "Нове повідомлення",
       "description": "На ваш профіль підписався manager",
       "href": "/profile/3",
       "userId": "2"
+    },
+    {
+      "id": "1695142785099",
+      "title": "Нове повідомлення",
+      "description": "На ваш профіль підписався user",
+      "href": "/profile/2",
+      "userId": "1"
     }
   ],
   "profile": [
@@ -26,7 +26,9 @@
       "city": "Cherkasy",
       "username": "admin",
       "avatar": "https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-blue-tie-and-beard-face-png-image_5809515.png",
-      "followers": [],
+      "followers": [
+        "2"
+      ],
       "following": [
         "2"
       ]
@@ -42,10 +44,11 @@
       "username": "user",
       "avatar": "https://static.vecteezy.com/system/resources/previews/019/896/008/original/male-user-avatar-icon-in-flat-design-style-person-signs-illustration-png.png",
       "followers": [
-        "1",
         "3"
       ],
-      "following": []
+      "following": [
+        "1"
+      ]
     },
     {
       "id": "3",
