@@ -9,6 +9,10 @@ import {
 } from '../../api/articleRatingApi';
 import { getUserAuthData } from '@/entities/User';
 import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
+import { getArticleDetailsData } from '@/entities/Article';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { sendNotification } from '@/entities/Notification';
+import { getRouteArticleDetails } from '@/shared/const/router';
 
 export interface ArticleRatingProps {
     className?: string;
@@ -19,6 +23,8 @@ const ArticleRating = (props: ArticleRatingProps) => {
     const { className, articleId } = props;
     const { t } = useTranslation();
     const userData = useSelector(getUserAuthData);
+    const dispatch = useAppDispatch();
+    const article = useSelector(getArticleDetailsData);
 
     const { isLoading, error, data } = useGetArticleRatingQuery({
         articleId,
@@ -46,15 +52,40 @@ const ArticleRating = (props: ArticleRatingProps) => {
     const onAccept = useCallback(
         (starsCount: number, feedback?: string) => {
             handleRateArticle(starsCount, feedback);
+            dispatch(
+                sendNotification({
+                    id: Date.now().toString(),
+                    title: `${userData?.username} оцінив вашу статтю "${article?.title}" на ${starsCount}/5`,
+                    description: feedback || '',
+                    href: getRouteArticleDetails(articleId || ''),
+                    userId: article?.user.id,
+                }),
+            );
         },
-        [handleRateArticle],
+        [
+            article?.title,
+            article?.user.id,
+            articleId,
+            dispatch,
+            handleRateArticle,
+            userData?.username,
+        ],
     );
 
     const onCancel = useCallback(
         (starsCount: number) => {
             handleRateArticle(starsCount);
+            dispatch(
+                sendNotification({
+                    id: Date.now().toString(),
+                    title: `${userData?.username} оцінив вашу статтю "${article?.title}" на ${starsCount}/5`,
+                    description: 'Користувач не надав Вам фідбеку',
+                    href: getRouteArticleDetails(articleId || ''),
+                    userId: article?.user.id,
+                }),
+            );
         },
-        [handleRateArticle],
+        [article?.title, article?.user.id, articleId, dispatch, handleRateArticle, userData?.username],
     );
 
     const Skeleton = SkeletonRedesigned;

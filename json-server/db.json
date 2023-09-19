@@ -19,6 +19,13 @@
       "title": "manager оцінив ваш профіль на 5/5",
       "description": "Мені сподобалися твої статті!",
       "userId": "2"
+    },
+    {
+      "id": "1695164745251",
+      "title": "user оцінив вашу статтю \"Javascript news\" на 5/5",
+      "description": "Nice article!",
+      "href": "/articles/1",
+      "userId": "1"
     }
   ],
   "profile": [
@@ -185,7 +192,7 @@
       "title": "Javascript news",
       "subtitle": "Що нового за 2023 рік?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1030,
+      "views": 1031,
       "createdAt": 433412341234,
       "userId": "1",
       "type": [
@@ -273,7 +280,7 @@
       "title": "Python news",
       "subtitle": "Що нового за 2023 рік?",
       "img": "https://miro.medium.com/v2/resize:fit:1400/1*m0H6-tUbW6grMlezlb52yw.png",
-      "views": 1,
+      "views": 2,
       "createdAt": 1690198991775,
       "userId": "2",
       "type": [
@@ -338,14 +345,31 @@
             "JavaScript - це мова, програми на якій можна виконувати в різних середовищах. У нашому випадку йдеться про браузери та про серверну платформу Node.js. Якщо досі ви не написали жодного рядка коду на JS і читаєте цей текст у браузері, на настільному комп'ютері, це означає, що ви буквально за лічені секунди від своєї першої JavaScript-програми."
           ]
         }
-      ]
+      ],
+      "user": {
+        "id": "2",
+        "username": "user",
+        "password": "123",
+        "jsonSettings": {
+          "isFirstVisit": true,
+          "isArticlesPageWasOpened": true,
+          "theme": "app_dark_theme"
+        },
+        "roles": [
+          "USER"
+        ],
+        "avatar": "https://static.vecteezy.com/system/resources/previews/019/896/008/original/male-user-avatar-icon-in-flat-design-style-person-signs-illustration-png.png",
+        "features": {
+          "isAppRedesigned": true
+        }
+      }
     },
     {
       "id": "3",
       "title": "Kotlin news",
       "subtitle": "Що нового за 2023 рік?",
       "img": "https://kotlinlang.org/assets/images/twitter/general.png",
-      "views": 3233,
+      "views": 3234,
       "createdAt": 1690198991775,
       "userId": "1",
       "type": [
@@ -410,14 +434,30 @@
             "JavaScript - це мова, програми на якій можна виконувати в різних середовищах. У нашому випадку йдеться про браузери та про серверну платформу Node.js. Якщо досі ви не написали жодного рядка коду на JS і читаєте цей текст у браузері, на настільному комп'ютері, це означає, що ви буквально за лічені секунди від своєї першої JavaScript-програми."
           ]
         }
-      ]
+      ],
+      "user": {
+        "id": "1",
+        "username": "admin",
+        "password": "111",
+        "jsonSettings": {
+          "theme": "app_dark_theme",
+          "isArticlesPageWasOpened": true
+        },
+        "features": {
+          "isAppRedesigned": false
+        },
+        "roles": [
+          "ADMIN"
+        ],
+        "avatar": "https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-blue-tie-and-beard-face-png-image_5809515.png"
+      }
     },
     {
       "id": "4",
       "title": "Java news",
       "subtitle": "Що нового за 2023 рік?",
       "img": "https://contentstatic.techgig.com/photo/83117460.cms",
-      "views": 400003,
+      "views": 400004,
       "createdAt": 1690198991775,
       "userId": "1",
       "type": [
@@ -482,14 +522,30 @@
             "JavaScript - це мова, програми на якій можна виконувати в різних середовищах. У нашому випадку йдеться про браузери та про серверну платформу Node.js. Якщо досі ви не написали жодного рядка коду на JS і читаєте цей текст у браузері, на настільному комп'ютері, це означає, що ви буквально за лічені секунди від своєї першої JavaScript-програми."
           ]
         }
-      ]
+      ],
+      "user": {
+        "id": "1",
+        "username": "admin",
+        "password": "111",
+        "jsonSettings": {
+          "theme": "app_dark_theme",
+          "isArticlesPageWasOpened": true
+        },
+        "features": {
+          "isAppRedesigned": false
+        },
+        "roles": [
+          "ADMIN"
+        ],
+        "avatar": "https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-blue-tie-and-beard-face-png-image_5809515.png"
+      }
     },
     {
       "id": "5",
       "title": "C news",
       "subtitle": "Що нового за 2023 рік?",
       "img": "https://prutor.ai/wp-content/uploads/c-programming-2.jpg",
-      "views": 853888,
+      "views": 853889,
       "createdAt": 1690198991775,
       "userId": "1",
       "type": [
@@ -554,7 +610,23 @@
             "JavaScript - це мова, програми на якій можна виконувати в різних середовищах. У нашому випадку йдеться про браузери та про серверну платформу Node.js. Якщо досі ви не написали жодного рядка коду на JS і читаєте цей текст у браузері, на настільному комп'ютері, це означає, що ви буквально за лічені секунди від своєї першої JavaScript-програми."
           ]
         }
-      ]
+      ],
+      "user": {
+        "id": "1",
+        "username": "admin",
+        "password": "111",
+        "jsonSettings": {
+          "theme": "app_dark_theme",
+          "isArticlesPageWasOpened": true
+        },
+        "features": {
+          "isAppRedesigned": false
+        },
+        "roles": [
+          "ADMIN"
+        ],
+        "avatar": "https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-blue-tie-and-beard-face-png-image_5809515.png"
+      }
     },
     {
       "id": "6",
@@ -2740,6 +2812,13 @@
       "rate": 2,
       "feedback": "",
       "id": "bLfokHk"
+    },
+    {
+      "userId": "2",
+      "articleId": "1",
+      "rate": 5,
+      "feedback": "Nice article!",
+      "id": "zeW8038"
     }
   ],
   "profile-ratings": [
