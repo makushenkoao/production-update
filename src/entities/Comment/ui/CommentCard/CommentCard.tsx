@@ -19,6 +19,7 @@ import { addCommentForArticle } from '@/pages/ArticleDetailsPage';
 import LikeIcon from '@/shared/assets/icons/like.svg';
 import ReplyIcon from '@/shared/assets/icons/reply.svg';
 import cls from './CommentCard.module.scss';
+import { getArticleDetailsData } from '@/entities/Article';
 
 interface CommentCardProps {
     className?: string;
@@ -33,6 +34,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
     const [isReplying, setIsReplying] = useState(false);
     const [replyText, setReplyText] = useState('');
     const authData = useSelector(getUserAuthData);
+    const article = useSelector(getArticleDetailsData);
     const dispatch = useAppDispatch();
 
     const onSubmit = useCallback(
@@ -129,7 +131,11 @@ export const CommentCard = memo((props: CommentCardProps) => {
                                 />
                             ) : null}
                             <Text
-                                text={comment.user.username}
+                                text={
+                                    comment.user.id === article?.id
+                                        ? `${comment.user.username} - автор статті`
+                                        : comment.user.username
+                                }
                                 bold
                             />
                         </HStack>
