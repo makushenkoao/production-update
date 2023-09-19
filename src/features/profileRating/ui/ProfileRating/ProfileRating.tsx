@@ -10,6 +10,8 @@ import {
 } from '../../api/profileRatingApi';
 import { getUserAuthData } from '@/entities/User';
 import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
+import { sendNotification } from '@/entities/Notification';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 export interface ProfileRatingProps {
     className?: string;
@@ -20,6 +22,7 @@ const ProfileRating = (props: ProfileRatingProps) => {
     const { t } = useTranslation();
     const userData = useSelector(getUserAuthData);
     const { id } = useParams<{ id: string }>();
+    const dispatch = useAppDispatch();
 
     const { isLoading, error, data } = useGetProfileRatingQuery({
         profileId: id,
@@ -47,17 +50,31 @@ const ProfileRating = (props: ProfileRatingProps) => {
     const onAccept = useCallback(
         (starsCount: number, feedback?: string) => {
             handleRateArticle(starsCount, feedback);
-            window.location.reload();
+            dispatch(
+                sendNotification({
+                    id: Date.now().toString(),
+                    title: `${userData?.username} оцінив ваш профіль на ${starsCount}/5`,
+                    description: feedback || '',
+                    userId: id,
+                }),
+            );
         },
-        [handleRateArticle],
+        [dispatch, handleRateArticle, id, userData?.username],
     );
 
     const onCancel = useCallback(
         (starsCount: number) => {
             handleRateArticle(starsCount);
-            window.location.reload();
+            dispatch(
+                sendNotification({
+                    id: Date.now().toString(),
+                    title: `${userData?.username} оцінив ваш профіль на ${starsCount}/5`,
+                    description: 'Користувач не надав Вам фідбеку',
+                    userId: id,
+                }),
+            );
         },
-        [handleRateArticle],
+        [dispatch, handleRateArticle, id, userData?.username],
     );
 
     const Skeleton = SkeletonRedesigned;

@@ -13,6 +13,12 @@
       "description": "На ваш профіль підписався user",
       "href": "/profile/2",
       "userId": "1"
+    },
+    {
+      "id": "1695148074829",
+      "title": "manager оцінив ваш профіль на 5/5",
+      "description": "Мені сподобалися твої статті!",
+      "userId": "2"
     }
   ],
   "profile": [
@@ -2738,74 +2744,11 @@
   ],
   "profile-ratings": [
     {
-      "userId": "1",
-      "profileId": "2",
-      "rate": 5,
-      "feedback": "nice profile!",
-      "id": 1
-    },
-    {
-      "userId": "2",
-      "profileId": "1",
-      "rate": 4,
-      "feedback": "good",
-      "id": 2
-    },
-    {
       "userId": "3",
-      "profileId": "1",
-      "rate": 5,
-      "feedback": "better profile",
-      "id": 3
-    },
-    {
-      "userId": "4",
-      "profileId": "1",
-      "rate": 4,
-      "feedback": "good",
-      "id": 4
-    },
-    {
-      "userId": "1",
-      "profileId": "4",
-      "rate": 4,
-      "feedback": "good",
-      "id": 5
-    },
-    {
-      "userId": "2",
-      "profileId": "4",
-      "rate": 1,
-      "feedback": "omg",
-      "id": 6
-    },
-    {
-      "userId": "1",
-      "profileId": "3",
-      "rate": 3,
-      "feedback": "sdf",
-      "id": 7
-    },
-    {
-      "userId": "1690123631680",
-      "profileId": "1690116539675",
-      "rate": 4,
-      "feedback": "000",
-      "id": 8
-    },
-    {
-      "userId": "1694609005326",
-      "profileId": "1",
-      "rate": 4,
-      "feedback": "GGGG",
-      "id": 9
-    },
-    {
-      "userId": "1694609005326",
       "profileId": "2",
-      "rate": 1,
-      "feedback": "",
-      "id": 10
+      "rate": 5,
+      "feedback": "Мені сподобалися твої статті!",
+      "id": 1
     }
   ],
   "messages": [
