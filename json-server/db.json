@@ -35,13 +35,6 @@
       "userId": "1"
     },
     {
-      "id": "1695208796052",
-      "title": "admin відповів на ваш коментар",
-      "description": "213123",
-      "href": "/articles/1",
-      "userId": "1"
-    },
-    {
       "id": "1695209151782",
       "title": "Вашу статтю прокоментував user",
       "description": "COMMENT",
@@ -213,7 +206,7 @@
       "title": "Javascript news",
       "subtitle": "Що нового за 2023 рік?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1038,
+      "views": 1040,
       "createdAt": 433412341234,
       "userId": "1",
       "type": [
