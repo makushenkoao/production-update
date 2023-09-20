@@ -7,7 +7,7 @@ import { Text } from '@/shared/ui/redesigned/Text';
 import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
 import { AppLink } from '@/shared/ui/redesigned/AppLink';
 import { Comment } from '../../model/types/comment';
-import { getRouteProfile } from '@/shared/const/router';
+import { getRouteArticleDetails, getRouteProfile } from '@/shared/const/router';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { Icon } from '@/shared/ui/redesigned/Icon';
@@ -20,6 +20,7 @@ import LikeIcon from '@/shared/assets/icons/like.svg';
 import ReplyIcon from '@/shared/assets/icons/reply.svg';
 import cls from './CommentCard.module.scss';
 import { getArticleDetailsData } from '@/entities/Article';
+import { sendNotification } from '@/entities/Notification';
 
 interface CommentCardProps {
     className?: string;
@@ -40,15 +41,6 @@ export const CommentCard = memo((props: CommentCardProps) => {
     const onSubmit = useCallback(
         (e: FormEvent<HTMLFormElement>) => {
             e.preventDefault();
-            // // @ts-ignore
-            // const replyComment: Comment = {
-            //     id: 'your-generated-id',
-            //     articleId: comment?.articleId,
-            //     userId: authData?.id,
-            //     likes: [],
-            //     text: replyText,
-            //     parentId: comment?.id,
-            // };
 
             dispatch(
                 addCommentForArticle({
@@ -57,10 +49,27 @@ export const CommentCard = memo((props: CommentCardProps) => {
                 }),
             );
 
+            dispatch(
+                sendNotification({
+                    id: Date.now().toString(),
+                    title: `${comment?.user.username} відповів на ваш коментар`,
+                    description: replyText,
+                    href: getRouteArticleDetails(article?.id || ''),
+                    userId: comment?.userId || '',
+                }),
+            );
+
             setReplyText('');
             setIsReplying(false);
         },
-        [comment?.id, dispatch, replyText],
+        [
+            article?.id,
+            comment?.id,
+            comment?.user.username,
+            comment?.userId,
+            dispatch,
+            replyText,
+        ],
     );
 
     const toggleReply = useCallback(() => {

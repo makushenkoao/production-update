@@ -21,6 +21,10 @@ import {
     getAddCommentFormIsLoading,
 } from '../../model/selectors/addCommentsFormSelectors';
 import { HStack } from '@/shared/ui/redesigned/Stack';
+import { sendNotification } from '@/entities/Notification';
+import { getRouteArticleDetails } from '@/shared/const/router';
+import { getArticleDetailsData } from '@/entities/Article';
+import { getUserAuthData } from '@/entities/User';
 
 const reducers: ReducersList = {
     addCommentForm: addCommentFormReducer,
@@ -39,6 +43,8 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
     const error = useSelector(getAddCommentFormError);
     const isLoading = useSelector(getAddCommentFormIsLoading);
     const dispatch = useAppDispatch();
+    const article = useSelector(getArticleDetailsData);
+    const authData = useSelector(getUserAuthData);
 
     const onCommentTextChange = useCallback(
         (v: string) => {
@@ -51,9 +57,27 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
         (e: FormEvent<HTMLFormElement>) => {
             e.preventDefault();
             onSendComment(text || '');
+            dispatch(
+                sendNotification({
+                    id: Date.now().toString(),
+                    title: `Вашу статтю "${article?.title}" прокоментував ${authData?.username}`,
+                    description: text,
+                    href: getRouteArticleDetails(article?.id || ''),
+                    userId: article?.user.id,
+                }),
+            );
             onCommentTextChange('');
         },
-        [onCommentTextChange, onSendComment, text],
+        [
+            article?.id,
+            article?.title,
+            article?.user.id,
+            authData?.username,
+            dispatch,
+            onCommentTextChange,
+            onSendComment,
+            text,
+        ],
     );
 
     return (
