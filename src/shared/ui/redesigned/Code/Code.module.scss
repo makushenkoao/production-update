@@ -24,3 +24,14 @@
 .copyIcon path {
     stroke: var(--primary-color);
 }
+
+.copiedMessage {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--dark-bg-redesigned);
+    border: 1px solid var(--accent-redesigned);
+    padding: 5px 10px;
+    border-radius: 12px;
+}

@@ -40,6 +40,20 @@
       "description": "COMMENT",
       "href": "/articles/1",
       "userId": "1"
+    },
+    {
+      "id": "1695250847267",
+      "title": "user відповів на ваш коментар",
+      "description": "",
+      "href": "/articles/1",
+      "userId": "2"
+    },
+    {
+      "id": "1695251050549",
+      "title": "Ваш коментарій оцінив admin",
+      "description": "213123",
+      "href": "/articles/1",
+      "userId": "1"
     }
   ],
   "profile": [
@@ -206,7 +220,7 @@
       "title": "Javascript news",
       "subtitle": "Що нового за 2023 рік?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1040,
+      "views": 1046,
       "createdAt": 433412341234,
       "userId": "1",
       "type": [
@@ -294,7 +308,7 @@
       "title": "Python news",
       "subtitle": "Що нового за 2023 рік?",
       "img": "https://miro.medium.com/v2/resize:fit:1400/1*m0H6-tUbW6grMlezlb52yw.png",
-      "views": 2,
+      "views": 4,
       "createdAt": 1690198991775,
       "userId": "2",
       "type": [
@@ -2597,9 +2611,7 @@
     {
       "articleId": "1",
       "userId": "1",
-      "likes": [
-        "1"
-      ],
+      "likes": [],
       "text": "213123",
       "parentId": 11,
       "id": 12,
