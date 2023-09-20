@@ -20,7 +20,7 @@ export const Code = memo((props: CodeProps) => {
             setIsCopied(true);
             setTimeout(() => {
                 setIsCopied(false);
-            }, 2000); // Устанавливаем таймер на 2 секунды (2000 миллисекунд)
+            }, 2000);
         });
     }, [text]);
 
