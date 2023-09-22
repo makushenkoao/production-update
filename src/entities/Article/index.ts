@@ -18,3 +18,4 @@ export { useGetArticlesQuery } from './api/article';
 export { articleDetailsReducer } from './model/slice/articleDetailsSlice';
 export { fetchArticleById } from './model/services/fetchArticleById/fetchArticleById';
 export { updateArticleDetails } from './model/services/updateArticleDetails/updateArticleDetails';
+export { deleteArticle } from './model/services/deleteArticle/deleteArticle';

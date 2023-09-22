@@ -1,6 +1,7 @@
-import { memo } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { User } from '@/entities/User';
+import { useSelector } from 'react-redux';
+import { getUserAuthData, User } from '@/entities/User';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Avatar } from '@/shared/ui/redesigned/Avatar';
 import { Text } from '@/shared/ui/redesigned/Text';
@@ -8,6 +9,7 @@ import { Button } from '@/shared/ui/redesigned/Button';
 import { formatDate } from '@/shared/lib/utils/formatDate/formatDate';
 import { getRouteProfile } from '@/shared/const/router';
 import { AppLink } from '@/shared/ui/redesigned/AppLink';
+import { Modal } from '@/shared/ui/redesigned/Modal';
 
 interface ArticleAdditionalInfoProps {
     className?: string;
@@ -15,12 +17,23 @@ interface ArticleAdditionalInfoProps {
     createdAt: number;
     views: number;
     onEdit: () => void;
+    onDelete: () => void;
 }
 
 export const ArticleAdditionalInfo = memo(
     (props: ArticleAdditionalInfoProps) => {
-        const { className, author, createdAt, views, onEdit } = props;
+        const { className, author, createdAt, views, onEdit, onDelete } = props;
         const { t } = useTranslation();
+        const [isOpen, setIsOpen] = useState(false);
+        const authData = useSelector(getUserAuthData);
+
+        const onOpen = useCallback(() => {
+            setIsOpen(true);
+        }, []);
+
+        const onClose = useCallback(() => {
+            setIsOpen(false);
+        }, []);
 
         return (
             <VStack
@@ -44,8 +57,47 @@ export const ArticleAdditionalInfo = memo(
                         <Text text={formatDate(createdAt)} />
                     </HStack>
                 </AppLink>
-                <Button onClick={onEdit}>{t('Редагувати')}</Button>
+                {author.id === authData?.id && (
+                    <VStack
+                        max
+                        gap="16"
+                    >
+                        <Button
+                            fullWidth
+                            onClick={onEdit}
+                        >
+                            {t('Редагувати')}
+                        </Button>
+                        <Button
+                            variant="filled"
+                            fullWidth
+                            onClick={onOpen}
+                        >
+                            {t('Видалити')}
+                        </Button>
+                    </VStack>
+                )}
                 <Text text={t('{{count}} переглядів', { count: views })} />
+
+                <Modal
+                    isOpen={isOpen}
+                    onClose={onClose}
+                >
+                    <VStack
+                        max
+                        gap="16"
+                    >
+                        <Text title={t('Ви точно хочете видалити статтю?')} />
+                        <HStack
+                            max
+                            gap="16"
+                            justify="end"
+                        >
+                            <Button onClick={onClose}>{t('Ні')}</Button>
+                            <Button onClick={onDelete} color="error">{t('Так')}</Button>
+                        </HStack>
+                    </VStack>
+                </Modal>
             </VStack>
         );
     },

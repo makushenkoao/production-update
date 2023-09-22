@@ -47,6 +47,11 @@
     &.error {
         background: var(--cancel-redesigned);
     }
+
+    &:hover {
+        opacity: 0.8;
+        color: var(--text-redesigned);
+    }
 }
 
 .outline {
@@ -118,6 +123,8 @@
 
 .fullWidth {
     width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .addonLeft,
