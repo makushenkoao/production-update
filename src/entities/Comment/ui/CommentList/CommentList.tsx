@@ -12,10 +12,12 @@ interface CommentListProps {
     comments?: Comment[];
     isLoading?: boolean;
     onLikeClick?: (comment?: Comment) => void;
+    onDeleteClick?: (id?: string) => void;
 }
 
 export const CommentList = memo((props: CommentListProps) => {
-    const { className, comments, isLoading, onLikeClick } = props;
+    const { className, comments, isLoading, onLikeClick, onDeleteClick } =
+        props;
     const { t } = useTranslation();
 
     if (isLoading) {
@@ -49,6 +51,7 @@ export const CommentList = memo((props: CommentListProps) => {
                         comment={comment}
                         isLoading={isLoading}
                         onLikeClick={onLikeClick}
+                        onDeleteClick={onDeleteClick}
                     />
                     {renderComments(comment.id)}
                 </VStack>

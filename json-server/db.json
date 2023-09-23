@@ -54,6 +54,167 @@
       "description": "213123",
       "href": "/articles/1",
       "userId": "1"
+    },
+    {
+      "id": "1695471943627",
+      "title": "Вашу статтю \"Javascript news\" прокоментував admin",
+      "description": "",
+      "href": "/articles/1",
+      "userId": "1"
+    },
+    {
+      "id": "1695472121012",
+      "title": "Вашу статтю \"Javascript news\" прокоментував admin",
+      "description": "1",
+      "href": "/articles/1",
+      "userId": "1"
+    },
+    {
+      "id": "1695472127095",
+      "title": "admin відповів на ваш коментар",
+      "description": "2",
+      "href": "/articles/1",
+      "userId": "1"
+    },
+    {
+      "id": "1695472131472",
+      "title": "admin відповів на ваш коментар",
+      "description": "3",
+      "href": "/articles/1",
+      "userId": "1"
+    },
+    {
+      "id": "1695472136029",
+      "title": "admin відповів на ваш коментар",
+      "description": "4",
+      "href": "/articles/1",
+      "userId": "1"
+    },
+    {
+      "id": "1695472149911",
+      "title": "admin відповів на ваш коментар",
+      "description": "5",
+      "href": "/articles/1",
+      "userId": "1"
+    },
+    {
+      "id": "1695472307075",
+      "title": "Вашу статтю \"Javascript news\" прокоментував admin",
+      "description": "1",
+      "href": "/articles/1",
+      "userId": "1"
+    },
+    {
+      "id": "1695472311485",
+      "title": "admin відповів на ваш коментар",
+      "description": "2",
+      "href": "/articles/1",
+      "userId": "1"
+    },
+    {
+      "id": "1695472316041",
+      "title": "admin відповів на ваш коментар",
+      "description": "3",
+      "href": "/articles/1",
+      "userId": "1"
+    },
+    {
+      "id": "1695472321351",
+      "title": "admin відповів на ваш коментар",
+      "description": "4",
+      "href": "/articles/1",
+      "userId": "1"
+    },
+    {
+      "id": "1695472325187",
+      "title": "admin відповів на ваш коментар",
+      "description": "5",
+      "href": "/articles/1",
+      "userId": "1"
+    },
+    {
+      "id": "1695488453595",
+      "title": "admin відповів на ваш коментар",
+      "description": "2",
+      "href": "/articles/1",
+      "userId": "1"
+    },
+    {
+      "id": "1695488457516",
+      "title": "admin відповів на ваш коментар",
+      "description": "3",
+      "href": "/articles/1",
+      "userId": "1"
+    },
+    {
+      "id": "1695488493533",
+      "title": "Вашу статтю \"Javascript news\" прокоментував admin",
+      "description": "1",
+      "href": "/articles/1",
+      "userId": "1"
+    },
+    {
+      "id": "1695488498694",
+      "title": "admin відповів на ваш коментар",
+      "description": "2",
+      "href": "/articles/1",
+      "userId": "1"
+    },
+    {
+      "id": "1695488502644",
+      "title": "admin відповів на ваш коментар",
+      "description": "3",
+      "href": "/articles/1",
+      "userId": "1"
+    },
+    {
+      "id": "1695488507233",
+      "title": "admin відповів на ваш коментар",
+      "description": "4",
+      "href": "/articles/1",
+      "userId": "1"
+    },
+    {
+      "id": "1695488837208",
+      "title": "Вашу статтю \"Javascript news\" прокоментував admin",
+      "description": "1",
+      "href": "/articles/1",
+      "userId": "1"
+    },
+    {
+      "id": "1695488841898",
+      "title": "admin відповів на ваш коментар",
+      "description": "2",
+      "href": "/articles/1",
+      "userId": "1"
+    },
+    {
+      "id": "1695488845986",
+      "title": "admin відповів на ваш коментар",
+      "description": "3",
+      "href": "/articles/1",
+      "userId": "1"
+    },
+    {
+      "id": "1695488911968",
+      "title": "admin відповів на ваш коментар",
+      "description": "4",
+      "href": "/articles/1",
+      "userId": "1"
+    },
+    {
+      "id": "1695488915300",
+      "title": "Вашу статтю \"Javascript news\" прокоментував user",
+      "description": "5",
+      "href": "/articles/1",
+      "userId": "1"
+    },
+    {
+      "id": "1695488918971",
+      "title": "Вашу статтю \"Javascript news\" прокоментував admin",
+      "description": "6\\",
+      "href": "/articles/1",
+      "userId": "1"
     }
   ],
   "profile": [
@@ -220,7 +381,7 @@
       "title": "Javascript news",
       "subtitle": "Що нового за 2023 рік?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1052,
+      "views": 1061,
       "createdAt": 433412341234,
       "userId": "1",
       "type": [
@@ -308,7 +469,7 @@
       "title": "Python news",
       "subtitle": "Що нового за 2023 рік?",
       "img": "https://miro.medium.com/v2/resize:fit:1400/1*m0H6-tUbW6grMlezlb52yw.png",
-      "views": 8,
+      "views": 9,
       "createdAt": 1690198991775,
       "userId": "2",
       "type": [
@@ -2432,184 +2593,7 @@
       }
     }
   ],
-  "comments": [
-    {
-      "articleId": "1",
-      "userId": "1",
-      "likes": [
-        "2"
-      ],
-      "text": "first parent comment",
-      "id": 1,
-      "user": {
-        "id": "1",
-        "username": "admin",
-        "password": "111",
-        "jsonSettings": {
-          "theme": "app_dark_theme",
-          "isArticlesPageWasOpened": true
-        },
-        "features": {
-          "isAppRedesigned": false
-        },
-        "roles": [
-          "ADMIN"
-        ],
-        "avatar": "https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-blue-tie-and-beard-face-png-image_5809515.png"
-      }
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "likes": [],
-      "text": "asdfasdf",
-      "id": 2
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "likes": [],
-      "text": "first child 1 comment",
-      "parentId": 1,
-      "id": 3
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "likes": [],
-      "text": "first child-child 1 comment",
-      "parentId": 3,
-      "id": 4
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "likes": [],
-      "text": "second child 2 comment",
-      "parentId": 1,
-      "id": 5
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "likes": [],
-      "text": "test",
-      "parentId": "1",
-      "id": 6
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "likes": [],
-      "text": "11111",
-      "parentId": null,
-      "id": 7
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "likes": [],
-      "text": "canada",
-      "id": 8
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "likes": [],
-      "text": "canada child 1",
-      "parentId": 8,
-      "id": 9
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "likes": [],
-      "text": "3232323",
-      "parentId": 2,
-      "id": 10
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "likes": [],
-      "text": "fsdf",
-      "parentId": 9,
-      "id": 11
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "likes": [],
-      "text": "213123",
-      "parentId": 11,
-      "id": 12,
-      "user": {
-        "id": "1",
-        "username": "admin",
-        "password": "111",
-        "jsonSettings": {
-          "theme": "app_dark_theme",
-          "isArticlesPageWasOpened": true
-        },
-        "features": {
-          "isAppRedesigned": false
-        },
-        "roles": [
-          "ADMIN"
-        ],
-        "avatar": "https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-blue-tie-and-beard-face-png-image_5809515.png"
-      }
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "likes": [
-        "1"
-      ],
-      "text": "canada child child 1",
-      "parentId": 9,
-      "id": 13,
-      "user": {
-        "id": "1",
-        "username": "admin",
-        "password": "111",
-        "jsonSettings": {
-          "theme": "app_dark_theme",
-          "isArticlesPageWasOpened": true
-        },
-        "features": {
-          "isAppRedesigned": false
-        },
-        "roles": [
-          "ADMIN"
-        ],
-        "avatar": "https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-blue-tie-and-beard-face-png-image_5809515.png"
-      }
-    },
-    {
-      "articleId": "1",
-      "userId": "2",
-      "likes": [],
-      "text": "test comment",
-      "parentId": 3,
-      "id": 14
-    },
-    {
-      "articleId": "1",
-      "userId": "2",
-      "likes": [],
-      "text": "reply comment",
-      "parentId": 12,
-      "id": 15
-    },
-    {
-      "articleId": "1",
-      "userId": "2",
-      "likes": [],
-      "text": "COMMENT",
-      "id": 16
-    }
-  ],
+  "comments": [],
   "users": [
     {
       "id": "1",

@@ -21,6 +21,7 @@ import { sendNotification } from '@/entities/Notification';
 import { getRouteArticleDetails } from '@/shared/const/router';
 import { getUserAuthData } from '@/entities/User';
 import { getArticleDetailsData } from '@/entities/Article';
+import { deleteComment } from '../../model/services/deleteComment/deleteComment';
 
 interface ArticleDetailsCommentsProps {
     className?: string;
@@ -62,6 +63,13 @@ export const ArticleDetailsComments = memo(
             [dispatch],
         );
 
+        const onDeleteClick = useCallback(
+            (id?: string) => {
+                dispatch(deleteComment(id));
+            },
+            [dispatch],
+        );
+
         useInitialEffect(() => {
             dispatch(fetchCommentsByArticleId(id));
         });
@@ -89,6 +97,7 @@ export const ArticleDetailsComments = memo(
                     comments={comments}
                     isLoading={isLoading}
                     onLikeClick={onLikeClick}
+                    onDeleteClick={onDeleteClick}
                 />
             </VStack>
         );

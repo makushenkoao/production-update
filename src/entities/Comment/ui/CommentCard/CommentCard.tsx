@@ -18,6 +18,7 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { addCommentForArticle } from '@/pages/ArticleDetailsPage';
 import LikeIcon from '@/shared/assets/icons/like.svg';
 import ReplyIcon from '@/shared/assets/icons/reply.svg';
+import DeleteIcon from '@/shared/assets/icons/delete.svg';
 import cls from './CommentCard.module.scss';
 import { getArticleDetailsData } from '@/entities/Article';
 import { sendNotification } from '@/entities/Notification';
@@ -27,10 +28,11 @@ interface CommentCardProps {
     comment?: Comment;
     isLoading?: boolean;
     onLikeClick?: (comment?: Comment) => void;
+    onDeleteClick?: (id?: string) => void;
 }
 
 export const CommentCard = memo((props: CommentCardProps) => {
-    const { className, comment, isLoading, onLikeClick } = props;
+    const { className, comment, isLoading, onLikeClick, onDeleteClick } = props;
     const { t } = useTranslation();
     const [isReplying, setIsReplying] = useState(false);
     const [replyText, setReplyText] = useState('');
@@ -85,6 +87,10 @@ export const CommentCard = memo((props: CommentCardProps) => {
     const onClick = useCallback(() => {
         onLikeClick?.(comment);
     }, [comment, onLikeClick]);
+
+    const onDelete = useCallback(() => {
+        onDeleteClick?.(comment?.id);
+    }, [comment?.id, onDeleteClick]);
 
     if (isLoading) {
         return (
@@ -183,17 +189,26 @@ export const CommentCard = memo((props: CommentCardProps) => {
                         </form>
                     )}
                 </VStack>
-                <VStack align="center">
-                    <Icon
-                        svg={LikeIcon}
-                        clickable
-                        onClick={onClick}
-                    />
-                    <Text
-                        text={String(comment?.likes.length)}
-                        size="s"
-                    />
-                </VStack>
+                <HStack gap="16">
+                    <VStack align="center">
+                        <Icon
+                            svg={LikeIcon}
+                            clickable
+                            onClick={onClick}
+                        />
+                        <Text
+                            text={String(comment?.likes.length)}
+                            size="s"
+                        />
+                    </VStack>
+                    {comment.user.id === authData?.id && (
+                        <Icon
+                            svg={DeleteIcon}
+                            clickable
+                            onClick={onDelete}
+                        />
+                    )}
+                </HStack>
             </HStack>
         </Card>
     );
