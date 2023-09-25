@@ -26,195 +26,6 @@
       "description": "Nice article!",
       "href": "/articles/1",
       "userId": "1"
-    },
-    {
-      "id": "1695167735148",
-      "title": "Ваш коментарій оцінив user",
-      "description": "first parent comment",
-      "href": "/articles/1",
-      "userId": "1"
-    },
-    {
-      "id": "1695209151782",
-      "title": "Вашу статтю прокоментував user",
-      "description": "COMMENT",
-      "href": "/articles/1",
-      "userId": "1"
-    },
-    {
-      "id": "1695250847267",
-      "title": "user відповів на ваш коментар",
-      "description": "",
-      "href": "/articles/1",
-      "userId": "2"
-    },
-    {
-      "id": "1695251050549",
-      "title": "Ваш коментарій оцінив admin",
-      "description": "213123",
-      "href": "/articles/1",
-      "userId": "1"
-    },
-    {
-      "id": "1695471943627",
-      "title": "Вашу статтю \"Javascript news\" прокоментував admin",
-      "description": "",
-      "href": "/articles/1",
-      "userId": "1"
-    },
-    {
-      "id": "1695472121012",
-      "title": "Вашу статтю \"Javascript news\" прокоментував admin",
-      "description": "1",
-      "href": "/articles/1",
-      "userId": "1"
-    },
-    {
-      "id": "1695472127095",
-      "title": "admin відповів на ваш коментар",
-      "description": "2",
-      "href": "/articles/1",
-      "userId": "1"
-    },
-    {
-      "id": "1695472131472",
-      "title": "admin відповів на ваш коментар",
-      "description": "3",
-      "href": "/articles/1",
-      "userId": "1"
-    },
-    {
-      "id": "1695472136029",
-      "title": "admin відповів на ваш коментар",
-      "description": "4",
-      "href": "/articles/1",
-      "userId": "1"
-    },
-    {
-      "id": "1695472149911",
-      "title": "admin відповів на ваш коментар",
-      "description": "5",
-      "href": "/articles/1",
-      "userId": "1"
-    },
-    {
-      "id": "1695472307075",
-      "title": "Вашу статтю \"Javascript news\" прокоментував admin",
-      "description": "1",
-      "href": "/articles/1",
-      "userId": "1"
-    },
-    {
-      "id": "1695472311485",
-      "title": "admin відповів на ваш коментар",
-      "description": "2",
-      "href": "/articles/1",
-      "userId": "1"
-    },
-    {
-      "id": "1695472316041",
-      "title": "admin відповів на ваш коментар",
-      "description": "3",
-      "href": "/articles/1",
-      "userId": "1"
-    },
-    {
-      "id": "1695472321351",
-      "title": "admin відповів на ваш коментар",
-      "description": "4",
-      "href": "/articles/1",
-      "userId": "1"
-    },
-    {
-      "id": "1695472325187",
-      "title": "admin відповів на ваш коментар",
-      "description": "5",
-      "href": "/articles/1",
-      "userId": "1"
-    },
-    {
-      "id": "1695488453595",
-      "title": "admin відповів на ваш коментар",
-      "description": "2",
-      "href": "/articles/1",
-      "userId": "1"
-    },
-    {
-      "id": "1695488457516",
-      "title": "admin відповів на ваш коментар",
-      "description": "3",
-      "href": "/articles/1",
-      "userId": "1"
-    },
-    {
-      "id": "1695488493533",
-      "title": "Вашу статтю \"Javascript news\" прокоментував admin",
-      "description": "1",
-      "href": "/articles/1",
-      "userId": "1"
-    },
-    {
-      "id": "1695488498694",
-      "title": "admin відповів на ваш коментар",
-      "description": "2",
-      "href": "/articles/1",
-      "userId": "1"
-    },
-    {
-      "id": "1695488502644",
-      "title": "admin відповів на ваш коментар",
-      "description": "3",
-      "href": "/articles/1",
-      "userId": "1"
-    },
-    {
-      "id": "1695488507233",
-      "title": "admin відповів на ваш коментар",
-      "description": "4",
-      "href": "/articles/1",
-      "userId": "1"
-    },
-    {
-      "id": "1695488837208",
-      "title": "Вашу статтю \"Javascript news\" прокоментував admin",
-      "description": "1",
-      "href": "/articles/1",
-      "userId": "1"
-    },
-    {
-      "id": "1695488841898",
-      "title": "admin відповів на ваш коментар",
-      "description": "2",
-      "href": "/articles/1",
-      "userId": "1"
-    },
-    {
-      "id": "1695488845986",
-      "title": "admin відповів на ваш коментар",
-      "description": "3",
-      "href": "/articles/1",
-      "userId": "1"
-    },
-    {
-      "id": "1695488911968",
-      "title": "admin відповів на ваш коментар",
-      "description": "4",
-      "href": "/articles/1",
-      "userId": "1"
-    },
-    {
-      "id": "1695488915300",
-      "title": "Вашу статтю \"Javascript news\" прокоментував user",
-      "description": "5",
-      "href": "/articles/1",
-      "userId": "1"
-    },
-    {
-      "id": "1695488918971",
-      "title": "Вашу статтю \"Javascript news\" прокоментував admin",
-      "description": "6\\",
-      "href": "/articles/1",
-      "userId": "1"
     }
   ],
   "profile": [
@@ -233,6 +44,10 @@
       ],
       "following": [
         "2"
+      ],
+      "saved": [
+        "3",
+        "2"
       ]
     },
     {
@@ -250,7 +65,8 @@
       ],
       "following": [
         "1"
-      ]
+      ],
+      "saved": []
     },
     {
       "id": "3",
@@ -265,7 +81,8 @@
       "followers": [],
       "following": [
         "2"
-      ]
+      ],
+      "saved": []
     },
     {
       "id": "4",
@@ -278,7 +95,8 @@
       "username": "testuser",
       "avatar": "https://www.shareicon.net/data/512x512/2016/09/01/822726_user_512x512.png",
       "followers": [],
-      "following": []
+      "following": [],
+      "saved": []
     },
     {
       "id": "1690116539675",
@@ -291,7 +109,8 @@
       "currency": "EUR",
       "country": "USA",
       "followers": [],
-      "following": []
+      "following": [],
+      "saved": []
     },
     {
       "id": "1690122879171",
@@ -299,7 +118,8 @@
       "firstname": "df",
       "lastname": "fas",
       "followers": [],
-      "following": []
+      "following": [],
+      "saved": []
     },
     {
       "id": "1690123631680",
@@ -309,7 +129,8 @@
       "currency": "USD",
       "age": 23,
       "followers": [],
-      "following": []
+      "following": [],
+      "saved": []
     },
     {
       "id": "1694606431960",
@@ -317,7 +138,8 @@
       "firstname": "",
       "lastname": "",
       "followers": [],
-      "following": []
+      "following": [],
+      "saved": []
     },
     {
       "id": "1694607290876",
@@ -325,7 +147,8 @@
       "firstname": "barsik",
       "lastname": "barsik",
       "followers": [],
-      "following": []
+      "following": [],
+      "saved": []
     },
     {
       "id": "1694607342533",
@@ -333,7 +156,8 @@
       "firstname": "aaa",
       "lastname": "aaa",
       "followers": [],
-      "following": []
+      "following": [],
+      "saved": []
     },
     {
       "id": "1694609005326",
@@ -348,7 +172,8 @@
       ],
       "city": "Cherkasy",
       "currency": "UAH",
-      "country": "Ukraine"
+      "country": "Ukraine",
+      "saved": []
     },
     {
       "id": "1694873514328",
@@ -356,7 +181,8 @@
       "firstname": "reg",
       "lastname": "reg",
       "following": [],
-      "followers": []
+      "followers": [],
+      "saved": []
     },
     {
       "id": "1694875239677",
@@ -364,7 +190,8 @@
       "firstname": "fasdf",
       "lastname": "fasdf",
       "following": [],
-      "followers": []
+      "followers": [],
+      "saved": []
     },
     {
       "id": "1694875293753",
@@ -372,7 +199,8 @@
       "firstname": "fasd",
       "lastname": "fasdf",
       "following": [],
-      "followers": []
+      "followers": [],
+      "saved": []
     }
   ],
   "articles": [
@@ -381,7 +209,7 @@
       "title": "Javascript news",
       "subtitle": "Що нового за 2023 рік?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1061,
+      "views": 1102,
       "createdAt": 433412341234,
       "userId": "1",
       "type": [
@@ -469,7 +297,7 @@
       "title": "Python news",
       "subtitle": "Що нового за 2023 рік?",
       "img": "https://miro.medium.com/v2/resize:fit:1400/1*m0H6-tUbW6grMlezlb52yw.png",
-      "views": 9,
+      "views": 36,
       "createdAt": 1690198991775,
       "userId": "2",
       "type": [
@@ -2593,7 +2421,85 @@
       }
     }
   ],
-  "comments": [],
+  "comments": [
+    {
+      "articleId": "1",
+      "userId": "1",
+      "likes": [],
+      "text": "1",
+      "id": 1,
+      "user": {
+        "id": "1",
+        "username": "admin",
+        "password": "111",
+        "jsonSettings": {
+          "theme": "app_dark_theme",
+          "isArticlesPageWasOpened": true
+        },
+        "features": {
+          "isAppRedesigned": false
+        },
+        "roles": [
+          "ADMIN"
+        ],
+        "avatar": "https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-blue-tie-and-beard-face-png-image_5809515.png"
+      }
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "likes": [],
+      "text": "2",
+      "parentId": 1,
+      "id": 2,
+      "user": {
+        "id": "1",
+        "username": "admin",
+        "password": "111",
+        "jsonSettings": {
+          "theme": "app_dark_theme",
+          "isArticlesPageWasOpened": true
+        },
+        "features": {
+          "isAppRedesigned": false
+        },
+        "roles": [
+          "ADMIN"
+        ],
+        "avatar": "https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-blue-tie-and-beard-face-png-image_5809515.png"
+      }
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "likes": [],
+      "text": "4",
+      "parentId": 3,
+      "id": 4
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "likes": [],
+      "text": "5",
+      "parentId": 4,
+      "id": 5
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "likes": [],
+      "text": "6",
+      "id": 6
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "likes": [],
+      "text": "7",
+      "id": 7
+    }
+  ],
   "users": [
     {
       "id": "1",

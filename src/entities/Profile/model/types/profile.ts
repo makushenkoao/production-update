@@ -14,4 +14,5 @@ export interface Profile {
     rate?: number;
     followers?: string[];
     following?: string[];
+    saved?: string[];
 }

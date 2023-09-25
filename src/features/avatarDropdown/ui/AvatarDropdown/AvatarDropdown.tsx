@@ -14,6 +14,7 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import {
     getRouteAdmin,
     getRouteProfile,
+    getRouteSavedArticles,
     getRouteSettings,
 } from '@/shared/const/router';
 import { Dropdown } from '@/shared/ui/redesigned/Popups';
@@ -54,6 +55,10 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
         {
             content: t('Профіль'),
             href: getRouteProfile(userAuthData.id),
+        },
+        {
+            content: t('Збережені'),
+            href: getRouteSavedArticles(userAuthData.id),
         },
         {
             content: t('Налаштування'),

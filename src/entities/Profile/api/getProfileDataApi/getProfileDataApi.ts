@@ -1,5 +1,5 @@
 import { rtkApi } from '@/shared/api/rtkApi';
-import { Profile } from '@/entities/Profile';
+import { Profile } from '../../model/types/profile';
 
 export const getProfileDataApi = rtkApi.injectEndpoints({
     endpoints: (build) => ({

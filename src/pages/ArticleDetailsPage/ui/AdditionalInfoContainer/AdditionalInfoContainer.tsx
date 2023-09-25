@@ -1,17 +1,32 @@
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { ArticleAdditionalInfo } from '@/widgets/ArticleAdditionalInfo';
-import { getArticleDetailsData, deleteArticle } from '@/entities/Article';
+import { deleteArticle, getArticleDetailsData } from '@/entities/Article';
 import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import cls from './AdditionalInfoContainer.module.scss';
+import { saveArticle } from '@/pages/SavedArticles';
+import { getUserAuthData } from '@/entities/User';
+import { useGetProfileDataQuery } from '@/entities/Profile';
 
 export const AdditionalInfoContainer = memo(() => {
     const article = useSelector(getArticleDetailsData);
     const dispatch = useAppDispatch();
+    const authData = useSelector(getUserAuthData);
     const navigate = useNavigate();
+    const {
+        data: profile,
+        refetch,
+        isLoading: isProfileLoading,
+    } = useGetProfileDataQuery(authData?.id);
+    const [isSaved, setIsSaved] = useState<boolean>(false);
+    const [isLoading, setIsLoading] = useState(false);
+
+    useEffect(() => {
+        setIsSaved(Boolean(profile?.saved?.includes(article?.id || '')));
+    }, [article?.id, profile?.saved]);
 
     const onEditArticle = useCallback(() => {
         if (article) {
@@ -25,6 +40,22 @@ export const AdditionalInfoContainer = memo(() => {
             navigate(getRouteArticles());
         }
     }, [article, dispatch, navigate]);
+
+    const onSave = useCallback(() => {
+        setIsLoading(true);
+        dispatch(
+            saveArticle({
+                article,
+                profile,
+            }),
+        )
+            .then(() => {
+                refetch();
+            })
+            .finally(() => {
+                setIsLoading(false);
+            });
+    }, [article, dispatch, profile, refetch]);
 
     if (!article) {
         return null;
@@ -42,6 +73,10 @@ export const AdditionalInfoContainer = memo(() => {
                 createdAt={article.createdAt}
                 views={article.views}
                 onDelete={onDelete}
+                onSave={onSave}
+                isSaved={isSaved}
+                isProfileLoading={isProfileLoading}
+                isLoading={isLoading}
             />
         </Card>
     );

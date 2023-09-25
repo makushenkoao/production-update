@@ -23,12 +23,14 @@ import {
     getRouteSearch,
     getRouteChats,
     getRouteChat,
+    getRouteSavedArticles,
 } from '@/shared/const/router';
 import { AppRoutesProps } from '@/shared/types/router';
 import { SettingsPage } from '@/pages/SettingsPage';
 import { SearchPage } from '@/pages/SearchPage';
 import { ChatsPage } from '@/pages/ChatsPage';
 import { ChatPage } from '@/pages/ChatPage';
+import { SavedArticles } from '@/pages/SavedArticles';
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.MAIN]: {
@@ -89,6 +91,10 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.FORBIDDEN]: {
         path: getRouteForbidden(),
         element: <ForbiddenPage />,
+    },
+    [AppRoutes.SAVED_ARTICLES]: {
+        path: getRouteSavedArticles(':id'),
+        element: <SavedArticles />,
     },
     [AppRoutes.NOT_FOUND]: {
         path: '*',

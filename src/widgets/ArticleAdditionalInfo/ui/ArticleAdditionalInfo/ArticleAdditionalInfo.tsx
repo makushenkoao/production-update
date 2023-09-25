@@ -10,6 +10,9 @@ import { formatDate } from '@/shared/lib/utils/formatDate/formatDate';
 import { getRouteProfile } from '@/shared/const/router';
 import { AppLink } from '@/shared/ui/redesigned/AppLink';
 import { Modal } from '@/shared/ui/redesigned/Modal';
+import SaveIcon from '@/shared/assets/icons/save.svg';
+import UnSaveIcon from '@/shared/assets/icons/unsave.svg';
+import cls from './ArticleAdditionalInfo.module.scss';
 
 interface ArticleAdditionalInfoProps {
     className?: string;
@@ -18,11 +21,26 @@ interface ArticleAdditionalInfoProps {
     views: number;
     onEdit: () => void;
     onDelete: () => void;
+    onSave: () => void;
+    isSaved?: boolean;
+    isProfileLoading?: boolean;
+    isLoading?: boolean;
 }
 
 export const ArticleAdditionalInfo = memo(
     (props: ArticleAdditionalInfoProps) => {
-        const { className, author, createdAt, views, onEdit, onDelete } = props;
+        const {
+            className,
+            author,
+            createdAt,
+            views,
+            onEdit,
+            onDelete,
+            onSave,
+            isProfileLoading,
+            isLoading,
+            isSaved,
+        } = props;
         const { t } = useTranslation();
         const [isOpen, setIsOpen] = useState(false);
         const authData = useSelector(getUserAuthData);
@@ -77,7 +95,32 @@ export const ArticleAdditionalInfo = memo(
                         </Button>
                     </VStack>
                 )}
-                <Text text={t('{{count}} переглядів', { count: views })} />
+                <HStack
+                    max
+                    justify="between"
+                >
+                    <Text text={t('{{count}} переглядів', { count: views })} />
+                    <Button
+                        variant="clear"
+                        disabled={isLoading || isProfileLoading}
+                    >
+                        {isSaved ? (
+                            <UnSaveIcon
+                                width={24}
+                                height={24}
+                                onClick={onSave}
+                                className={cls.icon}
+                            />
+                        ) : (
+                            <SaveIcon
+                                width={20}
+                                height={20}
+                                onClick={onSave}
+                                className={cls.icon}
+                            />
+                        )}
+                    </Button>
+                </HStack>
 
                 <Modal
                     isOpen={isOpen}
@@ -94,7 +137,12 @@ export const ArticleAdditionalInfo = memo(
                             justify="end"
                         >
                             <Button onClick={onClose}>{t('Ні')}</Button>
-                            <Button onClick={onDelete} color="error">{t('Так')}</Button>
+                            <Button
+                                onClick={onDelete}
+                                color="error"
+                            >
+                                {t('Так')}
+                            </Button>
                         </HStack>
                     </VStack>
                 </Modal>

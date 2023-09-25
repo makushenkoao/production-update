@@ -12,6 +12,7 @@ export enum AppRoutes {
     SEARCH = 'search',
     CHATS = 'chats',
     CHAT = 'chat',
+    SAVED_ARTICLES = 'saved_articles',
     NOT_FOUND = 'not_found',
 }
 
@@ -28,6 +29,7 @@ export const getRouteChat = (id: string) => `/chats/${id}`;
 export const getRouteAdmin = () => '/admin';
 export const getRouteForbidden = () => '/forbidden';
 export const getRouteSearch = () => '/search';
+export const getRouteSavedArticles = (id: string) => `/profile/${id}/saved`;
 
 export const AppRouteByPathPattern: Record<string, AppRoutes> = {
     [getRouteMain()]: AppRoutes.MAIN,
@@ -43,4 +45,5 @@ export const AppRouteByPathPattern: Record<string, AppRoutes> = {
     [getRouteAdmin()]: AppRoutes.ADMIN,
     [getRouteSearch()]: AppRoutes.SEARCH,
     [getRouteForbidden()]: AppRoutes.FORBIDDEN,
+    [getRouteSavedArticles(':id')]: AppRoutes.SAVED_ARTICLES,
 };
