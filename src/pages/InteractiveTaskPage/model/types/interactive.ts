@@ -13,10 +13,23 @@ export interface Recipe {
     ingredients: string[];
     instruction: string[];
 }
+
+export interface Quiz {
+    question: string;
+    answer: string;
+}
+
+export interface Mystery {
+    question: string;
+    answer: string;
+}
+
 export interface Interactive {
     facts: string[];
     quotes: Quote[];
     advices: Advice[];
     tasks: string[];
     recipes: Recipe[];
+    quizzes: Quiz[];
+    mysteries: Mystery[];
 }

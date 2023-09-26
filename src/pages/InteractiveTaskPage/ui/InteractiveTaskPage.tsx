@@ -32,7 +32,7 @@ const InteractiveTaskPage = () => {
     const getContent = (task?: Interactive) => {
         switch (task) {
             case Interactive.QUIZ:
-                return <Quiz />;
+                return <Quiz quizzes={data?.quizzes} />;
             case Interactive.TASK:
                 return <Task tasks={data?.tasks} />;
             case Interactive.RECIPE:
@@ -42,7 +42,7 @@ const InteractiveTaskPage = () => {
             case Interactive.ADVICE:
                 return <Advice advices={data?.advices} />;
             case Interactive.MYSTERY:
-                return <Mystery />;
+                return <Mystery mysteries={data?.mysteries} />;
             case Interactive.RANDOM_ARTICLE:
                 return <RandomArticle />;
             case Interactive.FACT:
