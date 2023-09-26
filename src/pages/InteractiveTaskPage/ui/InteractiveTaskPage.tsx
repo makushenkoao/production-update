@@ -41,7 +41,7 @@ const InteractiveTaskPage = () => {
             case Interactive.QUOTE:
                 return <Quote quotes={data?.quotes} />;
             case Interactive.ADVICE:
-                return <Advice />;
+                return <Advice advices={data?.advices} />;
             case Interactive.MYSTERY:
                 return <Mystery />;
             case Interactive.RANDOM_ARTICLE:
