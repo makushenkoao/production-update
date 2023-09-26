@@ -13,6 +13,8 @@ export enum AppRoutes {
     CHATS = 'chats',
     CHAT = 'chat',
     SAVED_ARTICLES = 'saved_articles',
+    INTERACTIVE = 'interactive',
+    INTERACTIVE_TASK = 'interactive_task',
     NOT_FOUND = 'not_found',
 }
 
@@ -30,6 +32,8 @@ export const getRouteAdmin = () => '/admin';
 export const getRouteForbidden = () => '/forbidden';
 export const getRouteSearch = () => '/search';
 export const getRouteSavedArticles = (id: string) => `/profile/${id}/saved`;
+export const getRouteInteractive = () => `/interactive`;
+export const getRouteInteractiveTask = (task: string) => `/interactive/${task}`;
 
 export const AppRouteByPathPattern: Record<string, AppRoutes> = {
     [getRouteMain()]: AppRoutes.MAIN,
@@ -46,4 +50,6 @@ export const AppRouteByPathPattern: Record<string, AppRoutes> = {
     [getRouteSearch()]: AppRoutes.SEARCH,
     [getRouteForbidden()]: AppRoutes.FORBIDDEN,
     [getRouteSavedArticles(':id')]: AppRoutes.SAVED_ARTICLES,
+    [getRouteInteractive()]: AppRoutes.INTERACTIVE,
+    [getRouteInteractiveTask(':task')]: AppRoutes.INTERACTIVE_TASK,
 };

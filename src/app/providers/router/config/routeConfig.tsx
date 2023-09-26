@@ -24,13 +24,17 @@ import {
     getRouteChats,
     getRouteChat,
     getRouteSavedArticles,
+    getRouteInteractive,
+    getRouteInteractiveTask,
 } from '@/shared/const/router';
 import { AppRoutesProps } from '@/shared/types/router';
 import { SettingsPage } from '@/pages/SettingsPage';
 import { SearchPage } from '@/pages/SearchPage';
 import { ChatsPage } from '@/pages/ChatsPage';
 import { ChatPage } from '@/pages/ChatPage';
-import { SavedArticles } from '@/pages/SavedArticles';
+import { InteractivePage } from '@/pages/InteractivePage';
+import { SavedArticlesPage } from '@/pages/SavedArticlesPage';
+import { InteractiveTaskPage } from '@/pages/InteractiveTaskPage';
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.MAIN]: {
@@ -94,7 +98,15 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     },
     [AppRoutes.SAVED_ARTICLES]: {
         path: getRouteSavedArticles(':id'),
-        element: <SavedArticles />,
+        element: <SavedArticlesPage />,
+    },
+    [AppRoutes.INTERACTIVE]: {
+        path: getRouteInteractive(),
+        element: <InteractivePage />,
+    },
+    [AppRoutes.INTERACTIVE_TASK]: {
+        path: getRouteInteractiveTask(':task'),
+        element: <InteractiveTaskPage />,
     },
     [AppRoutes.NOT_FOUND]: {
         path: '*',

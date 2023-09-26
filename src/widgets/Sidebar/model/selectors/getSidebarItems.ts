@@ -1,10 +1,4 @@
 import { createSelector } from '@reduxjs/toolkit';
-import MainIcon from '@/shared/assets/icons/home.svg';
-import AboutIcon from '@/shared/assets/icons/info.svg';
-import ArticleIcon from '@/shared/assets/icons/article-re.svg';
-import SearchIcon from '@/shared/assets/icons/search.svg';
-import CreateIcon from '@/shared/assets/icons/create.svg';
-import ChatIcon from '@/shared/assets/icons/chat.svg';
 import { getUserAuthData } from '@/entities/User';
 import { SidebarItemTypes } from '../types/sidebar';
 import {
@@ -12,9 +6,17 @@ import {
     getRouteArticleCreate,
     getRouteArticles,
     getRouteChats,
+    getRouteInteractive,
     getRouteMain,
     getRouteSearch,
 } from '@/shared/const/router';
+import MainIcon from '@/shared/assets/icons/home.svg';
+import AboutIcon from '@/shared/assets/icons/info.svg';
+import ArticleIcon from '@/shared/assets/icons/article-re.svg';
+import SearchIcon from '@/shared/assets/icons/search.svg';
+import CreateIcon from '@/shared/assets/icons/create.svg';
+import ChatIcon from '@/shared/assets/icons/chat.svg';
+import InteractiveIcon from '@/shared/assets/icons/interactive.svg';
 
 export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
     const sidebarItemsList: SidebarItemTypes[] = [
@@ -38,7 +40,6 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
                 icon: ArticleIcon,
                 authOnly: true,
             },
-
             {
                 path: getRouteChats(),
                 text: 'Чати',
@@ -53,6 +54,11 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
                 path: getRouteSearch(),
                 text: 'Пошук користувача',
                 icon: SearchIcon,
+            },
+            {
+                path: getRouteInteractive(),
+                text: 'Інтерактив',
+                icon: InteractiveIcon,
             },
         );
     }

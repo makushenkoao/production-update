@@ -6,10 +6,10 @@ import { ArticleAdditionalInfo } from '@/widgets/ArticleAdditionalInfo';
 import { deleteArticle, getArticleDetailsData } from '@/entities/Article';
 import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import cls from './AdditionalInfoContainer.module.scss';
-import { saveArticle } from '@/pages/SavedArticles';
 import { getUserAuthData } from '@/entities/User';
 import { useGetProfileDataQuery } from '@/entities/Profile';
+import { saveArticle } from '@/pages/SavedArticlesPage';
+import cls from './AdditionalInfoContainer.module.scss';
 
 export const AdditionalInfoContainer = memo(() => {
     const article = useSelector(getArticleDetailsData);

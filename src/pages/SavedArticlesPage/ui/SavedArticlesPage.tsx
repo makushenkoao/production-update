@@ -8,7 +8,7 @@ import { Article, ArticleList, useGetArticlesQuery } from '@/entities/Article';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 
-const SavedArticles = () => {
+const SavedArticlesPage = () => {
     const { t } = useTranslation();
     const { id } = useParams();
     const { data: profile, isLoading, error } = useGetProfileDataQuery(id);
@@ -36,7 +36,7 @@ const SavedArticles = () => {
                             key={index}
                             width={250}
                             height={250}
-                            borderRadius="12"
+                            borderRadius="12px"
                         />
                     ))}
                 </HStack>
@@ -46,7 +46,7 @@ const SavedArticles = () => {
 
     if (!savedArticles.length) {
         return (
-            <Page data-testid="SavedArticles">
+            <Page data-testid="SavedArticlesPage">
                 <Text
                     title={t('Збережені статті')}
                     text={t('Ви ще не зберегли жодної статті')}
@@ -60,7 +60,7 @@ const SavedArticles = () => {
     ) as Article[];
 
     return (
-        <Page data-testid="SavedArticles">
+        <Page data-testid="SavedArticlesPage">
             <VStack
                 max
                 gap="16"
@@ -75,4 +75,4 @@ const SavedArticles = () => {
     );
 };
 
-export default SavedArticles;
+export default SavedArticlesPage;
