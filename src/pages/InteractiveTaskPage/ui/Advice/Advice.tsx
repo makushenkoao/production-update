@@ -16,9 +16,8 @@ export const Advice = (props: AdviceProps) => {
     useEffect(() => {
         if (advices && advices.length > 0) {
             const interval = setInterval(() => {
-                setCurrentAdviceIndex(
-                    (prevIndex) => (prevIndex + 1) % advices.length,
-                );
+                const randomIndex = Math.floor(Math.random() * advices.length);
+                setCurrentAdviceIndex(randomIndex);
             }, 24 * 60 * 60 * 1000);
 
             return () => clearInterval(interval);

@@ -15,9 +15,8 @@ export const Fact = (props: FactProps) => {
     useEffect(() => {
         if (facts && facts.length > 0) {
             const interval = setInterval(() => {
-                setCurrentFactIndex(
-                    (prevIndex) => (prevIndex + 1) % facts.length,
-                );
+                const randomIndex = Math.floor(Math.random() * facts.length);
+                setCurrentFactIndex(randomIndex);
             }, 24 * 60 * 60 * 1000);
 
             return () => clearInterval(interval);

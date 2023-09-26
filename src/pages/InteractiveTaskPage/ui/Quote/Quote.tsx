@@ -16,9 +16,8 @@ export const Quote = (props: QuoteProps) => {
     useEffect(() => {
         if (quotes && quotes.length > 0) {
             const interval = setInterval(() => {
-                setCurrentQuoteIndex(
-                    (prevIndex) => (prevIndex + 1) % quotes.length,
-                );
+                const randomIndex = Math.floor(Math.random() * quotes.length);
+                setCurrentQuoteIndex(randomIndex);
             }, 24 * 60 * 60 * 1000);
 
             return () => clearInterval(interval);

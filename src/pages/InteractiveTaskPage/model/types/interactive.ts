@@ -12,4 +12,5 @@ export interface Interactive {
     facts: string[];
     quotes: Quote[];
     advices: Advice[];
+    tasks: string[]
 }

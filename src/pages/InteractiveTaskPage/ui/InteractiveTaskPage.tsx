@@ -35,7 +35,7 @@ const InteractiveTaskPage = () => {
             case Interactive.QUIZ:
                 return <Quiz />;
             case Interactive.TASK:
-                return <Task />;
+                return <Task tasks={data?.tasks} />;
             case Interactive.RECIPE:
                 return <Recipe />;
             case Interactive.QUOTE:
