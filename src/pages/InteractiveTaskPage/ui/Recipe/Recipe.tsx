@@ -1,33 +1,61 @@
-import {useTranslation} from "react-i18next";
-import {VStack} from "@/shared/ui/redesigned/Stack";
-import {Text} from "@/shared/ui/redesigned/Text";
+import { useTranslation } from 'react-i18next';
+import { useEffect, useState } from 'react';
+import { VStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
+import { Recipe as IRecipe } from '../../model/types/interactive';
 
-export const Recipe = () => {
+interface RecipeProps {
+    recipes?: IRecipe[];
+}
+
+export const Recipe = (props: RecipeProps) => {
+    const { recipes } = props;
     const { t } = useTranslation();
+    const [currentRecipeIndex, setCurrentRecipeIndex] = useState(0);
+
+    useEffect(() => {
+        if (recipes && recipes.length > 0) {
+            const interval = setInterval(() => {
+                const randomIndex = Math.floor(Math.random() * recipes.length);
+                setCurrentRecipeIndex(randomIndex);
+            }, 24 * 60 * 60 * 1000);
+
+            return () => clearInterval(interval);
+        }
+    }, [recipes]);
 
     return (
         <VStack
             max
-            gap="16"
+            gap="8"
         >
+            <Text title={t('Рецепт дня')} />
             <Text
-                title={t('Рецепт дня')}
+                text={t(`${recipes?.[currentRecipeIndex].title}`)}
+                bold
             />
-            <Text title={t('Інгредиенти')} size="s" />
+            <Text
+                text={t('Інгредиенти')}
+                bold
+            />
             <ul>
-                <li>{t('1 стакан муки')}</li>
-                <li>{t('1 стакан муки')}</li>
-                <li>{t('1 стакан муки')}</li>
-                <li>{t('1 стакан муки')}</li>
-                <li>{t('1 стакан муки')}</li>
+                {recipes?.[currentRecipeIndex].ingredients.map((text) => (
+                    <li>
+                        <Text text={t(`${text}`)} />
+                    </li>
+                ))}
             </ul>
-            <Text title={t('Інструкція')} size="s" />
-            <li>{t('В глубокой миске смешайте муку, сахар и соль.')}</li>
-            <li>{t('В глубокой миске смешайте муку, сахар и соль.')}</li>
-            <li>{t('В глубокой миске смешайте муку, сахар и соль.')}</li>
-            <li>{t('В глубокой миске смешайте муку, сахар и соль.')}</li>
-            <li>{t('В глубокой миске смешайте муку, сахар и соль.')}</li>
-            <li>{t('В глубокой миске смешайте муку, сахар и соль.')}</li>
+            <Text
+                text={t('Інструкція')}
+                bold
+            />
+            <ul>
+                {recipes?.[currentRecipeIndex].instruction.map((text) => (
+                    <li>
+                        <Text text={t(`${text}`)} />
+                    </li>
+                ))}
+            </ul>
         </VStack>
     );
 };

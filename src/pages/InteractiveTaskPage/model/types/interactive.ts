@@ -8,9 +8,15 @@ export interface Advice {
     description: string;
 }
 
+export interface Recipe {
+    title: string;
+    ingredients: string[];
+    instruction: string[];
+}
 export interface Interactive {
     facts: string[];
     quotes: Quote[];
     advices: Advice[];
-    tasks: string[]
+    tasks: string[];
+    recipes: Recipe[];
 }

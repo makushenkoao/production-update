@@ -1,7 +1,6 @@
 export enum Interactive {
     QUIZ = 'quiz',
     FACT = 'fact',
-    POLL = 'poll',
     TASK = 'task',
     QUOTE = 'quote',
     MYSTERY = 'mystery',

@@ -14,7 +14,6 @@ import { Advice } from './Advice/Advice';
 import { Mystery } from './Mystery/Mystery';
 import { RandomArticle } from './RandomArticle/RandomArticle';
 import { Fact } from './Fact/Fact';
-import { Poll } from './Poll/Poll';
 import cls from './InteractiveTaskPage.module.scss';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { useGetInteractiveFactsQuery } from '../api/interactiveApi';
@@ -37,7 +36,7 @@ const InteractiveTaskPage = () => {
             case Interactive.TASK:
                 return <Task tasks={data?.tasks} />;
             case Interactive.RECIPE:
-                return <Recipe />;
+                return <Recipe recipes={data?.recipes} />;
             case Interactive.QUOTE:
                 return <Quote quotes={data?.quotes} />;
             case Interactive.ADVICE:
@@ -48,8 +47,6 @@ const InteractiveTaskPage = () => {
                 return <RandomArticle />;
             case Interactive.FACT:
                 return <Fact facts={data?.facts} />;
-            case Interactive.POLL:
-                return <Poll />;
             default:
                 return <RandomArticle />;
         }

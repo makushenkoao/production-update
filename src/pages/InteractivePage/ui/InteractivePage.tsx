@@ -35,13 +35,6 @@ const InteractivePage = () => {
                 ),
             },
             {
-                title: t('Опитування'),
-                href: Interactive.POLL,
-                description: t(
-                    'Кожного дня ми проводимо опитування, яке складається з одного питання',
-                ),
-            },
-            {
                 title: t('Завдання'),
                 href: Interactive.TASK,
                 description: t(
