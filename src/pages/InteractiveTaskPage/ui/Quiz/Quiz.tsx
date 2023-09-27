@@ -1,11 +1,11 @@
 import { useTranslation } from 'react-i18next';
-import { useCallback, useEffect, useState } from 'react';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { Input } from '@/shared/ui/redesigned/Input';
 import { Button } from '@/shared/ui/redesigned/Button';
 import { Quiz as IQuiz } from '../../model/types/interactive';
 import { Modal } from '@/shared/ui/redesigned/Modal';
+import { useInteractive } from '@/shared/lib/hooks/useInteractive/useInteractive';
 
 interface QuizProps {
     quizzes?: IQuiz[];
@@ -14,45 +14,15 @@ interface QuizProps {
 export const Quiz = (props: QuizProps) => {
     const { quizzes } = props;
     const { t } = useTranslation();
-    const [isOpen, setIsOpen] = useState(false);
-    const [answer, setAnswer] = useState('');
-    const [isCorrect, setIsCorrect] = useState<boolean | undefined>(undefined);
-    const [currentQuizIndex, setCurrentQuizIndex] = useState(0);
-
-    useEffect(() => {
-        if (quizzes && quizzes.length > 0) {
-            const interval = setInterval(() => {
-                const randomIndex = Math.floor(Math.random() * quizzes.length);
-                setCurrentQuizIndex(randomIndex);
-            }, 24 * 60 * 60 * 1000);
-
-            return () => clearInterval(interval);
-        }
-    }, [quizzes]);
-
-    const onClick = useCallback(() => {
-        if (
-            answer.toLowerCase() ===
-            quizzes?.[currentQuizIndex].answer.toLowerCase()
-        ) {
-            setIsCorrect(true);
-        } else {
-            setIsCorrect(false);
-        }
-        setAnswer('')
-    }, [answer, currentQuizIndex, quizzes]);
-
-    const onOpen = useCallback(() => {
-        setIsOpen(true);
-    }, []);
-
-    const onClose = useCallback(() => {
-        setIsOpen(false);
-    }, []);
-
-    const onChange = useCallback((v: string) => {
-        setAnswer(v);
-    }, []);
+    const {
+        isOpen,
+        isCorrect,
+        onClick,
+        onOpen,
+        onClose,
+        onChange,
+        currentIndex,
+    } = useInteractive(quizzes);
 
     return (
         <VStack
@@ -61,13 +31,16 @@ export const Quiz = (props: QuizProps) => {
         >
             <Text
                 title={t('Вікторина дня')}
-                text={t(`${quizzes?.[currentQuizIndex].question}`)}
+                text={t(`${quizzes?.[currentIndex].question}`)}
             />
             <HStack
                 max
                 gap="8"
             >
-                <Input onChange={onChange} placeholder={t('Введіть відповідь')} />
+                <Input
+                    onChange={onChange}
+                    placeholder={t('Введіть відповідь')}
+                />
                 <Button onClick={onClick}>{t('Відповісти')}</Button>
             </HStack>
             <Button
@@ -101,7 +74,7 @@ export const Quiz = (props: QuizProps) => {
                 onClose={onClose}
             >
                 <Text
-                    text={t(`Відповідь: ${quizzes?.[currentQuizIndex].answer}`)}
+                    text={t(`Відповідь: ${quizzes?.[currentIndex].answer}`)}
                 />
             </Modal>
         </VStack>

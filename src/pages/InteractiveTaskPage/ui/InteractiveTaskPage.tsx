@@ -14,10 +14,10 @@ import { Advice } from './Advice/Advice';
 import { Mystery } from './Mystery/Mystery';
 import { RandomArticle } from './RandomArticle/RandomArticle';
 import { Fact } from './Fact/Fact';
-import cls from './InteractiveTaskPage.module.scss';
 import { Card } from '@/shared/ui/redesigned/Card';
-import { useGetInteractiveFactsQuery } from '../api/interactiveApi';
 import { InteractiveTaskPageSkeleton } from './InteractiveTaskPageSkeleton';
+import { useGetInteractiveFactsQuery } from '../api/interactiveApi';
+import cls from './InteractiveTaskPage.module.scss';
 
 const InteractiveTaskPage = () => {
     const { t } = useTranslation();

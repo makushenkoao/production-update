@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
-import { useEffect, useState } from 'react';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { Recipe as IRecipe } from '../../model/types/interactive';
+import {useInteractive} from "@/shared/lib/hooks/useInteractive/useInteractive";
 
 interface RecipeProps {
     recipes?: IRecipe[];
@@ -11,18 +11,7 @@ interface RecipeProps {
 export const Recipe = (props: RecipeProps) => {
     const { recipes } = props;
     const { t } = useTranslation();
-    const [currentRecipeIndex, setCurrentRecipeIndex] = useState(0);
-
-    useEffect(() => {
-        if (recipes && recipes.length > 0) {
-            const interval = setInterval(() => {
-                const randomIndex = Math.floor(Math.random() * recipes.length);
-                setCurrentRecipeIndex(randomIndex);
-            }, 24 * 60 * 60 * 1000);
-
-            return () => clearInterval(interval);
-        }
-    }, [recipes]);
+    const { currentIndex } = useInteractive(recipes);
 
     return (
         <VStack
@@ -31,7 +20,7 @@ export const Recipe = (props: RecipeProps) => {
         >
             <Text title={t('Рецепт дня')} />
             <Text
-                text={t(`${recipes?.[currentRecipeIndex].title}`)}
+                text={t(`${recipes?.[currentIndex].title}`)}
                 bold
             />
             <Text
@@ -39,7 +28,7 @@ export const Recipe = (props: RecipeProps) => {
                 bold
             />
             <ul>
-                {recipes?.[currentRecipeIndex].ingredients.map((text) => (
+                {recipes?.[currentIndex].ingredients.map((text) => (
                     <li>
                         <Text text={t(`${text}`)} />
                     </li>
@@ -50,7 +39,7 @@ export const Recipe = (props: RecipeProps) => {
                 bold
             />
             <ul>
-                {recipes?.[currentRecipeIndex].instruction.map((text) => (
+                {recipes?.[currentIndex].instruction.map((text) => (
                     <li>
                         <Text text={t(`${text}`)} />
                     </li>

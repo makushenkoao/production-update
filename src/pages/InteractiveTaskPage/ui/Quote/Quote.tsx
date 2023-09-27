@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
-import { useEffect, useState } from 'react';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { Quote as IQuote } from '../../model/types/interactive';
+import {useInteractive} from "@/shared/lib/hooks/useInteractive/useInteractive";
 
 interface QuoteProps {
     quotes?: IQuote[];
@@ -11,18 +11,7 @@ interface QuoteProps {
 export const Quote = (props: QuoteProps) => {
     const { quotes } = props;
     const { t } = useTranslation();
-    const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0);
-
-    useEffect(() => {
-        if (quotes && quotes.length > 0) {
-            const interval = setInterval(() => {
-                const randomIndex = Math.floor(Math.random() * quotes.length);
-                setCurrentQuoteIndex(randomIndex);
-            }, 24 * 60 * 60 * 1000);
-
-            return () => clearInterval(interval);
-        }
-    }, [quotes]);
+    const { currentIndex } = useInteractive(quotes);
 
     return (
         <VStack
@@ -31,13 +20,13 @@ export const Quote = (props: QuoteProps) => {
         >
             <Text
                 title={t('Цитата дня')}
-                text={t(`${quotes?.[currentQuoteIndex].text}`)}
+                text={t(`${quotes?.[currentIndex].text}`)}
             />
             <HStack
                 max
                 justify="end"
             >
-                <Text text={t(`© ${quotes?.[currentQuoteIndex].author}`)} />
+                <Text text={t(`© ${quotes?.[currentIndex].author}`)} />
             </HStack>
         </VStack>
     );

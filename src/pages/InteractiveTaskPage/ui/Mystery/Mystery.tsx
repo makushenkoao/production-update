@@ -1,11 +1,11 @@
 import { useTranslation } from 'react-i18next';
-import { useCallback, useEffect, useState } from 'react';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { Input } from '@/shared/ui/redesigned/Input';
 import { Button } from '@/shared/ui/redesigned/Button';
 import { Mystery as IMystery } from '../../model/types/interactive';
 import { Modal } from '@/shared/ui/redesigned/Modal';
+import { useInteractive } from '@/shared/lib/hooks/useInteractive/useInteractive';
 
 interface MysteryProps {
     mysteries?: IMystery[];
@@ -14,47 +14,15 @@ interface MysteryProps {
 export const Mystery = (props: MysteryProps) => {
     const { mysteries } = props;
     const { t } = useTranslation();
-    const [isOpen, setIsOpen] = useState(false);
-    const [answer, setAnswer] = useState('');
-    const [isCorrect, setIsCorrect] = useState<boolean | undefined>(undefined);
-    const [currentMysteryIndex, setCurrentMysteryIndex] = useState(0);
-
-    useEffect(() => {
-        if (mysteries && mysteries.length > 0) {
-            const interval = setInterval(() => {
-                const randomIndex = Math.floor(
-                    Math.random() * mysteries.length,
-                );
-                setCurrentMysteryIndex(randomIndex);
-            }, 24 * 60 * 60 * 1000);
-
-            return () => clearInterval(interval);
-        }
-    }, [mysteries]);
-
-    const onClick = useCallback(() => {
-        if (
-            answer.toLowerCase() ===
-            mysteries?.[currentMysteryIndex].answer.toLowerCase()
-        ) {
-            setIsCorrect(true);
-        } else {
-            setIsCorrect(false);
-        }
-        setAnswer('');
-    }, [answer, currentMysteryIndex, mysteries]);
-
-    const onOpen = useCallback(() => {
-        setIsOpen(true);
-    }, []);
-
-    const onClose = useCallback(() => {
-        setIsOpen(false);
-    }, []);
-
-    const onChange = useCallback((v: string) => {
-        setAnswer(v);
-    }, []);
+    const {
+        isOpen,
+        isCorrect,
+        onClick,
+        onOpen,
+        onClose,
+        onChange,
+        currentIndex,
+    } = useInteractive(mysteries);
 
     return (
         <VStack
@@ -63,7 +31,7 @@ export const Mystery = (props: MysteryProps) => {
         >
             <Text
                 title={t('Загадка дня')}
-                text={t(`${mysteries?.[currentMysteryIndex].question}`)}
+                text={t(`${mysteries?.[currentIndex].question}`)}
             />
             <HStack
                 max
@@ -106,9 +74,7 @@ export const Mystery = (props: MysteryProps) => {
                 onClose={onClose}
             >
                 <Text
-                    text={t(
-                        `Відповідь: ${mysteries?.[currentMysteryIndex].answer}`,
-                    )}
+                    text={t(`Відповідь: ${mysteries?.[currentIndex].answer}`)}
                 />
             </Modal>
         </VStack>

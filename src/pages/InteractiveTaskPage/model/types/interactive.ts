@@ -33,3 +33,11 @@ export interface Interactive {
     quizzes: Quiz[];
     mysteries: Mystery[];
 }
+
+export type InteractiveType =
+    | string[]
+    | Quote[]
+    | Advice[]
+    | Recipe[]
+    | Quiz[]
+    | Mystery[];

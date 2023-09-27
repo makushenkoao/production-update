@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
-import { useEffect, useState } from 'react';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
+import { useInteractive } from '@/shared/lib/hooks/useInteractive/useInteractive';
 
 interface FactProps {
     facts?: string[];
@@ -10,18 +10,7 @@ interface FactProps {
 export const Fact = (props: FactProps) => {
     const { facts } = props;
     const { t } = useTranslation();
-    const [currentFactIndex, setCurrentFactIndex] = useState(0);
-
-    useEffect(() => {
-        if (facts && facts.length > 0) {
-            const interval = setInterval(() => {
-                const randomIndex = Math.floor(Math.random() * facts.length);
-                setCurrentFactIndex(randomIndex);
-            }, 24 * 60 * 60 * 1000);
-
-            return () => clearInterval(interval);
-        }
-    }, [facts]);
+    const { currentIndex } = useInteractive(facts);
 
     return (
         <VStack
@@ -30,7 +19,7 @@ export const Fact = (props: FactProps) => {
         >
             <Text
                 title={t('Факт дня')}
-                text={t(`А ви знали, що... ${facts?.[currentFactIndex]}`)}
+                text={t(`А ви знали, що... ${facts?.[currentIndex]}`)}
             />
         </VStack>
     );
