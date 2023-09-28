@@ -3,9 +3,9 @@ import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { Input } from '@/shared/ui/redesigned/Input';
 import { Button } from '@/shared/ui/redesigned/Button';
-import { Quiz as IQuiz } from '../../model/types/interactive';
 import { Modal } from '@/shared/ui/redesigned/Modal';
 import { useInteractive } from '@/shared/lib/hooks/useInteractive/useInteractive';
+import {Quiz as IQuiz} from "@/entities/Interactive";
 
 interface QuizProps {
     quizzes?: IQuiz[];

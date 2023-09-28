@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
-import { Advice as IAdvice } from '../../model/types/interactive';
 import { useInteractive } from '@/shared/lib/hooks/useInteractive/useInteractive';
+import {Advice as IAdvice} from "@/entities/Interactive";
 
 interface AdviceProps {
     advices?: IAdvice[];

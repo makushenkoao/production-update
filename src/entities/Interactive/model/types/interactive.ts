@@ -34,10 +34,31 @@ export interface Interactive {
     mysteries: Mystery[];
 }
 
-export type InteractiveType =
+export type InteractivesType =
     | string[]
     | Quote[]
     | Advice[]
     | Recipe[]
     | Quiz[]
     | Mystery[];
+
+export interface InteractiveState {
+    task: string;
+    quote: Quote;
+    advice: Advice;
+    fact: string;
+    recipe: Recipe;
+    quiz: Quiz;
+    mystery: Mystery;
+}
+
+export type InteractiveType = string | Quote | Advice | Recipe | Quiz | Mystery;
+
+export type InteractiveFieldNameType =
+    | 'quiz'
+    | 'fact'
+    | 'task'
+    | 'quote'
+    | 'mystery'
+    | 'advice'
+    | 'recipe';

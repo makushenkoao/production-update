@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
-import { InteractiveType, Mystery, Quiz } from '@/pages/InteractiveTaskPage';
+
+import {InteractivesType, Mystery, Quiz} from "@/entities/Interactive";
 
 interface InterfaceResult {
     isOpen: boolean;
@@ -12,7 +13,7 @@ interface InterfaceResult {
     currentIndex: number;
 }
 
-export function useInteractive(data?: InteractiveType): InterfaceResult {
+export function useInteractive(data?: InteractivesType): InterfaceResult {
     const [isOpen, setIsOpen] = useState(false);
     const [answer, setAnswer] = useState<string>('');
     const [isCorrect, setIsCorrect] = useState<boolean | undefined>(undefined);

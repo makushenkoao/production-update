@@ -1,5 +1,6 @@
 import { rtkApi } from '@/shared/api/rtkApi';
-import { Interactive } from '../model/types/interactive';
+
+import {Interactive} from "@/entities/Interactive";
 
 export const interactiveApi = rtkApi.injectEndpoints({
     endpoints: (build) => ({

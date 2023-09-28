@@ -43,10 +43,6 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
         path: getRouteMain(),
         element: <MainPage />,
     },
-    [AppRoutes.SETTINGS]: {
-        path: getRouteSettings(),
-        element: <SettingsPage />,
-    },
     [AppRoutes.ABOUT]: {
         path: getRouteAbout(),
         element: <AboutPage />,
@@ -54,6 +50,11 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.PROFILE]: {
         path: getRouteProfile(':id'),
         element: <ProfilePage />,
+        authOnly: true,
+    },
+    [AppRoutes.SETTINGS]: {
+        path: getRouteSettings(),
+        element: <SettingsPage />,
         authOnly: true,
     },
     [AppRoutes.ARTICLES]: {
@@ -85,34 +86,42 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.SEARCH]: {
         path: getRouteSearch(),
         element: <SearchPage />,
+        authOnly: true,
     },
     [AppRoutes.CHATS]: {
         path: getRouteChats(),
         element: <ChatsPage />,
+        authOnly: true,
     },
     [AppRoutes.CHAT]: {
         path: getRouteChat(':id'),
         element: <ChatPage />,
-    },
-    [AppRoutes.FORBIDDEN]: {
-        path: getRouteForbidden(),
-        element: <ForbiddenPage />,
+        authOnly: true,
     },
     [AppRoutes.SAVED_ARTICLES]: {
         path: getRouteSavedArticles(':id'),
         element: <SavedArticlesPage />,
+        authOnly: true,
     },
     [AppRoutes.INTERACTIVE]: {
         path: getRouteInteractive(),
         element: <InteractivePage />,
+        authOnly: true,
     },
     [AppRoutes.INTERACTIVE_TASK]: {
         path: getRouteInteractiveTask(':task'),
         element: <InteractiveTaskPage />,
+        authOnly: true,
     },
     [AppRoutes.INTERACTIVE_CREATE]: {
         path: getRouteInteractiveCreate(),
         element: <CreateInteractivePage />,
+        authOnly: true,
+        roles: [UserRole.ADMIN],
+    },
+    [AppRoutes.FORBIDDEN]: {
+        path: getRouteForbidden(),
+        element: <ForbiddenPage />,
     },
     [AppRoutes.NOT_FOUND]: {
         path: '*',
