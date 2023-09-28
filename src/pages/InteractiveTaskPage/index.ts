@@ -1,2 +1,10 @@
 export { InteractiveTaskPageAsync as InteractiveTaskPage } from './ui/InteractiveTaskPage.async';
-export type { InteractiveType, Mystery, Quiz } from './model/types/interactive';
+export type {
+    InteractiveType,
+    Mystery,
+    Quiz,
+    Interactive,
+    Quote,
+    Recipe,
+    Advice,
+} from './model/types/interactive';

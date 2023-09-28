@@ -6,4 +6,4 @@ coverage
 reports/unit
 .loki/report.html
 .loki/report.json
-task.txt
+note.txt

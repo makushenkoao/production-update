@@ -26,6 +26,7 @@ import {
     getRouteSavedArticles,
     getRouteInteractive,
     getRouteInteractiveTask,
+    getRouteInteractiveCreate,
 } from '@/shared/const/router';
 import { AppRoutesProps } from '@/shared/types/router';
 import { SettingsPage } from '@/pages/SettingsPage';
@@ -35,6 +36,7 @@ import { ChatPage } from '@/pages/ChatPage';
 import { InteractivePage } from '@/pages/InteractivePage';
 import { SavedArticlesPage } from '@/pages/SavedArticlesPage';
 import { InteractiveTaskPage } from '@/pages/InteractiveTaskPage';
+import { CreateInteractivePage } from '@/pages/CreateInteractivePage';
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.MAIN]: {
@@ -107,6 +109,10 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.INTERACTIVE_TASK]: {
         path: getRouteInteractiveTask(':task'),
         element: <InteractiveTaskPage />,
+    },
+    [AppRoutes.INTERACTIVE_CREATE]: {
+        path: getRouteInteractiveCreate(),
+        element: <CreateInteractivePage />,
     },
     [AppRoutes.NOT_FOUND]: {
         path: '*',
