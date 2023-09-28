@@ -1,17 +1,19 @@
 import { useTranslation } from 'react-i18next';
+import { memo } from 'react';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
-import {useInteractive} from "@/shared/lib/hooks/useInteractive/useInteractive";
-import {Recipe as IRecipe} from "@/entities/Interactive";
+import { useInteractive } from '@/shared/lib/hooks/useInteractive/useInteractive';
+import { useGetRecipesQuery } from '@/entities/Interactive';
+import { InteractiveTaskPageSkeleton } from '../InteractiveTaskPageSkeleton';
 
-interface RecipeProps {
-    recipes?: IRecipe[];
-}
-
-export const Recipe = (props: RecipeProps) => {
-    const { recipes } = props;
+export const Recipe = memo(() => {
+    const { data, isLoading } = useGetRecipesQuery();
     const { t } = useTranslation();
-    const { currentIndex } = useInteractive(recipes);
+    const { currentIndex } = useInteractive(data);
+
+    if (isLoading) {
+        return <InteractiveTaskPageSkeleton />;
+    }
 
     return (
         <VStack
@@ -20,7 +22,7 @@ export const Recipe = (props: RecipeProps) => {
         >
             <Text title={t('Рецепт дня')} />
             <Text
-                text={t(`${recipes?.[currentIndex].title}`)}
+                text={t(`${data?.[currentIndex].title}`)}
                 bold
             />
             <Text
@@ -28,7 +30,7 @@ export const Recipe = (props: RecipeProps) => {
                 bold
             />
             <ul>
-                {recipes?.[currentIndex].ingredients.map((text) => (
+                {data?.[currentIndex].ingredients.map((text) => (
                     <li>
                         <Text text={t(`${text}`)} />
                     </li>
@@ -39,7 +41,7 @@ export const Recipe = (props: RecipeProps) => {
                 bold
             />
             <ul>
-                {recipes?.[currentIndex].instruction.map((text) => (
+                {data?.[currentIndex].instruction.map((text) => (
                     <li>
                         <Text text={t(`${text}`)} />
                     </li>
@@ -47,4 +49,4 @@ export const Recipe = (props: RecipeProps) => {
             </ul>
         </VStack>
     );
-};
+});

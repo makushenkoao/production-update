@@ -8,7 +8,7 @@ import { Card } from '@/shared/ui/redesigned/Card';
 import { CreateInteractiveProps } from '../CreateInteractivePage';
 
 export const CreateTask = memo((props: CreateInteractiveProps) => {
-    const { updateField, interactive } = props;
+    const { updateField, interactive, onCreate } = props;
     const { t } = useTranslation();
 
     return (
@@ -27,12 +27,13 @@ export const CreateTask = memo((props: CreateInteractiveProps) => {
                 />
                 <Input
                     placeholder={t('Введіть завдання')}
-                    value={interactive.task}
-                    onChange={(v) => updateField('task', v)}
+                    value={interactive.task.content}
+                    onChange={(v) => updateField('task', { content: v })}
                 />
                 <HStack
                     max
                     justify="end"
+                    onClick={onCreate}
                 >
                     <Button>{t('Створити завдання')}</Button>
                 </HStack>

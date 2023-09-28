@@ -1,18 +1,18 @@
 import { useTranslation } from 'react-i18next';
+import { memo } from 'react';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { Input } from '@/shared/ui/redesigned/Input';
 import { Button } from '@/shared/ui/redesigned/Button';
 import { Modal } from '@/shared/ui/redesigned/Modal';
 import { useInteractive } from '@/shared/lib/hooks/useInteractive/useInteractive';
-import {Mystery as IMystery} from "@/entities/Interactive";
+import {
+    useGetMysteriesQuery,
+} from '@/entities/Interactive';
+import { InteractiveTaskPageSkeleton } from '../InteractiveTaskPageSkeleton';
 
-interface MysteryProps {
-    mysteries?: IMystery[];
-}
-
-export const Mystery = (props: MysteryProps) => {
-    const { mysteries } = props;
+export const Mystery = memo(() => {
+    const { data, isLoading } = useGetMysteriesQuery();
     const { t } = useTranslation();
     const {
         isOpen,
@@ -22,7 +22,11 @@ export const Mystery = (props: MysteryProps) => {
         onClose,
         onChange,
         currentIndex,
-    } = useInteractive(mysteries);
+    } = useInteractive(data);
+
+    if (isLoading) {
+        return <InteractiveTaskPageSkeleton />;
+    }
 
     return (
         <VStack
@@ -31,7 +35,7 @@ export const Mystery = (props: MysteryProps) => {
         >
             <Text
                 title={t('Загадка дня')}
-                text={t(`${mysteries?.[currentIndex].question}`)}
+                text={t(`${data?.[currentIndex].question}`)}
             />
             <HStack
                 max
@@ -73,10 +77,8 @@ export const Mystery = (props: MysteryProps) => {
                 isOpen={isOpen}
                 onClose={onClose}
             >
-                <Text
-                    text={t(`Відповідь: ${mysteries?.[currentIndex].answer}`)}
-                />
+                <Text text={t(`Відповідь: ${data?.[currentIndex].answer}`)} />
             </Modal>
         </VStack>
     );
-};
+});

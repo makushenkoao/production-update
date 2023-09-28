@@ -8,7 +8,7 @@ import { Card } from '@/shared/ui/redesigned/Card';
 import { CreateInteractiveProps } from '../CreateInteractivePage';
 
 export const CreateQuiz = memo((props: CreateInteractiveProps) => {
-    const { updateField, interactive } = props;
+    const { updateField, interactive, onCreate } = props;
     const { t } = useTranslation();
 
     return (
@@ -48,6 +48,7 @@ export const CreateQuiz = memo((props: CreateInteractiveProps) => {
                 <HStack
                     max
                     justify="end"
+                    onClick={onCreate}
                 >
                     <Button>{t('Створити вікторину')}</Button>
                 </HStack>

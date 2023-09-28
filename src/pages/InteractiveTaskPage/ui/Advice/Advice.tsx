@@ -1,17 +1,19 @@
 import { useTranslation } from 'react-i18next';
+import { memo } from 'react';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { useInteractive } from '@/shared/lib/hooks/useInteractive/useInteractive';
-import {Advice as IAdvice} from "@/entities/Interactive";
+import { useGetAdvicesQuery } from '@/entities/Interactive';
+import { InteractiveTaskPageSkeleton } from '../InteractiveTaskPageSkeleton';
 
-interface AdviceProps {
-    advices?: IAdvice[];
-}
-
-export const Advice = (props: AdviceProps) => {
-    const { advices } = props;
+export const Advice = memo(() => {
+    const { data, isLoading } = useGetAdvicesQuery();
     const { t } = useTranslation();
-    const { currentIndex } = useInteractive(advices);
+    const { currentIndex } = useInteractive(data);
+
+    if (isLoading) {
+        return <InteractiveTaskPageSkeleton />;
+    }
 
     return (
         <VStack
@@ -20,10 +22,10 @@ export const Advice = (props: AdviceProps) => {
         >
             <Text title={t('Порада дня')} />
             <Text
-                title={t(`${advices?.[currentIndex].title}`)}
+                title={t(`${data?.[currentIndex].title}`)}
                 size="s"
             />
-            <Text text={t(`${advices?.[currentIndex].description}`)} />
+            <Text text={t(`${data?.[currentIndex].description}`)} />
             <Text
                 text={t(
                     'Слідуючи цим простим порадам, ви швидко помітите позитивні зміни!',
@@ -32,4 +34,4 @@ export const Advice = (props: AdviceProps) => {
             />
         </VStack>
     );
-};
+});

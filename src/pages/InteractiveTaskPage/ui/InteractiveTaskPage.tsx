@@ -15,14 +15,11 @@ import { Mystery } from './Mystery/Mystery';
 import { RandomArticle } from './RandomArticle/RandomArticle';
 import { Fact } from './Fact/Fact';
 import { Card } from '@/shared/ui/redesigned/Card';
-import { InteractiveTaskPageSkeleton } from './InteractiveTaskPageSkeleton';
-import { useGetInteractiveFactsQuery } from '../api/interactiveApi';
 import cls from './InteractiveTaskPage.module.scss';
 
 const InteractiveTaskPage = () => {
     const { t } = useTranslation();
     const { task } = useParams<{ task: Interactive }>();
-    const { data, isLoading } = useGetInteractiveFactsQuery();
     const navigate = useNavigate();
 
     const onBackToInteractive = useCallback(() => {
@@ -32,29 +29,25 @@ const InteractiveTaskPage = () => {
     const getContent = (task?: Interactive) => {
         switch (task) {
             case Interactive.QUIZ:
-                return <Quiz quizzes={data?.quizzes} />;
+                return <Quiz />;
             case Interactive.TASK:
-                return <Task tasks={data?.tasks} />;
+                return <Task />;
             case Interactive.RECIPE:
-                return <Recipe recipes={data?.recipes} />;
+                return <Recipe />;
             case Interactive.QUOTE:
-                return <Quote quotes={data?.quotes} />;
+                return <Quote />;
             case Interactive.ADVICE:
-                return <Advice advices={data?.advices} />;
+                return <Advice />;
             case Interactive.MYSTERY:
-                return <Mystery mysteries={data?.mysteries} />;
+                return <Mystery />;
             case Interactive.RANDOM_ARTICLE:
                 return <RandomArticle />;
             case Interactive.FACT:
-                return <Fact facts={data?.facts} />;
+                return <Fact />;
             default:
                 return <RandomArticle />;
         }
     };
-
-    if (isLoading) {
-        return <InteractiveTaskPageSkeleton />;
-    }
 
     return (
         <Page className={cls.page}>

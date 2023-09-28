@@ -1,17 +1,19 @@
 import { useTranslation } from 'react-i18next';
+import { memo } from 'react';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
-import {useInteractive} from "@/shared/lib/hooks/useInteractive/useInteractive";
-import {Quote as IQuote} from "@/entities/Interactive";
+import { useInteractive } from '@/shared/lib/hooks/useInteractive/useInteractive';
+import { useGetQuotesQuery } from '@/entities/Interactive';
+import { InteractiveTaskPageSkeleton } from '../InteractiveTaskPageSkeleton';
 
-interface QuoteProps {
-    quotes?: IQuote[];
-}
-
-export const Quote = (props: QuoteProps) => {
-    const { quotes } = props;
+export const Quote = memo(() => {
+    const { data, isLoading } = useGetQuotesQuery();
     const { t } = useTranslation();
-    const { currentIndex } = useInteractive(quotes);
+    const { currentIndex } = useInteractive(data);
+
+    if (isLoading) {
+        return <InteractiveTaskPageSkeleton />;
+    }
 
     return (
         <VStack
@@ -20,14 +22,14 @@ export const Quote = (props: QuoteProps) => {
         >
             <Text
                 title={t('Цитата дня')}
-                text={t(`${quotes?.[currentIndex].text}`)}
+                text={t(`${data?.[currentIndex].text}`)}
             />
             <HStack
                 max
                 justify="end"
             >
-                <Text text={t(`© ${quotes?.[currentIndex].author}`)} />
+                <Text text={t(`© ${data?.[currentIndex].author}`)} />
             </HStack>
         </VStack>
     );
-};
+});

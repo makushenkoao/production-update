@@ -1,18 +1,16 @@
 import { useTranslation } from 'react-i18next';
+import { memo } from 'react';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { Input } from '@/shared/ui/redesigned/Input';
 import { Button } from '@/shared/ui/redesigned/Button';
 import { Modal } from '@/shared/ui/redesigned/Modal';
 import { useInteractive } from '@/shared/lib/hooks/useInteractive/useInteractive';
-import {Quiz as IQuiz} from "@/entities/Interactive";
+import { useGetQuizzesQuery } from '@/entities/Interactive';
+import { InteractiveTaskPageSkeleton } from '../InteractiveTaskPageSkeleton';
 
-interface QuizProps {
-    quizzes?: IQuiz[];
-}
-
-export const Quiz = (props: QuizProps) => {
-    const { quizzes } = props;
+export const Quiz = memo(() => {
+    const { data, isLoading } = useGetQuizzesQuery();
     const { t } = useTranslation();
     const {
         isOpen,
@@ -22,7 +20,11 @@ export const Quiz = (props: QuizProps) => {
         onClose,
         onChange,
         currentIndex,
-    } = useInteractive(quizzes);
+    } = useInteractive(data);
+
+    if (isLoading) {
+        return <InteractiveTaskPageSkeleton />;
+    }
 
     return (
         <VStack
@@ -31,7 +33,7 @@ export const Quiz = (props: QuizProps) => {
         >
             <Text
                 title={t('Вікторина дня')}
-                text={t(`${quizzes?.[currentIndex].question}`)}
+                text={t(`${data?.[currentIndex].question}`)}
             />
             <HStack
                 max
@@ -73,10 +75,8 @@ export const Quiz = (props: QuizProps) => {
                 isOpen={isOpen}
                 onClose={onClose}
             >
-                <Text
-                    text={t(`Відповідь: ${quizzes?.[currentIndex].answer}`)}
-                />
+                <Text text={t(`Відповідь: ${data?.[currentIndex].answer}`)} />
             </Modal>
         </VStack>
     );
-};
+});

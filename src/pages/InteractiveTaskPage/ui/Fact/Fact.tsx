@@ -1,16 +1,19 @@
 import { useTranslation } from 'react-i18next';
+import { memo } from 'react';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { useInteractive } from '@/shared/lib/hooks/useInteractive/useInteractive';
+import { useGetFactsQuery } from '@/entities/Interactive';
+import { InteractiveTaskPageSkeleton } from '../InteractiveTaskPageSkeleton';
 
-interface FactProps {
-    facts?: string[];
-}
-
-export const Fact = (props: FactProps) => {
-    const { facts } = props;
+export const Fact = memo(() => {
     const { t } = useTranslation();
-    const { currentIndex } = useInteractive(facts);
+    const { data, isLoading } = useGetFactsQuery();
+    const { currentIndex } = useInteractive(data);
+
+    if (isLoading) {
+        return <InteractiveTaskPageSkeleton />;
+    }
 
     return (
         <VStack
@@ -19,8 +22,8 @@ export const Fact = (props: FactProps) => {
         >
             <Text
                 title={t('Факт дня')}
-                text={t(`А ви знали, що... ${facts?.[currentIndex]}`)}
+                text={t(`А ви знали, що... ${data?.[currentIndex]}`)}
             />
         </VStack>
     );
-};
+});

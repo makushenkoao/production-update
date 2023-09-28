@@ -8,7 +8,7 @@ import { Card } from '@/shared/ui/redesigned/Card';
 import { CreateInteractiveProps } from '../CreateInteractivePage';
 
 export const CreateRecipe = memo((props: CreateInteractiveProps) => {
-    const { updateField, interactive } = props;
+    const { updateField, interactive, onCreate } = props;
     const { t } = useTranslation();
 
     return (
@@ -98,6 +98,7 @@ export const CreateRecipe = memo((props: CreateInteractiveProps) => {
                 <HStack
                     max
                     justify="end"
+                    onClick={onCreate}
                 >
                     <Button>{t('Створити рецепт')}</Button>
                 </HStack>

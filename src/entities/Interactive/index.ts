@@ -9,4 +9,22 @@ export type {
     InteractiveState,
     InteractiveType,
     InteractiveFieldNameType,
+    Fact,
+    Task,
 } from './model/types/interactive';
+export {
+    useGetAdvicesQuery,
+    useGetFactsQuery,
+    useGetMysteriesQuery,
+    useGetQuizzesQuery,
+    useGetQuotesQuery,
+    useGetRecipesQuery,
+    useGetTasksQuery,
+    usePostAdvicesMutation,
+    usePostFactsMutation,
+    usePostMysteriesMutation,
+    usePostQuizzesMutation,
+    usePostQuotesMutation,
+    usePostRecipesMutation,
+    usePostTasksMutation,
+} from './api/interactiveApi';
