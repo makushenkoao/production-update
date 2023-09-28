@@ -8,36 +8,37 @@ import { Card } from '@/shared/ui/redesigned/Card';
 import { CreateInteractiveProps } from '../CreateInteractivePage';
 
 export const CreateTask = memo((props: CreateInteractiveProps) => {
-    const { updateField, interactive, onCreate } = props;
+    const { updateField, interactive, onSubmit } = props;
     const { t } = useTranslation();
-
+    // FormEvent<HTMLFormElement>
     return (
         <Card
             max
             padding="24"
             border="partial"
         >
-            <VStack
-                max
-                gap="16"
-            >
-                <Text
-                    text={t('Створити завдання')}
-                    bold
-                />
-                <Input
-                    placeholder={t('Введіть завдання')}
-                    value={interactive.task.content}
-                    onChange={(v) => updateField('task', { content: v })}
-                />
-                <HStack
+            <form onSubmit={onSubmit}>
+                <VStack
                     max
-                    justify="end"
-                    onClick={onCreate}
+                    gap="16"
                 >
-                    <Button>{t('Створити завдання')}</Button>
-                </HStack>
-            </VStack>
+                    <Text
+                        text={t('Створити завдання')}
+                        bold
+                    />
+                    <Input
+                        placeholder={t('Введіть завдання')}
+                        value={interactive.task.content}
+                        onChange={(v) => updateField('task', { content: v })}
+                    />
+                    <HStack
+                        max
+                        justify="end"
+                    >
+                        <Button type="submit">{t('Створити завдання')}</Button>
+                    </HStack>
+                </VStack>
+            </form>
         </Card>
     );
 });

@@ -8,7 +8,7 @@ import { Card } from '@/shared/ui/redesigned/Card';
 import { CreateInteractiveProps } from '../CreateInteractivePage';
 
 export const CreateQuiz = memo((props: CreateInteractiveProps) => {
-    const { updateField, interactive, onCreate } = props;
+    const { updateField, interactive, onSubmit } = props;
     const { t } = useTranslation();
 
     return (
@@ -17,42 +17,43 @@ export const CreateQuiz = memo((props: CreateInteractiveProps) => {
             padding="24"
             border="partial"
         >
-            <VStack
-                max
-                gap="16"
-            >
-                <Text
-                    text={t('Створити вікторину')}
-                    bold
-                />
-                <Input
-                    placeholder={t('Введіть питання')}
-                    value={interactive.quiz.question}
-                    onChange={(v) =>
-                        updateField('quiz', {
-                            ...interactive.quiz,
-                            question: v,
-                        })
-                    }
-                />
-                <Input
-                    placeholder={t('Введіть відповідь до питання')}
-                    value={interactive.quiz.answer}
-                    onChange={(v) =>
-                        updateField('quiz', {
-                            ...interactive.quiz,
-                            answer: v,
-                        })
-                    }
-                />
-                <HStack
+            <form onSubmit={onSubmit}>
+                <VStack
                     max
-                    justify="end"
-                    onClick={onCreate}
+                    gap="16"
                 >
-                    <Button>{t('Створити вікторину')}</Button>
-                </HStack>
-            </VStack>
+                    <Text
+                        text={t('Створити вікторину')}
+                        bold
+                    />
+                    <Input
+                        placeholder={t('Введіть питання')}
+                        value={interactive.quiz.question}
+                        onChange={(v) =>
+                            updateField('quiz', {
+                                ...interactive.quiz,
+                                question: v,
+                            })
+                        }
+                    />
+                    <Input
+                        placeholder={t('Введіть відповідь до питання')}
+                        value={interactive.quiz.answer}
+                        onChange={(v) =>
+                            updateField('quiz', {
+                                ...interactive.quiz,
+                                answer: v,
+                            })
+                        }
+                    />
+                    <HStack
+                        max
+                        justify="end"
+                    >
+                        <Button type="submit">{t('Створити вікторину')}</Button>
+                    </HStack>
+                </VStack>
+            </form>
         </Card>
     );
 });

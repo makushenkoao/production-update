@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useState } from 'react';
+import React, { FormEvent, memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { Text } from '@/shared/ui/redesigned/Text';
@@ -31,7 +31,7 @@ export interface CreateInteractiveProps {
         newValue: InteractiveType,
     ) => void;
     interactive: InteractiveState;
-    onCreate: () => void;
+    onSubmit: (e: FormEvent<HTMLFormElement>) => void;
 }
 
 const CreateInteractivePage = () => {
@@ -90,65 +90,93 @@ const CreateInteractivePage = () => {
         navigate(getRouteAdmin());
     }, [navigate]);
 
-    const onCreateAdvice = useCallback(() => {
-        createAdvice({
-            id: Date.now().toString(),
-            ...interactive.advice,
-        });
-        updateField('advice', { title: '', description: '' });
-    }, [createAdvice, interactive.advice, updateField]);
+    const onCreateAdvice = useCallback(
+        (e: FormEvent<HTMLFormElement>) => {
+            e.preventDefault();
+            createAdvice({
+                id: Date.now().toString(),
+                ...interactive.advice,
+            });
+            updateField('advice', { title: '', description: '' });
+        },
+        [createAdvice, interactive.advice, updateField],
+    );
 
-    const onCreateFact = useCallback(() => {
-        createFact({
-            id: Date.now().toString(),
-            ...interactive.fact,
-        });
-        updateField('fact', { content: '' });
-    }, [createFact, interactive.fact, updateField]);
+    const onCreateFact = useCallback(
+        (e: FormEvent<HTMLFormElement>) => {
+            e.preventDefault();
+            createFact({
+                id: Date.now().toString(),
+                ...interactive.fact,
+            });
+            updateField('fact', { content: '' });
+        },
+        [createFact, interactive.fact, updateField],
+    );
 
-    const onCreateMystery = useCallback(() => {
-        createMystery({
-            id: Date.now().toString(),
-            ...interactive.mystery,
-        });
-        updateField('mystery', { question: '', answer: '' });
-    }, [createMystery, interactive.mystery, updateField]);
+    const onCreateMystery = useCallback(
+        (e: FormEvent<HTMLFormElement>) => {
+            e.preventDefault();
+            createMystery({
+                id: Date.now().toString(),
+                ...interactive.mystery,
+            });
+            updateField('mystery', { question: '', answer: '' });
+        },
+        [createMystery, interactive.mystery, updateField],
+    );
 
-    const onCreateQuiz = useCallback(() => {
-        createQuiz({
-            id: Date.now().toString(),
-            ...interactive.quiz,
-        });
-        updateField('quiz', { question: '', answer: '' });
-    }, [createQuiz, interactive.quiz, updateField]);
+    const onCreateQuiz = useCallback(
+        (e: FormEvent<HTMLFormElement>) => {
+            e.preventDefault();
+            createQuiz({
+                id: Date.now().toString(),
+                ...interactive.quiz,
+            });
+            updateField('quiz', { question: '', answer: '' });
+        },
+        [createQuiz, interactive.quiz, updateField],
+    );
 
-    const onCreateQuote = useCallback(() => {
-        createQuote({
-            id: Date.now().toString(),
-            ...interactive.quote,
-        });
-        updateField('quote', { text: '', author: '' });
-    }, [createQuote, interactive.quote, updateField]);
+    const onCreateQuote = useCallback(
+        (e: FormEvent<HTMLFormElement>) => {
+            e.preventDefault();
+            createQuote({
+                id: Date.now().toString(),
+                ...interactive.quote,
+            });
+            updateField('quote', { text: '', author: '' });
+        },
+        [createQuote, interactive.quote, updateField],
+    );
 
-    const onCreateRecipe = useCallback(() => {
-        createRecipe({
-            id: Date.now().toString(),
-            ...interactive.recipe,
-        });
-        updateField('recipe', {
-            title: '',
-            ingredients: [''],
-            instruction: [''],
-        });
-    }, [createRecipe, interactive.recipe, updateField]);
+    const onCreateRecipe = useCallback(
+        (e: FormEvent<HTMLFormElement>) => {
+            e.preventDefault();
+            createRecipe({
+                id: Date.now().toString(),
+                ...interactive.recipe,
+            });
+            updateField('recipe', {
+                title: '',
+                ingredients: [''],
+                instruction: [''],
+            });
+        },
+        [createRecipe, interactive.recipe, updateField],
+    );
 
-    const onCreateTask = useCallback(() => {
-        createTask({
-            id: Date.now().toString(),
-            ...interactive.task,
-        });
-        updateField('task', { content: '' });
-    }, [createTask, interactive.task, updateField]);
+    const onCreateTask = useCallback(
+        (e: FormEvent<HTMLFormElement>) => {
+            e.preventDefault();
+            createTask({
+                id: Date.now().toString(),
+                ...interactive.task,
+            });
+            updateField('task', { content: '' });
+        },
+        [createTask, interactive.task, updateField],
+    );
 
     return (
         <VStack
@@ -165,37 +193,37 @@ const CreateInteractivePage = () => {
             <CreateQuiz
                 interactive={interactive}
                 updateField={updateField}
-                onCreate={onCreateQuiz}
+                onSubmit={onCreateQuiz}
             />
             <CreateMystery
                 interactive={interactive}
                 updateField={updateField}
-                onCreate={onCreateMystery}
+                onSubmit={onCreateMystery}
             />
             <CreateFact
                 interactive={interactive}
                 updateField={updateField}
-                onCreate={onCreateFact}
+                onSubmit={onCreateFact}
             />
             <CreateQuote
                 interactive={interactive}
                 updateField={updateField}
-                onCreate={onCreateQuote}
+                onSubmit={onCreateQuote}
             />
             <CreateTask
                 interactive={interactive}
                 updateField={updateField}
-                onCreate={onCreateTask}
+                onSubmit={onCreateTask}
             />
             <CreateAdvice
                 interactive={interactive}
                 updateField={updateField}
-                onCreate={onCreateAdvice}
+                onSubmit={onCreateAdvice}
             />
             <CreateRecipe
                 interactive={interactive}
                 updateField={updateField}
-                onCreate={onCreateRecipe}
+                onSubmit={onCreateRecipe}
             />
         </VStack>
     );

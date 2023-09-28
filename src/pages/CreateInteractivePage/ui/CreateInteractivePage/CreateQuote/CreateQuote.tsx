@@ -8,7 +8,7 @@ import { Card } from '@/shared/ui/redesigned/Card';
 import { CreateInteractiveProps } from '../CreateInteractivePage';
 
 export const CreateQuote = memo((props: CreateInteractiveProps) => {
-    const { updateField, interactive, onCreate } = props;
+    const { updateField, interactive, onSubmit } = props;
     const { t } = useTranslation();
 
     return (
@@ -17,42 +17,43 @@ export const CreateQuote = memo((props: CreateInteractiveProps) => {
             padding="24"
             border="partial"
         >
-            <VStack
-                max
-                gap="16"
-            >
-                <Text
-                    text={t('Створити цитата')}
-                    bold
-                />
-                <Input
-                    placeholder={t('Введіть цитату')}
-                    value={interactive.quote.text}
-                    onChange={(v) =>
-                        updateField('quote', {
-                            ...interactive.quote,
-                            text: v,
-                        })
-                    }
-                />
-                <Input
-                    placeholder={t('Введіть автора цитати')}
-                    value={interactive.quote.author}
-                    onChange={(v) =>
-                        updateField('quote', {
-                            ...interactive.quote,
-                            author: v,
-                        })
-                    }
-                />
-                <HStack
+            <form onSubmit={onSubmit}>
+                <VStack
                     max
-                    justify="end"
-                    onClick={onCreate}
+                    gap="16"
                 >
-                    <Button>{t('Створити цитату')}</Button>
-                </HStack>
-            </VStack>
+                    <Text
+                        text={t('Створити цитата')}
+                        bold
+                    />
+                    <Input
+                        placeholder={t('Введіть цитату')}
+                        value={interactive.quote.text}
+                        onChange={(v) =>
+                            updateField('quote', {
+                                ...interactive.quote,
+                                text: v,
+                            })
+                        }
+                    />
+                    <Input
+                        placeholder={t('Введіть автора цитати')}
+                        value={interactive.quote.author}
+                        onChange={(v) =>
+                            updateField('quote', {
+                                ...interactive.quote,
+                                author: v,
+                            })
+                        }
+                    />
+                    <HStack
+                        max
+                        justify="end"
+                    >
+                        <Button type="submit">{t('Створити цитату')}</Button>
+                    </HStack>
+                </VStack>
+            </form>
         </Card>
     );
 });
