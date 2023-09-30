@@ -22,7 +22,7 @@ export const Fact = memo(() => {
         >
             <Text
                 title={t('Факт дня')}
-                text={t(`А ви знали, що... ${data?.[currentIndex]}`)}
+                text={t(`А ви знали, що... ${data?.[currentIndex].content}`)}
             />
         </VStack>
     );

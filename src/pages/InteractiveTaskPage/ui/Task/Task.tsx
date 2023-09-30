@@ -22,7 +22,7 @@ export const Task = memo(() => {
         >
             <Text
                 title={t('Завдання дня')}
-                text={t(`${data?.[currentIndex]}`)}
+                text={t(`${data?.[currentIndex].content}`)}
             />
         </VStack>
     );
