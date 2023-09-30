@@ -39,6 +39,11 @@ export interface Fact {
     content: string;
 }
 
+export interface Wordle {
+    id?: string;
+    word: string;
+}
+
 export interface Interactive {
     facts: Fact[];
     quotes: Quote[];
@@ -47,6 +52,7 @@ export interface Interactive {
     recipes: Recipe[];
     quizzes: Quiz[];
     mysteries: Mystery[];
+    wordle: Wordle[];
 }
 
 export type InteractivesType =
@@ -56,7 +62,8 @@ export type InteractivesType =
     | Advice[]
     | Recipe[]
     | Quiz[]
-    | Mystery[];
+    | Mystery[]
+    | Wordle[];
 
 export interface InteractiveState {
     task: Task;
@@ -66,6 +73,7 @@ export interface InteractiveState {
     recipe: Recipe;
     quiz: Quiz;
     mystery: Mystery;
+    wordle: Wordle;
 }
 
 export type InteractiveType =
@@ -75,7 +83,8 @@ export type InteractiveType =
     | Advice
     | Recipe
     | Quiz
-    | Mystery;
+    | Mystery
+    | Wordle;
 
 export type InteractiveFieldNameType =
     | 'quiz'
@@ -84,4 +93,5 @@ export type InteractiveFieldNameType =
     | 'quote'
     | 'mystery'
     | 'advice'
-    | 'recipe';
+    | 'recipe'
+    | 'wordle';

@@ -15,6 +15,7 @@ import { Mystery } from './Mystery/Mystery';
 import { RandomArticle } from './RandomArticle/RandomArticle';
 import { Fact } from './Fact/Fact';
 import { Card } from '@/shared/ui/redesigned/Card';
+import { Wordle } from './Wordle/Wordle';
 import cls from './InteractiveTaskPage.module.scss';
 
 const InteractiveTaskPage = () => {
@@ -42,10 +43,12 @@ const InteractiveTaskPage = () => {
                 return <Mystery />;
             case Interactive.RANDOM_ARTICLE:
                 return <RandomArticle />;
+            case Interactive.WORDLE:
+                return <Wordle />;
             case Interactive.FACT:
                 return <Fact />;
             default:
-                return <RandomArticle />;
+                navigate(getRouteInteractive());
         }
     };
 

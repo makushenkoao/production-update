@@ -1,4 +1,11 @@
-import React, { FormEvent, memo, useCallback, useState } from 'react';
+import React, {
+    FormEvent,
+    memo,
+    MemoExoticComponent,
+    useCallback,
+    useMemo,
+    useState,
+} from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { Text } from '@/shared/ui/redesigned/Text';
@@ -16,6 +23,7 @@ import {
     usePostQuotesMutation,
     usePostRecipesMutation,
     usePostTasksMutation,
+    usePostWordleMutation,
 } from '@/entities/Interactive';
 import { CreateQuiz } from './CreateQuiz/CreateQuiz';
 import { CreateRecipe } from './CreateRecipe/CreateRecipe';
@@ -24,6 +32,7 @@ import { CreateFact } from './CreateFact/CreateFact';
 import { CreateQuote } from './CreateQuote/CreateQuote';
 import { CreateTask } from './CreateTask/CreateTask';
 import { CreateAdvice } from './CreateAdvice/CreateAdvice';
+import { CreateWordle } from './CreateWordle/CreateWordle';
 
 export interface CreateInteractiveProps {
     updateField: (
@@ -43,6 +52,7 @@ const CreateInteractivePage = () => {
     const [createQuote] = usePostQuotesMutation();
     const [createRecipe] = usePostRecipesMutation();
     const [createTask] = usePostTasksMutation();
+    const [createWordle] = usePostWordleMutation();
 
     const navigate = useNavigate();
 
@@ -73,6 +83,9 @@ const CreateInteractivePage = () => {
         },
         task: {
             content: '',
+        },
+        wordle: {
+            word: '',
         },
     });
 
@@ -178,6 +191,72 @@ const CreateInteractivePage = () => {
         [createTask, interactive.task, updateField],
     );
 
+    const onCreateWordle = useCallback(
+        (e: FormEvent<HTMLFormElement>) => {
+            e.preventDefault();
+            createWordle({
+                id: Date.now().toString(),
+                ...interactive.wordle,
+            });
+            updateField('wordle', { word: '' });
+        },
+        [createWordle, interactive.wordle, updateField],
+    );
+
+    const components = useMemo<
+        {
+            component: MemoExoticComponent<
+                (props: CreateInteractiveProps) => JSX.Element
+            >;
+            onSubmit: (e: FormEvent<HTMLFormElement>) => void;
+        }[]
+    >(
+        () => [
+            {
+                component: CreateQuiz,
+                onSubmit: onCreateQuiz,
+            },
+            {
+                component: CreateMystery,
+                onSubmit: onCreateMystery,
+            },
+            {
+                component: CreateFact,
+                onSubmit: onCreateFact,
+            },
+            {
+                component: CreateQuote,
+                onSubmit: onCreateQuote,
+            },
+            {
+                component: CreateTask,
+                onSubmit: onCreateTask,
+            },
+            {
+                component: CreateAdvice,
+                onSubmit: onCreateAdvice,
+            },
+            {
+                component: CreateWordle,
+                onSubmit: onCreateWordle,
+            },
+            {
+                component: CreateRecipe,
+                onSubmit: onCreateRecipe,
+            },
+        ],
+        [
+            onCreateAdvice,
+            onCreateFact,
+            onCreateMystery,
+            onCreateQuiz,
+            onCreateQuote,
+            onCreateRecipe,
+            onCreateTask,
+            onCreateWordle,
+        ],
+    );
+
     return (
         <VStack
             max
@@ -190,41 +269,15 @@ const CreateInteractivePage = () => {
                 {t('Повернутися до адмін панелі')}
             </Button>
             <Text title={t('Інтерактив')} />
-            <CreateQuiz
-                interactive={interactive}
-                updateField={updateField}
-                onSubmit={onCreateQuiz}
-            />
-            <CreateMystery
-                interactive={interactive}
-                updateField={updateField}
-                onSubmit={onCreateMystery}
-            />
-            <CreateFact
-                interactive={interactive}
-                updateField={updateField}
-                onSubmit={onCreateFact}
-            />
-            <CreateQuote
-                interactive={interactive}
-                updateField={updateField}
-                onSubmit={onCreateQuote}
-            />
-            <CreateTask
-                interactive={interactive}
-                updateField={updateField}
-                onSubmit={onCreateTask}
-            />
-            <CreateAdvice
-                interactive={interactive}
-                updateField={updateField}
-                onSubmit={onCreateAdvice}
-            />
-            <CreateRecipe
-                interactive={interactive}
-                updateField={updateField}
-                onSubmit={onCreateRecipe}
-            />
+            {components.map(({ component: Component, onSubmit }, index) => (
+                <React.Fragment key={index}>
+                    <Component
+                        onSubmit={onSubmit}
+                        updateField={updateField}
+                        interactive={interactive}
+                    />
+                </React.Fragment>
+            ))}
         </VStack>
     );
 };

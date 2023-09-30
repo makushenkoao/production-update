@@ -27,4 +27,6 @@ export {
     usePostQuotesMutation,
     usePostRecipesMutation,
     usePostTasksMutation,
+    useGetWordleQuery,
+    usePostWordleMutation,
 } from './api/interactiveApi';

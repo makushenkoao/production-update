@@ -24,6 +24,18 @@
     display: flex;
 }
 
+.right {
+    background: var(--save-redesigned) !important;
+}
+
+.partially {
+    background: #ffc200 !important;
+}
+
+.light_bg {
+    background: var(--light-bg-redesigned);
+}
+
 *::-webkit-scrollbar {
     width: 12px;
     height: 8px;

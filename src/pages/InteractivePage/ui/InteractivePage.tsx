@@ -68,6 +68,13 @@ const InteractivePage = () => {
                 ),
             },
             {
+                title: t('Wordle'),
+                href: Interactive.WORDLE,
+                description: t(
+                    'Кожного дня ми даємо будь-яке слово, відгадайте його',
+                ),
+            },
+            {
                 title: t('Випадкова стаття'),
                 href: Interactive.RANDOM_ARTICLE,
                 description: t('Прочитайте абсолютно випадкову статтю'),

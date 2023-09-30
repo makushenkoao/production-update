@@ -1,10 +1,13 @@
 import { rtkApi } from '@/shared/api/rtkApi';
 import {
-    Advice, Fact,
+    Advice,
+    Fact,
     Mystery,
     Quiz,
     Quote,
-    Recipe, Task,
+    Recipe,
+    Task,
+    Wordle,
 } from '../model/types/interactive';
 
 export const interactiveApi = rtkApi.injectEndpoints({
@@ -51,7 +54,12 @@ export const interactiveApi = rtkApi.injectEndpoints({
                 method: 'GET',
             }),
         }),
-
+        getWordle: build.query<Wordle[], void>({
+            query: (_) => ({
+                url: '/wordle',
+                method: 'GET',
+            }),
+        }),
         postAdvices: build.mutation<void, Advice>({
             query: (args) => ({
                 url: '/advices',
@@ -101,6 +109,13 @@ export const interactiveApi = rtkApi.injectEndpoints({
                 body: args,
             }),
         }),
+        postWordle: build.mutation<void, Wordle>({
+            query: (args) => ({
+                url: '/wordle',
+                method: 'POST',
+                body: args,
+            }),
+        }),
     }),
 });
 
@@ -112,6 +127,7 @@ export const {
     useGetQuotesQuery,
     useGetRecipesQuery,
     useGetTasksQuery,
+    useGetWordleQuery,
     usePostAdvicesMutation,
     usePostFactsMutation,
     usePostMysteriesMutation,
@@ -119,4 +135,5 @@ export const {
     usePostQuotesMutation,
     usePostRecipesMutation,
     usePostTasksMutation,
+    usePostWordleMutation,
 } = interactiveApi;
