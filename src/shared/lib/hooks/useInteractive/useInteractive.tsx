@@ -1,12 +1,12 @@
-import { useCallback, useEffect, useState } from 'react';
+import { FormEvent, useCallback, useEffect, useState } from 'react';
 
-import {InteractivesType, Mystery, Quiz} from "@/entities/Interactive";
+import { InteractivesType, Mystery, Quiz } from '@/entities/Interactive';
 
 interface InterfaceResult {
     isOpen: boolean;
     answer: string;
     isCorrect?: boolean;
-    onClick: () => void;
+    onSubmit: (e: FormEvent<HTMLFormElement>) => void;
     onOpen: () => void;
     onClose: () => void;
     onChange: (v: string) => void;
@@ -30,19 +30,25 @@ export function useInteractive(data?: InteractivesType): InterfaceResult {
         }
     }, [data, setCurrentIndex]);
 
-    const onClick = useCallback(() => {
-        const asData = data as Quiz[] | Mystery[];
+    const onSubmit = useCallback(
+        (e: FormEvent<HTMLFormElement>) => {
+            e.preventDefault();
 
-        if (
-            answer.toLowerCase() === asData?.[currentIndex].answer.toLowerCase()
-        ) {
-            setIsCorrect(true);
-        } else {
-            setIsCorrect(false);
-        }
+            const asData = data as Quiz[] | Mystery[];
 
-        setAnswer('');
-    }, [data, answer, currentIndex]);
+            if (
+                answer.toLowerCase() ===
+                asData?.[currentIndex].answer.toLowerCase()
+            ) {
+                setIsCorrect(true);
+            } else {
+                setIsCorrect(false);
+            }
+
+            setAnswer('');
+        },
+        [data, answer, currentIndex],
+    );
 
     const onOpen = useCallback(() => {
         setIsOpen(true);
@@ -60,7 +66,7 @@ export function useInteractive(data?: InteractivesType): InterfaceResult {
         isOpen,
         answer,
         isCorrect,
-        onClick,
+        onSubmit,
         onOpen,
         onClose,
         onChange,

@@ -6,9 +6,7 @@ import { Input } from '@/shared/ui/redesigned/Input';
 import { Button } from '@/shared/ui/redesigned/Button';
 import { Modal } from '@/shared/ui/redesigned/Modal';
 import { useInteractive } from '@/shared/lib/hooks/useInteractive/useInteractive';
-import {
-    useGetMysteriesQuery,
-} from '@/entities/Interactive';
+import { useGetMysteriesQuery } from '@/entities/Interactive';
 import { InteractiveTaskPageSkeleton } from '../InteractiveTaskPageSkeleton';
 
 export const Mystery = memo(() => {
@@ -17,7 +15,7 @@ export const Mystery = memo(() => {
     const {
         isOpen,
         isCorrect,
-        onClick,
+        onSubmit,
         onOpen,
         onClose,
         onChange,
@@ -29,56 +27,60 @@ export const Mystery = memo(() => {
     }
 
     return (
-        <VStack
-            max
-            gap="16"
-        >
-            <Text
-                title={t('Загадка дня')}
-                text={t(`${data?.[currentIndex].question}`)}
-            />
-            <HStack
+        <form onSubmit={onSubmit}>
+            <VStack
                 max
-                gap="8"
+                gap="16"
             >
-                <Input
-                    onChange={onChange}
-                    placeholder={t('Введіть відповідь')}
+                <Text
+                    title={t('Загадка дня')}
+                    text={t(`${data?.[currentIndex].question}`)}
                 />
-                <Button onClick={onClick}>{t('Відповісти')}</Button>
-            </HStack>
-            <Button
-                fullWidth
-                variant="filled"
-                onClick={onOpen}
-            >
-                {t('Подивитися відповідь')}
-            </Button>
-            <HStack
-                justify="center"
-                max
-            >
-                {isCorrect && (
-                    <Text
-                        variant="success"
-                        text={t('Вірно! Молодець!')}
-                        size="l"
+                <HStack
+                    max
+                    gap="8"
+                >
+                    <Input
+                        onChange={onChange}
+                        placeholder={t('Введіть відповідь')}
                     />
-                )}
-                {isCorrect === false && (
+                    <Button type="submit">{t('Відповісти')}</Button>
+                </HStack>
+                <Button
+                    fullWidth
+                    variant="filled"
+                    onClick={onOpen}
+                >
+                    {t('Подивитися відповідь')}
+                </Button>
+                <HStack
+                    justify="center"
+                    max
+                >
+                    {isCorrect && (
+                        <Text
+                            variant="success"
+                            text={t('Вірно! Молодець!')}
+                            size="l"
+                        />
+                    )}
+                    {isCorrect === false && (
+                        <Text
+                            variant="error"
+                            text={t('Невірно! Спробуйте ще раз')}
+                            size="l"
+                        />
+                    )}
+                </HStack>
+                <Modal
+                    isOpen={isOpen}
+                    onClose={onClose}
+                >
                     <Text
-                        variant="error"
-                        text={t('Невірно! Спробуйте ще раз')}
-                        size="l"
+                        text={t(`Відповідь: ${data?.[currentIndex].answer}`)}
                     />
-                )}
-            </HStack>
-            <Modal
-                isOpen={isOpen}
-                onClose={onClose}
-            >
-                <Text text={t(`Відповідь: ${data?.[currentIndex].answer}`)} />
-            </Modal>
-        </VStack>
+                </Modal>
+            </VStack>
+        </form>
     );
 });

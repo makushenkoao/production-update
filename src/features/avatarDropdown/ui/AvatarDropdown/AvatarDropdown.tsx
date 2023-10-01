@@ -44,14 +44,6 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
     }
 
     const items = [
-        ...(isAdminPanelAvailable
-            ? [
-                  {
-                      content: t('Адмінка'),
-                      href: getRouteAdmin(),
-                  },
-              ]
-            : []),
         {
             content: t('Профіль'),
             href: getRouteProfile(userAuthData.id),
@@ -64,6 +56,14 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
             content: t('Налаштування'),
             href: getRouteSettings(),
         },
+        ...(isAdminPanelAvailable
+            ? [
+                  {
+                      content: t('Адмінка'),
+                      href: getRouteAdmin(),
+                  },
+              ]
+            : []),
         {
             content: (
                 <Text
