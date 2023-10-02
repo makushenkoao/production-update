@@ -13,6 +13,7 @@ import { Modal } from '@/shared/ui/redesigned/Modal';
 import SaveIcon from '@/shared/assets/icons/save.svg';
 import UnSaveIcon from '@/shared/assets/icons/unsave.svg';
 import cls from './ArticleAdditionalInfo.module.scss';
+import { Tooltip } from '@/shared/ui/redesigned/Tooltip';
 
 interface ArticleAdditionalInfoProps {
     className?: string;
@@ -105,19 +106,23 @@ export const ArticleAdditionalInfo = memo(
                         disabled={isLoading || isProfileLoading}
                     >
                         {isSaved ? (
-                            <UnSaveIcon
-                                width={24}
-                                height={24}
-                                onClick={onSave}
-                                className={cls.icon}
-                            />
+                            <Tooltip title={t('Прибрати зі збережених')} direction="bottom left">
+                                <UnSaveIcon
+                                    width={24}
+                                    height={24}
+                                    onClick={onSave}
+                                    className={cls.icon}
+                                />
+                            </Tooltip>
                         ) : (
-                            <SaveIcon
-                                width={20}
-                                height={20}
-                                onClick={onSave}
-                                className={cls.icon}
-                            />
+                            <Tooltip title={t('Зберегти')} direction="bottom left">
+                                <SaveIcon
+                                    width={20}
+                                    height={20}
+                                    onClick={onSave}
+                                    className={cls.icon}
+                                />
+                            </Tooltip>
                         )}
                     </Button>
                 </HStack>

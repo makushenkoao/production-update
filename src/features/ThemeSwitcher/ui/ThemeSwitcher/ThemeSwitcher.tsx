@@ -4,12 +4,14 @@ import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { saveJsonSettings } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import ThemeIcon from '@/shared/assets/icons/theme-re.svg';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 interface ThemeSwitcherProps {
     className?: string;
 }
 
-export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
+export const ThemeSwitcher = memo((props: ThemeSwitcherProps) => {
+    const { className } = props;
     const { theme, toggleTheme } = useTheme();
     const dispatch = useAppDispatch();
 
@@ -21,6 +23,7 @@ export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
 
     return (
         <Icon
+            className={classNames('', {}, [className])}
             onClick={onToggleHandler}
             clickable
             svg={ThemeIcon}

@@ -6,9 +6,11 @@ export const VIEW_TYPES = [
     {
         view: ArticleView.SMALL,
         icon: TiledIcon,
+        title: 'Відображати коротку інформацію статті'
     },
     {
         view: ArticleView.BIG,
         icon: ListIcon,
+        title: 'Відображати довгу інформацію статті'
     },
 ];

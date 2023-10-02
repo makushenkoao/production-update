@@ -8,6 +8,7 @@ import cls from './ArticleViewSelector.module.scss';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { HStack } from '@/shared/ui/redesigned/Stack';
+import { Tooltip } from '@/shared/ui/redesigned/Tooltip';
 
 interface ArticleViewSelectorProps {
     className?: string;
@@ -33,17 +34,20 @@ export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
         >
             <HStack>
                 {VIEW_TYPES.map((viewType, index) => (
-                    <Icon
-                        key={viewType.view}
-                        svg={viewType.icon}
-                        className={classNames('', {
-                            [cls.selectedRedesigned]: viewType.view === view,
-                            [cls.left]: index === 0,
-                            [cls.right]: index === 1,
-                        })}
-                        clickable
-                        onClick={onClick(viewType.view)}
-                    />
+                    <Tooltip title={viewType.title}>
+                        <Icon
+                            key={viewType.view}
+                            svg={viewType.icon}
+                            className={classNames('', {
+                                [cls.selectedRedesigned]:
+                                    viewType.view === view,
+                                [cls.left]: index === 0,
+                                [cls.right]: index === 1,
+                            })}
+                            clickable
+                            onClick={onClick(viewType.view)}
+                        />
+                    </Tooltip>
                 ))}
             </HStack>
         </Card>

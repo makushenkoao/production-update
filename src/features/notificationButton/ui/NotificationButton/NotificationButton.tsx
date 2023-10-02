@@ -1,6 +1,7 @@
 import React, { memo, useCallback, useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
     NotificationList,
@@ -15,6 +16,7 @@ import { getUserAuthData } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import NotificationIcon from '@/shared/assets/icons/notification-re.svg';
 import cls from './NotificationButton.module.scss';
+import { Tooltip } from '@/shared/ui/redesigned/Tooltip';
 
 interface NotificationButtonProps {
     className?: string;
@@ -22,6 +24,7 @@ interface NotificationButtonProps {
 
 export const NotificationButton = memo((props: NotificationButtonProps) => {
     const { className } = props;
+    const { t } = useTranslation();
     const authData = useSelector(getUserAuthData);
     const dispatch = useAppDispatch();
     const { data, isLoading, error, refetch } = useGetNotificationsQuery(
@@ -50,12 +53,14 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
 
     const trigger = data?.length ? (
         <>
-            <Icon
-                svg={NotificationIcon}
-                clickable
-                onClick={onOpenDrawer}
-                className={cls.icon}
-            />
+            <Tooltip title={t('Повідомлення')} direction="bottom left">
+                <Icon
+                    svg={NotificationIcon}
+                    clickable
+                    onClick={onOpenDrawer}
+                    className={cls.icon}
+                />
+            </Tooltip>
             <Text
                 text={String(data.length)}
                 variant="error"
@@ -63,12 +68,14 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
             />
         </>
     ) : (
-        <Icon
-            svg={NotificationIcon}
-            clickable
-            onClick={onOpenDrawer}
-            className={cls.icon}
-        />
+        <Tooltip title={t('Повідомлення')} direction="bottom left">
+            <Icon
+                svg={NotificationIcon}
+                clickable
+                onClick={onOpenDrawer}
+                className={cls.icon}
+            />
+        </Tooltip>
     );
 
     return (

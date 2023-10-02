@@ -1,37 +1,39 @@
 .Tooltip {
-  position: relative;
+    position: relative;
 }
 
 .title {
-  position: absolute;
-  background: var(--hint-redesigned);
-  padding: 5px 8px;
-  border-radius: 12px;
-  z-index: 1;
-  display: none;
+    position: absolute;
+    background: var(--hint-redesigned);
+    padding: 5px 8px;
+    border-radius: 12px;
+    color: var(--text-redesigned);
+    z-index: 1;
+    display: none;
 }
 
 .Tooltip:hover {
-  .title {
-    display: block;
-  }
+    .title {
+        display: block;
+    }
 }
+
 .bottomLeft {
-  top: 100%;
-  right: 0;
+    top: 100%;
+    right: 0;
 }
 
 .bottomRight {
-  top: 100%;
-  left: 0;
+    top: 100%;
+    left: 0;
 }
 
 .topRight {
-  bottom: 100%;
-  left: 0;
+    bottom: 100%;
+    left: 0;
 }
 
 .topLeft {
-  right: 0;
-  bottom: 100%;
+    right: 0;
+    bottom: 100%;
 }

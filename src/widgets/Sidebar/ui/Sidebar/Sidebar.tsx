@@ -1,5 +1,6 @@
 import { memo, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import { LangSwitcher } from '@/features/LangSwitcher';
@@ -11,6 +12,7 @@ import { Icon } from '@/shared/ui/redesigned/Icon';
 import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg';
 import cls from './Sidebar.module.scss';
 import { AppLink } from '@/shared/ui/redesigned/AppLink';
+import { Tooltip } from '@/shared/ui/redesigned/Tooltip';
 
 interface SidebarProps {
     className?: string;
@@ -18,6 +20,7 @@ interface SidebarProps {
 
 export const Sidebar = memo(({ className }: SidebarProps) => {
     const [collapsed, setCollapsed] = useState<boolean>(false);
+    const { t } = useTranslation();
     const sidebarItemsList = useSelector(getSidebarItems);
     const onToggle = (): void => setCollapsed((prevState) => !prevState);
 
@@ -50,11 +53,13 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
             )}
         >
             <AppLink to="/">
-                <AppLogo
-                    className={cls.appLogo}
-                    width={collapsed ? 30 : 50}
-                    height={collapsed ? 30 : 50}
-                />
+                <Tooltip title={t('Головна сторінка')} direction="bottom left">
+                    <AppLogo
+                        className={cls.appLogo}
+                        width={collapsed ? 30 : 50}
+                        height={collapsed ? 30 : 50}
+                    />
+                </Tooltip>
             </AppLink>
             <VStack
                 role="navigation"

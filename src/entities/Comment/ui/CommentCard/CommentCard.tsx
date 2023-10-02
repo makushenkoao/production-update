@@ -22,6 +22,7 @@ import DeleteIcon from '@/shared/assets/icons/delete.svg';
 import cls from './CommentCard.module.scss';
 import { getArticleDetailsData } from '@/entities/Article';
 import { sendNotification } from '@/entities/Notification';
+import { Tooltip } from '@/shared/ui/redesigned/Tooltip';
 
 interface CommentCardProps {
     className?: string;
@@ -191,22 +192,26 @@ export const CommentCard = memo((props: CommentCardProps) => {
                 </VStack>
                 <HStack gap="16">
                     <VStack align="center">
-                        <Icon
-                            svg={LikeIcon}
-                            clickable
-                            onClick={onClick}
-                        />
+                        <Tooltip title={t('Подобається')} direction="bottom left">
+                            <Icon
+                                svg={LikeIcon}
+                                clickable
+                                onClick={onClick}
+                            />
+                        </Tooltip>
                         <Text
                             text={String(comment?.likes.length)}
                             size="s"
                         />
                     </VStack>
                     {comment.user.id === authData?.id && (
-                        <Icon
-                            svg={DeleteIcon}
-                            clickable
-                            onClick={onDelete}
-                        />
+                        <Tooltip title={t('Видалити')} direction="bottom left">
+                            <Icon
+                                svg={DeleteIcon}
+                                clickable
+                                onClick={onDelete}
+                            />
+                        </Tooltip>
                     )}
                 </HStack>
             </HStack>
