@@ -26,8 +26,6 @@ export const saveArticle = createAsyncThunk<
             ? profile.saved?.filter((id) => id !== article.id)
             : [...(profile.saved || []), article.id];
 
-        console.log(newSaved);
-
         await extra.api.put<Profile>(`profile/${profile.id}`, {
             ...profile,
             saved: newSaved,

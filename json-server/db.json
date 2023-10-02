@@ -26,6 +26,34 @@
       "description": "Nice article!",
       "href": "/articles/1",
       "userId": "1"
+    },
+    {
+      "id": "1696272328433",
+      "title": "Нове повідомлення",
+      "description": "На ваш профіль підписався admin",
+      "href": "/profile/1",
+      "userId": "2"
+    },
+    {
+      "id": "1696272338983",
+      "title": "Нове повідомлення",
+      "description": "На ваш профіль підписався admin",
+      "href": "/profile/1",
+      "userId": "2"
+    },
+    {
+      "id": "1696272696233",
+      "title": "Нове повідомлення",
+      "description": "На ваш профіль підписався admin",
+      "href": "/profile/1",
+      "userId": "2"
+    },
+    {
+      "id": "1696282234338",
+      "title": "Нове повідомлення",
+      "description": "На ваш профіль підписався admin",
+      "href": "/profile/1",
+      "userId": "2"
     }
   ],
   "profile": [
@@ -42,13 +70,12 @@
       "followers": [
         "2"
       ],
-      "following": [
-        "2"
-      ],
+      "following": [],
       "saved": [
         "3",
         "2"
-      ]
+      ],
+      "blockedUsers": []
     },
     {
       "id": "2",
@@ -60,13 +87,12 @@
       "city": "Quebec",
       "username": "user",
       "avatar": "https://static.vecteezy.com/system/resources/previews/019/896/008/original/male-user-avatar-icon-in-flat-design-style-person-signs-illustration-png.png",
-      "followers": [
-        "3"
-      ],
+      "followers": [],
       "following": [
         "1"
       ],
-      "saved": []
+      "saved": [],
+      "blockedUsers": []
     },
     {
       "id": "3",
@@ -82,7 +108,8 @@
       "following": [
         "2"
       ],
-      "saved": []
+      "saved": [],
+      "blockedUsers": []
     },
     {
       "id": "4",
@@ -96,7 +123,8 @@
       "avatar": "https://www.shareicon.net/data/512x512/2016/09/01/822726_user_512x512.png",
       "followers": [],
       "following": [],
-      "saved": []
+      "saved": [],
+      "blockedUsers": []
     },
     {
       "id": "1690116539675",
@@ -110,7 +138,8 @@
       "country": "USA",
       "followers": [],
       "following": [],
-      "saved": []
+      "saved": [],
+      "blockedUsers": []
     },
     {
       "id": "1690122879171",
@@ -119,7 +148,8 @@
       "lastname": "fas",
       "followers": [],
       "following": [],
-      "saved": []
+      "saved": [],
+      "blockedUsers": []
     },
     {
       "id": "1690123631680",
@@ -130,7 +160,8 @@
       "age": 23,
       "followers": [],
       "following": [],
-      "saved": []
+      "saved": [],
+      "blockedUsers": []
     },
     {
       "id": "1694606431960",
@@ -139,7 +170,8 @@
       "lastname": "",
       "followers": [],
       "following": [],
-      "saved": []
+      "saved": [],
+      "blockedUsers": []
     },
     {
       "id": "1694607290876",
@@ -148,7 +180,8 @@
       "lastname": "barsik",
       "followers": [],
       "following": [],
-      "saved": []
+      "saved": [],
+      "blockedUsers": []
     },
     {
       "id": "1694607342533",
@@ -157,7 +190,8 @@
       "lastname": "aaa",
       "followers": [],
       "following": [],
-      "saved": []
+      "saved": [],
+      "blockedUsers": []
     },
     {
       "id": "1694609005326",
@@ -173,7 +207,8 @@
       "city": "Cherkasy",
       "currency": "UAH",
       "country": "Ukraine",
-      "saved": []
+      "saved": [],
+      "blockedUsers": []
     },
     {
       "id": "1694873514328",
@@ -182,7 +217,8 @@
       "lastname": "reg",
       "following": [],
       "followers": [],
-      "saved": []
+      "saved": [],
+      "blockedUsers": []
     },
     {
       "id": "1694875239677",
@@ -191,7 +227,8 @@
       "lastname": "fasdf",
       "following": [],
       "followers": [],
-      "saved": []
+      "saved": [],
+      "blockedUsers": []
     },
     {
       "id": "1694875293753",
@@ -200,7 +237,8 @@
       "lastname": "fasdf",
       "following": [],
       "followers": [],
-      "saved": []
+      "saved": [],
+      "blockedUsers": []
     }
   ],
   "articles": [

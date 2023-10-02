@@ -15,4 +15,5 @@ export interface Profile {
     followers?: string[];
     following?: string[];
     saved?: string[];
+    blockedUsers?: string[];
 }

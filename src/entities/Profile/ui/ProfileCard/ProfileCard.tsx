@@ -19,6 +19,7 @@ export interface ProfileCardProps {
     onChangeCurrency?: (v: Currency) => void;
     onChangeCountry?: (v: Country) => void;
     readonly?: boolean;
+    isBlocked?: boolean
 }
 
 export const ProfileCard = (props: ProfileCardProps) => {

@@ -21,7 +21,6 @@ import { getProfileValidateErrors } from '../../model/selectors/getProfileValida
 import { profileActions, profileReducer } from '../../model/slice/ProfileSlice';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
-import { followProfile } from '../../model/services/followProfile/followProfile';
 import { getUserAuthData } from '@/entities/User';
 
 const reducers: ReducersList = {
@@ -31,15 +30,19 @@ const reducers: ReducersList = {
 interface EditableProfileCardProps {
     className?: string;
     id?: string;
+    userIsBlocked?: boolean;
+    onBlockUser?: () => void;
+    onFollow?: () => void;
+    loading?: boolean;
 }
 
 export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
-    const { className, id } = props;
+    const { className, id, onBlockUser, userIsBlocked, loading, onFollow } =
+        props;
     const { t } = useTranslation();
     const [userIsFollowing, setUserIsFollowing] = useState<boolean | undefined>(
         false,
     );
-    const [isLoadingFoll, setIsLoadingFoll] = useState(false);
     const dispatch = useAppDispatch();
     const authData = useSelector(getUserAuthData);
     const formData = useSelector(getProfileForm);
@@ -126,13 +129,6 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
         [dispatch],
     );
 
-    const onFollowClick = useCallback(() => {
-        setIsLoadingFoll(true);
-        dispatch(followProfile()).then(() => {
-            setIsLoadingFoll(false);
-        });
-    }, [dispatch]);
-
     return (
         <DynamicModuleLoader
             reducers={reducers}
@@ -144,9 +140,11 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
                 className={classNames('', {}, [className])}
             >
                 <EditableProfileCardHeader
-                    onFollowClick={onFollowClick}
+                    onFollowClick={onFollow}
                     userIsFollowing={userIsFollowing}
-                    isLoading={isLoadingFoll}
+                    isLoading={loading}
+                    isBlocked={userIsBlocked}
+                    onBlockUser={onBlockUser}
                 />
                 {validateErrors?.length &&
                     validateErrors.map((error) => (
@@ -170,6 +168,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
                     onChangeAvatar={onChangeAvatar}
                     onChangeCurrency={onChangeCurrency}
                     onChangeCountry={onChangeCountry}
+                    isBlocked={userIsBlocked}
                 />
             </VStack>
         </DynamicModuleLoader>

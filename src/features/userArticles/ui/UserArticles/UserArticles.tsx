@@ -17,8 +17,6 @@ export const UserArticles = () => {
 
     const userArticles = data?.filter((item) => item.user.id === id);
 
-    console.log();
-
     if (isLoading) {
         return <Skeleton height={300} />;
     }

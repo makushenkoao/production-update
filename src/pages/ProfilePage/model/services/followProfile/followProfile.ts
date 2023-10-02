@@ -1,10 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { Profile } from '@/entities/Profile';
-import { ValidateProfileError } from '../../consts/consts';
-import { getProfileForm } from '../../selectors/getProfileForm/getProfileForm';
+import { getProfileForm, profileActions } from '@/features/editableProfileCard';
 import { getUserAuthData } from '@/entities/User';
-import { profileActions } from '../../slice/ProfileSlice';
 import { getRouteProfile } from '@/shared/const/router';
 import { sendNotification } from '@/entities/Notification';
 
@@ -12,7 +10,7 @@ import { sendNotification } from '@/entities/Notification';
 export const followProfile = createAsyncThunk<
     void,
     void,
-    ThunkConfig<ValidateProfileError[]>
+    ThunkConfig<string>
 >('profile/followProfile', async (_, ThunkApi) => {
     const { rejectWithValue, extra, getState, dispatch } = ThunkApi;
 
@@ -20,7 +18,7 @@ export const followProfile = createAsyncThunk<
     const currentUser = getUserAuthData(getState()); // current user on site
 
     if (!formData?.followers) {
-        return rejectWithValue([ValidateProfileError.SERVER_ERROR]);
+        return rejectWithValue('error');
     }
 
     try {
@@ -29,7 +27,7 @@ export const followProfile = createAsyncThunk<
         );
 
         if (!currentProfile.following) {
-            return rejectWithValue([ValidateProfileError.SERVER_ERROR]);
+            return rejectWithValue('erroe');
         }
 
         const isFollowing = currentProfile?.following.includes(
@@ -49,7 +47,7 @@ export const followProfile = createAsyncThunk<
         );
 
         if (!currentProfile.following) {
-            return rejectWithValue([ValidateProfileError.SERVER_ERROR]);
+            return rejectWithValue('error');
         }
 
         await extra.api.put<Profile>(`/profile/${currentProfile.id}`, {
@@ -64,7 +62,6 @@ export const followProfile = createAsyncThunk<
         dispatch(profileActions.updateProfile(followingProfile));
 
         if (!isFollowing) {
-            console.log('bla');
             dispatch(
                 sendNotification({
                     id: Date.now().toString(),
@@ -76,6 +73,6 @@ export const followProfile = createAsyncThunk<
             );
         }
     } catch (e) {
-        return rejectWithValue([ValidateProfileError.SERVER_ERROR]);
+        return rejectWithValue('error');
     }
 });

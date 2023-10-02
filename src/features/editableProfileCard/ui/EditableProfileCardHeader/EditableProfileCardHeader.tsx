@@ -14,17 +14,30 @@ import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/get
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { getRouteChat } from '@/shared/const/router';
+import { Tooltip } from '@/shared/ui/redesigned/Tooltip';
+import { Icon } from '@/shared/ui/redesigned/Icon';
+import BlockIcon from '@/shared/assets/icons/block.svg';
+import UnBlockIcon from '@/shared/assets/icons/unblock.svg';
 
 interface EditableProfileCardHeaderProps {
     className?: string;
     onFollowClick?: () => void;
+    onBlockUser?: () => void;
+    isBlocked?: boolean;
     userIsFollowing?: boolean;
     isLoading?: boolean;
 }
 
 export const EditableProfileCardHeader = memo(
     (props: EditableProfileCardHeaderProps) => {
-        const { className, onFollowClick, userIsFollowing, isLoading } = props;
+        const {
+            className,
+            onFollowClick,
+            userIsFollowing,
+            isLoading,
+            onBlockUser,
+            isBlocked,
+        } = props;
         const { t } = useTranslation();
         const navigate = useNavigate();
         const authData = useSelector(getUserAuthData);
@@ -51,9 +64,13 @@ export const EditableProfileCardHeader = memo(
             }
         }, [navigate, profileData?.id]);
 
-        const onFollowHandleClick = useCallback(() => {
+        const onFollow = useCallback(() => {
             onFollowClick?.();
         }, [onFollowClick]);
+
+        const onBlock = useCallback(() => {
+            onBlockUser?.();
+        }, [onBlockUser]);
 
         return (
             <Card
@@ -92,22 +109,40 @@ export const EditableProfileCardHeader = memo(
                         </HStack>
                     ) : (
                         <HStack gap="8">
-                            <Button
-                                onClick={onNavigateToChat}
-                                variant="filled"
-                            >
-                                {t('Написати')}
-                            </Button>
-                            <Button
-                                onClick={onFollowHandleClick}
-                                color={userIsFollowing ? 'error' : 'normal'}
-                            >
-                                {t(
-                                    userIsFollowing
-                                        ? 'Відписатися'
-                                        : 'Підписатися',
+                            {!isBlocked && (
+                                <>
+                                    <Button
+                                        onClick={onNavigateToChat}
+                                        variant="filled"
+                                    >
+                                        {t('Написати')}
+                                    </Button>
+                                    <Button
+                                        onClick={onFollow}
+                                        color={
+                                            userIsFollowing ? 'error' : 'normal'
+                                        }
+                                    >
+                                        {t(
+                                            userIsFollowing
+                                                ? 'Відписатися'
+                                                : 'Підписатися',
+                                        )}
+                                    </Button>
+                                </>
+                            )}
+                            <Tooltip
+                                title={t(
+                                    isBlocked ? 'Розблокувати' : 'Заблокувати',
                                 )}
-                            </Button>
+                                direction="bottom left"
+                            >
+                                <Icon
+                                    svg={isBlocked ? UnBlockIcon : BlockIcon}
+                                    clickable
+                                    onClick={onBlock}
+                                />
+                            </Tooltip>
                         </HStack>
                     )}
                 </HStack>

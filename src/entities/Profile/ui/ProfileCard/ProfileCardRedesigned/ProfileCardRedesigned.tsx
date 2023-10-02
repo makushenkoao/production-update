@@ -11,7 +11,9 @@ import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 import { Avatar } from '@/shared/ui/redesigned/Avatar';
 import { ProfileCardProps } from '../ProfileCard';
 import { AverageUserRating } from '@/features/averageUserRating';
+import UserIcon from '@/shared/assets/icons/user.svg';
 import cls from './ProfileCardRedesigned.module.scss';
+import { Icon } from '@/shared/ui/redesigned/Icon';
 
 export const ProfileCardRedesigned = (props: ProfileCardProps) => {
     const {
@@ -28,6 +30,7 @@ export const ProfileCardRedesigned = (props: ProfileCardProps) => {
         readonly,
         isLoading,
         error,
+        isBlocked,
     } = props;
 
     const { t } = useTranslation();
@@ -134,12 +137,20 @@ export const ProfileCardRedesigned = (props: ProfileCardProps) => {
                     max
                     justify="center"
                 >
-                    <Avatar
-                        src={data?.avatar}
-                        width={128}
-                        height={128}
-                        alt="User Avatar"
-                    />
+                    {isBlocked ? (
+                        <Icon
+                            svg={UserIcon}
+                            height={128}
+                            width={128}
+                        />
+                    ) : (
+                        <Avatar
+                            src={data?.avatar}
+                            width={128}
+                            height={128}
+                            alt="User Avatar"
+                        />
+                    )}
                 </HStack>
                 <HStack
                     max
@@ -155,77 +166,79 @@ export const ProfileCardRedesigned = (props: ProfileCardProps) => {
                         <Text text={String(data?.following?.length)} />
                     </VStack>
                 </HStack>
-                <HStack
-                    gap="24"
-                    max
-                >
-                    <VStack
+                {!isBlocked && (
+                    <HStack
+                        gap="24"
                         max
-                        gap="16"
                     >
-                        <Input
-                            value={data?.firstname}
-                            placeholder={t("Ваше ім'я")}
-                            label={t("Ім'я")}
-                            onChange={onChangeFirstname}
-                            readonly={readonly}
-                            data-testid="ProfileCard.firstname"
-                        />
-                        <Input
-                            value={data?.lastname}
-                            placeholder={t('Ваше прізвище')}
-                            label={t('Прізвище')}
-                            onChange={onChangeLastname}
-                            readonly={readonly}
-                            data-testid="ProfileCard.lastname"
-                        />
-                        <Input
-                            value={data?.age}
-                            placeholder={t('Ваш вік')}
-                            label={t('Вік')}
-                            onChange={onChangeAge}
-                            readonly={readonly}
-                        />
-                        <Input
-                            value={data?.city}
-                            placeholder={t('Ваше місто')}
-                            label={t('Місто')}
-                            onChange={onChangeCity}
-                            readonly={readonly}
-                        />
-                    </VStack>
-                    <VStack
-                        max
-                        gap="16"
-                    >
-                        <Input
-                            value={data?.username}
-                            placeholder={t('Ваш нікнейм')}
-                            label={t('Нікнейм')}
-                            onChange={onChangeUsername}
-                            readonly={readonly}
-                        />
-                        <Input
-                            value={data?.avatar}
-                            placeholder={t('Ваше посилання на аватар')}
-                            label={t('Аватар')}
-                            onChange={onChangeAvatar}
-                            readonly={readonly}
-                        />
-                        <CurrencySelect
-                            value={data?.currency}
-                            onChange={onChangeCurrency}
-                            readonly={readonly}
-                        />
-                        <CountrySelect
-                            value={data?.country}
-                            onChange={onChangeCountry}
-                            readonly={readonly}
-                        />
-                    </VStack>
-                </HStack>
+                        <VStack
+                            max
+                            gap="16"
+                        >
+                            <Input
+                                value={data?.firstname}
+                                placeholder={t("Ваше ім'я")}
+                                label={t("Ім'я")}
+                                onChange={onChangeFirstname}
+                                readonly={readonly}
+                                data-testid="ProfileCard.firstname"
+                            />
+                            <Input
+                                value={data?.lastname}
+                                placeholder={t('Ваше прізвище')}
+                                label={t('Прізвище')}
+                                onChange={onChangeLastname}
+                                readonly={readonly}
+                                data-testid="ProfileCard.lastname"
+                            />
+                            <Input
+                                value={data?.age}
+                                placeholder={t('Ваш вік')}
+                                label={t('Вік')}
+                                onChange={onChangeAge}
+                                readonly={readonly}
+                            />
+                            <Input
+                                value={data?.city}
+                                placeholder={t('Ваше місто')}
+                                label={t('Місто')}
+                                onChange={onChangeCity}
+                                readonly={readonly}
+                            />
+                        </VStack>
+                        <VStack
+                            max
+                            gap="16"
+                        >
+                            <Input
+                                value={data?.username}
+                                placeholder={t('Ваш нікнейм')}
+                                label={t('Нікнейм')}
+                                onChange={onChangeUsername}
+                                readonly={readonly}
+                            />
+                            <Input
+                                value={data?.avatar}
+                                placeholder={t('Ваше посилання на аватар')}
+                                label={t('Аватар')}
+                                onChange={onChangeAvatar}
+                                readonly={readonly}
+                            />
+                            <CurrencySelect
+                                value={data?.currency}
+                                onChange={onChangeCurrency}
+                                readonly={readonly}
+                            />
+                            <CountrySelect
+                                value={data?.country}
+                                onChange={onChangeCountry}
+                                readonly={readonly}
+                            />
+                        </VStack>
+                    </HStack>
+                )}
             </VStack>
-            <ProfileRating />
+            {!isBlocked && <ProfileRating />}
             <AverageUserRating className={cls.averageUserRating} />
         </Card>
     );

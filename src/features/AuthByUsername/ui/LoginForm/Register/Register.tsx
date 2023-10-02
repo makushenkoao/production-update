@@ -83,6 +83,7 @@ export const Register = (props: RegisterProps) => {
                 following: [],
                 followers: [],
                 saved: [],
+                blockedUsers: [],
             };
 
             registerProfileMutation(data)
