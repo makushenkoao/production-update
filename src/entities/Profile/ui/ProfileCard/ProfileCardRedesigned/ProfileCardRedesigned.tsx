@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { useCallback, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { CurrencySelect } from '@/entities/Currency';
 import { CountrySelect } from '@/entities/Country';
@@ -14,6 +15,10 @@ import { AverageUserRating } from '@/features/averageUserRating';
 import UserIcon from '@/shared/assets/icons/user.svg';
 import cls from './ProfileCardRedesigned.module.scss';
 import { Icon } from '@/shared/ui/redesigned/Icon';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { getProfilesData } from '../../../model/services/getProfilesData';
+import { Profile } from '../../../model/types/profile';
+import { FollowersAndFollowingsModal } from '../FollowersAndFollowingsModal/FollowersAndFollowingsModal';
 
 export const ProfileCardRedesigned = (props: ProfileCardProps) => {
     const {
@@ -32,8 +37,48 @@ export const ProfileCardRedesigned = (props: ProfileCardProps) => {
         error,
         isBlocked,
     } = props;
-
     const { t } = useTranslation();
+    const dispatch = useAppDispatch();
+    const [profiles, setProfiles] = useState<{
+        type?: 'followers' | 'followings';
+        data?: Profile[] | string;
+    }>({});
+    const [loading, setLoading] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
+
+    const onClose = useCallback(() => {
+        setIsOpen(false);
+    }, []);
+
+    const onOpenFollowers = useCallback(() => {
+        setLoading(true);
+        setIsOpen(true);
+        dispatch(getProfilesData(data?.followers))
+            .then((data) =>
+                setProfiles({
+                    type: 'followers',
+                    data: data.payload,
+                }),
+            )
+            .finally(() => {
+                setLoading(false);
+            });
+    }, [data?.followers, dispatch]);
+
+    const onOpenFollowings = useCallback(() => {
+        setLoading(true);
+        setIsOpen(true);
+        dispatch(getProfilesData(data?.following))
+            .then((data) =>
+                setProfiles({
+                    type: 'followings',
+                    data: data.payload,
+                }),
+            )
+            .finally(() => {
+                setLoading(false);
+            });
+    }, [data?.following, dispatch]);
 
     if (isLoading) {
         return (
@@ -157,11 +202,19 @@ export const ProfileCardRedesigned = (props: ProfileCardProps) => {
                     justify="center"
                     gap="32"
                 >
-                    <VStack align="center">
+                    <VStack
+                        align="center"
+                        className={cls.pointer}
+                        onClick={onOpenFollowers}
+                    >
                         <Text text={t('Читачі')} />
                         <Text text={String(data?.followers?.length)} />
                     </VStack>
-                    <VStack align="center">
+                    <VStack
+                        align="center"
+                        className={cls.pointer}
+                        onClick={onOpenFollowings}
+                    >
                         <Text text={t('Відстежуються')} />
                         <Text text={String(data?.following?.length)} />
                     </VStack>
@@ -240,6 +293,13 @@ export const ProfileCardRedesigned = (props: ProfileCardProps) => {
             </VStack>
             {!isBlocked && <ProfileRating />}
             <AverageUserRating className={cls.averageUserRating} />
+            <FollowersAndFollowingsModal
+                isOpen={isOpen}
+                onClose={onClose}
+                loading={loading}
+                data={profiles?.data}
+                type={profiles?.type}
+            />
         </Card>
     );
 };

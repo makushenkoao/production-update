@@ -11,4 +11,5 @@ export const getProfileDataApi = rtkApi.injectEndpoints({
     }),
 });
 
-export const { useGetProfileDataQuery } = getProfileDataApi;
+export const { useGetProfileDataQuery } =
+    getProfileDataApi;

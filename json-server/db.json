@@ -54,6 +54,13 @@
       "description": "На ваш профіль підписався admin",
       "href": "/profile/1",
       "userId": "2"
+    },
+    {
+      "id": "1696375572966",
+      "title": "Нове повідомлення",
+      "description": "На ваш профіль підписався admin",
+      "href": "/profile/1",
+      "userId": "2"
     }
   ],
   "profile": [
@@ -70,7 +77,9 @@
       "followers": [
         "2"
       ],
-      "following": [],
+      "following": [
+        "2"
+      ],
       "saved": [
         "3",
         "2"
@@ -87,7 +96,9 @@
       "city": "Quebec",
       "username": "user",
       "avatar": "https://static.vecteezy.com/system/resources/previews/019/896/008/original/male-user-avatar-icon-in-flat-design-style-person-signs-illustration-png.png",
-      "followers": [],
+      "followers": [
+        "1"
+      ],
       "following": [
         "1"
       ],

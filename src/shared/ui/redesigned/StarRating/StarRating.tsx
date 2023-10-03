@@ -1,10 +1,8 @@
 import { memo, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import cls from './StarRating.module.scss';
 import { Icon } from '../Icon';
 import StarIcon from '../../../assets/icons/star.svg';
-import { Tooltip } from '../Tooltip';
+import cls from './StarRating.module.scss';
 
 interface StarRatingProps {
     className?: string;
@@ -17,7 +15,6 @@ const stars = [1, 2, 3, 4, 5];
 
 export const StarRating = memo((props: StarRatingProps) => {
     const { className, selectedStars = 0, size = 30, onSelect } = props;
-    const { t } = useTranslation();
     const [currentStarsCount, setCurrentStarsCount] =
         useState<number>(selectedStars);
     const [isSelected, setIsSelected] = useState<boolean>(
@@ -69,16 +66,10 @@ export const StarRating = memo((props: StarRatingProps) => {
                 };
 
                 return (
-                    <Tooltip
-                        title={t(`Поставити оцінку ${starNumber}`)}
-                        className={cls.tooltip}
-                        direction="bottom left"
-                    >
-                        <Icon
-                            clickable={!isSelected}
-                            {...commonProps}
-                        />
-                    </Tooltip>
+                    <Icon
+                        clickable={!isSelected}
+                        {...commonProps}
+                    />
                 );
             })}
         </div>

@@ -7,3 +7,15 @@
     top: 20px;
     left: 20px;
 }
+
+.pointer {
+    cursor: pointer;
+}
+
+.pointer:hover {
+    opacity: 0.8;
+}
+
+.type {
+    text-transform: capitalize;
+}
