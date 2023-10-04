@@ -91,12 +91,12 @@ export const Wordle = memo(() => {
             );
 
             if (isCorrect) {
-                alert('Поздравляем! Вы угадали слово.');
+                alert('Вітаємо! Ви вгадали слово.');
                 resetGame();
             } else {
                 const remainingAttempts = attempts - 1;
                 if (remainingAttempts === 0) {
-                    alert(`Игра окончена. Правильное слово: ${secretWord}`);
+                    alert(`Гру закінчено. Правильне слово: ${secretWord}`);
                     resetGame();
                 } else {
                     setAttempts(remainingAttempts);
