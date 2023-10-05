@@ -1,5 +1,6 @@
 import { Currency } from '@/entities/Currency';
 import { Country } from '@/entities/Country';
+import { Article } from '@/entities/Article';
 
 export interface Profile {
     id?: string;
@@ -16,4 +17,5 @@ export interface Profile {
     following?: string[];
     saved?: string[];
     blockedUsers?: string[];
+    archive?: Article[];
 }

@@ -42,7 +42,7 @@ describe('app/router/AppRouter', () => {
     //         },
     //     });
     //
-    //     const page = await screen.findByTestId('ProfilePage');
+    //     const page = await screen.findByTestId('ArchiveArticlesPage');
     //     screen.debug();
     //     expect(page).toBeInTheDocument();
     // });

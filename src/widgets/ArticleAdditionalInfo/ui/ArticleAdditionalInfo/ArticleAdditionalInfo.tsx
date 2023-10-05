@@ -10,10 +10,11 @@ import { formatDate } from '@/shared/lib/utils/formatDate/formatDate';
 import { getRouteProfile } from '@/shared/const/router';
 import { AppLink } from '@/shared/ui/redesigned/AppLink';
 import { Modal } from '@/shared/ui/redesigned/Modal';
+import { Tooltip } from '@/shared/ui/redesigned/Tooltip';
 import SaveIcon from '@/shared/assets/icons/save.svg';
 import UnSaveIcon from '@/shared/assets/icons/unsave.svg';
+import ArchiveIcon from '@/shared/assets/icons/archive.svg';
 import cls from './ArticleAdditionalInfo.module.scss';
-import { Tooltip } from '@/shared/ui/redesigned/Tooltip';
 
 interface ArticleAdditionalInfoProps {
     className?: string;
@@ -24,6 +25,7 @@ interface ArticleAdditionalInfoProps {
     onDelete: () => void;
     onSave: () => void;
     isSaved?: boolean;
+    onArchive: () => void;
     isProfileLoading?: boolean;
     isLoading?: boolean;
 }
@@ -40,6 +42,7 @@ export const ArticleAdditionalInfo = memo(
             onSave,
             isProfileLoading,
             isLoading,
+            onArchive,
             isSaved,
         } = props;
         const { t } = useTranslation();
@@ -101,32 +104,55 @@ export const ArticleAdditionalInfo = memo(
                     justify="between"
                 >
                     <Text text={t('{{count}} переглядів', { count: views })} />
-                    <Button
-                        variant="clear"
-                        disabled={isLoading || isProfileLoading}
-                    >
-                        {isSaved ? (
-                            <Tooltip title={t('Прибрати зі збережених')} direction="bottom left">
-                                <UnSaveIcon
-                                    width={24}
-                                    height={24}
-                                    onClick={onSave}
-                                    className={cls.icon}
-                                />
-                            </Tooltip>
-                        ) : (
-                            <Tooltip title={t('Зберегти')} direction="bottom left">
-                                <SaveIcon
+                    <HStack gap="8">
+                        <Button
+                            variant="clear"
+                            disabled={isLoading || isProfileLoading}
+                        >
+                            {isSaved ? (
+                                <Tooltip
+                                    title={t('Прибрати зі збережених')}
+                                    direction="bottom left"
+                                >
+                                    <UnSaveIcon
+                                        width={24}
+                                        height={24}
+                                        onClick={onSave}
+                                        className={cls.icon}
+                                    />
+                                </Tooltip>
+                            ) : (
+                                <Tooltip
+                                    title={t('Зберегти')}
+                                    direction="bottom left"
+                                >
+                                    <SaveIcon
+                                        width={20}
+                                        height={20}
+                                        onClick={onSave}
+                                        className={cls.icon}
+                                    />
+                                </Tooltip>
+                            )}
+                        </Button>
+                        <Button
+                            variant="clear"
+                            disabled={isLoading || isProfileLoading}
+                        >
+                            <Tooltip
+                                title={t('Архівувати')}
+                                direction="bottom left"
+                            >
+                                <ArchiveIcon
                                     width={20}
                                     height={20}
-                                    onClick={onSave}
+                                    onClick={onArchive}
                                     className={cls.icon}
                                 />
                             </Tooltip>
-                        )}
-                    </Button>
+                        </Button>
+                    </HStack>
                 </HStack>
-
                 <Modal
                     isOpen={isOpen}
                     onClose={onClose}

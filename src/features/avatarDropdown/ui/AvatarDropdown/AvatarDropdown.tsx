@@ -13,6 +13,7 @@ import {
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
     getRouteAdmin,
+    getRouteArchiveArticles,
     getRouteProfile,
     getRouteSavedArticles,
     getRouteSettings,
@@ -51,6 +52,10 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
         {
             content: t('Збережені'),
             href: getRouteSavedArticles(userAuthData.id),
+        },
+        {
+            content: t('Архів'),
+            href: getRouteArchiveArticles(userAuthData.id),
         },
         {
             content: t('Налаштування'),

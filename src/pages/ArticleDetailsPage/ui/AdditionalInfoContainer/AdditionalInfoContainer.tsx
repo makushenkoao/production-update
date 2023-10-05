@@ -4,11 +4,16 @@ import { useNavigate } from 'react-router-dom';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { ArticleAdditionalInfo } from '@/widgets/ArticleAdditionalInfo';
 import { deleteArticle, getArticleDetailsData } from '@/entities/Article';
-import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router';
+import {
+    getRouteArchiveArticles,
+    getRouteArticleEdit,
+    getRouteArticles,
+} from '@/shared/const/router';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getUserAuthData } from '@/entities/User';
 import { useGetProfileDataQuery } from '@/entities/Profile';
 import { saveArticle } from '@/pages/SavedArticlesPage';
+import { archiveArticle } from '../../model/services/archiveArticle/archiveArticle';
 import cls from './AdditionalInfoContainer.module.scss';
 
 export const AdditionalInfoContainer = memo(() => {
@@ -57,6 +62,18 @@ export const AdditionalInfoContainer = memo(() => {
             });
     }, [article, dispatch, profile, refetch]);
 
+    const onArchive = useCallback(() => {
+        setIsLoading(true);
+        dispatch(archiveArticle(profile))
+            .then(() => {
+                refetch();
+            })
+            .finally(() => {
+                setIsLoading(false);
+                navigate(getRouteArchiveArticles(authData?.id || ''));
+            });
+    }, [authData?.id, dispatch, navigate, profile, refetch]);
+
     if (!article) {
         return null;
     }
@@ -77,6 +94,7 @@ export const AdditionalInfoContainer = memo(() => {
                 isSaved={isSaved}
                 isProfileLoading={isProfileLoading}
                 isLoading={isLoading}
+                onArchive={onArchive}
             />
         </Card>
     );

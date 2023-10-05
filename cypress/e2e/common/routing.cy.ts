@@ -21,7 +21,7 @@ describe('Routing', () => {
         });
         it('The transition opens the profile page', () => {
             cy.visit('/profile/1');
-            cy.get(selectByTestId('ProfilePage')).should('exist');
+            cy.get(selectByTestId('ArchiveArticlesPage')).should('exist');
         });
 
         it('The transition opens a page with a list of articles', () => {

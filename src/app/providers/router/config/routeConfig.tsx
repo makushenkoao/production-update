@@ -27,6 +27,7 @@ import {
     getRouteInteractive,
     getRouteInteractiveTask,
     getRouteInteractiveCreate,
+    getRouteArchiveArticles,
 } from '@/shared/const/router';
 import { AppRoutesProps } from '@/shared/types/router';
 import { SettingsPage } from '@/pages/SettingsPage';
@@ -37,6 +38,7 @@ import { InteractivePage } from '@/pages/InteractivePage';
 import { SavedArticlesPage } from '@/pages/SavedArticlesPage';
 import { InteractiveTaskPage } from '@/pages/InteractiveTaskPage';
 import { CreateInteractivePage } from '@/pages/CreateInteractivePage';
+import { ArchiveArticlesPage } from '@/pages/ArchiveArticlesPage';
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.MAIN]: {
@@ -101,6 +103,11 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.SAVED_ARTICLES]: {
         path: getRouteSavedArticles(':id'),
         element: <SavedArticlesPage />,
+        authOnly: true,
+    },
+    [AppRoutes.ARCHIVE_ARTICLES]: {
+        path: getRouteArchiveArticles(':id'),
+        element: <ArchiveArticlesPage />,
         authOnly: true,
     },
     [AppRoutes.INTERACTIVE]: {
