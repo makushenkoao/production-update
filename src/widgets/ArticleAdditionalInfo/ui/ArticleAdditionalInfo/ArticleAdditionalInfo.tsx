@@ -135,22 +135,24 @@ export const ArticleAdditionalInfo = memo(
                                 </Tooltip>
                             )}
                         </Button>
-                        <Button
-                            variant="clear"
-                            disabled={isLoading || isProfileLoading}
-                        >
-                            <Tooltip
-                                title={t('Архівувати')}
-                                direction="bottom left"
+                        {authData?.id === author.id && (
+                            <Button
+                                variant="clear"
+                                disabled={isLoading || isProfileLoading}
                             >
-                                <ArchiveIcon
-                                    width={20}
-                                    height={20}
-                                    onClick={onArchive}
-                                    className={cls.icon}
-                                />
-                            </Tooltip>
-                        </Button>
+                                <Tooltip
+                                    title={t('Архівувати')}
+                                    direction="bottom left"
+                                >
+                                    <ArchiveIcon
+                                        width={20}
+                                        height={20}
+                                        onClick={onArchive}
+                                        className={cls.icon}
+                                    />
+                                </Tooltip>
+                            </Button>
+                        )}
                     </HStack>
                 </HStack>
                 <Modal
