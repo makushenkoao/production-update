@@ -1,6 +1,10 @@
 import { FormEvent, memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import EmojiPicker, {
+    EmojiClickData,
+    Theme as EmojiTheme,
+} from 'emoji-picker-react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Avatar } from '@/shared/ui/redesigned/Avatar';
 import { Text } from '@/shared/ui/redesigned/Text';
@@ -16,13 +20,17 @@ import { getUserAuthData } from '@/entities/User';
 import { Input } from '@/shared/ui/redesigned/Input';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { addCommentForArticle } from '@/pages/ArticleDetailsPage';
-import LikeIcon from '@/shared/assets/icons/like.svg';
-import ReplyIcon from '@/shared/assets/icons/reply.svg';
-import DeleteIcon from '@/shared/assets/icons/delete.svg';
-import cls from './CommentCard.module.scss';
 import { getArticleDetailsData } from '@/entities/Article';
 import { sendNotification } from '@/entities/Notification';
 import { Tooltip } from '@/shared/ui/redesigned/Tooltip';
+import { usePressKey } from '@/shared/lib/hooks/usePressKey/usePressKey';
+import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
+import DeleteIcon from '@/shared/assets/icons/delete.svg';
+import ReplyIcon from '@/shared/assets/icons/reply.svg';
+import LikeIcon from '@/shared/assets/icons/like.svg';
+import EmojiIcon from '@/shared/assets/icons/emoji.svg';
+import cls from './CommentCard.module.scss';
+import { Theme } from '@/shared/const/theme';
 
 interface CommentCardProps {
     className?: string;
@@ -37,9 +45,15 @@ export const CommentCard = memo((props: CommentCardProps) => {
     const { t } = useTranslation();
     const [isReplying, setIsReplying] = useState(false);
     const [replyText, setReplyText] = useState('');
+    const [isPickerVisible, setIsPickerVisible] = useState(false);
     const authData = useSelector(getUserAuthData);
     const article = useSelector(getArticleDetailsData);
     const dispatch = useAppDispatch();
+    const { theme } = useTheme();
+
+    usePressKey(() => {
+        setIsPickerVisible(false);
+    }, 'Escape');
 
     const onSubmit = useCallback(
         (e: FormEvent<HTMLFormElement>) => {
@@ -74,6 +88,14 @@ export const CommentCard = memo((props: CommentCardProps) => {
             replyText,
         ],
     );
+
+    const onEmojiClick = useCallback((data: EmojiClickData) => {
+        setReplyText((prevState) => prevState + data.emoji);
+    }, []);
+
+    const onClickIcon = useCallback(() => {
+        setIsPickerVisible((prevState) => !prevState);
+    }, []);
 
     const toggleReply = useCallback(() => {
         setIsReplying(!isReplying);
@@ -185,6 +207,23 @@ export const CommentCard = memo((props: CommentCardProps) => {
                                     onChange={onReplyTextChange}
                                     placeholder={t('Введіть відповідь')}
                                 />
+                                <Icon
+                                    svg={EmojiIcon}
+                                    clickable
+                                    onClick={onClickIcon}
+                                />
+                                {isPickerVisible && (
+                                    <div className={cls.emoji}>
+                                        <EmojiPicker
+                                            onEmojiClick={onEmojiClick}
+                                            theme={
+                                                (theme === Theme.DARK
+                                                    ? 'dark'
+                                                    : 'light') as EmojiTheme
+                                            }
+                                        />
+                                    </div>
+                                )}
                                 <Button type="submit">{t('Відправити')}</Button>
                             </HStack>
                         </form>
@@ -192,7 +231,10 @@ export const CommentCard = memo((props: CommentCardProps) => {
                 </VStack>
                 <HStack gap="16">
                     <VStack align="center">
-                        <Tooltip title={t('Подобається')} direction="bottom left">
+                        <Tooltip
+                            title={t('Подобається')}
+                            direction="bottom left"
+                        >
                             <Icon
                                 svg={LikeIcon}
                                 clickable
@@ -205,7 +247,10 @@ export const CommentCard = memo((props: CommentCardProps) => {
                         />
                     </VStack>
                     {comment.user.id === authData?.id && (
-                        <Tooltip title={t('Видалити')} direction="bottom left">
+                        <Tooltip
+                            title={t('Видалити')}
+                            direction="bottom left"
+                        >
                             <Icon
                                 svg={DeleteIcon}
                                 clickable

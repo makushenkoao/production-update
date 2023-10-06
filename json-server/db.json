@@ -61,6 +61,34 @@
       "description": "На ваш профіль підписався admin",
       "href": "/profile/1",
       "userId": "2"
+    },
+    {
+      "id": "1696544350877",
+      "title": "Вашу статтю \"Python news\" прокоментував admin",
+      "description": "test",
+      "href": "/articles/2",
+      "userId": "2"
+    },
+    {
+      "id": "1696553659020",
+      "title": "admin відповів на ваш коментар",
+      "description": "🙂😃🙃",
+      "href": "/articles/2",
+      "userId": "1"
+    },
+    {
+      "id": "1696553747178",
+      "title": "Вашу статтю \"Python news\" прокоментував admin",
+      "description": "Hello! 🙂🫠",
+      "href": "/articles/2",
+      "userId": "2"
+    },
+    {
+      "id": "1696553759677",
+      "title": "admin відповів на ваш коментар",
+      "description": "HI!! 🙃",
+      "href": "/articles/2",
+      "userId": "1"
     }
   ],
   "profile": [
@@ -361,7 +389,7 @@
       "title": "Python news",
       "subtitle": "Що нового за 2023 рік?",
       "img": "https://miro.medium.com/v2/resize:fit:1400/1*m0H6-tUbW6grMlezlb52yw.png",
-      "views": 40,
+      "views": 47,
       "createdAt": 1690198991775,
       "userId": "2",
       "type": [
@@ -2517,7 +2545,38 @@
       }
     }
   ],
-  "comments": [],
+  "comments": [
+    {
+      "articleId": "2",
+      "userId": "1",
+      "likes": [],
+      "text": "test",
+      "id": 1
+    },
+    {
+      "articleId": "2",
+      "userId": "1",
+      "likes": [],
+      "text": "🙂😃🙃",
+      "parentId": 1,
+      "id": 2
+    },
+    {
+      "articleId": "2",
+      "userId": "1",
+      "likes": [],
+      "text": "Hello! 🙂🫠",
+      "id": 3
+    },
+    {
+      "articleId": "2",
+      "userId": "1",
+      "likes": [],
+      "text": "HI!! 🙃",
+      "parentId": 3,
+      "id": 4
+    }
+  ],
   "users": [
     {
       "id": "1",
