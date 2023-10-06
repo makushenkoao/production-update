@@ -70,25 +70,11 @@
       "userId": "2"
     },
     {
-      "id": "1696553659020",
-      "title": "admin відповів на ваш коментар",
-      "description": "🙂😃🙃",
-      "href": "/articles/2",
-      "userId": "1"
-    },
-    {
       "id": "1696553747178",
       "title": "Вашу статтю \"Python news\" прокоментував admin",
       "description": "Hello! 🙂🫠",
       "href": "/articles/2",
       "userId": "2"
-    },
-    {
-      "id": "1696553759677",
-      "title": "admin відповів на ваш коментар",
-      "description": "HI!! 🙃",
-      "href": "/articles/2",
-      "userId": "1"
     }
   ],
   "profile": [
@@ -389,7 +375,7 @@
       "title": "Python news",
       "subtitle": "Що нового за 2023 рік?",
       "img": "https://miro.medium.com/v2/resize:fit:1400/1*m0H6-tUbW6grMlezlb52yw.png",
-      "views": 47,
+      "views": 53,
       "createdAt": 1690198991775,
       "userId": "2",
       "type": [

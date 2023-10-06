@@ -1,0 +1,15 @@
+.customFileInput {
+    border: 2px solid var(--icon-redesigned);
+    border-radius: 12px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.customFileInput:hover {
+    background: var(--icon-redesigned);
+    opacity: 0.8;
+}
+
+.fileInput {
+    display: none;
+}

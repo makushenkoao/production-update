@@ -1,0 +1,17 @@
+export enum JobCategory {
+    JAVASCRIPT = 'JavaScript',
+    PYTHON = 'Python',
+    JAVA = 'Java',
+    C = 'C',
+    C_PLUS_PLUS = 'C++',
+    C_SHARP = 'C#',
+    RUBY = 'Ruby',
+    PHP = 'PHP',
+    SWIFT = 'Swift',
+    KOTLIN = 'Kotlin',
+    TYPESCRIPT = 'TypeScript',
+    GO = 'Go',
+    RUST = 'Rust',
+    HTML_CSS = 'HTML/CSS',
+    SQL = 'SQL',
+}

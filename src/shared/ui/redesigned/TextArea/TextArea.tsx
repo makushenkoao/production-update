@@ -6,7 +6,7 @@ import React, {
     useState,
 } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { HStack } from '../Stack';
+import { VStack } from '../Stack';
 import { Text } from '../Text';
 import cls from './TextArea.module.scss';
 
@@ -78,13 +78,13 @@ export const TextArea = memo((props: TextareaProps) => {
 
     if (label) {
         return (
-            <HStack
+            <VStack
                 max
                 gap="8"
             >
                 <Text text={label} />
                 {Textarea}
-            </HStack>
+            </VStack>
         );
     }
 

@@ -28,6 +28,10 @@ import {
     getRouteInteractiveTask,
     getRouteInteractiveCreate,
     getRouteArchiveArticles,
+    getRouteJobs,
+    getRouteJobDetails,
+    getRouteJobCreate,
+    getRouteJobEdit,
 } from '@/shared/const/router';
 import { AppRoutesProps } from '@/shared/types/router';
 import { SettingsPage } from '@/pages/SettingsPage';
@@ -39,6 +43,9 @@ import { SavedArticlesPage } from '@/pages/SavedArticlesPage';
 import { InteractiveTaskPage } from '@/pages/InteractiveTaskPage';
 import { CreateInteractivePage } from '@/pages/CreateInteractivePage';
 import { ArchiveArticlesPage } from '@/pages/ArchiveArticlesPage';
+import { JobsPage } from '@/pages/JobsPage';
+import { JobDetailsPage } from '@/pages/JobDetailsPage';
+import { JobEditPage } from '@/pages/JobEditPage';
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.MAIN]: {
@@ -125,6 +132,26 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
         element: <CreateInteractivePage />,
         authOnly: true,
         roles: [UserRole.ADMIN],
+    },
+    [AppRoutes.JOB]: {
+        path: getRouteJobs(),
+        element: <JobsPage />,
+        authOnly: true,
+    },
+    [AppRoutes.JOB_DETAILS]: {
+        path: getRouteJobDetails(':id'),
+        element: <JobDetailsPage />,
+        authOnly: true,
+    },
+    [AppRoutes.JOB_CREATE]: {
+        path: getRouteJobCreate(),
+        element: <JobEditPage />,
+        authOnly: true,
+    },
+    [AppRoutes.JOB_EDIT]: {
+        path: getRouteJobEdit(':id'),
+        element: <JobEditPage />,
+        authOnly: true,
     },
     [AppRoutes.FORBIDDEN]: {
         path: getRouteForbidden(),

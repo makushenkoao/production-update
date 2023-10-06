@@ -17,6 +17,10 @@ export enum AppRoutes {
     INTERACTIVE_TASK = 'interactive_task',
     INTERACTIVE_CREATE = 'interactive_create',
     ARCHIVE_ARTICLES = 'archive_articles',
+    JOB = 'job',
+    JOB_DETAILS = 'job_details',
+    JOB_EDIT = 'job_edit',
+    JOB_CREATE = 'job_create',
     NOT_FOUND = 'not_found',
 }
 
@@ -38,6 +42,10 @@ export const getRouteInteractive = () => `/interactive`;
 export const getRouteInteractiveTask = (task: string) => `/interactive/${task}`;
 export const getRouteInteractiveCreate = () => `/admin/interactive_create`;
 export const getRouteArchiveArticles = (id: string) => `/profile/${id}/archive`;
+export const getRouteJobs = () => `/jobs`;
+export const getRouteJobDetails = (id: string) => `/jobs/${id}`;
+export const getRouteJobCreate = () => '/job/new';
+export const getRouteJobEdit = (id: string) => `/jobs/${id}/edit`;
 
 export const AppRouteByPathPattern: Record<string, AppRoutes> = {
     [getRouteMain()]: AppRoutes.MAIN,
@@ -58,4 +66,8 @@ export const AppRouteByPathPattern: Record<string, AppRoutes> = {
     [getRouteInteractive()]: AppRoutes.INTERACTIVE,
     [getRouteInteractiveTask(':task')]: AppRoutes.INTERACTIVE_TASK,
     [getRouteArchiveArticles(':id')]: AppRoutes.ARCHIVE_ARTICLES,
+    [getRouteJobs()]: AppRoutes.JOB,
+    [getRouteJobDetails(':id')]: AppRoutes.JOB_DETAILS,
+    [getRouteJobCreate()]: AppRoutes.JOB_CREATE,
+    [getRouteJobEdit(':id')]: AppRoutes.JOB_EDIT,
 };

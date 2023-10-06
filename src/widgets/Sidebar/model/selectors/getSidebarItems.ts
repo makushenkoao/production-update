@@ -7,6 +7,8 @@ import {
     getRouteArticles,
     getRouteChats,
     getRouteInteractive,
+    getRouteJobCreate,
+    getRouteJobs,
     getRouteMain,
     getRouteSearch,
 } from '@/shared/const/router';
@@ -17,6 +19,7 @@ import SearchIcon from '@/shared/assets/icons/search.svg';
 import CreateIcon from '@/shared/assets/icons/create.svg';
 import ChatIcon from '@/shared/assets/icons/chat.svg';
 import InteractiveIcon from '@/shared/assets/icons/interactive.svg';
+import JobIcon from '@/shared/assets/icons/job.svg';
 
 export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
     const sidebarItemsList: SidebarItemTypes[] = [
@@ -41,6 +44,12 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
                 authOnly: true,
             },
             {
+                path: getRouteJobs(),
+                text: 'Робота',
+                icon: JobIcon,
+                authOnly: true,
+            },
+            {
                 path: getRouteChats(),
                 text: 'Чати',
                 icon: ChatIcon,
@@ -48,6 +57,11 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
             {
                 path: getRouteArticleCreate(),
                 text: 'Створити статтю',
+                icon: CreateIcon,
+            },
+            {
+                path: getRouteJobCreate(),
+                text: 'Створити вакансію',
                 icon: CreateIcon,
             },
             {
