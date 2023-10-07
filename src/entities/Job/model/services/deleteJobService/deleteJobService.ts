@@ -14,7 +14,7 @@ export const deleteJobService = createAsyncThunk<
     }
 
     try {
-        const { data } = await extra.api.delete<Job>(`/jobs${jobId}`);
+        const { data } = await extra.api.delete<Job>(`/jobs/${jobId}`);
 
         if (!data) {
             return rejectWithValue('Сталася непередбачена помилка');

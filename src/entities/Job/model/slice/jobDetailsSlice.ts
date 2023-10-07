@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { JobDetailsSchema } from '../types/jobDetailsSchema';
 import { Job } from '../../model/types/job';
 import { getJobDetailsService } from '../../model/services/getJobDetailsService/getJobDetailsService';
+import { deleteJobService } from '../../model/services/deleteJobService/deleteJobService';
 
 const initialState: JobDetailsSchema = {
     isLoading: false,
@@ -27,6 +28,17 @@ export const jobDetailsSlice = createSlice({
                 },
             )
             .addCase(getJobDetailsService.rejected, (state, action) => {
+                state.isLoading = false;
+                state.error = action.payload;
+            })
+            .addCase(deleteJobService.pending, (state) => {
+                state.error = undefined;
+                state.isLoading = true;
+            })
+            .addCase(deleteJobService.fulfilled, (state) => {
+                state.isLoading = false;
+            })
+            .addCase(deleteJobService.rejected, (state, action) => {
                 state.isLoading = false;
                 state.error = action.payload;
             });

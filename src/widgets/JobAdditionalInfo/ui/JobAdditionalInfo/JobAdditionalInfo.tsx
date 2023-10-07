@@ -8,7 +8,7 @@ import { JobAuthorAdditionalInfo } from './JobAuthorAdditionalInfo/JobAuthorAddi
 import { getRouteJobEdit, getRouteJobs } from '@/shared/const/router';
 import { JobVacancyAdditionalInfo } from './JobVacancyAdditionalInfo/JobVacancyAdditionalInfo';
 import { JobCompanyAdditionalInfo } from './JobCompanyAdditionalInfo/JobCompanyAdditionalInfo';
-import { deleteJobService, Job } from '@/entities/Job';
+import { deleteJobService, getJobsService, Job } from '@/entities/Job';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 interface ArticleAdditionalInfoProps {
@@ -23,10 +23,11 @@ export const JobAdditionalInfo = memo((props: ArticleAdditionalInfoProps) => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
 
-    const onDelete = useCallback(() => {
-        dispatch(deleteJobService(job?.id)).finally(() =>
+    const onDelete = useCallback(async () => {
+        await dispatch(deleteJobService(job?.id)).finally(() =>
             navigate(getRouteJobs()),
         );
+        await dispatch(getJobsService({ replace: true }));
     }, [dispatch, job?.id, navigate]);
 
     const onEdit = useCallback(() => {
@@ -41,10 +42,11 @@ export const JobAdditionalInfo = memo((props: ArticleAdditionalInfoProps) => {
             gap="16"
             className={classNames('', {}, [className])}
         >
-            {authData?.id === job?.id && (
+            {authData?.id === job?.user.id && (
                 <JobAuthorAdditionalInfo
                     onDelete={onDelete}
                     onEdit={onEdit}
+                    loading={loading}
                 />
             )}
             <JobVacancyAdditionalInfo

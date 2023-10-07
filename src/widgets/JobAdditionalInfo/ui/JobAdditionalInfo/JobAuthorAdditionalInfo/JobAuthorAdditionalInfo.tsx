@@ -6,15 +6,17 @@ import { Card } from '@/shared/ui/redesigned/Card';
 import cls from '../JobAdditionalInfo.module.scss';
 import { Modal } from '@/shared/ui/redesigned/Modal';
 import { Text } from '@/shared/ui/redesigned/Text';
+import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 
 interface JobAuthorAdditionalInfoProps {
     onDelete: () => void;
     onEdit: () => void;
+    loading?: boolean;
 }
 
 export const JobAuthorAdditionalInfo = memo(
     (props: JobAuthorAdditionalInfoProps) => {
-        const { onDelete, onEdit } = props;
+        const { onDelete, onEdit, loading } = props;
         const { t } = useTranslation();
         const [isOpen, setIsOpen] = useState(false);
 
@@ -25,6 +27,24 @@ export const JobAuthorAdditionalInfo = memo(
         const onClose = useCallback(() => {
             setIsOpen(false);
         }, []);
+
+        if (loading) {
+            return (
+                <Card
+                    padding="24"
+                    border="round"
+                    className={cls.card}
+                >
+                    <VStack
+                        max
+                        gap="16"
+                    >
+                        <Skeleton height={40} />
+                        <Skeleton height={40} />
+                    </VStack>
+                </Card>
+            );
+        }
 
         return (
             <Card
@@ -69,11 +89,17 @@ export const JobAuthorAdditionalInfo = memo(
                             gap="8"
                             justify="end"
                         >
-                            <Button onClick={onClose}>{t('Ні')}</Button>
+                            <Button
+                                disabled={loading}
+                                onClick={onClose}
+                            >
+                                {t('Ні')}
+                            </Button>
                             <Button
                                 variant="filled"
                                 color="error"
                                 onClick={onDelete}
+                                disabled={loading}
                             >
                                 {t('Так')}
                             </Button>
