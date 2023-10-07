@@ -1,5 +1,4 @@
 import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
 import { ArticleView } from '@/entities/Article';
@@ -18,7 +17,6 @@ interface ArticleViewSelectorProps {
 
 export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
     const { className, onViewClick, view } = props;
-    const { t } = useTranslation();
 
     const onClick = (newView: ArticleView) => () => {
         onViewClick?.(newView);

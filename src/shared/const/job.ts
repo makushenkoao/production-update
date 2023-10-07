@@ -14,4 +14,6 @@ export enum JobCategory {
     RUST = 'Rust',
     HTML_CSS = 'HTML/CSS',
     SQL = 'SQL',
+    QA = 'QA',
+    SA = 'SA',
 }

@@ -15,6 +15,7 @@ import { ArticlesPageSchema } from '@/pages/ArticlesPage';
 import { UISchema } from '@/features/UI';
 import { rtkApi } from '@/shared/api/rtkApi';
 import { ProfileSchema } from '@/features/editableProfileCard';
+import { JobsSchema, JobDetailsSchema } from '@/entities/Job';
 
 export interface StateSchema {
     user: UserSchema;
@@ -26,6 +27,8 @@ export interface StateSchema {
     articleDetails?: ArticleDetailsSchema;
     addCommentForm?: AddCommentFormSchema;
     articlesPage?: ArticlesPageSchema;
+    jobs?: JobsSchema;
+    jobDetails?: JobDetailsSchema;
     articleDetailsPage?: ArticleDetailsPageSchema;
 }
 
