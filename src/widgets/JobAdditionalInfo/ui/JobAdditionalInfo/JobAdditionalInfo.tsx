@@ -1,59 +1,39 @@
 import { memo, useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { VStack } from '@/shared/ui/redesigned/Stack';
-import { JobCategory } from '@/shared/const/job';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { getUserAuthData } from '@/entities/User';
 import { JobAuthorAdditionalInfo } from './JobAuthorAdditionalInfo/JobAuthorAdditionalInfo';
-import { getRouteJobEdit } from '@/shared/const/router';
+import { getRouteJobEdit, getRouteJobs } from '@/shared/const/router';
 import { JobVacancyAdditionalInfo } from './JobVacancyAdditionalInfo/JobVacancyAdditionalInfo';
 import { JobCompanyAdditionalInfo } from './JobCompanyAdditionalInfo/JobCompanyAdditionalInfo';
+import { deleteJobService, Job } from '@/entities/Job';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 interface ArticleAdditionalInfoProps {
     className?: string;
-    salary: string;
-    category: JobCategory[];
-    experience: string;
-    type: string;
-    location: string;
-    views: number;
-    createdAt: number;
-    email: string;
-    phone: string;
-    website?: string;
-    company: string;
-    id: string;
+    job?: Job;
+    loading?: boolean;
 }
 
 export const JobAdditionalInfo = memo((props: ArticleAdditionalInfoProps) => {
-    const {
-        className,
-        salary,
-        category,
-        experience,
-        location,
-        type,
-        createdAt,
-        email,
-        phone,
-        website,
-        views,
-        company,
-        id,
-    } = props;
-    const { t } = useTranslation();
+    const { className, job, loading } = props;
     const authData = useSelector(getUserAuthData);
     const navigate = useNavigate();
+    const dispatch = useAppDispatch();
 
     const onDelete = useCallback(() => {
-        console.log(`Delete job - ${id}`);
-    }, [id]);
+        dispatch(deleteJobService(job?.id)).finally(() =>
+            navigate(getRouteJobs()),
+        );
+    }, [dispatch, job?.id, navigate]);
 
     const onEdit = useCallback(() => {
-        navigate(getRouteJobEdit(id));
-    }, [id, navigate]);
+        if (job?.id) {
+            navigate(getRouteJobEdit(job?.id));
+        }
+    }, [job?.id, navigate]);
 
     return (
         <VStack
@@ -61,26 +41,28 @@ export const JobAdditionalInfo = memo((props: ArticleAdditionalInfoProps) => {
             gap="16"
             className={classNames('', {}, [className])}
         >
-            {authData?.id === id && (
+            {authData?.id === job?.id && (
                 <JobAuthorAdditionalInfo
                     onDelete={onDelete}
                     onEdit={onEdit}
                 />
             )}
             <JobVacancyAdditionalInfo
-                createdAt={createdAt}
-                views={views}
-                location={location}
-                experience={experience}
-                type={type}
-                category={category}
-                salary={salary}
+                createdAt={job?.createdAt}
+                views={job?.views}
+                location={job?.location}
+                experience={job?.experience}
+                type={job?.type}
+                category={job?.category}
+                salary={job?.salary}
+                loading={loading}
             />
             <JobCompanyAdditionalInfo
-                company={company}
-                email={email}
-                phone={phone}
-                website={website}
+                company={job?.company}
+                email={job?.email}
+                phone={job?.phone}
+                website={job?.website}
+                loading={loading}
             />
         </VStack>
     );

@@ -6,8 +6,14 @@ import { TextArea } from '@/shared/ui/redesigned/TextArea';
 import { Button } from '@/shared/ui/redesigned/Button';
 import { Card } from '@/shared/ui/redesigned/Card';
 import cls from '../JobDetailsPage.module.scss';
+import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 
-export const JobFeedbackForm = () => {
+interface JobFeedbackFormProps {
+    loading?: boolean;
+}
+
+export const JobFeedbackForm = (props: JobFeedbackFormProps) => {
+    const { loading } = props;
     const { t } = useTranslation();
     const [selectedFile, setSelectedFile] = useState<File | null | undefined>(
         null,
@@ -23,10 +29,52 @@ export const JobFeedbackForm = () => {
         setText(v);
     }, []);
 
-    const onSubmit = useCallback((e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        console.log('Submit vacancy: ', text, selectedFile);
-    }, [selectedFile, text]);
+    const onSubmit = useCallback(
+        (e: FormEvent<HTMLFormElement>) => {
+            e.preventDefault();
+            console.log('Submit vacancy: ', text, selectedFile);
+        },
+        [selectedFile, text],
+    );
+
+    if (loading) {
+        return (
+            <Card
+                padding="24"
+                border="round"
+                max
+            >
+                <VStack
+                    max
+                    gap="16"
+                >
+                    <Skeleton
+                        width={200}
+                        height={30}
+                    />
+                    <Skeleton
+                        height={80}
+                        borderRadius="12px"
+                    />
+                    <Skeleton
+                        width={150}
+                        height={50}
+                        borderRadius="12px"
+                    />
+                    <HStack
+                        max
+                        justify="end"
+                    >
+                        <Skeleton
+                            width={150}
+                            height={40}
+                            borderRadius="12px"
+                        />
+                    </HStack>
+                </VStack>
+            </Card>
+        );
+    }
 
     return (
         <Card

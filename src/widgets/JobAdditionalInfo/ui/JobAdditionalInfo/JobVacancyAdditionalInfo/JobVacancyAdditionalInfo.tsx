@@ -8,15 +8,17 @@ import EyeIcon from '@/shared/assets/icons/eye-re.svg';
 import { formatDate } from '@/shared/lib/utils/formatDate/formatDate';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { JobCategory } from '@/shared/const/job';
+import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 
 interface JobVacancyAdditionalInfoProps {
-    salary: string;
-    category: JobCategory[];
-    experience: string;
-    location: string;
-    type: string;
-    views: number;
-    createdAt: number;
+    salary?: string;
+    category?: JobCategory[];
+    experience?: string;
+    location?: string;
+    type?: string;
+    views?: number;
+    createdAt?: number;
+    loading?: boolean;
 }
 
 export const JobVacancyAdditionalInfo = memo(
@@ -29,8 +31,52 @@ export const JobVacancyAdditionalInfo = memo(
             type,
             views,
             createdAt,
+            loading,
         } = props;
         const { t } = useTranslation();
+
+        if (loading) {
+            return (
+                <Card
+                    padding="24"
+                    border="round"
+                    className={cls.card}
+                >
+                    <VStack gap="8">
+                        <Skeleton height={30} />
+                        <div className={cls.line} />
+                        <Skeleton height={30} />
+                        <div className={cls.line} />
+                        <Skeleton height={30} />
+                        <div className={cls.line} />
+                        <Skeleton height={30} />
+                        <div className={cls.line} />
+                        <Skeleton height={30} />
+                        <HStack
+                            max
+                            justify="between"
+                            className={cls.info}
+                        >
+                            <HStack gap="4">
+                                <Skeleton
+                                    width={32}
+                                    height={32}
+                                    borderRadius="50%"
+                                />
+                                <Skeleton
+                                    width={80}
+                                    height={30}
+                                />
+                            </HStack>
+                            <Skeleton
+                                width={80}
+                                height={30}
+                            />
+                        </HStack>
+                    </VStack>
+                </Card>
+            );
+        }
 
         return (
             <Card
@@ -41,7 +87,7 @@ export const JobVacancyAdditionalInfo = memo(
                 <VStack gap="8">
                     <Text text={t(`Зарплата: ${salary}`)} />
                     <div className={cls.line} />
-                    <Text text={t(`Категорії: ${category.join(', ')}`)} />
+                    <Text text={t(`Категорії: ${category?.join(', ')}`)} />
                     <div className={cls.line} />
                     <Text text={experience} />
                     <div className={cls.line} />

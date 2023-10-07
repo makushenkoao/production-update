@@ -1,15 +1,26 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from '@/app/providers/StoreProvider';
+import { Job } from '../../..';
 
 export const updateJobService = createAsyncThunk<
-    void,
-    void,
+    Job,
+    Job | undefined,
     ThunkConfig<string>
->('articleDetails/fetchArticleById', async (_, ThunkApi) => {
+>('job/updateJobService', async (job, ThunkApi) => {
     const { rejectWithValue, extra } = ThunkApi;
 
     try {
-        await extra.api.get('/jobs');
+        if (!job) {
+            return rejectWithValue('Сталася непередбачена помилка');
+        }
+
+        const { data } = await extra.api.put<Job>(`/jobs/${job.id}`, job);
+
+        if (!data) {
+            return rejectWithValue('Сталася непередбачена помилка');
+        }
+
+        return data;
     } catch (e) {
         return rejectWithValue('Сталася непередбачена помилка');
     }

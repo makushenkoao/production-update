@@ -1,22 +1,41 @@
 import React, { memo } from 'react';
+import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { Page } from '@/widgets/Page';
 import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
 import { JobAdditionalInfo } from '@/widgets/JobAdditionalInfo';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { JobFeedbackForm } from './JobFeedbackForm/JobFeedbackForm';
 import { JobDetailsContainer } from './JobDetailsContainer/JobDetailsContainer';
-import { JOB_MOCK_DATA } from '../model/const/job_details';
 import {
     DynamicModuleLoader,
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { jobDetailsReducer } from '@/entities/Job';
+import {
+    getJobDetailsData,
+    getJobDetailsIsLoading,
+    getJobDetailsService,
+    jobDetailsReducer,
+} from '@/entities/Job';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { getUserAuthData } from '@/entities/User';
 
 const reducers: ReducersList = {
     jobDetails: jobDetailsReducer,
 };
 
 const JobDetailsPage = () => {
+    const { id } = useParams<{ id?: string }>();
+    const dispatch = useAppDispatch();
+    const job = useSelector(getJobDetailsData);
+    const loading = useSelector(getJobDetailsIsLoading);
+    const authData = useSelector(getUserAuthData);
+
+    useInitialEffect(() => {
+        dispatch(getJobDetailsService(id));
+    });
+
     return (
         <DynamicModuleLoader
             reducers={reducers}
@@ -29,25 +48,20 @@ const JobDetailsPage = () => {
                             max
                             gap="32"
                         >
-                            <JobDetailsContainer />
-                            <JobFeedbackForm />
+                            <JobDetailsContainer
+                                job={job}
+                                loading={loading}
+                            />
+                            {job?.user.id !== authData?.id && (
+                                <JobFeedbackForm loading={loading} />
+                            )}
                         </VStack>
                     </Page>
                 }
                 right={
                     <JobAdditionalInfo
-                        salary={JOB_MOCK_DATA.salary}
-                        category={JOB_MOCK_DATA.category}
-                        type={JOB_MOCK_DATA.type}
-                        experience={JOB_MOCK_DATA.experience}
-                        location={JOB_MOCK_DATA.location}
-                        views={300}
-                        createdAt={Date.now()}
-                        email={JOB_MOCK_DATA.email}
-                        phone={JOB_MOCK_DATA.phone}
-                        website={JOB_MOCK_DATA.website}
-                        company={JOB_MOCK_DATA.company}
-                        id={JOB_MOCK_DATA.id}
+                        job={job}
+                        loading={loading}
                     />
                 }
             />

@@ -1,51 +1,97 @@
 import React, { memo } from 'react';
-import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Card } from '@/shared/ui/redesigned/Card';
-import { VStack } from '@/shared/ui/redesigned/Stack';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { AppLink } from '@/shared/ui/redesigned/AppLink';
 import { getRouteProfile } from '@/shared/const/router';
 import { AvatarWithUsername } from '@/shared/ui/redesigned/AvatarWithUsername';
-import { JOB_MOCK_DATA } from '../../model/const/job_details';
+import { Job } from '@/entities/Job';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 
-export const JobDetailsContainer = memo(() => {
-    const { id } = useParams<{ id: string }>();
+interface JobDetailsContainerProps {
+    className?: string;
+    job?: Job;
+    loading?: boolean;
+}
+
+export const JobDetailsContainer = memo((props: JobDetailsContainerProps) => {
+    const { job, className, loading } = props;
     const { t } = useTranslation();
+
+    if (loading) {
+        return (
+            <Card
+                padding="24"
+                border="round"
+                max
+                className={classNames('', {}, [className])}
+            >
+                <VStack
+                    max
+                    gap="16"
+                >
+                    <Skeleton
+                        width={300}
+                        height={30}
+                    />
+                    <HStack gap="8">
+                        <Skeleton
+                            width={32}
+                            height={32}
+                            borderRadius="50%"
+                        />
+                        <Skeleton
+                            width={80}
+                            height={20}
+                        />
+                    </HStack>
+                    <Skeleton height={80} />
+                    <Skeleton height={80} />
+                    <Skeleton height={80} />
+                    <Skeleton height={80} />
+                </VStack>
+            </Card>
+        );
+    }
+
+    if (!job) return null;
 
     return (
         <Card
             padding="24"
             border="round"
             max
+            className={classNames('', {}, [className])}
         >
             <VStack
                 max
                 gap="16"
             >
-                <Text title={JOB_MOCK_DATA.title} />
-                <AppLink to={getRouteProfile(JOB_MOCK_DATA.user.id)}>
+                <Text title={job.title} />
+                <AppLink to={getRouteProfile(job.user.id)}>
                     <AvatarWithUsername
-                        src={JOB_MOCK_DATA.user.avatar}
-                        username={JOB_MOCK_DATA.user.username}
+                        src={job.user.avatar}
+                        username={job.user.username}
                         size={30}
                     />
                 </AppLink>
                 <Text
                     title={t('Опис')}
-                    text={JOB_MOCK_DATA.description}
+                    text={job.description}
                 />
                 <Text
                     title={t("Обов'зки")}
-                    text={JOB_MOCK_DATA.responsibilities}
+                    text={job.responsibilities}
                 />
                 <Text
                     title={t('Вимоги')}
-                    text={JOB_MOCK_DATA.requirements}
+                    text={job.requirements}
                 />
                 <Text
                     title={t('Про компанію')}
-                    text={JOB_MOCK_DATA.aboutCompany}
+                    text={job.aboutCompany}
                 />
             </VStack>
         </Card>

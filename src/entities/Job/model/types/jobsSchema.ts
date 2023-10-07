@@ -1,7 +1,12 @@
-import { Job } from '../..';
+import {EntityState} from "@reduxjs/toolkit";
+import { Job } from '../../model/types/job';
 
-export interface JobsSchema {
+export interface JobsSchema extends EntityState<Job> {
     isLoading?: boolean;
     error?: string;
-    data?: Job[];
+    page: number;
+    limit: number;
+    hasMore: boolean;
+    _inited: boolean;
+    search: string;
 }
