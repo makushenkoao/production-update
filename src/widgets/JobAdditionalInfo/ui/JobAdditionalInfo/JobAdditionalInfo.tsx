@@ -5,7 +5,11 @@ import { VStack } from '@/shared/ui/redesigned/Stack';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { getUserAuthData } from '@/entities/User';
 import { JobAuthorAdditionalInfo } from './JobAuthorAdditionalInfo/JobAuthorAdditionalInfo';
-import { getRouteJobEdit, getRouteJobs } from '@/shared/const/router';
+import {
+    getRouteJobEdit,
+    getRouteJobResponses,
+    getRouteJobs,
+} from '@/shared/const/router';
 import { JobVacancyAdditionalInfo } from './JobVacancyAdditionalInfo/JobVacancyAdditionalInfo';
 import { JobCompanyAdditionalInfo } from './JobCompanyAdditionalInfo/JobCompanyAdditionalInfo';
 import { deleteJobService, getJobsService, Job } from '@/entities/Job';
@@ -36,6 +40,12 @@ export const JobAdditionalInfo = memo((props: ArticleAdditionalInfoProps) => {
         }
     }, [job?.id, navigate]);
 
+    const onResponses = useCallback(() => {
+        if (job?.id) {
+            navigate(getRouteJobResponses(job?.id));
+        }
+    }, [job?.id, navigate]);
+
     return (
         <VStack
             max
@@ -46,6 +56,7 @@ export const JobAdditionalInfo = memo((props: ArticleAdditionalInfoProps) => {
                 <JobAuthorAdditionalInfo
                     onDelete={onDelete}
                     onEdit={onEdit}
+                    onResponses={onResponses}
                     loading={loading}
                 />
             )}

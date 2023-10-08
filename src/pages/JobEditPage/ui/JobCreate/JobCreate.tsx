@@ -36,6 +36,7 @@ export const JobCreate = memo(() => {
         userId: authData?.id,
         createdAt: Date.now(),
         views: 0,
+        responses: []
     });
 
     const handleInputChange = useCallback(

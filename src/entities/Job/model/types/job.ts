@@ -1,6 +1,13 @@
 import { User } from '@/entities/User';
 import { JobCategory } from '@/shared/const/job';
 
+export interface JobResponse {
+    id: string;
+    userId: string;
+    description: string;
+    // file: File
+}
+
 export interface Job {
     id: string;
     userId?: string;
@@ -21,6 +28,7 @@ export interface Job {
     category: JobCategory[];
     views: number;
     website?: string;
+    responses: JobResponse[];
 }
 
 export type FieldName =

@@ -75,6 +75,13 @@
       "description": "Hello! 🙂🫠",
       "href": "/articles/2",
       "userId": "2"
+    },
+    {
+      "id": "1696799209176",
+      "title": "Відгук на вакансію",
+      "description": "На вашу вакансію Програміст відгукнувся user",
+      "href": "/jobs/1/responses",
+      "userId": "1"
     }
   ],
   "profile": [
@@ -4306,7 +4313,30 @@
         "C"
       ],
       "views": 500,
-      "website": "https://www.techno.com"
+      "website": "https://www.techno.com",
+      "responses": [
+        {
+          "id": "1696799208313",
+          "userId": "2",
+          "description": "my response"
+        }
+      ],
+      "user": {
+        "id": "1",
+        "username": "admin",
+        "password": "111",
+        "jsonSettings": {
+          "theme": "app_dark_theme",
+          "isArticlesPageWasOpened": true
+        },
+        "features": {
+          "isAppRedesigned": false
+        },
+        "roles": [
+          "ADMIN"
+        ],
+        "avatar": "https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-blue-tie-and-beard-face-png-image_5809515.png"
+      }
     },
     {
       "id": "2",
@@ -4330,7 +4360,8 @@
         "Typescript"
       ],
       "views": 600,
-      "website": "https://www.webstudio.com"
+      "website": "https://www.webstudio.com",
+      "responses": []
     },
     {
       "id": "3",
@@ -4354,7 +4385,8 @@
         "SQL"
       ],
       "views": 400,
-      "website": "https://www.softwave.com"
+      "website": "https://www.softwave.com",
+      "responses": []
     },
     {
       "id": "4",
@@ -4376,7 +4408,8 @@
         "QA"
       ],
       "views": 300,
-      "website": "https://www.testo.com"
+      "website": "https://www.testo.com",
+      "responses": []
     },
     {
       "id": "5",
@@ -4398,7 +4431,8 @@
         "Python"
       ],
       "views": 200,
-      "website": "https://www.devopstech.com"
+      "website": "https://www.devopstech.com",
+      "responses": []
     },
     {
       "id": "6",
@@ -4420,7 +4454,8 @@
         "Python"
       ],
       "views": 700,
-      "website": "https://www.sysadmin.com"
+      "website": "https://www.sysadmin.com",
+      "responses": []
     },
     {
       "id": "7",
@@ -4443,7 +4478,8 @@
         "SQL"
       ],
       "views": 800,
-      "website": "https://www.dbadmin.com"
+      "website": "https://www.dbadmin.com",
+      "responses": []
     },
     {
       "id": "8",
@@ -4469,7 +4505,8 @@
         "SQL"
       ],
       "views": 900,
-      "website": "https://www.fullstacktech.com"
+      "website": "https://www.fullstacktech.com",
+      "responses": []
     },
     {
       "id": "9",
@@ -4492,7 +4529,8 @@
         "Python"
       ],
       "views": 700,
-      "website": "https://www.dataanalyst.com"
+      "website": "https://www.dataanalyst.com",
+      "responses": []
     },
     {
       "id": "10",
@@ -4514,7 +4552,8 @@
         "SA"
       ],
       "views": 600,
-      "website": "https://www.sysanalyst.com"
+      "website": "https://www.sysanalyst.com",
+      "responses": []
     }
   ]
 }

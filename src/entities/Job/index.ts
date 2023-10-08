@@ -1,4 +1,4 @@
-export type { Job, FieldName } from './model/types/job';
+export type { Job, FieldName, JobResponse } from './model/types/job';
 export type { JobsSchema } from './model/types/jobsSchema';
 export type { JobDetailsSchema } from './model/types/jobDetailsSchema';
 export { getJobsError, getJobsIsLoading } from './model/selectors/jobs';
@@ -22,3 +22,4 @@ export { getJobDetailsService } from './model/services/getJobDetailsService/getJ
 export { deleteJobService } from './model/services/deleteJobService/deleteJobService';
 export { updateJobService } from './model/services/updateJobService/updateJobService';
 export { createJobService } from './model/services/createJobService/createJobService';
+export { responseJobService } from './model/services/responseJobService/responseJobService';

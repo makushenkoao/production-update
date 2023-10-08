@@ -32,6 +32,7 @@ import {
     getRouteJobDetails,
     getRouteJobCreate,
     getRouteJobEdit,
+    getRouteJobResponses,
 } from '@/shared/const/router';
 import { AppRoutesProps } from '@/shared/types/router';
 import { SettingsPage } from '@/pages/SettingsPage';
@@ -46,6 +47,7 @@ import { ArchiveArticlesPage } from '@/pages/ArchiveArticlesPage';
 import { JobsPage } from '@/pages/JobsPage';
 import { JobDetailsPage } from '@/pages/JobDetailsPage';
 import { JobEditPage } from '@/pages/JobEditPage';
+import { JobResponsesPage } from '@/pages/JobResponsesPage';
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.MAIN]: {
@@ -151,6 +153,11 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.JOB_EDIT]: {
         path: getRouteJobEdit(':id'),
         element: <JobEditPage />,
+        authOnly: true,
+    },
+    [AppRoutes.JOB_RESPONSES]: {
+        path: getRouteJobResponses(':id'),
+        element: <JobResponsesPage />,
         authOnly: true,
     },
     [AppRoutes.FORBIDDEN]: {

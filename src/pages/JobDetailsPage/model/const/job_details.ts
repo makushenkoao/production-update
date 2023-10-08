@@ -30,4 +30,5 @@ export const JOB_MOCK_DATA: Job = {
     requirements: 'HTML, CSS, Javascript, Typescript, React, Jest',
     responsibilities:
         'Розробка функціоналу. Створення інтерфейсу. Написання тестів',
+    responses: [],
 };

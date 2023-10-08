@@ -11,12 +11,13 @@ import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 interface JobAuthorAdditionalInfoProps {
     onDelete: () => void;
     onEdit: () => void;
+    onResponses: () => void;
     loading?: boolean;
 }
 
 export const JobAuthorAdditionalInfo = memo(
     (props: JobAuthorAdditionalInfoProps) => {
-        const { onDelete, onEdit, loading } = props;
+        const { onDelete, onEdit, loading, onResponses } = props;
         const { t } = useTranslation();
         const [isOpen, setIsOpen] = useState(false);
 
@@ -56,6 +57,12 @@ export const JobAuthorAdditionalInfo = memo(
                     max
                     gap="16"
                 >
+                    <Button
+                        onClick={onResponses}
+                        fullWidth
+                    >
+                        {t('Відгуки')}
+                    </Button>
                     <Button
                         onClick={onEdit}
                         fullWidth
