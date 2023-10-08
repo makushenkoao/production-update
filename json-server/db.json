@@ -464,7 +464,7 @@
       "title": "Kotlin news",
       "subtitle": "Що нового за 2023 рік?",
       "img": "https://kotlinlang.org/assets/images/twitter/general.png",
-      "views": 3235,
+      "views": 3236,
       "createdAt": 1690198991775,
       "userId": "1",
       "type": [
@@ -4301,7 +4301,10 @@
       "email": "job@techno.com",
       "phone": "+380123456789",
       "experience": "2 роки досвіду",
-      "category": ["C++", "C"],
+      "category": [
+        "C++",
+        "C"
+      ],
       "views": 500,
       "website": "https://www.techno.com"
     },
@@ -4321,7 +4324,11 @@
       "email": "jobs@webstudio.com",
       "phone": "+380987654321",
       "experience": "Без досвіду",
-      "category": ["HTML/CSS", "Javascript", "Typescript"],
+      "category": [
+        "HTML/CSS",
+        "Javascript",
+        "Typescript"
+      ],
       "views": 600,
       "website": "https://www.webstudio.com"
     },
@@ -4341,7 +4348,11 @@
       "email": "careers@softwave.com",
       "phone": "+380555123456",
       "experience": "Високий рівень",
-      "category": ["Javascript", "Python", "SQL"],
+      "category": [
+        "Javascript",
+        "Python",
+        "SQL"
+      ],
       "views": 400,
       "website": "https://www.softwave.com"
     },
@@ -4361,7 +4372,9 @@
       "email": "job@testo.com",
       "phone": "+380111222333",
       "experience": "3 роки досвіду",
-      "category": ["QA"],
+      "category": [
+        "QA"
+      ],
       "views": 300,
       "website": "https://www.testo.com"
     },
@@ -4381,7 +4394,9 @@
       "email": "careers@devopstech.com",
       "phone": "+380777888999",
       "experience": "3 роки досвіду",
-      "category": ["Python"],
+      "category": [
+        "Python"
+      ],
       "views": 200,
       "website": "https://www.devopstech.com"
     },
@@ -4401,7 +4416,9 @@
       "email": "jobs@sysadmin.com",
       "phone": "+380444555666",
       "experience": "3 роки досвіду",
-      "category": ["Python"],
+      "category": [
+        "Python"
+      ],
       "views": 700,
       "website": "https://www.sysadmin.com"
     },
@@ -4421,7 +4438,10 @@
       "email": "careers@dbadmin.com",
       "phone": "+380999888777",
       "experience": "2 роки досвіду",
-      "category": ["Python", "SQL"],
+      "category": [
+        "Python",
+        "SQL"
+      ],
       "views": 800,
       "website": "https://www.dbadmin.com"
     },
@@ -4441,7 +4461,13 @@
       "email": "jobs@fullstacktech.com",
       "phone": "+380777888666",
       "experience": "Високий рівень",
-      "category": ["Javascript", "Typescript", "HTML/CSS", "Python", "SQL"],
+      "category": [
+        "Javascript",
+        "Typescript",
+        "HTML/CSS",
+        "Python",
+        "SQL"
+      ],
       "views": 900,
       "website": "https://www.fullstacktech.com"
     },
@@ -4461,7 +4487,10 @@
       "email": "careers@dataanalyst.com",
       "phone": "+380888777666",
       "experience": "Середній рівень",
-      "category": ["SQL", "Python"],
+      "category": [
+        "SQL",
+        "Python"
+      ],
       "views": 700,
       "website": "https://www.dataanalyst.com"
     },
@@ -4481,9 +4510,11 @@
       "email": "job@sysanalyst.com",
       "phone": "+380666555444",
       "experience": "Середній рівень",
-      "category": ["SA"],
+      "category": [
+        "SA"
+      ],
       "views": 600,
       "website": "https://www.sysanalyst.com"
-    }
+    },
   ]
 }

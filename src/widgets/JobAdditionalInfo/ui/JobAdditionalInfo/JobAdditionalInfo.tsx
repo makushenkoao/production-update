@@ -42,7 +42,7 @@ export const JobAdditionalInfo = memo((props: ArticleAdditionalInfoProps) => {
             gap="16"
             className={classNames('', {}, [className])}
         >
-            {authData?.id === job?.user.id && (
+            {authData?.id === job?.user?.id && (
                 <JobAuthorAdditionalInfo
                     onDelete={onDelete}
                     onEdit={onEdit}

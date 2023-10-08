@@ -42,7 +42,7 @@ const ArticleEditPage = () => {
             {/* TODO - add page and delete overflow-y */}
             {/* <Page> */}
             {isEdit ? (
-                article && <EditArticle data={article} />
+                article && <EditArticle data={article}/>
             ) : (
                 <CreateArticle />
             )}

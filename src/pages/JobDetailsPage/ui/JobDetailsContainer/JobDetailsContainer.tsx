@@ -70,10 +70,10 @@ export const JobDetailsContainer = memo((props: JobDetailsContainerProps) => {
                 gap="16"
             >
                 <Text title={job.title} />
-                <AppLink to={getRouteProfile(job.user.id)}>
+                <AppLink to={getRouteProfile(job.user?.id || '')}>
                     <AvatarWithUsername
-                        src={job.user.avatar}
-                        username={job.user.username}
+                        src={job.user?.avatar}
+                        username={job.user?.username}
                         size={30}
                     />
                 </AppLink>

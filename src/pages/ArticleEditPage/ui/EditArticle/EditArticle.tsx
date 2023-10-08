@@ -1,10 +1,14 @@
-import React, { memo, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import {useSelector} from "react-redux";
 import { Article } from '@/entities/Article';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { AddArticleBlocks } from '../AddArticleBlocks/AddArticleBlocks';
 import { ArticleEditorHeader } from '../ArticleEditerHeader/ArticleEditerHeader';
 import { ArticleBlocks } from '../ArticleBlocks/ArticleBlocks';
 import { ArticleCreateUpdateButton } from '../ArticleCreateUpdateButton/ArticleCreateUpdateButton';
+import { getRouteForbidden } from '@/shared/const/router';
+import {getUserAuthData} from "@/entities/User";
 
 interface EditArticleProps {
     data: Article;
@@ -13,6 +17,14 @@ interface EditArticleProps {
 export const EditArticle = memo((props: EditArticleProps) => {
     const { data } = props;
     const [article, setArticle] = useState<Article>(data);
+    const navigate = useNavigate();
+    const authData = useSelector(getUserAuthData)
+
+    useEffect(() => {
+        if (data.user.id !== authData?.id) {
+            navigate(getRouteForbidden());
+        }
+    }, [authData?.id, data.user.id, navigate]);
 
     return (
         <VStack

@@ -1,4 +1,4 @@
-export type { Job } from './model/types/job';
+export type { Job, FieldName } from './model/types/job';
 export type { JobsSchema } from './model/types/jobsSchema';
 export type { JobDetailsSchema } from './model/types/jobDetailsSchema';
 export { getJobsError, getJobsIsLoading } from './model/selectors/jobs';

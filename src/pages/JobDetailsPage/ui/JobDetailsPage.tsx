@@ -52,7 +52,7 @@ const JobDetailsPage = () => {
                                 job={job}
                                 loading={loading}
                             />
-                            {job?.user.id !== authData?.id && (
+                            {job?.user?.id !== authData?.id && (
                                 <JobFeedbackForm loading={loading} />
                             )}
                         </VStack>

@@ -3,7 +3,8 @@ import { JobCategory } from '@/shared/const/job';
 
 export interface Job {
     id: string;
-    user: User;
+    userId?: string;
+    user?: User;
     title: string;
     company: string;
     aboutCompany: string;
@@ -21,3 +22,19 @@ export interface Job {
     views: number;
     website?: string;
 }
+
+export type FieldName =
+    | 'title'
+    | 'salary'
+    | 'type'
+    | 'experience'
+    | 'description'
+    | 'responsibilities'
+    | 'requirements'
+    | 'category'
+    | 'company'
+    | 'aboutCompany'
+    | 'location'
+    | 'email'
+    | 'phone'
+    | 'website';
