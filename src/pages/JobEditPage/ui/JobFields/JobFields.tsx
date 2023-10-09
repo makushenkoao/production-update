@@ -4,12 +4,11 @@ import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Input } from '@/shared/ui/redesigned/Input';
 import { TextArea } from '@/shared/ui/redesigned/TextArea';
 import { SelectOption } from '@/shared/ui/deprecated/Select';
-import { JobCategory } from '@/shared/const/job';
 import { ListBox } from '@/shared/ui/redesigned/Popups';
 import { Text } from '@/shared/ui/redesigned/Text';
 import cls from './JobFields.module.scss';
 import { Button } from '@/shared/ui/redesigned/Button';
-import { Job, FieldName } from '@/entities/Job';
+import { Job, FieldName, JobCategory } from '@/entities/Job';
 
 interface JobFieldsProps {
     isEdit?: boolean;

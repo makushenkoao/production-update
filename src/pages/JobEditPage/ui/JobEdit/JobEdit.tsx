@@ -7,11 +7,11 @@ import {
     getJobDetailsData,
     Job,
     updateJobService,
+    JobCategory
 } from '@/entities/Job';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { JobCategory } from '@/shared/const/job';
 import { getRouteJobDetails } from '@/shared/const/router';
 import { JobFields } from '../JobFields/JobFields';
 

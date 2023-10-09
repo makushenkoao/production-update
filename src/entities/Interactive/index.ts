@@ -30,3 +30,4 @@ export {
     useGetWordleQuery,
     usePostWordleMutation,
 } from './api/interactiveApi';
+export { EInteractive } from './const/EInteractive';

@@ -5,9 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { JobFields } from '../JobFields/JobFields';
-import { createJobService, FieldName, Job } from '@/entities/Job';
+import { createJobService, FieldName, Job, JobCategory } from '@/entities/Job';
 import { getUserAuthData } from '@/entities/User';
-import { JobCategory } from '@/shared/const/job';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getRouteJobDetails } from '@/shared/const/router';
 
@@ -36,7 +35,7 @@ export const JobCreate = memo(() => {
         userId: authData?.id,
         createdAt: Date.now(),
         views: 0,
-        responses: []
+        responses: [],
     });
 
     const handleInputChange = useCallback(

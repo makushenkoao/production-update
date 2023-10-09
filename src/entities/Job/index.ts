@@ -24,3 +24,4 @@ export { updateJobService } from './model/services/updateJobService/updateJobSer
 export { createJobService } from './model/services/createJobService/createJobService';
 export { responseJobService } from './model/services/responseJobService/responseJobService';
 export { incrementViewsService } from './model/services/incrementViewsService/incrementViewsService';
+export { JobCategory } from './const/job';

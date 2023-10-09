@@ -1,4 +1,4 @@
-export enum Interactive {
+export enum EInteractive {
     QUIZ = 'quiz',
     FACT = 'fact',
     TASK = 'task',

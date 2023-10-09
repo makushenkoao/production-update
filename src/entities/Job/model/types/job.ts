@@ -1,5 +1,6 @@
 import { User } from '@/entities/User';
-import { JobCategory } from '@/shared/const/job';
+
+import {JobCategory} from '../../const/job';
 
 export interface JobResponse {
     id: string;

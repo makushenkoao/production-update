@@ -6,8 +6,8 @@ import { AppLink } from '@/shared/ui/redesigned/AppLink';
 import { getRouteInteractiveTask } from '@/shared/const/router';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { Text } from '@/shared/ui/redesigned/Text';
+import { EInteractive } from '@/entities/Interactive';
 import cls from './InteractivePage.module.scss';
-import { Interactive } from '@/shared/const/Interactive';
 
 const InteractivePage = () => {
     const { t } = useTranslation();
@@ -15,68 +15,68 @@ const InteractivePage = () => {
     const interactiveItems = useMemo<
         {
             title: string;
-            href: Interactive;
+            href: EInteractive;
             description: string;
         }[]
     >(
         () => [
             {
                 title: t('Вікторина'),
-                href: Interactive.QUIZ,
+                href: EInteractive.QUIZ,
                 description: t(
                     'Кожного дня вам дається питання на будь-яку тему, перевірте свої знання',
                 ),
             },
             {
                 title: t('Факт'),
-                href: Interactive.FACT,
+                href: EInteractive.FACT,
                 description: t(
                     'Кожного дня вам дається цікавий факт про наше життя',
                 ),
             },
             {
                 title: t('Завдання'),
-                href: Interactive.TASK,
+                href: EInteractive.TASK,
                 description: t(
                     'Кожного дня ми даємо завдання, яке ви повинні виконати',
                 ),
             },
             {
                 title: t('Цитата'),
-                href: Interactive.QUOTE,
+                href: EInteractive.QUOTE,
                 description: t('Кожного дня ми даємо цитату'),
             },
             {
                 title: t('Загадка'),
-                href: Interactive.MYSTERY,
+                href: EInteractive.MYSTERY,
                 description: t(
                     'Кожного дня ми даємо загадку, яка перевірить вашу логіку',
                 ),
             },
             {
                 title: t('Порада'),
-                href: Interactive.ADVICE,
+                href: EInteractive.ADVICE,
                 description: t(
                     'Кожного дня даємо пораду для покращення вашого життя',
                 ),
             },
             {
                 title: t('Рецепт'),
-                href: Interactive.RECIPE,
+                href: EInteractive.RECIPE,
                 description: t(
                     'Кожного дня ми даємо рецепт, який ви маєте приготувати',
                 ),
             },
             {
                 title: t('Wordle'),
-                href: Interactive.WORDLE,
+                href: EInteractive.WORDLE,
                 description: t(
                     'Кожного дня ми даємо будь-яке слово, відгадайте його',
                 ),
             },
             {
                 title: t('Випадкова стаття'),
-                href: Interactive.RANDOM_ARTICLE,
+                href: EInteractive.RANDOM_ARTICLE,
                 description: t('Прочитайте абсолютно випадкову статтю'),
             },
         ],

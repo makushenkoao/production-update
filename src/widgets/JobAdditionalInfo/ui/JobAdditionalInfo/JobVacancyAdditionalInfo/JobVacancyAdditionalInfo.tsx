@@ -7,9 +7,8 @@ import { Icon } from '@/shared/ui/redesigned/Icon';
 import EyeIcon from '@/shared/assets/icons/eye-re.svg';
 import { formatDate } from '@/shared/lib/utils/formatDate/formatDate';
 import { Card } from '@/shared/ui/redesigned/Card';
-import { JobCategory } from '@/shared/const/job';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
-import { JobResponse } from '@/entities/Job';
+import { JobCategory, JobResponse } from '@/entities/Job';
 
 interface JobVacancyAdditionalInfoProps {
     salary?: string;
