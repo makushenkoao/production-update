@@ -61,6 +61,7 @@ export const JobResponseItem = memo((props: JobResponseItemProps) => {
                         bold
                     />
                     <Text text={response?.description} />
+                    <AppLink to={response?.href || ''}>{t('Резюме')}</AppLink>
                 </VStack>
             </VStack>
         </Card>

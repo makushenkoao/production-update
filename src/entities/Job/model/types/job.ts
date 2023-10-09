@@ -4,8 +4,8 @@ import { JobCategory } from '@/shared/const/job';
 export interface JobResponse {
     id: string;
     userId: string;
-    description: string;
-    // file: File
+    description?: string;
+    href?: string;
 }
 
 export interface Job {

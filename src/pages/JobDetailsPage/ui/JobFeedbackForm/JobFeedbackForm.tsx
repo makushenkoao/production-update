@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FormEvent, useCallback, useState } from 'react';
+import React, { FormEvent, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
@@ -6,11 +6,11 @@ import { Text } from '@/shared/ui/redesigned/Text';
 import { TextArea } from '@/shared/ui/redesigned/TextArea';
 import { Button } from '@/shared/ui/redesigned/Button';
 import { Card } from '@/shared/ui/redesigned/Card';
-import cls from '../JobDetailsPage.module.scss';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getJobDetailsData, Job, responseJobService } from '@/entities/Job';
 import { getUserAuthData } from '@/entities/User';
+import { Input } from '@/shared/ui/redesigned/Input';
 
 interface JobFeedbackFormProps {
     loading?: boolean;
@@ -22,18 +22,15 @@ export const JobFeedbackForm = (props: JobFeedbackFormProps) => {
     const job = useSelector(getJobDetailsData);
     const dispatch = useAppDispatch();
     const authData = useSelector(getUserAuthData);
-    const [selectedFile, setSelectedFile] = useState<File | null | undefined>(
-        null,
-    );
     const [text, setText] = useState('');
+    const [link, setLink] = useState('');
 
-    const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
-        const file = e.target.files?.[0];
-        setSelectedFile(file);
-    };
-
-    const onChange = useCallback((v: string) => {
+    const onChangeText = useCallback((v: string) => {
         setText(v);
+    }, []);
+
+    const onChangeLink = useCallback((v: string) => {
+        setLink(v);
     }, []);
 
     const onSubmit = useCallback(
@@ -48,16 +45,16 @@ export const JobFeedbackForm = (props: JobFeedbackFormProps) => {
                             id: String(Date.now()),
                             userId: authData?.id || '',
                             description: text,
-                            // file: selectedFile || undefined,
+                            href: link,
                         },
                     ],
                 }),
             );
 
-            setSelectedFile(null);
+            setLink('');
             setText('');
         },
-        [authData?.id, dispatch, job, text],
+        [authData?.id, dispatch, job, link, text],
     );
 
     if (loading) {
@@ -116,24 +113,15 @@ export const JobFeedbackForm = (props: JobFeedbackFormProps) => {
                             'Розкажіть про себе та чому хочете потрапити на цю позицію.',
                         )}
                         label={t('Напишіть супровідний лист')}
-                        onChange={onChange}
+                        onChange={onChangeText}
                         value={text}
                     />
-                    <input
-                        type="file"
-                        accept=".pdf"
-                        onChange={handleFileChange}
-                        className={cls.fileInput}
-                        id="customFileInput"
+                    <Input
+                        placeholder={t('Введіть посилання на ваше резюме')}
+                        label={t('Резюме')}
+                        onChange={onChangeLink}
+                        value={link}
                     />
-                    <label
-                        htmlFor="customFileInput"
-                        className={cls.customFileInput}
-                    >
-                        {selectedFile?.name
-                            ? selectedFile.name
-                            : t('Вибрати файл')}
-                    </label>
                     <HStack
                         max
                         justify="end"
