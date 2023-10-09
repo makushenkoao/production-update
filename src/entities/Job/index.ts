@@ -23,3 +23,4 @@ export { deleteJobService } from './model/services/deleteJobService/deleteJobSer
 export { updateJobService } from './model/services/updateJobService/updateJobService';
 export { createJobService } from './model/services/createJobService/createJobService';
 export { responseJobService } from './model/services/responseJobService/responseJobService';
+export { incrementViewsService } from './model/services/incrementViewsService/incrementViewsService';

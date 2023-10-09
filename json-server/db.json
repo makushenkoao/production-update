@@ -4312,7 +4312,7 @@
         "C++",
         "C"
       ],
-      "views": 500,
+      "views": 505,
       "website": "https://www.techno.com",
       "responses": [
         {
@@ -4359,9 +4359,25 @@
         "Javascript",
         "Typescript"
       ],
-      "views": 600,
+      "views": 601,
       "website": "https://www.webstudio.com",
-      "responses": []
+      "responses": [],
+      "user": {
+        "id": "1",
+        "username": "admin",
+        "password": "111",
+        "jsonSettings": {
+          "theme": "app_dark_theme",
+          "isArticlesPageWasOpened": true
+        },
+        "features": {
+          "isAppRedesigned": false
+        },
+        "roles": [
+          "ADMIN"
+        ],
+        "avatar": "https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-blue-tie-and-beard-face-png-image_5809515.png"
+      }
     },
     {
       "id": "3",
@@ -4384,9 +4400,25 @@
         "Python",
         "SQL"
       ],
-      "views": 400,
+      "views": 404,
       "website": "https://www.softwave.com",
-      "responses": []
+      "responses": [],
+      "user": {
+        "id": "1",
+        "username": "admin",
+        "password": "111",
+        "jsonSettings": {
+          "theme": "app_dark_theme",
+          "isArticlesPageWasOpened": true
+        },
+        "features": {
+          "isAppRedesigned": false
+        },
+        "roles": [
+          "ADMIN"
+        ],
+        "avatar": "https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-blue-tie-and-beard-face-png-image_5809515.png"
+      }
     },
     {
       "id": "4",

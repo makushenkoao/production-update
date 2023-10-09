@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Page } from '@/widgets/Page';
@@ -15,6 +15,7 @@ import {
     getJobDetailsData,
     getJobDetailsIsLoading,
     getJobDetailsService,
+    incrementViewsService,
     jobDetailsReducer,
 } from '@/entities/Job';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -27,10 +28,14 @@ const reducers: ReducersList = {
 
 const JobDetailsPage = () => {
     const { id } = useParams<{ id?: string }>();
-    const dispatch = useAppDispatch();
     const job = useSelector(getJobDetailsData);
     const loading = useSelector(getJobDetailsIsLoading);
     const authData = useSelector(getUserAuthData);
+    const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        dispatch(incrementViewsService(job));
+    }, [dispatch, job]);
 
     useInitialEffect(() => {
         dispatch(getJobDetailsService(id));
