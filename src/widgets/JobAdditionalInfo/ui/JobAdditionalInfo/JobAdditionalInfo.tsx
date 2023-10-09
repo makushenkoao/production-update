@@ -69,6 +69,7 @@ export const JobAdditionalInfo = memo((props: ArticleAdditionalInfoProps) => {
                 category={job?.category}
                 salary={job?.salary}
                 loading={loading}
+                responses={job?.responses}
             />
             <JobCompanyAdditionalInfo
                 company={job?.company}

@@ -9,6 +9,7 @@ import { formatDate } from '@/shared/lib/utils/formatDate/formatDate';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { JobCategory } from '@/shared/const/job';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
+import { JobResponse } from '@/entities/Job';
 
 interface JobVacancyAdditionalInfoProps {
     salary?: string;
@@ -19,6 +20,7 @@ interface JobVacancyAdditionalInfoProps {
     views?: number;
     createdAt?: number;
     loading?: boolean;
+    responses?: JobResponse[];
 }
 
 export const JobVacancyAdditionalInfo = memo(
@@ -32,6 +34,7 @@ export const JobVacancyAdditionalInfo = memo(
             views,
             createdAt,
             loading,
+            responses,
         } = props;
         const { t } = useTranslation();
 
@@ -43,6 +46,8 @@ export const JobVacancyAdditionalInfo = memo(
                     className={cls.card}
                 >
                     <VStack gap="8">
+                        <Skeleton height={30} />
+                        <div className={cls.line} />
                         <Skeleton height={30} />
                         <div className={cls.line} />
                         <Skeleton height={30} />
@@ -94,6 +99,12 @@ export const JobVacancyAdditionalInfo = memo(
                     <Text text={location} />
                     <div className={cls.line} />
                     <Text text={type} />
+                    <div className={cls.line} />
+                    <Text
+                        text={`${String(responses?.length)} ${
+                            responses?.length === 1 ? 'Відгук' : 'Відгуків'
+                        }`}
+                    />
                     <HStack
                         max
                         justify="between"
