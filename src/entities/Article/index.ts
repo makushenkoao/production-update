@@ -14,7 +14,12 @@ export {
     ArticleBlockType,
 } from './model/consts/consts';
 export { ARRAY_ARTICLE_MOCK, ARTICLE_MOCK } from './model/consts/mock';
-export { useGetArticlesQuery } from './api/article';
+export {
+    useGetArticlesQuery,
+    useGetFollowingArticlesQuery,
+    useGetRecentArticlesQuery,
+    useGetPopularArticlesQuery,
+} from './api/article';
 export { articleDetailsReducer } from './model/slice/articleDetailsSlice';
 export { fetchArticleById } from './model/services/fetchArticleById/fetchArticleById';
 export { updateArticleDetails } from './model/services/updateArticleDetails/updateArticleDetails';

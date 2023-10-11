@@ -5,7 +5,7 @@ import { AppRoutes } from '@/shared/const/router';
 import { ScrollToolbar } from '@/widgets/ScrollToolbar';
 import { useRouteChange } from '@/shared/lib/router/useRouteChange';
 import { getUserAuthData } from '@/entities/User';
-import { PopularArticlesList } from '@/pages/MainPage';
+import { PopularArticlesList } from '@/features/PopularArticlesList';
 import { Text } from '@/shared/ui/redesigned/Text';
 
 export function useAppToolbar() {

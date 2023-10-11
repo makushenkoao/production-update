@@ -1,20 +1,18 @@
 import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useGetArticlesQuery } from '@/entities/Article';
+import { useGetPopularArticlesQuery } from '@/entities/Article';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { AppLink } from '@/shared/ui/redesigned/AppLink';
 import { getRouteArticleDetails } from '@/shared/const/router';
-import cls from './popularArticlesList.module.scss';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 import { AppImage } from '@/shared/ui/redesigned/AppImage';
+import cls from './popularArticlesList.module.scss';
 
 export const PopularArticlesList = memo(() => {
     const { t } = useTranslation();
-    const { data, isLoading, error } = useGetArticlesQuery();
-
-    const popularArticles = data?.slice().sort((a, b) => b.views - a.views);
+    const { data, isLoading } = useGetPopularArticlesQuery();
 
     if (isLoading) {
         return (
@@ -53,7 +51,7 @@ export const PopularArticlesList = memo(() => {
         >
             <Text text={t('Популярне')} />
             <VStack gap="16">
-                {popularArticles?.slice(0, 6).map((item) => (
+                {data?.slice(0, 6).map((item) => (
                     <AppLink
                         key={item.id}
                         to={getRouteArticleDetails(item.id)}

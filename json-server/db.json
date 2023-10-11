@@ -228,9 +228,7 @@
       "username": "manager",
       "avatar": "https://www.shareicon.net/data/512x512/2016/09/01/822726_user_512x512.png",
       "followers": [],
-      "following": [
-        "2"
-      ],
+      "following": [],
       "saved": [],
       "blockedUsers": [],
       "archive": []
@@ -647,7 +645,7 @@
       "title": "C news",
       "subtitle": "Що нового за 2023 рік?",
       "img": "https://prutor.ai/wp-content/uploads/c-programming-2.jpg",
-      "views": 853890,
+      "views": 853891,
       "createdAt": 1690198991775,
       "userId": "1",
       "type": [
@@ -1849,7 +1847,7 @@
       "img": "https://images.unian.net/photos/2020_08/thumb_files/1000_545_1597136891-7944.jpg",
       "views": 20012,
       "createdAt": 1690198971075,
-      "userId": "2",
+      "userId": "3",
       "type": [
         "COOKIE"
       ],
@@ -1993,7 +1991,7 @@
       "img": "https://i0.wp.com/calmatters.org/wp-content/uploads/2021/08/math-curriculum.jpg?fit=1200%2C900&ssl=1",
       "views": 12434,
       "createdAt": 1690198971075,
-      "userId": "1",
+      "userId": "3",
       "type": [
         "SCIENCE"
       ],
@@ -4304,7 +4302,7 @@
       "requirements": "Вища освіта в галузі комп'ютерних наук, навички програмування, тощо.",
       "salary": "40 000 - 50 000 грн",
       "type": "Віддалено",
-      "createdAt": 1633632000,
+      "createdAt": 1690198991775,
       "email": "job@techno.com",
       "phone": "+380123456789",
       "experience": "2 роки досвіду",
@@ -4312,7 +4310,7 @@
         "C++",
         "C"
       ],
-      "views": 508,
+      "views": 511,
       "website": "https://www.techno.com",
       "responses": [
         {
@@ -4350,7 +4348,7 @@
       "requirements": "Вища освіта в галузі програмування, досвід роботи з HTML, CSS, JavaScript, тощо.",
       "salary": "35 000 - 45 000 грн",
       "type": "Віддалено",
-      "createdAt": 1633632000,
+      "createdAt": 1690198991775,
       "email": "jobs@webstudio.com",
       "phone": "+380987654321",
       "experience": "Без досвіду",
@@ -4359,7 +4357,7 @@
         "Javascript",
         "Typescript"
       ],
-      "views": 603,
+      "views": 604,
       "website": "https://www.webstudio.com",
       "responses": [],
       "user": {
@@ -4391,7 +4389,7 @@
       "requirements": "Вища освіта в галузі програмування, досвід роботи з Java, Python, тощо.",
       "salary": "45 000 - 55 000 грн",
       "type": "Віддалено",
-      "createdAt": 1633632000,
+      "createdAt": 1690198991775,
       "email": "careers@softwave.com",
       "phone": "+380555123456",
       "experience": "Високий рівень",
@@ -4402,23 +4400,7 @@
       ],
       "views": 404,
       "website": "https://www.softwave.com",
-      "responses": [],
-      "user": {
-        "id": "1",
-        "username": "admin",
-        "password": "111",
-        "jsonSettings": {
-          "theme": "app_dark_theme",
-          "isArticlesPageWasOpened": true
-        },
-        "features": {
-          "isAppRedesigned": false
-        },
-        "roles": [
-          "ADMIN"
-        ],
-        "avatar": "https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-blue-tie-and-beard-face-png-image_5809515.png"
-      }
+      "responses": []
     },
     {
       "id": "4",
@@ -4432,7 +4414,7 @@
       "requirements": "Вища освіта в галузі комп'ютерних наук, досвід роботи з тестування, тощо.",
       "salary": "30 000 - 40 000 грн",
       "type": "Повна зайнятість",
-      "createdAt": 1633632000,
+      "createdAt": 1690198991775,
       "email": "job@testo.com",
       "phone": "+380111222333",
       "experience": "3 роки досвіду",
@@ -4455,7 +4437,7 @@
       "requirements": "Вища освіта в галузі ІТ, досвід роботи з DevOps, тощо.",
       "salary": "50 000 - 60 000 грн",
       "type": "Повна зайнятість",
-      "createdAt": 1633632000,
+      "createdAt": 1690198991775,
       "email": "careers@devopstech.com",
       "phone": "+380777888999",
       "experience": "3 роки досвіду",
@@ -4478,7 +4460,7 @@
       "requirements": "Вища освіта в галузі ІТ, досвід роботи з адміністрування, тощо.",
       "salary": "35 000 - 45 000 грн",
       "type": "Повна зайнятість",
-      "createdAt": 1633632000,
+      "createdAt": 1690198991775,
       "email": "jobs@sysadmin.com",
       "phone": "+380444555666",
       "experience": "3 роки досвіду",
@@ -4501,7 +4483,7 @@
       "requirements": "Вища освіта в галузі ІТ, досвід роботи з базами даних, тощо.",
       "salary": "40 000 - 50 000 грн",
       "type": "Повна зайнятість",
-      "createdAt": 1633632000,
+      "createdAt": 1690198991775,
       "email": "careers@dbadmin.com",
       "phone": "+380999888777",
       "experience": "2 роки досвіду",
@@ -4525,7 +4507,7 @@
       "requirements": "Вища освіта в галузі програмування, досвід роботи зі стеками технологій, тощо.",
       "salary": "45 000 - 55 000 грн",
       "type": "Повна зайнятість",
-      "createdAt": 1633632000,
+      "createdAt": 1690198991775,
       "email": "jobs@fullstacktech.com",
       "phone": "+380777888666",
       "experience": "Високий рівень",
@@ -4552,7 +4534,7 @@
       "requirements": "Вища освіта в галузі аналітики, досвід роботи зі статистикою, програмами для аналізу даних, тощо.",
       "salary": "35 000 - 45 000 грн",
       "type": "Повна зайнятість",
-      "createdAt": 1633632000,
+      "createdAt": 1690198991775,
       "email": "careers@dataanalyst.com",
       "phone": "+380888777666",
       "experience": "Середній рівень",
@@ -4576,7 +4558,7 @@
       "requirements": "Вища освіта в галузі аналітики, досвід роботи з бізнес-процесами, тощо.",
       "salary": "40 000 - 50 000 грн",
       "type": "Повна зайнятість",
-      "createdAt": 1633632000,
+      "createdAt": 1690198991775,
       "email": "job@sysanalyst.com",
       "phone": "+380666555444",
       "experience": "Середній рівень",
