@@ -3,9 +3,11 @@ import {
     createSlice,
     PayloadAction,
 } from '@reduxjs/toolkit';
+
 import { JobsSchema } from '../types/jobsSchema';
 import { getJobsService } from '../services/getJobsService/getJobsService';
 import { Job } from '../..';
+
 import { StateSchema } from '@/app/providers/StoreProvider';
 
 const jobsAdapter = createEntityAdapter<Job>({

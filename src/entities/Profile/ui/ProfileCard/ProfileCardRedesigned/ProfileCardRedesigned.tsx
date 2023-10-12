@@ -1,5 +1,12 @@
 import { useTranslation } from 'react-i18next';
 import { useCallback, useState } from 'react';
+
+import { ProfileCardProps } from '../ProfileCard';
+import cls from './ProfileCardRedesigned.module.scss';
+import { getProfilesData } from '../../../model/services/getProfilesData';
+import { Profile } from '../../../model/types/profile';
+import { FollowersAndFollowingsModal } from '../FollowersAndFollowingsModal/FollowersAndFollowingsModal';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { CurrencySelect } from '@/entities/Currency';
 import { CountrySelect } from '@/entities/Country';
@@ -10,15 +17,11 @@ import { Card } from '@/shared/ui/redesigned/Card';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 import { Avatar } from '@/shared/ui/redesigned/Avatar';
-import { ProfileCardProps } from '../ProfileCard';
 import { AverageUserRating } from '@/features/averageUserRating';
 import UserIcon from '@/shared/assets/icons/user.svg';
-import cls from './ProfileCardRedesigned.module.scss';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { getProfilesData } from '../../../model/services/getProfilesData';
-import { Profile } from '../../../model/types/profile';
-import { FollowersAndFollowingsModal } from '../FollowersAndFollowingsModal/FollowersAndFollowingsModal';
+
 
 export const ProfileCardRedesigned = (props: ProfileCardProps) => {
     const {

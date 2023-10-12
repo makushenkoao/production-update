@@ -1,12 +1,14 @@
 import { memo, useState } from 'react';
-import {
-    DynamicModuleLoader,
-    ReducersList,
-} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+
 import { loginReducer } from '../../model/slice/loginSlice';
 import { registerReducer } from '../../model/slice/registerSlice';
 import { Register } from './Register/Register';
 import { Login } from './Login/Login';
+
+import {
+    DynamicModuleLoader,
+    ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
 interface LoginFormProps {
     className?: string;

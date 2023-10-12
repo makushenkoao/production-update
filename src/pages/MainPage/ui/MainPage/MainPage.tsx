@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+
 import { Page } from '@/widgets/Page';
 import { getUserAuthData } from '@/entities/User';
 import { useGetProfileDataQuery } from '@/entities/Profile';

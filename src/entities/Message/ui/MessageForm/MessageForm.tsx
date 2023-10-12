@@ -6,14 +6,16 @@ import EmojiPicker, {
     EmojiClickData,
     Theme as EmojiTheme,
 } from 'emoji-picker-react';
+
+import { useWriteMessageMutation } from '../../api/messageApi';
+import cls from './MessageForm.module.scss';
+
 import { Card } from '@/shared/ui/redesigned/Card';
 import { HStack } from '@/shared/ui/redesigned/Stack';
 import { Input } from '@/shared/ui/redesigned/Input';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 import { getUserAuthData } from '@/entities/User';
-import { useWriteMessageMutation } from '../../api/messageApi';
 import SendIcon from '@/shared/assets/icons/send.svg';
-import cls from './MessageForm.module.scss';
 import EmojiIcon from '@/shared/assets/icons/emoji.svg';
 import { usePressKey } from '@/shared/lib/hooks/usePressKey/usePressKey';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';

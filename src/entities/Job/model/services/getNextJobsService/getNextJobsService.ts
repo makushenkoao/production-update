@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from '@/app/providers/StoreProvider';
+
 
 
 import {
@@ -9,6 +9,8 @@ import {
 } from '../../selectors/jobs';
 import { jobsActions } from '../../../model/slice/jobSlice';
 import { getJobsService } from '../getJobsService/getJobsService';
+
+import { ThunkConfig } from '@/app/providers/StoreProvider';
 
 export const getNextJobsService = createAsyncThunk<
     void,

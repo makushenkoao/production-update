@@ -1,13 +1,8 @@
 import React, { Dispatch, SetStateAction, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { Text } from '@/shared/ui/redesigned/Text';
-import { Input } from '@/shared/ui/redesigned/Input';
-import { VStack } from '@/shared/ui/redesigned/Stack';
-import { useForceUpdate } from '@/shared/lib/render/forceUpdate';
-import { Button } from '@/shared/ui/redesigned/Button';
+
 import { registerActions } from '../../../model/slice/registerSlice';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
     getRegisterFirstname,
     getRegisterIsLoading,
@@ -19,9 +14,17 @@ import {
     useRegisterProfileMutation,
     useRegisterUserMutation,
 } from '../../../api/register';
+import cls from '../LoginForm.module.scss';
+
+import { Text } from '@/shared/ui/redesigned/Text';
+import { Input } from '@/shared/ui/redesigned/Input';
+import { VStack } from '@/shared/ui/redesigned/Stack';
+import { useForceUpdate } from '@/shared/lib/render/forceUpdate';
+import { Button } from '@/shared/ui/redesigned/Button';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { userActions } from '@/entities/User';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import cls from '../LoginForm.module.scss';
+
 
 interface RegisterProps {
     setIsRegister: Dispatch<SetStateAction<boolean>>;

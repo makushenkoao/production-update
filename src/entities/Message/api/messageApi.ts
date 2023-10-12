@@ -1,5 +1,6 @@
-import { rtkApi } from '@/shared/api/rtkApi';
 import { Message } from '../model/types/message';
+
+import { rtkApi } from '@/shared/api/rtkApi';
 
 interface getMessagesArgs {
     fromUser: string;

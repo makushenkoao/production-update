@@ -1,10 +1,12 @@
 import { Dispatch, memo, SetStateAction, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+
+import { ARTICLE_TYPES } from '../../model/consts/article';
+
 import { Text } from '@/shared/ui/redesigned/Text';
 import { Input } from '@/shared/ui/redesigned/Input';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { ListBox } from '@/shared/ui/redesigned/Popups';
-import { ARTICLE_TYPES } from '../../model/consts/article';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 import DeleteIcon from '@/shared/assets/icons/delete.svg';
 import { Article, ArticleType } from '@/entities/Article';

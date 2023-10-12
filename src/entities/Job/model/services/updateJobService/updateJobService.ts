@@ -1,6 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from '@/app/providers/StoreProvider';
+
 import { Job } from '../../..';
+
+import { ThunkConfig } from '@/app/providers/StoreProvider';
 
 export const updateJobService = createAsyncThunk<
     Job,

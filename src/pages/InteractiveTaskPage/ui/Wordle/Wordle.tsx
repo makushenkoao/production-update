@@ -1,11 +1,13 @@
 import { FormEvent, memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+
+import cls from './Wordle.module.scss';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Input } from '@/shared/ui/redesigned/Input';
 import { Button } from '@/shared/ui/redesigned/Button';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
-import cls from './Wordle.module.scss';
 import { useGetWordleQuery } from '@/entities/Interactive';
 import { useInteractive } from '@/shared/lib/hooks/useInteractive/useInteractive';
 

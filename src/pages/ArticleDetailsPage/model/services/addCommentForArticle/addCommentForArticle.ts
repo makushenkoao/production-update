@@ -1,10 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+
+import { fetchCommentsByArticleId } from '../fetchCommentsByArticleId/fetchCommentsByArticleId';
+
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { Comment } from '@/entities/Comment';
 import { getUserAuthData } from '@/entities/User';
 import { addCommentFormActions } from '@/features/AddCommentForm';
 import { getArticleDetailsData } from '@/entities/Article';
-import { fetchCommentsByArticleId } from '../fetchCommentsByArticleId/fetchCommentsByArticleId';
 
 interface addCommentForArticleProps {
     text: string;

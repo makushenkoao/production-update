@@ -6,10 +6,12 @@ import React, {
     useRef,
     useState,
 } from 'react';
-import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+
 import cls from './Input.module.scss';
 import { VStack } from '../Stack';
 import { Text } from '../Text';
+
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 
 type HTMLInputProps = Omit<
     InputHTMLAttributes<HTMLInputElement>,

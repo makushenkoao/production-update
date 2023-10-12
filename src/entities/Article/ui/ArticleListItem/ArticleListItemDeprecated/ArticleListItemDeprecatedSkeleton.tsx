@@ -1,9 +1,11 @@
 import { memo } from 'react';
+
 import { ArticleView } from '../../../model/consts/consts';
+import { ArticleListItemSkeletonProps } from '../ArticleListItemSkeleton';
+
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Card } from '@/shared/ui/deprecated/Card';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
-import { ArticleListItemSkeletonProps } from '../ArticleListItemSkeleton';
 
 export const ArticleListItemDeprecatedSkeleton = memo(
     (props: ArticleListItemSkeletonProps) => {

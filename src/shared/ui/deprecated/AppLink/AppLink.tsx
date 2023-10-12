@@ -1,7 +1,9 @@
 import { memo, type ReactNode } from 'react';
 import { Link, type LinkProps } from 'react-router-dom';
-import { classNames } from '@/shared/lib/classNames/classNames';
+
 import cls from './AppLink.module.scss';
+
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 export enum AppLinkTheme {
     PRIMARY = 'primary',

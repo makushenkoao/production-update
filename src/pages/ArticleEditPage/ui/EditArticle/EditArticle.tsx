@@ -1,12 +1,14 @@
 import React, { memo, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {useSelector} from "react-redux";
-import { Article } from '@/entities/Article';
-import { VStack } from '@/shared/ui/redesigned/Stack';
+
 import { AddArticleBlocks } from '../AddArticleBlocks/AddArticleBlocks';
 import { ArticleEditorHeader } from '../ArticleEditerHeader/ArticleEditerHeader';
 import { ArticleBlocks } from '../ArticleBlocks/ArticleBlocks';
 import { ArticleCreateUpdateButton } from '../ArticleCreateUpdateButton/ArticleCreateUpdateButton';
+
+import { VStack } from '@/shared/ui/redesigned/Stack';
+import { Article } from '@/entities/Article';
 import { getRouteForbidden } from '@/shared/const/router';
 import {getUserAuthData} from "@/entities/User";
 

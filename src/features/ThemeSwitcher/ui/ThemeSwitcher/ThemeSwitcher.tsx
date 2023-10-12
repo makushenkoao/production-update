@@ -1,4 +1,5 @@
 import { memo, useCallback } from 'react';
+
 import { Icon } from '@/shared/ui/redesigned/Icon/Icon';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { saveJsonSettings } from '@/entities/User';

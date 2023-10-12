@@ -1,14 +1,7 @@
 import { memo, useCallback, Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text } from '@/shared/ui/redesigned/Text';
-import { AddCommentForm } from '@/features/AddCommentForm';
-import { CommentList, Comment } from '@/entities/Comment';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { VStack } from '@/shared/ui/redesigned/Stack';
-import { Loader } from '@/shared/ui/deprecated/Loader';
+
 import { getArticleComments } from '../../model/slice/articleDetailsCommentsSlice';
 import {
     getArticleCommentsError,
@@ -17,11 +10,21 @@ import {
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { addLikeToComment } from '../../model/services/addLikeToComment/addLikeToComment';
+import { deleteComment } from '../../model/services/deleteComment/deleteComment';
+
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Text } from '@/shared/ui/redesigned/Text';
+import { AddCommentForm } from '@/features/AddCommentForm';
+import { CommentList, Comment } from '@/entities/Comment';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { VStack } from '@/shared/ui/redesigned/Stack';
+import { Loader } from '@/shared/ui/deprecated/Loader';
 import { sendNotification } from '@/entities/Notification';
 import { getRouteArticleDetails } from '@/shared/const/router';
 import { getUserAuthData } from '@/entities/User';
 import { getArticleDetailsData } from '@/entities/Article';
-import { deleteComment } from '../../model/services/deleteComment/deleteComment';
+
 
 interface ArticleDetailsCommentsProps {
     className?: string;

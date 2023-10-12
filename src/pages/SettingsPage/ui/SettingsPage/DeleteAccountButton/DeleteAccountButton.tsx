@@ -2,15 +2,17 @@ import React, { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
-import { Text } from '@/shared/ui/redesigned/Text';
-import { Button } from '@/shared/ui/redesigned/Button';
-import { Modal } from '@/shared/ui/redesigned/Modal';
+
 import {
     useDeleteArticlesByUserIdMutation,
     useDeleteProfileMutation,
     useDeleteUserMutation,
 } from '../../../api/deleteAccount';
+
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
+import { Button } from '@/shared/ui/redesigned/Button';
+import { Modal } from '@/shared/ui/redesigned/Modal';
 import { getUserAuthData, userActions } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getRouteMain } from '@/shared/const/router';

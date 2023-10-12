@@ -1,5 +1,7 @@
 import { memo, ReactNode } from 'react';
+
 import cls from './Tooltip.module.scss';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DropdownDirection } from '@/shared/types/ui';
 

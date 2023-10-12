@@ -5,6 +5,16 @@ import EmojiPicker, {
     EmojiClickData,
     Theme as EmojiTheme,
 } from 'emoji-picker-react';
+
+import {
+    addCommentFormReducer,
+} from '../../model/slice/addCommentFormSlice';
+import {
+    getAddCommentFormError,
+    getAddCommentFormIsLoading,
+} from '../../model/selectors/addCommentsFormSelectors';
+import cls from './AddCommentForm.module.scss';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Input } from '@/shared/ui/redesigned/Input';
 import { Button } from '@/shared/ui/redesigned/Button';
@@ -14,13 +24,6 @@ import {
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import {
-    addCommentFormReducer,
-} from '../../model/slice/addCommentFormSlice';
-import {
-    getAddCommentFormError,
-    getAddCommentFormIsLoading,
-} from '../../model/selectors/addCommentsFormSelectors';
 import { HStack } from '@/shared/ui/redesigned/Stack';
 import { sendNotification } from '@/entities/Notification';
 import { getRouteArticleDetails } from '@/shared/const/router';
@@ -28,7 +31,6 @@ import { getArticleDetailsData } from '@/entities/Article';
 import { getUserAuthData } from '@/entities/User';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 import EmojiIcon from '@/shared/assets/icons/emoji.svg';
-import cls from './AddCommentForm.module.scss';
 import { usePressKey } from '@/shared/lib/hooks/usePressKey/usePressKey';
 import { Theme } from '@/shared/const/theme';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';

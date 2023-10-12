@@ -1,18 +1,20 @@
 import { memo } from 'react';
 import { useParams } from 'react-router-dom';
+
+import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
+import { articleDetailsPageReducer } from '../../model/slice';
+import { DetailsContainer } from '../DetailsContainer/DetailsContainer';
+import { AdditionalInfoContainer } from '../AdditionalInfoContainer/AdditionalInfoContainer';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
     DynamicModuleLoader,
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';
-import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
-import { articleDetailsPageReducer } from '../../model/slice';
 import { ArticleRating } from '@/features/articleRating';
 import { Page } from '@/widgets/Page';
 import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
-import { DetailsContainer } from '../DetailsContainer/DetailsContainer';
-import { AdditionalInfoContainer } from '../AdditionalInfoContainer/AdditionalInfoContainer';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 
 const reducers: ReducersList = {

@@ -1,12 +1,14 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from '@/app/providers/StoreProvider';
-import { addQueryParams } from '@/shared/lib/url/addQueryParams/addQueryParams';
+
 import { Job } from '../../../model/types/job';
 import {
     getJobsPageLimit,
     getJobsPageNum,
     getJobsSearch,
 } from '../../selectors/jobs';
+
+import { ThunkConfig } from '@/app/providers/StoreProvider';
+import { addQueryParams } from '@/shared/lib/url/addQueryParams/addQueryParams';
 
 interface getJobsServiceArgs {
     replace?: boolean;

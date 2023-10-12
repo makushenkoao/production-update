@@ -1,8 +1,10 @@
 import { memo } from 'react';
+
+import cls from '../ArchiveArticlesPage.module.scss';
+
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
-import cls from '../ArchiveArticlesPage.module.scss';
 
 export const ArchiveArticlesLoading = memo(() => {
     return (

@@ -1,9 +1,11 @@
 import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import CopyIconNew from '@/shared/assets/icons/copy-re.svg';
+
 import cls from './Code.module.scss';
 import { Icon } from '../Icon';
+
+import { classNames } from '@/shared/lib/classNames/classNames';
+import CopyIconNew from '@/shared/assets/icons/copy-re.svg';
 
 interface CodeProps {
     className?: string;

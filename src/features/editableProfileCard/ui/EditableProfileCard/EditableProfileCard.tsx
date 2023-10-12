@@ -1,17 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { Currency } from '@/entities/Currency';
-import { Country } from '@/entities/Country';
-import { Text } from '@/shared/ui/redesigned/Text';
-import { ProfileCard } from '@/entities/Profile';
-import {
-    DynamicModuleLoader,
-    ReducersList,
-} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { VStack } from '@/shared/ui/redesigned/Stack';
+
 import { ValidateProfileError } from '../../model/consts/consts';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
@@ -21,6 +11,18 @@ import { getProfileValidateErrors } from '../../model/selectors/getProfileValida
 import { profileActions, profileReducer } from '../../model/slice/ProfileSlice';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
+
+import { VStack } from '@/shared/ui/redesigned/Stack';
+import {
+    DynamicModuleLoader,
+    ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { ProfileCard } from '@/entities/Profile';
+import { Text } from '@/shared/ui/redesigned/Text';
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getUserAuthData } from '@/entities/User';
 
 const reducers: ReducersList = {

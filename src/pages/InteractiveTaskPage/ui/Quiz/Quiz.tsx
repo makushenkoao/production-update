@@ -1,5 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
+
+import { InteractiveTaskPageSkeleton } from '../InteractiveTaskPageSkeleton';
+
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { Input } from '@/shared/ui/redesigned/Input';
@@ -7,7 +10,6 @@ import { Button } from '@/shared/ui/redesigned/Button';
 import { Modal } from '@/shared/ui/redesigned/Modal';
 import { useInteractive } from '@/shared/lib/hooks/useInteractive/useInteractive';
 import { useGetQuizzesQuery } from '@/entities/Interactive';
-import { InteractiveTaskPageSkeleton } from '../InteractiveTaskPageSkeleton';
 
 export const Quiz = memo(() => {
     const { data, isLoading } = useGetQuizzesQuery();

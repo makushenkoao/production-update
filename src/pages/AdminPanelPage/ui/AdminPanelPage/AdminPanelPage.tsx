@@ -1,6 +1,7 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
+
 import { Page } from '@/widgets/Page';
 import { Button } from '@/shared/ui/redesigned/Button';
 import { getRouteInteractiveCreate } from '@/shared/const/router';

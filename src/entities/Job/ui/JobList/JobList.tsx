@@ -1,7 +1,9 @@
 import { memo } from 'react';
+
 import { Job } from '../..';
-import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { JobItem } from '../JobItem/JobItem';
+
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';

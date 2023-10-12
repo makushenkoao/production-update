@@ -1,7 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
+
+import InteractiveTaskPage from './InteractiveTaskPage';
+
 import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
 import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
-import InteractiveTaskPage from './InteractiveTaskPage';
 import { Theme } from '@/shared/const/theme';
 
 const meta: Meta<typeof InteractiveTaskPage> = {

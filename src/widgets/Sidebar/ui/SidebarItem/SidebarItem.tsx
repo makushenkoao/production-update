@@ -2,12 +2,14 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
+import { SidebarItemTypes } from '../../model/types/sidebar';
+import cls from './SidebarItem.module.scss';
+
 import { AppLink } from '@/shared/ui/redesigned/AppLink';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { getUserAuthData } from '@/entities/User';
-import { SidebarItemTypes } from '../../model/types/sidebar';
 import { Icon } from '@/shared/ui/redesigned/Icon';
-import cls from './SidebarItem.module.scss';
+
 
 interface SidebarItemProps {
     item: SidebarItemTypes;

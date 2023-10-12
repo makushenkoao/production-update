@@ -1,10 +1,13 @@
 import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { ArticleListItemProps } from '../ArticleListItem';
-import { Text } from '@/shared/ui/redesigned/Text';
-import { Icon } from '@/shared/ui/redesigned/Icon';
 import { ArticleBlockType, ArticleView } from '../../../model/consts/consts';
 import { ArticleTextBlock } from '../../../model/types/article';
+import cls from './ArticleListItemRedesigned.module.scss';
+
+import { Text } from '@/shared/ui/redesigned/Text';
+import { Icon } from '@/shared/ui/redesigned/Icon';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { Avatar } from '@/shared/ui/redesigned/Avatar';
@@ -15,7 +18,6 @@ import { getRouteArticleDetails } from '@/shared/const/router';
 import { Button } from '@/shared/ui/redesigned/Button';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import EyeIcon from '@/shared/assets/icons/eye-re.svg';
-import cls from './ArticleListItemRedesigned.module.scss';
 import { formatDate } from '@/shared/lib/utils/formatDate/formatDate';
 
 export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {

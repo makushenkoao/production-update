@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+
 import { AppLink } from '@/shared/ui/redesigned/AppLink';
 import { getRouteProfile } from '@/shared/const/router';
 import { Card } from '@/shared/ui/redesigned/Card';

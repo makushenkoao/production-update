@@ -1,5 +1,6 @@
 import { Dispatch, memo, SetStateAction } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { Text } from '@/shared/ui/redesigned/Text';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Icon } from '@/shared/ui/redesigned/Icon';

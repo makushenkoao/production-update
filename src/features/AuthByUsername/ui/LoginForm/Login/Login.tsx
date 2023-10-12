@@ -1,19 +1,21 @@
 import React, { Dispatch, SetStateAction, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { Text } from '@/shared/ui/redesigned/Text';
-import { Input } from '@/shared/ui/redesigned/Input';
-import { VStack } from '@/shared/ui/redesigned/Stack';
-import { Button } from '@/shared/ui/redesigned/Button';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+
 import { getLoginUsername } from '../../../model/selectors/getLoginUsername/getLoginUsername';
 import { getLoginPassword } from '../../../model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginError } from '../../../model/selectors/getLoginError/getLoginError';
 import { getLoginIsLoading } from '../../../model/selectors/getLoginIsLoading/getLoginIsLoading';
 import { loginActions } from '../../../model/slice/loginSlice';
 import { loginByUsername } from '../../../model/services/loginByUsername/loginByUsername';
-import { useForceUpdate } from '@/shared/lib/render/forceUpdate';
 import cls from '../LoginForm.module.scss';
+
+import { useForceUpdate } from '@/shared/lib/render/forceUpdate';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Button } from '@/shared/ui/redesigned/Button';
+import { VStack } from '@/shared/ui/redesigned/Stack';
+import { Input } from '@/shared/ui/redesigned/Input';
+import { Text } from '@/shared/ui/redesigned/Text';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
 interface LoginProps {

@@ -2,6 +2,9 @@ import { useTranslation } from 'react-i18next';
 import React, { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+
+import { JobResponseItem } from './JobResponseItem/JobResponseItem';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Page } from '@/widgets/Page';
 import { Text } from '@/shared/ui/redesigned/Text';
@@ -12,7 +15,6 @@ import {
     getJobDetailsService,
     jobDetailsReducer,
 } from '@/entities/Job';
-import { JobResponseItem } from './JobResponseItem/JobResponseItem';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {

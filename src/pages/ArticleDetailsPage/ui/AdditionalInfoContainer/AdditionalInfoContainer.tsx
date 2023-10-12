@@ -1,6 +1,10 @@
 import { memo, useCallback, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+
+import { archiveArticle } from '../../model/services/archiveArticle/archiveArticle';
+import cls from './AdditionalInfoContainer.module.scss';
+
 import { Card } from '@/shared/ui/redesigned/Card';
 import { ArticleAdditionalInfo } from '@/widgets/ArticleAdditionalInfo';
 import { deleteArticle, getArticleDetailsData } from '@/entities/Article';
@@ -13,8 +17,6 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { getUserAuthData } from '@/entities/User';
 import { useGetProfileDataQuery } from '@/entities/Profile';
 import { saveArticle } from '@/pages/SavedArticlesPage';
-import { archiveArticle } from '../../model/services/archiveArticle/archiveArticle';
-import cls from './AdditionalInfoContainer.module.scss';
 
 export const AdditionalInfoContainer = memo(() => {
     const article = useSelector(getArticleDetailsData);

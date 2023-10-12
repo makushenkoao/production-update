@@ -1,12 +1,14 @@
 import { memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+
+import { createArticle } from '../../model/services/createArticle';
+
 import { Button } from '@/shared/ui/redesigned/Button';
 import { HStack } from '@/shared/ui/redesigned/Stack';
 import { getRouteArticleDetails } from '@/shared/const/router';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Article, updateArticleDetails } from '@/entities/Article';
-import { createArticle } from '../../model/services/createArticle';
 
 interface ArticleCreateUpdateButtonProps {
     article: Article;

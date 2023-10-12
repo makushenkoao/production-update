@@ -8,10 +8,16 @@ import React, {
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { Text } from '@/shared/ui/redesigned/Text';
-import { VStack } from '@/shared/ui/redesigned/Stack';
-import { Button } from '@/shared/ui/redesigned/Button';
-import { getRouteAdmin } from '@/shared/const/router';
+
+import { CreateQuiz } from './CreateQuiz/CreateQuiz';
+import { CreateRecipe } from './CreateRecipe/CreateRecipe';
+import { CreateMystery } from './CreateMystery/CreateMystery';
+import { CreateFact } from './CreateFact/CreateFact';
+import { CreateQuote } from './CreateQuote/CreateQuote';
+import { CreateTask } from './CreateTask/CreateTask';
+import { CreateAdvice } from './CreateAdvice/CreateAdvice';
+import { CreateWordle } from './CreateWordle/CreateWordle';
+
 import {
     InteractiveFieldNameType,
     InteractiveState,
@@ -25,14 +31,10 @@ import {
     usePostTasksMutation,
     usePostWordleMutation,
 } from '@/entities/Interactive';
-import { CreateQuiz } from './CreateQuiz/CreateQuiz';
-import { CreateRecipe } from './CreateRecipe/CreateRecipe';
-import { CreateMystery } from './CreateMystery/CreateMystery';
-import { CreateFact } from './CreateFact/CreateFact';
-import { CreateQuote } from './CreateQuote/CreateQuote';
-import { CreateTask } from './CreateTask/CreateTask';
-import { CreateAdvice } from './CreateAdvice/CreateAdvice';
-import { CreateWordle } from './CreateWordle/CreateWordle';
+import { getRouteAdmin } from '@/shared/const/router';
+import { Button } from '@/shared/ui/redesigned/Button';
+import { VStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 export interface CreateInteractiveProps {
     updateField: (

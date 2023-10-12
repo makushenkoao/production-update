@@ -1,6 +1,7 @@
 import { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+
 import { AppRoutes } from '@/shared/const/router';
 import { ScrollToolbar } from '@/widgets/ScrollToolbar';
 import { useRouteChange } from '@/shared/lib/router/useRouteChange';

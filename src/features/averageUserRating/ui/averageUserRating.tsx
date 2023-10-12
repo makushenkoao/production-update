@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+
 import { useGetProfileRatingByIdQuery } from '../api/averageProfileRatingApi';
+
 import { HStack } from '@/shared/ui/redesigned/Stack';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 import StarIcon from '@/shared/assets/icons/star.svg';

@@ -1,11 +1,13 @@
 import { memo } from 'react';
+
 import cls from './JobItem.module.scss';
+import { Job } from '../..';
+
 import { AppLink } from '@/shared/ui/redesigned/AppLink';
 import { getRouteJobDetails } from '@/shared/const/router';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
-import { Job } from '../..';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 import EyeIcon from '@/shared/assets/icons/eye-re.svg';
 import { formatDate } from '@/shared/lib/utils/formatDate/formatDate';

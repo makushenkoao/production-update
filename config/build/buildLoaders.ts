@@ -1,4 +1,5 @@
 import { type RuleSetRule } from 'webpack';
+
 import { type BuildOptions } from './types/config';
 import { buildStyleLoader } from './loaders/buildStyleLoader';
 import { buildSvgLoader } from './loaders/buildSvgLoader';

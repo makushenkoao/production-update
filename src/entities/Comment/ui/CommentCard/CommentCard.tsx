@@ -5,12 +5,15 @@ import EmojiPicker, {
     EmojiClickData,
     Theme as EmojiTheme,
 } from 'emoji-picker-react';
+
+import { Comment } from '../../model/types/comment';
+import cls from './CommentCard.module.scss';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Avatar } from '@/shared/ui/redesigned/Avatar';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
 import { AppLink } from '@/shared/ui/redesigned/AppLink';
-import { Comment } from '../../model/types/comment';
 import { getRouteArticleDetails, getRouteProfile } from '@/shared/const/router';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Card } from '@/shared/ui/redesigned/Card';
@@ -29,7 +32,6 @@ import DeleteIcon from '@/shared/assets/icons/delete.svg';
 import ReplyIcon from '@/shared/assets/icons/reply.svg';
 import LikeIcon from '@/shared/assets/icons/like.svg';
 import EmojiIcon from '@/shared/assets/icons/emoji.svg';
-import cls from './CommentCard.module.scss';
 import { Theme } from '@/shared/const/theme';
 
 interface CommentCardProps {

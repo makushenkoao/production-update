@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
 import { JobDetailsSchema } from '../types/jobDetailsSchema';
 import { Job } from '../../model/types/job';
 import { getJobDetailsService } from '../../model/services/getJobDetailsService/getJobDetailsService';

@@ -1,5 +1,7 @@
 import path from 'path';
+
 import { Configuration, DefinePlugin, RuleSetRule } from 'webpack';
+
 import { BuildPaths } from '../build';
 import { buildStyleLoader } from '../build/loaders/buildStyleLoader';
 import { buildSvgLoader } from '../build/loaders/buildSvgLoader';

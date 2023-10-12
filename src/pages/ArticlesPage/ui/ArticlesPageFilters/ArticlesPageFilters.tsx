@@ -1,13 +1,15 @@
 import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
+
+import cls from './ArticlesPageFilters.module.scss';
+import { useArticleFilters } from '../../lib/hooks/useArticleFilters';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Card } from '@/shared/ui/deprecated/Card';
 import { Input } from '@/shared/ui/deprecated/Input';
 import { ArticleSortSelector } from '@/features/articleSortSelector';
 import { ArticleViewSelector } from '@/features/articleViewSelector';
 import { ArticleTypeTabs } from '@/features/articleTypeTabs';
-import cls from './ArticlesPageFilters.module.scss';
-import { useArticleFilters } from '../../lib/hooks/useArticleFilters';
 
 interface ArticlesPageFiltersProps {
     className?: string;

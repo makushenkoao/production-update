@@ -1,5 +1,8 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
+
+import cls from './ArticlesFilters.module.scss';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { ArticleSortSelector } from '@/features/articleSortSelector';
@@ -9,7 +12,6 @@ import { ArticleSortField, ArticleType } from '@/entities/Article';
 import { SortOrder } from '@/shared/types/sort';
 import { Input } from '@/shared/ui/redesigned/Input';
 import SearchIcon from '@/shared/assets/icons/search.svg';
-import cls from './ArticlesFilters.module.scss';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 
 interface ArticlesFiltersProps {

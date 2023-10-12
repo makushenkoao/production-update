@@ -1,5 +1,8 @@
 import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+
+import cls from './InteractivePage.module.scss';
+
 import { Page } from '@/widgets/Page';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { AppLink } from '@/shared/ui/redesigned/AppLink';
@@ -7,7 +10,6 @@ import { getRouteInteractiveTask } from '@/shared/const/router';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { EInteractive } from '@/entities/Interactive';
-import cls from './InteractivePage.module.scss';
 
 const InteractivePage = () => {
     const { t } = useTranslation();

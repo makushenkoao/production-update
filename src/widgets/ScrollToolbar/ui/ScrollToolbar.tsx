@@ -1,8 +1,10 @@
 import React from 'react';
+
+import cls from './ScrollToolbar.module.scss';
+
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ScrollToTopButton } from '@/features/scrollToTopButton';
-import cls from './ScrollToolbar.module.scss';
 
 export const ScrollToolbar = ({ className }: { className?: string }) => {
     return (

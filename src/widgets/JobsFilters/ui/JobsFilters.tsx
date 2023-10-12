@@ -1,7 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Card } from '@/shared/ui/redesigned/Card';
+
 import cls from './JobsFilters.module.scss';
+
+import { Card } from '@/shared/ui/redesigned/Card';
 import { Input } from '@/shared/ui/redesigned/Input';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 import SearchIcon from '@/shared/assets/icons/search.svg';

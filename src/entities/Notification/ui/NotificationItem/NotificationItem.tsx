@@ -1,11 +1,14 @@
 import { memo, useCallback } from 'react';
-import { classNames } from '@/shared/lib/classNames/classNames';
+
 import { Notification } from '../../model/types/notification';
+import cls from './NotificationItem.module.scss';
+
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 import DeleteIcon from '@/shared/assets/icons/delete.svg';
-import cls from './NotificationItem.module.scss';
+
 
 interface NotificationItemProps {
     className?: string;

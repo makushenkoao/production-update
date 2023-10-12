@@ -1,6 +1,8 @@
 import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { useSearchUsersQuery } from '../../api/searchPageApi';
+
 import { Page } from '@/widgets/Page';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { Text } from '@/shared/ui/redesigned/Text';

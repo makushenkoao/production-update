@@ -1,9 +1,10 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppImage } from '../../redesigned/AppImage';
 import { Skeleton } from '../Skeleton';
 import UserIcon from '../../../assets/icons/user.svg';
 import cls from './Avatar.module.scss';
 import { Icon } from '../Icon';
+
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 interface AvatarProps {
     className?: string;

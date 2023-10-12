@@ -1,7 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
+
+import { ArticleRecommendationsList } from './ArticleRecommendationsList';
+
 import { ThemeDecorator } from '@/shared/config/storybook';
 import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
-import { ArticleRecommendationsList } from './ArticleRecommendationsList';
 import { Theme } from '@/shared/const/theme';
 import { ARTICLE_MOCK } from '@/entities/Article';
 

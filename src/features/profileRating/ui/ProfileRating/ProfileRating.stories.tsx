@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+
 import ProfileRating from '../../ui/ProfileRating/ProfileRating';
 
 // TODO - write stories

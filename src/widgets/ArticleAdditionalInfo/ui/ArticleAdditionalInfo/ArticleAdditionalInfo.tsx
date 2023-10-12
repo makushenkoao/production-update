@@ -1,6 +1,9 @@
 import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+
+import cls from './ArticleAdditionalInfo.module.scss';
+
 import { getUserAuthData, User } from '@/entities/User';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Avatar } from '@/shared/ui/redesigned/Avatar';
@@ -14,7 +17,6 @@ import { Tooltip } from '@/shared/ui/redesigned/Tooltip';
 import SaveIcon from '@/shared/assets/icons/save.svg';
 import UnSaveIcon from '@/shared/assets/icons/unsave.svg';
 import ArchiveIcon from '@/shared/assets/icons/archive.svg';
-import cls from './ArticleAdditionalInfo.module.scss';
 
 interface ArticleAdditionalInfoProps {
     className?: string;

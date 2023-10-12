@@ -1,12 +1,14 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { RatingCard } from '@/entities/Rating';
+
 import {
     useGetArticleRatingQuery,
     useRateArticleMutation,
 } from '../../api/articleRatingApi';
+
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { RatingCard } from '@/entities/Rating';
 import { getUserAuthData } from '@/entities/User';
 import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
 import { getArticleDetailsData } from '@/entities/Article';

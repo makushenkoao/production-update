@@ -1,5 +1,6 @@
-import { rtkApi } from '@/shared/api/rtkApi';
 import { Article } from '..';
+
+import { rtkApi } from '@/shared/api/rtkApi';
 
 export const article = rtkApi.injectEndpoints({
     endpoints: (build) => ({

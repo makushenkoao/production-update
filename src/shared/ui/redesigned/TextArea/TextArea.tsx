@@ -5,10 +5,12 @@ import React, {
     useRef,
     useState,
 } from 'react';
-import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+
 import { VStack } from '../Stack';
 import { Text } from '../Text';
 import cls from './TextArea.module.scss';
+
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 
 type HTMLTextAreaProps = Omit<
     TextareaHTMLAttributes<HTMLTextAreaElement>,

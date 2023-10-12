@@ -1,6 +1,10 @@
 import { useParams } from 'react-router-dom';
 import { useCallback, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+
+import { blockProfile } from '../model/services/blockProfile/blockProfile';
+import { followProfile } from '../model/services/followProfile/followProfile';
+
 import { EditableProfileCard, getProfileForm } from '@/features/editableProfileCard';
 import { Page } from '@/widgets/Page';
 import { VStack } from '@/shared/ui/redesigned/Stack';
@@ -8,8 +12,6 @@ import { UserArticles } from '@/features/userArticles';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getUserAuthData } from '@/entities/User';
 import { useGetProfileDataQuery } from '@/entities/Profile';
-import { blockProfile } from '../model/services/blockProfile/blockProfile';
-import { followProfile } from '../model/services/followProfile/followProfile';
 
 const ProfilePage = () => {
     const [userIsBlocked, setUserIsBlocked] = useState<boolean | undefined>(

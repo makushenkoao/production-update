@@ -1,7 +1,8 @@
-import { Currency } from '@/entities/Currency';
-import { Country } from '@/entities/Country';
 import { Profile } from '../../model/types/profile';
 import { ProfileCardRedesigned } from './ProfileCardRedesigned';
+
+import { Currency } from '@/entities/Currency';
+import { Country } from '@/entities/Country';
 
 type onChangeInput = (v?: string) => void;
 

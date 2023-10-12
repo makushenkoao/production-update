@@ -1,11 +1,13 @@
 import { memo } from 'react';
 import { SerializedError } from '@reduxjs/toolkit';
 import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
+
+import { NotificationItem } from '../NotificationItem/NotificationItem';
+import { Notification } from '../../model/types/notification';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
-import { NotificationItem } from '../NotificationItem/NotificationItem';
-import { Notification } from '../../model/types/notification';
 
 interface NotificationListProps {
     className?: string;

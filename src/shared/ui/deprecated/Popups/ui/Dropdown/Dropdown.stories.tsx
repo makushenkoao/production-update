@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+
 import userPng from '../../../../../assets/tests/storybook.png';
 import { Avatar } from '../../../Avatar/Avatar';
 import { Dropdown } from './Dropdown';

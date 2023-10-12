@@ -1,11 +1,14 @@
 import React, { memo } from 'react';
+
 import { ArticleListItemSkeletonProps } from '../ArticleListItemSkeleton';
-import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { ArticleView } from '../../../model/consts/consts';
+import cls from './ArticleListItemRedesigned.module.scss';
+
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
-import cls from './ArticleListItemRedesigned.module.scss';
+
 
 export const ArticleListItemRedesignedSkeleton = memo(
     (props: ArticleListItemSkeletonProps) => {

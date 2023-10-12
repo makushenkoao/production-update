@@ -1,6 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from '@/app/providers/StoreProvider';
+
 import { Notification } from '../../types/notification';
+
+import { ThunkConfig } from '@/app/providers/StoreProvider';
 
 export const sendNotification = createAsyncThunk<
     void,

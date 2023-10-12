@@ -1,4 +1,5 @@
 import { FeatureFlags } from '../../../types/featureFlags';
+
 import { LOCAL_STORAGE_LAST_DESIGN_KEY } from '@/shared/const/localStorage';
 
 const defaultFeatures: FeatureFlags = {

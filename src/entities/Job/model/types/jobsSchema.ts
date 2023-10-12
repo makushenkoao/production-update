@@ -1,4 +1,5 @@
 import {EntityState} from "@reduxjs/toolkit";
+
 import { Job } from '../../model/types/job';
 
 export interface JobsSchema extends EntityState<Job> {

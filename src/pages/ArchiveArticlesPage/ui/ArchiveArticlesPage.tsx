@@ -1,8 +1,10 @@
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import React, { memo } from 'react';
+
+import { ArchiveArticleList } from './ArchiveArticleList/ArchiveArticleList';
+
 import { Text } from '@/shared/ui/redesigned/Text';
 import { VStack } from '@/shared/ui/redesigned/Stack';
-import { ArchiveArticleList } from './ArchiveArticleList/ArchiveArticleList';
 
 const ArchiveArticlesPage = () => {
     const { t } = useTranslation();

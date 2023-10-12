@@ -2,6 +2,9 @@ import React, { memo, useCallback, useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+
+import cls from './NotificationButton.module.scss';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
     NotificationList,
@@ -15,7 +18,6 @@ import { Text } from '@/shared/ui/redesigned/Text';
 import { getUserAuthData } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import NotificationIcon from '@/shared/assets/icons/notification-re.svg';
-import cls from './NotificationButton.module.scss';
 import { Tooltip } from '@/shared/ui/redesigned/Tooltip';
 
 interface NotificationButtonProps {

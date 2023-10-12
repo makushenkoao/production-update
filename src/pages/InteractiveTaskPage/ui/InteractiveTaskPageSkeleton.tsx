@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 

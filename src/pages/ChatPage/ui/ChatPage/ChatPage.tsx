@@ -1,8 +1,10 @@
-import { VStack } from '@/shared/ui/redesigned/Stack';
 import { ChatPageHeader } from './ChatPageHeader/ChatPageHeader';
+import cls from './ChatPage.module.scss';
+
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import { MessageForm } from '@/entities/Message';
 import { MessagesList } from '@/features/messagesList';
-import cls from './ChatPage.module.scss';
+
 
 const ChatPage = () => {
     return (

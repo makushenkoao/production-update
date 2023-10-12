@@ -1,8 +1,10 @@
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+
+import cls from './MessagesList.module.scss';
+
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Card } from '@/shared/ui/redesigned/Card';
-import cls from './MessagesList.module.scss';
 import {
     MessageBox,
     useGetReceivedMessagesQuery,

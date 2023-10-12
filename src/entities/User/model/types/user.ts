@@ -1,6 +1,7 @@
 import { UserRole } from '../consts/consts';
-import { FeatureFlags } from '@/shared/types/featureFlags';
 import { JsonSettings } from './jsonSettings';
+
+import { FeatureFlags } from '@/shared/types/featureFlags';
 
 export interface User {
     id: string;

@@ -1,6 +1,8 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { getUserAuthData } from '@/entities/User';
+
 import { SidebarItemTypes } from '../types/sidebar';
+
+import { getUserAuthData } from '@/entities/User';
 import {
     getRouteAbout,
     getRouteArticleCreate,

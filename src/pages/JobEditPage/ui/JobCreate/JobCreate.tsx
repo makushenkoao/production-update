@@ -2,9 +2,11 @@ import { FormEvent, memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+
+import { JobFields } from '../JobFields/JobFields';
+
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
-import { JobFields } from '../JobFields/JobFields';
 import { createJobService, FieldName, Job, JobCategory } from '@/entities/Job';
 import { getUserAuthData } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';

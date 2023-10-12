@@ -1,4 +1,3 @@
-import { rtkApi } from '@/shared/api/rtkApi';
 import {
     Advice,
     Fact,
@@ -9,6 +8,8 @@ import {
     Task,
     Wordle,
 } from '../model/types/interactive';
+
+import { rtkApi } from '@/shared/api/rtkApi';
 
 export const interactiveApi = rtkApi.injectEndpoints({
     endpoints: (build) => ({

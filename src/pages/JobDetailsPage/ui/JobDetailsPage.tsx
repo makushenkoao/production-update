@@ -1,12 +1,14 @@
 import React, { memo, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+
+import { JobFeedbackForm } from './JobFeedbackForm/JobFeedbackForm';
+import { JobDetailsContainer } from './JobDetailsContainer/JobDetailsContainer';
+
 import { Page } from '@/widgets/Page';
 import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
 import { JobAdditionalInfo } from '@/widgets/JobAdditionalInfo';
 import { VStack } from '@/shared/ui/redesigned/Stack';
-import { JobFeedbackForm } from './JobFeedbackForm/JobFeedbackForm';
-import { JobDetailsContainer } from './JobDetailsContainer/JobDetailsContainer';
 import {
     DynamicModuleLoader,
     ReducersList,

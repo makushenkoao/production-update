@@ -1,10 +1,12 @@
 import { useSelector } from 'react-redux';
 import { useCallback } from 'react';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
+
 import { getJobsSearch } from '../../model/selectors/jobs';
 import { getJobsService } from '../../model/services/getJobsService/getJobsService';
 import { jobsActions } from '../../model/slice/jobSlice';
+
+import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 export function useJobFilters() {
     const search = useSelector(getJobsSearch);

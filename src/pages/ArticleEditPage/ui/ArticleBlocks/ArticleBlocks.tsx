@@ -1,5 +1,7 @@
 import { Dispatch, memo, SetStateAction, useCallback } from 'react';
+
 import { ArticleBlockEditor } from '../ArticleBlockEditor/ArticleBlockEditor';
+
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Article, ArticleBlock } from '@/entities/Article';
 

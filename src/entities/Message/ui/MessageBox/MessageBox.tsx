@@ -1,8 +1,10 @@
 import { useSelector } from 'react-redux';
+
+import { Message } from '../../model/types/message';
+
 import { Card } from '@/shared/ui/redesigned/Card';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { VStack } from '@/shared/ui/redesigned/Stack';
-import { Message } from '../../model/types/message';
 import { getUserAuthData } from '@/entities/User';
 import { formatTime } from '@/shared/lib/utils/formatTime/formatTime';
 

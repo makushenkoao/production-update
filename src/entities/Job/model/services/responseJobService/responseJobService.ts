@@ -1,6 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from '@/app/providers/StoreProvider';
+
 import { Job } from '../../../model/types/job';
+
+import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { sendNotification } from '@/entities/Notification';
 import { getRouteJobResponses } from '@/shared/const/router';
 import { getUserAuthData } from '@/entities/User';

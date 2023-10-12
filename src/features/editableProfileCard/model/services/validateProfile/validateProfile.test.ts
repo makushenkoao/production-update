@@ -1,7 +1,8 @@
-import { Currency } from '@/entities/Currency';
-import { Country } from '@/entities/Country';
 import { ValidateProfileError } from '../../consts/consts';
 import { validateProfile } from './validateProfile';
+
+import { Currency } from '@/entities/Currency';
+import { Country } from '@/entities/Country';
 
 const data = {
     firstname: 'Anton',

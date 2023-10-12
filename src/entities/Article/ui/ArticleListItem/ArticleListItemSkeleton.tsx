@@ -1,4 +1,5 @@
 import { memo } from 'react';
+
 import { ArticleView } from '../../model/consts/consts';
 import { ArticleListItemRedesignedSkeleton } from './ArticleListItemRedesigned';
 

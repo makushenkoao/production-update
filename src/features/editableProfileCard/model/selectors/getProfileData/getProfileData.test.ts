@@ -1,7 +1,8 @@
+import { getProfileData } from './getProfileData';
+
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { Currency } from '@/entities/Currency';
 import { Country } from '@/entities/Country';
-import { getProfileData } from './getProfileData';
 
 describe('Selector get profile data', () => {
     test('should return data', () => {

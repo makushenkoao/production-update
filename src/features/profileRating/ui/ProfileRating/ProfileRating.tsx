@@ -2,12 +2,14 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { RatingCard } from '@/entities/Rating';
+
 import {
     useGetProfileRatingQuery,
     useRateProfileMutation,
 } from '../../api/profileRatingApi';
+
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { RatingCard } from '@/entities/Rating';
 import { getUserAuthData } from '@/entities/User';
 import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
 import { sendNotification } from '@/entities/Notification';

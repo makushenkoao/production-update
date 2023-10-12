@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { Text } from '@/shared/ui/redesigned/Text';

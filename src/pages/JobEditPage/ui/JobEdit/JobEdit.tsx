@@ -2,6 +2,9 @@ import { FormEvent, memo, useCallback, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
+
+import { JobFields } from '../JobFields/JobFields';
+
 import {
     FieldName,
     getJobDetailsData,
@@ -13,7 +16,6 @@ import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getRouteJobDetails } from '@/shared/const/router';
-import { JobFields } from '../JobFields/JobFields';
 
 export const JobEdit = memo(() => {
     const { t } = useTranslation();

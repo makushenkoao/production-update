@@ -1,5 +1,6 @@
 import { memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { Input } from '@/shared/ui/redesigned/Input';

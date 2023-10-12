@@ -26,6 +26,7 @@ module.exports = {
         'react-hooks',
         'makushenkoao-plugin',
         'unused-imports',
+        'import',
     ],
     rules: {
         'unused-imports/no-unused-imports': 'error',
@@ -81,6 +82,18 @@ module.exports = {
             {
                 ignoreComments: true,
                 code: 120,
+            },
+        ],
+        'import/order': [
+            'error',
+            {
+                groups: [
+                    'builtin',
+                    'external',
+                    'internal',
+                    ['parent', 'sibling', 'index'],
+                ],
+                'newlines-between': 'always',
             },
         ],
         'jsx-a11y/no-static-element-interactions': 'off',

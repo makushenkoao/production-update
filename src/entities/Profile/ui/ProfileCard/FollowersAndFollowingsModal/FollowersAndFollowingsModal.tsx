@@ -1,14 +1,17 @@
 import { useTranslation } from 'react-i18next';
+
+import { Profile } from '../../../model/types/profile';
+import cls from '../ProfileCardRedesigned/ProfileCardRedesigned.module.scss';
+
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
-import { Profile } from '../../../model/types/profile';
 import { AppLink } from '@/shared/ui/redesigned/AppLink';
 import { getRouteProfile } from '@/shared/const/router';
 import { AvatarWithUsername } from '@/shared/ui/redesigned/AvatarWithUsername';
 import { Modal } from '@/shared/ui/redesigned/Modal';
 import { Text } from '@/shared/ui/redesigned/Text';
-import cls from '../ProfileCardRedesigned/ProfileCardRedesigned.module.scss';
+
 
 interface FollowersAndFollowingsModalProps {
     isOpen?: boolean;

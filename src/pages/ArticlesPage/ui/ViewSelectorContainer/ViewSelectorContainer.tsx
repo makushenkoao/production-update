@@ -1,6 +1,8 @@
 import React from 'react';
-import { ArticleViewSelector } from '@/features/articleViewSelector';
+
 import { useArticleFilters } from '../../lib/hooks/useArticleFilters';
+
+import { ArticleViewSelector } from '@/features/articleViewSelector';
 
 export const ViewSelectorContainer = ({
     className,

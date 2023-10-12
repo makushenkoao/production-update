@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import { useCallback } from 'react';
+
 import {
     getArticlesPageOrder,
     getArticlesPageSearch,
@@ -7,11 +8,12 @@ import {
     getArticlesPageType,
     getArticlesPageView,
 } from '../../model/selectors/articlesPageSelectors';
-import { ArticleSortField, ArticleType, ArticleView } from '@/entities/Article';
 import { articlesPageActions } from '../../model/slice/articlesPageSlice';
+import { fetchArticleList } from '../../model/services/fetchArticleList/fetchArticleList';
+
+import { ArticleSortField, ArticleType, ArticleView } from '@/entities/Article';
 import { SortOrder } from '@/shared/types/sort';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { fetchArticleList } from '../../model/services/fetchArticleList/fetchArticleList';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
 
 export function useArticleFilters() {

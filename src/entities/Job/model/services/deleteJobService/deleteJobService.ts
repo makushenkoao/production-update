@@ -1,6 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from '@/app/providers/StoreProvider';
+
 import { Job } from '../../types/job';
+
+import { ThunkConfig } from '@/app/providers/StoreProvider';
 
 export const deleteJobService = createAsyncThunk<
     Job,

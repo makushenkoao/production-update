@@ -1,10 +1,12 @@
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
+
+import { InteractiveTaskPageSkeleton } from '../InteractiveTaskPageSkeleton';
+
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { useInteractive } from '@/shared/lib/hooks/useInteractive/useInteractive';
 import { useGetTasksQuery } from '@/entities/Interactive';
-import { InteractiveTaskPageSkeleton } from '../InteractiveTaskPageSkeleton';
 
 export const Task = memo(() => {
     const { data, isLoading } = useGetTasksQuery();

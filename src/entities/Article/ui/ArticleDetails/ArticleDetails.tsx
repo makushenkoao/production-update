@@ -1,6 +1,17 @@
 import { useTranslation } from 'react-i18next';
 import { Fragment, memo, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+
+import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
+import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
+import cls from './ArticleDetails.module.scss';
+import {
+    getArticleDetailsData,
+    getArticleDetailsError,
+    getArticleDetailsIsLoading,
+} from '../../model/selectors/articleDetails';
+import { renderBlock } from './renderBlock';
+
 import {
     DynamicModuleLoader,
     ReducersList,
@@ -15,15 +26,6 @@ import EyeIcon from '@/shared/assets/icons/eye.svg';
 import CalendarIcon from '@/shared/assets/icons/calendar.svg';
 import { Icon } from '@/shared/ui/deprecated/Icon';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
-import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
-import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
-import cls from './ArticleDetails.module.scss';
-import {
-    getArticleDetailsData,
-    getArticleDetailsError,
-    getArticleDetailsIsLoading,
-} from '../../model/selectors/articleDetails';
-import { renderBlock } from './renderBlock';
 import { AppImage } from '@/shared/ui/redesigned/AppImage';
 import { formatDate } from '@/shared/lib/utils/formatDate/formatDate';
 // TODO: fix circular dependency

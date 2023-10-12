@@ -1,5 +1,7 @@
 import { ReactNode } from 'react';
+
 import cls from './MainLayout.module.scss';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
 
 interface MainLayoutProps {
