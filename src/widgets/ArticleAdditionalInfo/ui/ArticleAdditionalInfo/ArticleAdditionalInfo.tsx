@@ -5,18 +5,20 @@ import { useSelector } from 'react-redux';
 import cls from './ArticleAdditionalInfo.module.scss';
 
 import { getUserAuthData, User } from '@/entities/User';
-import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
-import { Avatar } from '@/shared/ui/redesigned/Avatar';
-import { Text } from '@/shared/ui/redesigned/Text';
-import { Button } from '@/shared/ui/redesigned/Button';
-import { formatDate } from '@/shared/lib/utils/formatDate/formatDate';
-import { getRouteProfile } from '@/shared/const/router';
-import { AppLink } from '@/shared/ui/redesigned/AppLink';
-import { Modal } from '@/shared/ui/redesigned/Modal';
-import { Tooltip } from '@/shared/ui/redesigned/Tooltip';
-import SaveIcon from '@/shared/assets/icons/save.svg';
-import UnSaveIcon from '@/shared/assets/icons/unsave.svg';
+import { DeleteModal } from '@/features/deleteModal';
+import { ShareModal } from '@/features/shareModal';
 import ArchiveIcon from '@/shared/assets/icons/archive.svg';
+import SaveIcon from '@/shared/assets/icons/save.svg';
+import ShareIcon from '@/shared/assets/icons/share.svg';
+import UnSaveIcon from '@/shared/assets/icons/unsave.svg';
+import { getRouteProfile } from '@/shared/const/router';
+import { formatDate } from '@/shared/lib/utils/formatDate/formatDate';
+import { AppLink } from '@/shared/ui/redesigned/AppLink';
+import { Avatar } from '@/shared/ui/redesigned/Avatar';
+import { Button } from '@/shared/ui/redesigned/Button';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
+import { Tooltip } from '@/shared/ui/redesigned/Tooltip';
 
 interface ArticleAdditionalInfoProps {
     className?: string;
@@ -26,6 +28,7 @@ interface ArticleAdditionalInfoProps {
     onEdit: () => void;
     onDelete: () => void;
     onSave: () => void;
+    onShare: (user: User) => void;
     isSaved?: boolean;
     onArchive: () => void;
     isProfileLoading?: boolean;
@@ -40,6 +43,7 @@ export const ArticleAdditionalInfo = memo(
             createdAt,
             views,
             onEdit,
+            onShare,
             onDelete,
             onSave,
             isProfileLoading,
@@ -49,6 +53,7 @@ export const ArticleAdditionalInfo = memo(
         } = props;
         const { t } = useTranslation();
         const [isOpen, setIsOpen] = useState(false);
+        const [isOpenShareModal, setIsOpenShareModal] = useState(false);
         const authData = useSelector(getUserAuthData);
 
         const onOpen = useCallback(() => {
@@ -57,6 +62,14 @@ export const ArticleAdditionalInfo = memo(
 
         const onClose = useCallback(() => {
             setIsOpen(false);
+        }, []);
+
+        const onOpenShareModal = useCallback(() => {
+            setIsOpenShareModal(true);
+        }, []);
+
+        const onCloseShareModal = useCallback(() => {
+            setIsOpenShareModal(false);
         }, []);
 
         return (
@@ -107,6 +120,17 @@ export const ArticleAdditionalInfo = memo(
                 >
                     <Text text={t('{{count}} переглядів', { count: views })} />
                     <HStack gap="8">
+                        <Tooltip
+                            title={t('Поділитися')}
+                            direction="bottom left"
+                        >
+                            <ShareIcon
+                                width={20}
+                                height={20}
+                                onClick={onOpenShareModal}
+                                className={cls.icon}
+                            />
+                        </Tooltip>
                         <Button
                             variant="clear"
                             disabled={isLoading || isProfileLoading}
@@ -157,30 +181,18 @@ export const ArticleAdditionalInfo = memo(
                         )}
                     </HStack>
                 </HStack>
-                <Modal
+                <DeleteModal
+                    title={t('Ви точно хочете видалити статтю?')}
                     isOpen={isOpen}
                     onClose={onClose}
-                >
-                    <VStack
-                        max
-                        gap="16"
-                    >
-                        <Text title={t('Ви точно хочете видалити статтю?')} />
-                        <HStack
-                            max
-                            gap="16"
-                            justify="end"
-                        >
-                            <Button onClick={onClose}>{t('Ні')}</Button>
-                            <Button
-                                onClick={onDelete}
-                                color="error"
-                            >
-                                {t('Так')}
-                            </Button>
-                        </HStack>
-                    </VStack>
-                </Modal>
+                    onDelete={onDelete}
+                />
+                <ShareModal
+                    title={t('Поділитися з...')}
+                    isOpen={isOpenShareModal}
+                    onClose={onCloseShareModal}
+                    onShare={onShare}
+                />
             </VStack>
         );
     },

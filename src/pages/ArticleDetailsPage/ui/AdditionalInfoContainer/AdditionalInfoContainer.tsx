@@ -5,18 +5,20 @@ import { useNavigate } from 'react-router-dom';
 import { archiveArticle } from '../../model/services/archiveArticle/archiveArticle';
 import cls from './AdditionalInfoContainer.module.scss';
 
-import { Card } from '@/shared/ui/redesigned/Card';
-import { ArticleAdditionalInfo } from '@/widgets/ArticleAdditionalInfo';
 import { deleteArticle, getArticleDetailsData } from '@/entities/Article';
+import { useWriteMessageMutation } from '@/entities/Message';
+import { useGetProfileDataQuery } from '@/entities/Profile';
+import { getUserAuthData, User } from '@/entities/User';
+import { saveArticle } from '@/pages/SavedArticlesPage';
 import {
     getRouteArchiveArticles,
     getRouteArticleEdit,
     getRouteArticles,
+    getRouteChat,
 } from '@/shared/const/router';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { getUserAuthData } from '@/entities/User';
-import { useGetProfileDataQuery } from '@/entities/Profile';
-import { saveArticle } from '@/pages/SavedArticlesPage';
+import { Card } from '@/shared/ui/redesigned/Card';
+import { ArticleAdditionalInfo } from '@/widgets/ArticleAdditionalInfo';
 
 export const AdditionalInfoContainer = memo(() => {
     const article = useSelector(getArticleDetailsData);
@@ -30,6 +32,7 @@ export const AdditionalInfoContainer = memo(() => {
     } = useGetProfileDataQuery(authData?.id);
     const [isSaved, setIsSaved] = useState<boolean>(false);
     const [isLoading, setIsLoading] = useState(false);
+    const [writeMessage] = useWriteMessageMutation();
 
     useEffect(() => {
         setIsSaved(Boolean(profile?.saved?.includes(article?.id || '')));
@@ -76,6 +79,19 @@ export const AdditionalInfoContainer = memo(() => {
             });
     }, [authData?.id, dispatch, navigate, profile, refetch]);
 
+    const onShare = useCallback(
+        (user: User) => {
+            writeMessage({
+                id: Date.now().toString(),
+                sendAt: Date.now(),
+                message: window.location.href,
+                fromUser: authData?.id ?? '',
+                toUser: user.id,
+            }).then(() => navigate(getRouteChat(user.id)));
+        },
+        [authData?.id, navigate, writeMessage],
+    );
+
     if (!article) {
         return null;
     }
@@ -97,6 +113,7 @@ export const AdditionalInfoContainer = memo(() => {
                 isProfileLoading={isProfileLoading}
                 isLoading={isLoading}
                 onArchive={onArchive}
+                onShare={onShare}
             />
         </Card>
     );
