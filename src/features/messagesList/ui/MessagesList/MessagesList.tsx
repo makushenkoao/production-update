@@ -1,21 +1,24 @@
-import { useParams } from 'react-router-dom';
+import { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 import cls from './MessagesList.module.scss';
 
-import { VStack } from '@/shared/ui/redesigned/Stack';
-import { Card } from '@/shared/ui/redesigned/Card';
 import {
     MessageBox,
     useGetReceivedMessagesQuery,
     useGetSendMessagesQuery,
 } from '@/entities/Message';
 import { getUserAuthData } from '@/entities/User';
+import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg';
+import { Card } from '@/shared/ui/redesigned/Card';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 
 export const MessagesList = () => {
     const { id } = useParams<{ id: string }>();
     const authData = useSelector(getUserAuthData);
+    const messagesListRef = useRef<HTMLDivElement | null>(null);
 
     const { data: receivedData, isLoading: receivedIsLoading } =
         useGetReceivedMessagesQuery({
@@ -32,6 +35,19 @@ export const MessagesList = () => {
     const message = receivedData
         ?.concat(sendData || [])
         .sort((a, b) => a.sendAt - b.sendAt);
+
+    const scrollToLastMessage = () => {
+        if (messagesListRef.current) {
+            const messagesList = messagesListRef.current;
+            messagesList.scrollTop = messagesList.scrollHeight;
+        }
+    };
+
+    useEffect(() => {
+        if (messagesListRef.current) {
+            scrollToLastMessage();
+        }
+    }, [message]);
 
     if (sendIsLoading || receivedIsLoading) {
         return (
@@ -56,11 +72,9 @@ export const MessagesList = () => {
     }
 
     return (
-        <Card
-            max
-            padding="24"
-            fullHeight
+        <div
             className={cls.messagesWrapper}
+            ref={messagesListRef}
         >
             <VStack
                 gap="16"
@@ -73,6 +87,15 @@ export const MessagesList = () => {
                     />
                 ))}
             </VStack>
-        </Card>
+            <div
+                className={cls.icon}
+                onClick={scrollToLastMessage}
+            >
+                <ArrowIcon
+                    width={48}
+                    height={48}
+                />
+            </div>
+        </div>
     );
 };
