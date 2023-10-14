@@ -1,7 +1,6 @@
-import {JobCategory} from '../../const/job';
+import { JobCategory } from '../../const/job';
 
 import { User } from '@/entities/User';
-
 
 export interface JobResponse {
     id: string;
@@ -17,7 +16,9 @@ export interface Job {
     title: string;
     company: string;
     aboutCompany: string;
-    location: string;
+    country: string;
+    city: string;
+    address: string;
     description: string;
     responsibilities: string;
     requirements: string;
@@ -44,7 +45,9 @@ export type FieldName =
     | 'category'
     | 'company'
     | 'aboutCompany'
-    | 'location'
+    | 'country'
+    | 'city'
+    | 'address'
     | 'email'
     | 'phone'
     | 'website';

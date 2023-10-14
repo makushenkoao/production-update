@@ -5,12 +5,12 @@ import { useNavigate } from 'react-router-dom';
 
 import { JobFields } from '../JobFields/JobFields';
 
-import { VStack } from '@/shared/ui/redesigned/Stack';
-import { Text } from '@/shared/ui/redesigned/Text';
 import { createJobService, FieldName, Job, JobCategory } from '@/entities/Job';
 import { getUserAuthData } from '@/entities/User';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getRouteJobDetails } from '@/shared/const/router';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { VStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 export const JobCreate = memo(() => {
     const { t } = useTranslation();
@@ -30,7 +30,9 @@ export const JobCreate = memo(() => {
         category: [],
         company: '',
         aboutCompany: '',
-        location: '',
+        address: '',
+        city: '',
+        country: '',
         email: '',
         phone: '',
         website: '',

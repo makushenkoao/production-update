@@ -1,17 +1,17 @@
 import { memo } from 'react';
 
-import cls from './JobItem.module.scss';
 import { Job } from '../..';
+import cls from './JobItem.module.scss';
 
-import { AppLink } from '@/shared/ui/redesigned/AppLink';
+import EyeIcon from '@/shared/assets/icons/eye-re.svg';
 import { getRouteJobDetails } from '@/shared/const/router';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { formatDate } from '@/shared/lib/utils/formatDate/formatDate';
+import { AppLink } from '@/shared/ui/redesigned/AppLink';
 import { Card } from '@/shared/ui/redesigned/Card';
+import { Icon } from '@/shared/ui/redesigned/Icon';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
-import { Icon } from '@/shared/ui/redesigned/Icon';
-import EyeIcon from '@/shared/assets/icons/eye-re.svg';
-import { formatDate } from '@/shared/lib/utils/formatDate/formatDate';
-import { classNames } from '@/shared/lib/classNames/classNames';
 
 interface JobItemProps {
     className?: string;
@@ -58,7 +58,7 @@ export const JobItem = memo((props: JobItemProps) => {
                         <Text text="|" />
                         <Text text={job.experience} />
                         <Text text="|" />
-                        <Text text={job.location} />
+                        <Text text={`${job.country}, ${job.city}`} />
                         <Text text="|" />
                         <Text text={job.company} />
                     </HStack>

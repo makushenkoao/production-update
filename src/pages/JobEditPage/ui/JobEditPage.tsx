@@ -1,23 +1,22 @@
 import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 
-import { JobEdit } from './JobEdit/JobEdit';
 import { JobCreate } from './JobCreate/JobCreate';
+import { JobEdit } from './JobEdit/JobEdit';
 
+import { jobDetailsReducer } from '@/entities/Job';
 import {
     DynamicModuleLoader,
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { jobDetailsReducer } from '@/entities/Job';
 import { Page } from '@/widgets/Page';
+
 
 const reducers: ReducersList = {
     jobDetails: jobDetailsReducer,
 };
 
 const JobEditPage = () => {
-    const { t } = useTranslation();
     const { id } = useParams<{ id: string }>();
 
     return (

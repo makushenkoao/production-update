@@ -216,11 +216,29 @@ export const JobFields = memo((props: JobFieldsProps) => {
                     />
                     <Input
                         placeholder={t(
-                            'Введіть ваше розташування. Наприклад: Україна, Київ',
+                            'Введіть країну',
                         )}
-                        label={t('Розташування')}
-                        value={formData.location}
-                        onChange={(v) => handleInputChange(v, 'location')}
+                        label={t('Країна')}
+                        value={formData.country}
+                        onChange={(v) => handleInputChange(v, 'country')}
+                        disabled={loading}
+                    />
+                    <Input
+                        placeholder={t(
+                            'Введіть місто',
+                        )}
+                        label={t('Місто')}
+                        value={formData.city}
+                        onChange={(v) => handleInputChange(v, 'city')}
+                        disabled={loading}
+                    />
+                    <Input
+                        placeholder={t(
+                            'Введіть адресу',
+                        )}
+                        label={t('Адреса')}
+                        value={formData.address}
+                        onChange={(v) => handleInputChange(v, 'address')}
                         disabled={loading}
                     />
                     <Input

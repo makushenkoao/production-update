@@ -3,25 +3,27 @@ import { useTranslation } from 'react-i18next';
 
 import cls from '../JobAdditionalInfo.module.scss';
 
-import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
-import { Text } from '@/shared/ui/redesigned/Text';
-import { Icon } from '@/shared/ui/redesigned/Icon';
+import { JobCategory, JobResponse } from '@/entities/Job';
 import EyeIcon from '@/shared/assets/icons/eye-re.svg';
 import { formatDate } from '@/shared/lib/utils/formatDate/formatDate';
 import { Card } from '@/shared/ui/redesigned/Card';
+import { Icon } from '@/shared/ui/redesigned/Icon';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
-import { JobCategory, JobResponse } from '@/entities/Job';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 interface JobVacancyAdditionalInfoProps {
     salary?: string;
     category?: JobCategory[];
     experience?: string;
-    location?: string;
     type?: string;
     views?: number;
     createdAt?: number;
     loading?: boolean;
     responses?: JobResponse[];
+    country?: string;
+    city?: string;
+    address?: string;
 }
 
 export const JobVacancyAdditionalInfo = memo(
@@ -30,11 +32,13 @@ export const JobVacancyAdditionalInfo = memo(
             salary,
             category,
             experience,
-            location,
             type,
             views,
             createdAt,
             loading,
+            country,
+            city,
+            address,
             responses,
         } = props;
         const { t } = useTranslation();
@@ -97,7 +101,7 @@ export const JobVacancyAdditionalInfo = memo(
                     <div className={cls.line} />
                     <Text text={experience} />
                     <div className={cls.line} />
-                    <Text text={location} />
+                    <Text text={`${country}, ${city}, ${address}`} />
                     <div className={cls.line} />
                     <Text text={type} />
                     <div className={cls.line} />

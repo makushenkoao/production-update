@@ -82,7 +82,9 @@ export const JobAdditionalInfo = memo((props: ArticleAdditionalInfoProps) => {
             <JobVacancyAdditionalInfo
                 createdAt={job?.createdAt}
                 views={job?.views}
-                location={job?.location}
+                country={job?.country}
+                city={job?.city}
+                address={job?.address}
                 experience={job?.experience}
                 type={job?.type}
                 category={job?.category}

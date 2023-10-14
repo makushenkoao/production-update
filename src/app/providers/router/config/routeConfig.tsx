@@ -1,13 +1,27 @@
-import { MainPage } from '@/pages/MainPage';
+import { UserRole } from '@/entities/User';
 import { AboutPage } from '@/pages/AboutPage';
-import { ProfilePage } from '@/pages/ProfilePage';
-import { ArticlesPage } from '@/pages/ArticlesPage';
+import { AdminPanelPage } from '@/pages/AdminPanelPage';
+import { ArchiveArticlesPage } from '@/pages/ArchiveArticlesPage';
 import { ArticleDetailsPage } from '@/pages/ArticleDetailsPage';
 import { ArticleEditPage } from '@/pages/ArticleEditPage';
-import { AdminPanelPage } from '@/pages/AdminPanelPage';
+import { ArticlesPage } from '@/pages/ArticlesPage';
+import { ChatPage } from '@/pages/ChatPage';
+import { ChatsPage } from '@/pages/ChatsPage';
+import { CreateInteractivePage } from '@/pages/CreateInteractivePage';
 import { ForbiddenPage } from '@/pages/ForbiddenPage';
+import { InteractivePage } from '@/pages/InteractivePage';
+import { InteractiveTaskPage } from '@/pages/InteractiveTaskPage';
+import { JobDetailsPage } from '@/pages/JobDetailsPage';
+import { JobEditPage } from '@/pages/JobEditPage';
+import { JobResponsesPage } from '@/pages/JobResponsesPage';
+import { JobsMapPage } from '@/pages/JobsMapPage';
+import { JobsPage } from '@/pages/JobsPage';
+import { MainPage } from '@/pages/MainPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
-import { UserRole } from '@/entities/User';
+import { ProfilePage } from '@/pages/ProfilePage';
+import { SavedArticlesPage } from '@/pages/SavedArticlesPage';
+import { SearchPage } from '@/pages/SearchPage';
+import { SettingsPage } from '@/pages/SettingsPage';
 import {
     AppRoutes,
     getRouteAbout,
@@ -33,21 +47,9 @@ import {
     getRouteJobCreate,
     getRouteJobEdit,
     getRouteJobResponses,
+    getRouteJobMap,
 } from '@/shared/const/router';
 import { AppRoutesProps } from '@/shared/types/router';
-import { SettingsPage } from '@/pages/SettingsPage';
-import { SearchPage } from '@/pages/SearchPage';
-import { ChatsPage } from '@/pages/ChatsPage';
-import { ChatPage } from '@/pages/ChatPage';
-import { InteractivePage } from '@/pages/InteractivePage';
-import { SavedArticlesPage } from '@/pages/SavedArticlesPage';
-import { InteractiveTaskPage } from '@/pages/InteractiveTaskPage';
-import { CreateInteractivePage } from '@/pages/CreateInteractivePage';
-import { ArchiveArticlesPage } from '@/pages/ArchiveArticlesPage';
-import { JobsPage } from '@/pages/JobsPage';
-import { JobDetailsPage } from '@/pages/JobDetailsPage';
-import { JobEditPage } from '@/pages/JobEditPage';
-import { JobResponsesPage } from '@/pages/JobResponsesPage';
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.MAIN]: {
@@ -158,6 +160,11 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.JOB_RESPONSES]: {
         path: getRouteJobResponses(':id'),
         element: <JobResponsesPage />,
+        authOnly: true,
+    },
+    [AppRoutes.JOB_MAP]: {
+        path: getRouteJobMap(),
+        element: <JobsMapPage />,
         authOnly: true,
     },
     [AppRoutes.FORBIDDEN]: {

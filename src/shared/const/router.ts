@@ -22,6 +22,7 @@ export enum AppRoutes {
     JOB_EDIT = 'job_edit',
     JOB_CREATE = 'job_create',
     JOB_RESPONSES = 'job_responses',
+    JOB_MAP = 'job_map',
     NOT_FOUND = 'not_found',
 }
 
@@ -48,6 +49,7 @@ export const getRouteJobDetails = (id: string) => `/jobs/${id}`;
 export const getRouteJobCreate = () => '/job/new';
 export const getRouteJobEdit = (id: string) => `/jobs/${id}/edit`;
 export const getRouteJobResponses = (id: string) => `/jobs/${id}/responses`;
+export const getRouteJobMap = () => '/jobs/map';
 
 export const AppRouteByPathPattern: Record<string, AppRoutes> = {
     [getRouteMain()]: AppRoutes.MAIN,
@@ -73,4 +75,5 @@ export const AppRouteByPathPattern: Record<string, AppRoutes> = {
     [getRouteJobCreate()]: AppRoutes.JOB_CREATE,
     [getRouteJobEdit(':id')]: AppRoutes.JOB_EDIT,
     [getRouteJobResponses(':id')]: AppRoutes.JOB_RESPONSES,
+    [getRouteJobMap()]: AppRoutes.JOB_MAP,
 };
