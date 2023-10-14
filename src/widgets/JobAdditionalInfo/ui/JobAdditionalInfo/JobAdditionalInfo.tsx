@@ -3,19 +3,22 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import { JobAuthorAdditionalInfo } from './JobAuthorAdditionalInfo/JobAuthorAdditionalInfo';
-import { JobVacancyAdditionalInfo } from './JobVacancyAdditionalInfo/JobVacancyAdditionalInfo';
 import { JobCompanyAdditionalInfo } from './JobCompanyAdditionalInfo/JobCompanyAdditionalInfo';
+import { JobAdditionalFunctions } from './JobUserAdditionalInfo/JobUserAdditionalInfo';
+import { JobVacancyAdditionalInfo } from './JobVacancyAdditionalInfo/JobVacancyAdditionalInfo';
 
-import { VStack } from '@/shared/ui/redesigned/Stack';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { getUserAuthData } from '@/entities/User';
+import { deleteJobService, getJobsService, Job } from '@/entities/Job';
+import { useWriteMessageMutation } from '@/entities/Message';
+import { getUserAuthData, User } from '@/entities/User';
 import {
+    getRouteChat,
     getRouteJobEdit,
     getRouteJobResponses,
     getRouteJobs,
 } from '@/shared/const/router';
-import { deleteJobService, getJobsService, Job } from '@/entities/Job';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 
 interface ArticleAdditionalInfoProps {
     className?: string;
@@ -28,6 +31,7 @@ export const JobAdditionalInfo = memo((props: ArticleAdditionalInfoProps) => {
     const authData = useSelector(getUserAuthData);
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
+    const [writeMessage] = useWriteMessageMutation();
 
     const onDelete = useCallback(async () => {
         await dispatch(deleteJobService(job?.id)).finally(() =>
@@ -47,6 +51,19 @@ export const JobAdditionalInfo = memo((props: ArticleAdditionalInfoProps) => {
             navigate(getRouteJobResponses(job?.id));
         }
     }, [job?.id, navigate]);
+
+    const onShare = useCallback(
+        (user: User) => {
+            writeMessage({
+                id: Date.now().toString(),
+                sendAt: Date.now(),
+                message: window.location.href,
+                fromUser: authData?.id ?? '',
+                toUser: user.id,
+            }).then(() => navigate(getRouteChat(user.id)));
+        },
+        [authData?.id, navigate, writeMessage],
+    );
 
     return (
         <VStack
@@ -80,6 +97,7 @@ export const JobAdditionalInfo = memo((props: ArticleAdditionalInfoProps) => {
                 website={job?.website}
                 loading={loading}
             />
+            <JobAdditionalFunctions onShare={onShare} />
         </VStack>
     );
 });

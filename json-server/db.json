@@ -2923,6 +2923,13 @@
       "id": "1697235838777",
       "fromUser": "1",
       "toUser": "2"
+    },
+    {
+      "id": "1697242558504",
+      "sendAt": 1697242558504,
+      "message": "http://localhost:3000/jobs/1",
+      "fromUser": "1",
+      "toUser": "2"
     }
   ],
   "facts": [
@@ -4324,7 +4331,7 @@
         "C++",
         "C"
       ],
-      "views": 511,
+      "views": 514,
       "website": "https://www.techno.com",
       "responses": [
         {
