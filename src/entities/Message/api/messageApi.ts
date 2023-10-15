@@ -2,7 +2,7 @@ import { Message } from '../model/types/message';
 
 import { rtkApi } from '@/shared/api/rtkApi';
 
-interface getMessagesArgs {
+interface messagesArgs {
     fromUser: string;
     toUser: string;
 }
@@ -14,7 +14,7 @@ export const messageApi = rtkApi.injectEndpoints({
                 url: '/messages',
             }),
         }),
-        getSendMessages: build.query<Message[], getMessagesArgs>({
+        getSendMessages: build.query<Message[], messagesArgs>({
             query: ({ fromUser, toUser }) => ({
                 url: '/messages',
                 params: {
@@ -23,7 +23,7 @@ export const messageApi = rtkApi.injectEndpoints({
                 },
             }),
         }),
-        getReceivedMessages: build.query<Message[], getMessagesArgs>({
+        getReceivedMessages: build.query<Message[], messagesArgs>({
             query: ({ toUser, fromUser }) => ({
                 url: '/messages',
                 params: {
@@ -39,6 +39,12 @@ export const messageApi = rtkApi.injectEndpoints({
                 body: arg,
             }),
         }),
+        deleteMessage: build.mutation<void, string>({
+            query: (id) => ({
+                url: `/messages/${id}`,
+                method: 'DELETE',
+            }),
+        }),
     }),
 });
 
@@ -47,4 +53,5 @@ export const {
     useGetSendMessagesQuery,
     useWriteMessageMutation,
     useGetAllMessagesQuery,
+    useDeleteMessageMutation,
 } = messageApi;

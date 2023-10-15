@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import cls from './MessagesList.module.scss';
 
@@ -14,9 +15,11 @@ import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 import { VStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 export const MessagesList = () => {
     const { id } = useParams<{ id: string }>();
+    const { t } = useTranslation();
     const authData = useSelector(getUserAuthData);
     const messagesListRef = useRef<HTMLDivElement | null>(null);
 
@@ -67,6 +70,19 @@ export const MessagesList = () => {
                     <Skeleton height={50} />
                     <Skeleton height={50} />
                 </VStack>
+            </Card>
+        );
+    }
+
+    if (!sendIsLoading && !receivedIsLoading && message?.length === 0) {
+        return (
+            <Card
+                max
+                fullHeight
+            >
+                <div className={cls.center}>
+                    <Text title={t('У вас ще немає повідомлень')} />
+                </div>
             </Card>
         );
     }

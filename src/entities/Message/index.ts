@@ -6,4 +6,5 @@ export {
     useGetReceivedMessagesQuery,
     useGetSendMessagesQuery,
     useGetAllMessagesQuery,
+    useDeleteMessageMutation,
 } from './api/messageApi';
