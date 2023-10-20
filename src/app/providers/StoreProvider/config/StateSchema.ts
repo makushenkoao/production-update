@@ -17,6 +17,7 @@ import { UISchema } from '@/features/UI';
 import { rtkApi } from '@/shared/api/rtkApi';
 import { ProfileSchema } from '@/features/editableProfileCard';
 import { JobsSchema, JobDetailsSchema } from '@/entities/Job';
+import { ForumDetailsSchema, ForumsSchema } from '@/entities/Forum';
 
 export interface StateSchema {
     user: UserSchema;
@@ -30,6 +31,8 @@ export interface StateSchema {
     articlesPage?: ArticlesPageSchema;
     jobs?: JobsSchema;
     jobDetails?: JobDetailsSchema;
+    forums?: ForumsSchema;
+    forumDetails?: ForumDetailsSchema;
     articleDetailsPage?: ArticleDetailsPageSchema;
 }
 

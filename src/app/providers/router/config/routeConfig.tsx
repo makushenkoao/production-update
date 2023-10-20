@@ -48,8 +48,13 @@ import {
     getRouteJobEdit,
     getRouteJobResponses,
     getRouteJobMap,
+    getRouteForum,
+    getRouteForumDetails, getRouteForumCreate, getRouteForumEdit,
 } from '@/shared/const/router';
 import { AppRoutesProps } from '@/shared/types/router';
+import { ForumPage } from '@/pages/ForumPage';
+import { ForumDetailsPage } from '@/pages/ForumDetailsPage';
+import {ForumCreatePage} from "@/pages/ForumCreatePage";
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.MAIN]: {
@@ -165,6 +170,26 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.JOB_MAP]: {
         path: getRouteJobMap(),
         element: <JobsMapPage />,
+        authOnly: true,
+    },
+    [AppRoutes.FORUM]: {
+        path: getRouteForum(),
+        element: <ForumPage />,
+        authOnly: true,
+    },
+    [AppRoutes.FORUM_DETAILS]: {
+        path: getRouteForumDetails(':id'),
+        element: <ForumDetailsPage />,
+        authOnly: true,
+    },
+    [AppRoutes.FORUM_CREATE]: {
+        path: getRouteForumCreate(),
+        element: <ForumCreatePage />,
+        authOnly: true,
+    },
+    [AppRoutes.FORUM_EDIT]: {
+        path: getRouteForumEdit(':id'),
+        element: <ForumCreatePage />,
         authOnly: true,
     },
     [AppRoutes.FORBIDDEN]: {

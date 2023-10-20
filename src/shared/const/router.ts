@@ -23,6 +23,10 @@ export enum AppRoutes {
     JOB_CREATE = 'job_create',
     JOB_RESPONSES = 'job_responses',
     JOB_MAP = 'job_map',
+    FORUM = 'forum',
+    FORUM_DETAILS = 'forum_details',
+    FORUM_CREATE = 'forum_create',
+    FORUM_EDIT = 'forum_edit',
     NOT_FOUND = 'not_found',
 }
 
@@ -50,6 +54,10 @@ export const getRouteJobCreate = () => '/job/new';
 export const getRouteJobEdit = (id: string) => `/jobs/${id}/edit`;
 export const getRouteJobResponses = (id: string) => `/jobs/${id}/responses`;
 export const getRouteJobMap = () => '/jobs/map';
+export const getRouteForum = () => '/forum';
+export const getRouteForumDetails = (id: string) => `/forum/${id}`;
+export const getRouteForumCreate = () => `/forum/new`;
+export const getRouteForumEdit = (id: string) => `/forum/${id}/edit`;
 
 export const AppRouteByPathPattern: Record<string, AppRoutes> = {
     [getRouteMain()]: AppRoutes.MAIN,
@@ -76,4 +84,8 @@ export const AppRouteByPathPattern: Record<string, AppRoutes> = {
     [getRouteJobEdit(':id')]: AppRoutes.JOB_EDIT,
     [getRouteJobResponses(':id')]: AppRoutes.JOB_RESPONSES,
     [getRouteJobMap()]: AppRoutes.JOB_MAP,
+    [getRouteForum()]: AppRoutes.FORUM,
+    [getRouteForumDetails(':id')]: AppRoutes.FORUM_DETAILS,
+    [getRouteForumCreate()]: AppRoutes.FORUM_CREATE,
+    [getRouteForumEdit(':id')]: AppRoutes.FORUM_EDIT,
 };

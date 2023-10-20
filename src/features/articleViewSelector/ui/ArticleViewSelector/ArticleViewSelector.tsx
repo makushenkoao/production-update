@@ -33,9 +33,11 @@ export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
         >
             <HStack>
                 {VIEW_TYPES.map((viewType, index) => (
-                    <Tooltip title={viewType.title}>
+                    <Tooltip
+                        title={viewType.title}
+                        key={viewType.view}
+                    >
                         <Icon
-                            key={viewType.view}
                             svg={viewType.icon}
                             className={classNames('', {
                                 [cls.selectedRedesigned]:

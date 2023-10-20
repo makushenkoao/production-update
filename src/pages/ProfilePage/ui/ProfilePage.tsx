@@ -5,7 +5,10 @@ import { useSelector } from 'react-redux';
 import { blockProfile } from '../model/services/blockProfile/blockProfile';
 import { followProfile } from '../model/services/followProfile/followProfile';
 
-import { EditableProfileCard, getProfileForm } from '@/features/editableProfileCard';
+import {
+    EditableProfileCard,
+    getProfileForm,
+} from '@/features/editableProfileCard';
 import { Page } from '@/widgets/Page';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { UserArticles } from '@/features/userArticles';

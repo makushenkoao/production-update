@@ -5,11 +5,9 @@ import { SidebarItemTypes } from '../types/sidebar';
 import { getUserAuthData } from '@/entities/User';
 import {
     getRouteAbout,
-    getRouteArticleCreate,
     getRouteArticles,
-    getRouteChats,
+    getRouteChats, getRouteForum,
     getRouteInteractive,
-    getRouteJobCreate,
     getRouteJobs,
     getRouteMain,
     getRouteSearch,
@@ -18,10 +16,10 @@ import MainIcon from '@/shared/assets/icons/home.svg';
 import AboutIcon from '@/shared/assets/icons/info.svg';
 import ArticleIcon from '@/shared/assets/icons/article-re.svg';
 import SearchIcon from '@/shared/assets/icons/search.svg';
-import CreateIcon from '@/shared/assets/icons/create.svg';
 import ChatIcon from '@/shared/assets/icons/chat.svg';
 import InteractiveIcon from '@/shared/assets/icons/interactive.svg';
 import JobIcon from '@/shared/assets/icons/job.svg';
+import ForumIcon from '@/shared/assets/icons/forum.svg';
 
 export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
     const sidebarItemsList: SidebarItemTypes[] = [
@@ -57,14 +55,9 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
                 icon: ChatIcon,
             },
             {
-                path: getRouteArticleCreate(),
-                text: 'Створити статтю',
-                icon: CreateIcon,
-            },
-            {
-                path: getRouteJobCreate(),
-                text: 'Створити вакансію',
-                icon: CreateIcon,
+                path: getRouteForum(),
+                text: 'Форум',
+                icon: ForumIcon,
             },
             {
                 path: getRouteSearch(),

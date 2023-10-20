@@ -4303,7 +4303,7 @@
         "C++",
         "C"
       ],
-      "views": 521,
+      "views": 522,
       "website": "https://www.techno.com",
       "responses": [
         {
@@ -4596,6 +4596,274 @@
       "views": 600,
       "website": "https://www.sysanalyst.com",
       "responses": []
+    }
+  ],
+  "forums": [
+    {
+      "id": "1",
+      "userId": "1",
+      "title": "Tech Enthusiasts Forum",
+      "description": "A place for tech enthusiasts to discuss the latest gadgets and trends.",
+      "image": "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
+      "createdAt": 1690198991775,
+      "category": "IT",
+      "reply": [
+        {
+          "id": "1",
+          "userId": "2",
+          "content": "I just got the latest iPhone, and it's amazing!",
+          "createdAt": 1690198991775,
+          "likes": ["1", "2"]
+        },
+        {
+          "id": "2",
+          "userId": "1",
+          "content": "Any recommendations for a good gaming laptop?",
+          "createdAt": 1634647200,
+          "likes": ["1", "2"]
+        }
+      ],
+      "user": {
+        "id": "1",
+        "username": "admin",
+        "password": "111",
+        "jsonSettings": {
+          "theme": "app_dark_theme",
+          "isArticlesPageWasOpened": true
+        },
+        "features": {
+          "isAppRedesigned": false
+        },
+        "roles": [
+          "ADMIN"
+        ],
+        "avatar": "https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-blue-tie-and-beard-face-png-image_5809515.png"
+      }
+    },
+    {
+      "id": "2",
+      "userId": "1",
+      "title": "Science Enthusiasts Community",
+      "image": "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
+      "description": "Explore the wonders of science and share your thoughts on scientific discoveries.",
+      "createdAt": 1690198991775,
+      "category": "Science",
+      "reply": [
+        {
+          "id": "1",
+          "userId": "1",
+          "content": "I'm fascinated by astrophysics! Any book recommendations?",
+          "createdAt": 1690198991775,
+          "likes": []
+        },
+        {
+          "id": "2",
+          "userId": "2",
+          "content": "Let's discuss the recent breakthrough in quantum computing.",
+          "createdAt": 1690198991775,
+          "likes": []
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "userId": "1",
+      "title": "Programming Help Forum",
+      "image": "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
+      "description": "Get help with programming problems and share your expertise.",
+      "createdAt": 1690198991775,
+      "category": "IT",
+      "reply": [
+        {
+          "id": "1",
+          "userId": "2",
+          "content": "I'm stuck on a JavaScript issue. Can someone assist me?",
+          "createdAt": 1690198991775,
+          "likes": []
+        },
+        {
+          "id": "2",
+          "userId": "1",
+          "content": "Check out this Python library for data analysis.",
+          "createdAt": 1690198991775,
+          "likes": []
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "userId": "1",
+      "title": "Biology Enthusiasts Forum",
+      "image": "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
+      "description": "Discuss the fascinating world of biology and share your findings.",
+      "createdAt": 1690198991775,
+      "category": "Science",
+      "reply": [
+        {
+          "id": "1",
+          "userId": "1",
+          "content": "Can someone explain CRISPR technology to me?",
+          "createdAt": 1690198991775,
+          "likes": []
+        },
+        {
+          "id": "2",
+          "userId": "2",
+          "content": "Let's talk about the importance of biodiversity conservation.",
+          "createdAt": 1690198991775,
+          "likes": []
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "userId": "1",
+      "title": "Web Development Forum",
+      "image": "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
+      "description": "Share your experiences in web development and ask for advice.",
+      "createdAt": 1690198991775,
+      "category": "IT",
+      "reply": [
+        {
+          "id": "1",
+          "userId": "2",
+          "content": "What's the best way to optimize website performance?",
+          "createdAt": 1690198991775,
+          "likes": []
+        },
+        {
+          "id": "2",
+          "userId": "1",
+          "content": "I'm looking for good resources to learn responsive design.",
+          "createdAt": 1690198991775,
+          "likes": []
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "userId": "2",
+      "title": "Astronomy Enthusiasts Club",
+      "image": "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
+      "description": "Explore the cosmos and discuss the wonders of the universe.",
+      "createdAt": "2023-10-19T15:00:00Z",
+      "category": "Science",
+      "reply": [
+        {
+          "id": "11",
+          "userId": "user11",
+          "content": "Have you ever observed a total solar eclipse? It's breathtaking!",
+          "createdAt": 1634679600,
+          "likes": []
+        },
+        {
+          "id": "12",
+          "userId": "user12",
+          "content": "Let's talk about the upcoming meteor shower event.",
+          "createdAt": 1634683200,
+          "likes": []
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "userId": "2",
+      "title": "Cybersecurity Discussion Group",
+      "image": "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
+      "description": "Stay informed about cybersecurity threats and share security tips.",
+      "createdAt": "2023-10-19T16:00:00Z",
+      "category": "IT",
+      "reply": [
+        {
+          "id": "13",
+          "userId": "user13",
+          "content": "What are the best practices for securing IoT devices?",
+          "createdAt": 1634686800,
+          "likes": []
+        },
+        {
+          "id": "14",
+          "userId": "user14",
+          "content": "Let's discuss recent data breaches and their implications.",
+          "createdAt": 1634690400,
+          "likes": []
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "userId": "2",
+      "title": "Chemistry Enthusiasts Forum",
+      "image": "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
+      "description": "Explore the elements and compounds that make up our world.",
+      "createdAt": "2023-10-19T17:00:00Z",
+      "category": "Science",
+      "reply": [
+        {
+          "id": "15",
+          "userId": "user15",
+          "content": "I'm curious about the properties of graphene. Any insights?",
+          "createdAt": 1634694000,
+          "likes": []
+        },
+        {
+          "id": "16",
+          "userId": "user16",
+          "content": "Let's discuss the applications of nanotechnology in chemistry.",
+          "createdAt": 1634697600,
+          "likes": []
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "userId": "2",
+      "title": "Game Development Community",
+      "image": "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
+      "description": "Connect with game developers and discuss game design and development.",
+      "createdAt": "2023-10-19T18:00:00Z",
+      "category": "IT",
+      "reply": [
+        {
+          "id": "17",
+          "userId": "user17",
+          "content": "What game engine do you prefer for indie game development?",
+          "createdAt": 1634701200,
+          "likes": []
+        },
+        {
+          "id": "18",
+          "userId": "user18",
+          "content": "Share your favorite game development tutorials and resources.",
+          "createdAt": 1634704800,
+          "likes": []
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "userId": "2",
+      "title": "Environmental Science Forum",
+      "image": "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
+      "description": "Discuss environmental issues, sustainability, and conservation efforts.",
+      "createdAt": "2023-10-19T19:00:00Z",
+      "category": "Science",
+      "reply": [
+        {
+          "id": "19",
+          "userId": "user19",
+          "content": "How can we address the challenges of climate change effectively?",
+          "createdAt": 1634708400,
+          "likes": []
+        },
+        {
+          "id": "20",
+          "userId": "user20",
+          "content": "Let's talk about renewable energy solutions and their impact.",
+          "createdAt": 1634712000,
+          "likes": []
+        }
+      ]
     }
   ]
 }
