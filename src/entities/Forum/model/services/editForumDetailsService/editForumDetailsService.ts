@@ -4,11 +4,11 @@ import { Forum } from '../../../model/types/forum';
 
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 
-export const deleteForumDetailsService = createAsyncThunk<
+export const editForumDetailsService = createAsyncThunk<
     Forum,
     Forum,
     ThunkConfig<string>
->('forums/deleteForumDetailsService', async (forum, ThunkApi) => {
+>('forums/editForumDetailsService', async (forum, ThunkApi) => {
     const { rejectWithValue, extra } = ThunkApi;
 
     try {
@@ -16,7 +16,10 @@ export const deleteForumDetailsService = createAsyncThunk<
             throw new Error('');
         }
 
-        const { data } = await extra.api.put<Forum>('forums', forum);
+        const { data } = await extra.api.put<Forum>(
+            `forums/${forum.id}`,
+            forum,
+        );
 
         if (!data) {
             throw new Error();

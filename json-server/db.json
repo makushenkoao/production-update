@@ -4613,14 +4613,20 @@
           "userId": "2",
           "content": "I just got the latest iPhone, and it's amazing!",
           "createdAt": 1690198991775,
-          "likes": ["1", "2"]
+          "likes": [
+            "1",
+            "2"
+          ]
         },
         {
           "id": "2",
           "userId": "1",
           "content": "Any recommendations for a good gaming laptop?",
           "createdAt": 1634647200,
-          "likes": ["1", "2"]
+          "likes": [
+            "1",
+            "2"
+          ]
         }
       ],
       "user": {
@@ -4864,6 +4870,38 @@
           "likes": []
         }
       ]
+    },
+    {
+      "id": "1697905293140",
+      "createdAt": 1697905293140,
+      "title": "Update",
+      "description": "EXAMPLE",
+      "userId": "1",
+      "reply": [
+        {
+          "id": "1697905321894",
+          "userId": "1",
+          "content": "gsdfg",
+          "createdAt": 1697905321894
+        }
+      ],
+      "category": "IT",
+      "user": {
+        "id": "1",
+        "username": "admin",
+        "password": "111",
+        "jsonSettings": {
+          "theme": "app_dark_theme",
+          "isArticlesPageWasOpened": true
+        },
+        "features": {
+          "isAppRedesigned": false
+        },
+        "roles": [
+          "ADMIN"
+        ],
+        "avatar": "https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-blue-tie-and-beard-face-png-image_5809515.png"
+      }
     }
   ]
 }

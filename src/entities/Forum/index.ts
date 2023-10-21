@@ -1,4 +1,4 @@
-export type { Forum, ForumReply } from './model/types/forum';
+export { type Forum, type ForumReply, ForumCategory } from './model/types/forum';
 export type { ForumDetailsSchema } from './model/types/forumDetailsSchema';
 export type { ForumsSchema } from './model/types/forumsSchema';
 export {
@@ -30,6 +30,7 @@ export { getForumDetailsService } from './model/services/getForumDetailsService/
 export { initForumsService } from './model/services/initForumsService/initForumsService';
 export { deleteForumDetailsService } from './model/services/deleteForumDetailsService/deleteForumDetailsService';
 export { createForumDetailsService } from './model/services/createForumDetailsService/createForumDetailsService';
+export { editForumDetailsService } from './model/services/editForumDetailsService/editForumDetailsService';
 export {
     addMessageForumDetailsService
 } from './model/services/addMessageForumDetailsService/addMessageForumDetailsService';

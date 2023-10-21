@@ -1,6 +1,6 @@
 import { User } from '@/entities/User';
 
-export enum FormCategory {
+export enum ForumCategory {
     IT = 'IT',
     SCIENCE = 'Science',
 }
@@ -21,5 +21,5 @@ export interface Forum {
     user?: User;
     reply?: ForumReply[];
     createdAt: number;
-    category: FormCategory;
+    category: ForumCategory;
 }
