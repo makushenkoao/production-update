@@ -2,10 +2,12 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
+import cls from './FollowingArticleList.module.scss';
+
 import {
     ArticleList,
-    useGetFollowingArticlesQuery,
     ArticleView,
+    useGetFollowingArticlesQuery,
 } from '@/entities/Article';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
@@ -30,6 +32,7 @@ export const FollowingArticleList = () => {
                 articles={[]}
                 isLoading
                 view={ArticleView.BIG}
+                className={cls.max}
             />
         );
     }
