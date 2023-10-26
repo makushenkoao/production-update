@@ -25,7 +25,7 @@ export const CreateMystery = memo((props: CreateInteractiveProps) => {
                     gap="16"
                 >
                     <Text
-                        text={t('Створити загадка')}
+                        text={t('Створити загадку')}
                         bold
                     />
                     <Input

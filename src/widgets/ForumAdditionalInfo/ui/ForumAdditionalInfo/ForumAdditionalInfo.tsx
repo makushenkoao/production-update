@@ -25,7 +25,7 @@ export const ForumAdditionalInfo = memo(() => {
                 <Input
                     value={search}
                     onChange={onChangeSearch}
-                    placeholder={t('Введіть назву')}
+                    placeholder={t('Пошук')}
                 />
             </VStack>
         </Card>

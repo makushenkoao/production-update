@@ -1,6 +1,6 @@
-import { memo } from 'react';
+import { memo, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 
-import { VIEW_TYPES } from '../../model/consts';
 import cls from './ArticleViewSelector.module.scss';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -9,6 +9,8 @@ import { Icon } from '@/shared/ui/redesigned/Icon';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { HStack } from '@/shared/ui/redesigned/Stack';
 import { Tooltip } from '@/shared/ui/redesigned/Tooltip';
+import TiledIcon from '@/shared/assets/icons/tile.svg';
+import ListIcon from '@/shared/assets/icons/burger.svg';
 
 interface ArticleViewSelectorProps {
     className?: string;
@@ -18,10 +20,27 @@ interface ArticleViewSelectorProps {
 
 export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
     const { className, onViewClick, view } = props;
+    const { t } = useTranslation();
 
     const onClick = (newView: ArticleView) => () => {
         onViewClick?.(newView);
     };
+
+    const viewTypes = useMemo(
+        () => [
+            {
+                view: ArticleView.SMALL,
+                icon: TiledIcon,
+                title: t('Відображати коротку інформацію статті'),
+            },
+            {
+                view: ArticleView.BIG,
+                icon: ListIcon,
+                title: t('Відображати довгу інформацію статті'),
+            },
+        ],
+        [t],
+    );
 
     return (
         <Card
@@ -32,7 +51,7 @@ export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
             border="round"
         >
             <HStack>
-                {VIEW_TYPES.map((viewType, index) => (
+                {viewTypes.map((viewType, index) => (
                     <Tooltip
                         title={viewType.title}
                         key={viewType.view}

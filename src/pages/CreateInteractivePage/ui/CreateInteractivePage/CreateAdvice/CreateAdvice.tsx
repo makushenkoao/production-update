@@ -25,7 +25,7 @@ export const CreateAdvice = memo((props: CreateInteractiveProps) => {
                     gap="16"
                 >
                     <Text
-                        text={t('Створити порада')}
+                        text={t('Створити пораду')}
                         bold
                     />
                     <Input

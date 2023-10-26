@@ -93,12 +93,16 @@ export const Wordle = memo(() => {
             );
 
             if (isCorrect) {
-                alert('Вітаємо! Ви вгадали слово.');
+                alert(t('Вітаємо! Ви вгадали слово.'));
                 resetGame();
             } else {
                 const remainingAttempts = attempts - 1;
                 if (remainingAttempts === 0) {
-                    alert(`Гру закінчено. Правильне слово: ${secretWord}`);
+                    alert(
+                        t(`Гру закінчено. Правильне слово: {{word}}`, {
+                            word: secretWord,
+                        }),
+                    );
                     resetGame();
                 } else {
                     setAttempts(remainingAttempts);
@@ -109,7 +113,7 @@ export const Wordle = memo(() => {
 
             resetAfterSubmit();
         },
-        [attempts, guessedWord, resetGame, resetAfterSubmit, secretWord],
+        [secretWord, guessedWord, resetAfterSubmit, t, resetGame, attempts],
     );
 
     return (
@@ -164,7 +168,9 @@ export const Wordle = memo(() => {
                     placeholder={t('Введіть слово')}
                     maxLength={secretWord?.length}
                 />
-                <Text text={t(`Спроб залишилося ${attempts}`)} />
+                <Text
+                    text={t(`Спроб залишилося {{count}}`, { count: attempts })}
+                />
                 <HStack
                     max
                     justify="end"

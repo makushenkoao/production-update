@@ -23,7 +23,7 @@ export const Quote = memo(() => {
             gap="8"
         >
             <Text
-                title={t('Цитата дня')}
+                title={t('Цитата')}
                 text={t(`${data?.[currentIndex].text}`)}
             />
             <HStack

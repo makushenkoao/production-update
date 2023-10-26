@@ -23,7 +23,7 @@ export const Task = memo(() => {
             gap="16"
         >
             <Text
-                title={t('Завдання дня')}
+                title={t('Завдання')}
                 text={t(`${data?.[currentIndex].content}`)}
             />
         </VStack>

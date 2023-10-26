@@ -22,7 +22,7 @@ export const Recipe = memo(() => {
             max
             gap="8"
         >
-            <Text title={t('Рецепт дня')} />
+            <Text title={t('Рецепт')} />
             <Text
                 text={t(`${data?.[currentIndex].title}`)}
                 bold

@@ -25,7 +25,7 @@ export const CreateQuote = memo((props: CreateInteractiveProps) => {
                     gap="16"
                 >
                     <Text
-                        text={t('Створити цитата')}
+                        text={t('Створити цитату')}
                         bold
                     />
                     <Input

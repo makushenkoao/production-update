@@ -187,12 +187,10 @@ export const JobFields = memo((props: JobFieldsProps) => {
                             readonly={loading}
                         />
                         <Text
-                            text={t(
-                                `Вибрані категорії: ${formData.category.join(
-                                    ', ',
-                                )}`,
-                            )}
+                            text={t('Вибрані категорії:')}
+                            bold
                         />
+                        <Text text={formData.category.join(', ')} />
                     </VStack>
                 </VStack>
                 <VStack
@@ -215,27 +213,21 @@ export const JobFields = memo((props: JobFieldsProps) => {
                         disabled={loading}
                     />
                     <Input
-                        placeholder={t(
-                            'Введіть країну',
-                        )}
+                        placeholder={t('Введіть країну')}
                         label={t('Країна')}
                         value={formData.country}
                         onChange={(v) => handleInputChange(v, 'country')}
                         disabled={loading}
                     />
                     <Input
-                        placeholder={t(
-                            'Введіть місто',
-                        )}
+                        placeholder={t('Введіть місто')}
                         label={t('Місто')}
                         value={formData.city}
                         onChange={(v) => handleInputChange(v, 'city')}
                         disabled={loading}
                     />
                     <Input
-                        placeholder={t(
-                            'Введіть адресу',
-                        )}
+                        placeholder={t('Введіть адресу')}
                         label={t('Адреса')}
                         value={formData.address}
                         onChange={(v) => handleInputChange(v, 'address')}

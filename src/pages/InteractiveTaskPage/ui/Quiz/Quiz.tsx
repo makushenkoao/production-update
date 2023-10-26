@@ -35,7 +35,7 @@ export const Quiz = memo(() => {
                 gap="16"
             >
                 <Text
-                    title={t('Вікторина дня')}
+                    title={t('Вікторина')}
                     text={t(`${data?.[currentIndex].question}`)}
                 />
                 <HStack

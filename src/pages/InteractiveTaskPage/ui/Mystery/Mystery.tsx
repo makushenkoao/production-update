@@ -35,7 +35,7 @@ export const Mystery = memo(() => {
                 gap="16"
             >
                 <Text
-                    title={t('Загадка дня')}
+                    title={t('Загадка')}
                     text={t(`${data?.[currentIndex].question}`)}
                 />
                 <HStack

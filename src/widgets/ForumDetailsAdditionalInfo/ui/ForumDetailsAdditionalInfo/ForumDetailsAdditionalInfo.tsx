@@ -20,6 +20,7 @@ import {
 } from '@/shared/const/router';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { DeleteModal } from '@/features/deleteModal';
 
 interface ForumDetailsAdditionalInfoProps {
     forum?: Forum;
@@ -31,6 +32,7 @@ export const ForumDetailsAdditionalInfo = memo(
         const { forum, loading } = props;
         const { t } = useTranslation();
         const [loadingService, setLoadingService] = useState(false);
+        const [isOpen, setIsOpen] = useState(false);
         const dispatch = useAppDispatch();
         const authData = useSelector(getUserAuthData);
         const navigate = useNavigate();
@@ -51,6 +53,14 @@ export const ForumDetailsAdditionalInfo = memo(
         const onEdit = useCallback(() => {
             navigate(getRouteForumEdit(forum?.id || ''));
         }, [forum?.id, navigate]);
+
+        const onOpen = () => {
+            setIsOpen(true);
+        };
+
+        const onClose = () => {
+            setIsOpen(false);
+        };
 
         if (loading) {
             return (
@@ -107,7 +117,7 @@ export const ForumDetailsAdditionalInfo = memo(
                                 color="error"
                                 fullWidth
                                 disabled={loadingService}
-                                onClick={onDelete}
+                                onClick={onOpen}
                             >
                                 {t('Видалити')}
                             </Button>
@@ -134,6 +144,12 @@ export const ForumDetailsAdditionalInfo = memo(
                         <Text text={forum?.category} />
                     </VStack>
                 </Card>
+                <DeleteModal
+                    title={t('Ви впевнені, що хочете видалити форум?')}
+                    onDelete={onDelete}
+                    onClose={onClose}
+                    isOpen={isOpen}
+                />
             </VStack>
         );
     },
