@@ -1,6 +1,6 @@
 import { Component, ErrorInfo, ReactNode, Suspense } from 'react';
 
-import { PageError } from '@/widgets/PageError';
+import { PageErrorRedesigned } from '@/widgets/PageError';
 
 interface ErrorBoundaryProps {
     children: ReactNode;
@@ -33,7 +33,7 @@ export class ErrorBoundary extends Component<
         if (hasError) {
             return (
                 <Suspense fallback="">
-                    <PageError />
+                    <PageErrorRedesigned />
                 </Suspense>
             );
         }

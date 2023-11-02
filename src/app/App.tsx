@@ -32,7 +32,7 @@ const App = () => {
                 id="app"
                 className={classNames('app_redesigned', {}, [theme])}
             >
-                <AppLoaderLayout />{' '}
+                <AppLoaderLayout />
             </div>
         );
     }

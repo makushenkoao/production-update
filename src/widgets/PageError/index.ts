@@ -1,1 +1,2 @@
-export { PageError } from './ui/PageError/PageError';
+export { PageErrorDeprecated } from './ui/PageErrorDeprecated/PageErrorDeprecated';
+export { PageErrorRedesigned } from './ui/PageErrorRedesigned/PageErrorRedesigned';

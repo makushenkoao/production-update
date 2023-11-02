@@ -3,18 +3,16 @@ import { useTranslation } from 'react-i18next';
 
 import { Page } from '@/widgets/Page';
 import { getUserAuthData } from '@/entities/User';
-import { useGetProfileDataQuery } from '@/entities/Profile';
 import { FollowingArticleList } from '@/features/FollowingArticleList';
 import { RecentArticlesList } from '@/features/RecentArticlesList';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
+import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
+import { PopularArticlesList } from '@/features/PopularArticlesList';
 
 const MainPage = () => {
     const { t } = useTranslation();
     const authData = useSelector(getUserAuthData);
-    const { data: profile, isLoading: profileLoading } = useGetProfileDataQuery(
-        authData?.id,
-    );
 
     if (!authData) {
         return (
@@ -31,15 +29,20 @@ const MainPage = () => {
     }
 
     return (
-        <Page data-testid="MainPage">
-            <VStack
-                max
-                gap="32"
-            >
-                <FollowingArticleList />
-                <RecentArticlesList />
-            </VStack>
-        </Page>
+        <StickyContentLayout
+            content={
+                <Page data-testid="MainPage">
+                    <VStack
+                        max
+                        gap="32"
+                    >
+                        <FollowingArticleList />
+                        <RecentArticlesList />
+                    </VStack>
+                </Page>
+            }
+            right={<PopularArticlesList />}
+        />
     );
 };
 

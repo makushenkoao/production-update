@@ -68,19 +68,19 @@ export const Wordle = memo(() => {
                 if (secretArray[i] === guessedArray[i]) {
                     letterClasses.push({
                         letter: guessedArray[i],
-                        class: 'right',
+                        class: cls.right,
                     });
                 } else if (
                     secretArray.includes(guessedArray[i]) &&
                     !letterClasses.some(
                         (letter) =>
-                            letter.class === 'right' &&
+                            letter.class === cls.right &&
                             letter.letter === guessedArray[i],
                     )
                 ) {
                     letterClasses.push({
                         letter: guessedArray[i],
-                        class: 'partially',
+                        class: cls.partially,
                     });
                 } else {
                     letterClasses.push({ letter: guessedArray[i], class: '' });
@@ -88,7 +88,7 @@ export const Wordle = memo(() => {
             }
 
             const isCorrect = letterClasses.every(
-                (letter) => letter.class === 'right',
+                (letter) => letter.class === cls.right,
             );
 
             if (isCorrect) {
