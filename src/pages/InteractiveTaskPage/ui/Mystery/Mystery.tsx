@@ -8,8 +8,7 @@ import { Text } from '@/shared/ui/redesigned/Text';
 import { Input } from '@/shared/ui/redesigned/Input';
 import { Button } from '@/shared/ui/redesigned/Button';
 import { Modal } from '@/shared/ui/redesigned/Modal';
-import { useInteractive } from '@/shared/lib/hooks/useInteractive/useInteractive';
-import { useGetMysteriesQuery } from '@/entities/Interactive';
+import { useGetMysteriesQuery, useInteractive } from '@/entities/Interactive';
 
 export const Mystery = memo(() => {
     const { data, isLoading } = useGetMysteriesQuery();

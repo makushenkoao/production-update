@@ -5,8 +5,7 @@ import { InteractiveTaskPageSkeleton } from '../InteractiveTaskPageSkeleton';
 
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
-import { useInteractive } from '@/shared/lib/hooks/useInteractive/useInteractive';
-import { useGetAdvicesQuery } from '@/entities/Interactive';
+import { useGetAdvicesQuery, useInteractive } from '@/entities/Interactive';
 
 export const Advice = memo(() => {
     const { data, isLoading } = useGetAdvicesQuery();

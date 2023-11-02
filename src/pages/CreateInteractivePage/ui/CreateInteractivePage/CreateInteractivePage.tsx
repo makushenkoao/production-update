@@ -17,6 +17,7 @@ import { CreateQuote } from './CreateQuote/CreateQuote';
 import { CreateTask } from './CreateTask/CreateTask';
 import { CreateAdvice } from './CreateAdvice/CreateAdvice';
 import { CreateWordle } from './CreateWordle/CreateWordle';
+import { CreateSudoku } from './CreateSudoku/CreateSudoku';
 
 import {
     InteractiveFieldNameType,
@@ -28,6 +29,7 @@ import {
     usePostQuizzesMutation,
     usePostQuotesMutation,
     usePostRecipesMutation,
+    usePostSudokuMutation,
     usePostTasksMutation,
     usePostWordleMutation,
 } from '@/entities/Interactive';
@@ -55,6 +57,7 @@ const CreateInteractivePage = () => {
     const [createRecipe] = usePostRecipesMutation();
     const [createTask] = usePostTasksMutation();
     const [createWordle] = usePostWordleMutation();
+    const [createSudoku] = usePostSudokuMutation();
 
     const navigate = useNavigate();
 
@@ -88,6 +91,19 @@ const CreateInteractivePage = () => {
         },
         wordle: {
             word: '',
+        },
+        sudoku: {
+            grid: [
+                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            ],
         },
     });
 
@@ -205,6 +221,30 @@ const CreateInteractivePage = () => {
         [createWordle, interactive.wordle, updateField],
     );
 
+    const onCreateSudoku = useCallback(
+        (e: FormEvent<HTMLFormElement>) => {
+            e.preventDefault();
+            createSudoku({
+                id: Date.now().toString(),
+                ...interactive.sudoku,
+            });
+            updateField('sudoku', {
+                grid: [
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                ],
+            });
+        },
+        [createSudoku, interactive.sudoku, updateField],
+    );
+
     const components = useMemo<
         {
             component: MemoExoticComponent<
@@ -246,6 +286,10 @@ const CreateInteractivePage = () => {
                 component: CreateRecipe,
                 onSubmit: onCreateRecipe,
             },
+            {
+                component: CreateSudoku,
+                onSubmit: onCreateSudoku,
+            },
         ],
         [
             onCreateAdvice,
@@ -256,6 +300,7 @@ const CreateInteractivePage = () => {
             onCreateRecipe,
             onCreateTask,
             onCreateWordle,
+            onCreateSudoku,
         ],
     );
 

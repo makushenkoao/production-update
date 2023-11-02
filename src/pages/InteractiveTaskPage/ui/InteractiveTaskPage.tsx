@@ -12,6 +12,7 @@ import { RandomArticle } from './RandomArticle/RandomArticle';
 import { Fact } from './Fact/Fact';
 import { Wordle } from './Wordle/Wordle';
 import cls from './InteractiveTaskPage.module.scss';
+import { Sudoku } from './Sudoku/Sudoku';
 
 import { Card } from '@/shared/ui/redesigned/Card';
 import { getRouteInteractive } from '@/shared/const/router';
@@ -49,6 +50,8 @@ const InteractiveTaskPage = () => {
                 return <Wordle />;
             case EInteractive.FACT:
                 return <Fact />;
+            case EInteractive.SUDOKU:
+                return <Sudoku />;
             default:
                 navigate(getRouteInteractive());
         }

@@ -44,6 +44,11 @@ export interface Wordle {
     word: string;
 }
 
+export interface Sudoku {
+    id?: string;
+    grid: number[][];
+}
+
 export interface Interactive {
     facts: Fact[];
     quotes: Quote[];
@@ -53,6 +58,7 @@ export interface Interactive {
     quizzes: Quiz[];
     mysteries: Mystery[];
     wordle: Wordle[];
+    sudoku: Sudoku[];
 }
 
 export type InteractivesType =
@@ -63,7 +69,8 @@ export type InteractivesType =
     | Recipe[]
     | Quiz[]
     | Mystery[]
-    | Wordle[];
+    | Wordle[]
+    | Sudoku[];
 
 export interface InteractiveState {
     task: Task;
@@ -74,6 +81,7 @@ export interface InteractiveState {
     quiz: Quiz;
     mystery: Mystery;
     wordle: Wordle;
+    sudoku: Sudoku;
 }
 
 export type InteractiveType =
@@ -84,7 +92,8 @@ export type InteractiveType =
     | Recipe
     | Quiz
     | Mystery
-    | Wordle;
+    | Wordle
+    | Sudoku;
 
 export type InteractiveFieldNameType =
     | 'quiz'
@@ -94,4 +103,5 @@ export type InteractiveFieldNameType =
     | 'mystery'
     | 'advice'
     | 'recipe'
-    | 'wordle';
+    | 'wordle'
+    | 'sudoku';

@@ -8,8 +8,7 @@ import { Input } from '@/shared/ui/redesigned/Input';
 import { Button } from '@/shared/ui/redesigned/Button';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
-import { useGetWordleQuery } from '@/entities/Interactive';
-import { useInteractive } from '@/shared/lib/hooks/useInteractive/useInteractive';
+import { useGetWordleQuery, useInteractive } from '@/entities/Interactive';
 
 export const Wordle = memo(() => {
     const { t } = useTranslation();

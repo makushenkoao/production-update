@@ -11,6 +11,7 @@ export type {
     InteractiveFieldNameType,
     Fact,
     Task,
+    Sudoku,
 } from './model/types/interactive';
 export {
     useGetAdvicesQuery,
@@ -29,5 +30,9 @@ export {
     usePostTasksMutation,
     useGetWordleQuery,
     usePostWordleMutation,
+    useGetSudokuQuery,
+    usePostSudokuMutation,
 } from './api/interactiveApi';
 export { EInteractive } from './const/EInteractive';
+export { useInteractive } from './lib/hooks/useInteractive/useInteractive';
+export { useInteractiveSudoku } from '@/entities/Interactive/lib/hooks/useInteractiveSudoku/useInteractiveSudoku';

@@ -8,4 +8,5 @@ export enum EInteractive {
     RECIPE = 'recipe',
     WORDLE = 'wordle',
     RANDOM_ARTICLE = 'random_article',
+    SUDOKU = 'sudoku',
 }

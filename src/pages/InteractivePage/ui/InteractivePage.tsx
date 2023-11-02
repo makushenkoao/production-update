@@ -77,6 +77,13 @@ const InteractivePage = () => {
                 ),
             },
             {
+                title: t('Судоку'),
+                href: EInteractive.SUDOKU,
+                description: t(
+                    'Складіть судоку',
+                ),
+            },
+            {
                 title: t('Випадкова стаття'),
                 href: EInteractive.RANDOM_ARTICLE,
                 description: t('Прочитайте абсолютно випадкову статтю'),

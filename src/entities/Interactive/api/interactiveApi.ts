@@ -5,6 +5,7 @@ import {
     Quiz,
     Quote,
     Recipe,
+    Sudoku,
     Task,
     Wordle,
 } from '../model/types/interactive';
@@ -50,14 +51,20 @@ export const interactiveApi = rtkApi.injectEndpoints({
             }),
         }),
         getMysteries: build.query<Mystery[], void>({
-            query: (_) => ({
+            query: () => ({
                 url: '/mysteries',
                 method: 'GET',
             }),
         }),
         getWordle: build.query<Wordle[], void>({
-            query: (_) => ({
+            query: () => ({
                 url: '/wordle',
+                method: 'GET',
+            }),
+        }),
+        getSudoku: build.query<Sudoku[], void>({
+            query: () => ({
+                url: '/sudoku',
                 method: 'GET',
             }),
         }),
@@ -117,6 +124,13 @@ export const interactiveApi = rtkApi.injectEndpoints({
                 body: args,
             }),
         }),
+        postSudoku: build.mutation<void, Sudoku>({
+            query: (args) => ({
+                url: '/sudoku',
+                method: 'POST',
+                body: args,
+            }),
+        }),
     }),
 });
 
@@ -137,4 +151,6 @@ export const {
     usePostRecipesMutation,
     usePostTasksMutation,
     usePostWordleMutation,
+    useGetSudokuQuery,
+    usePostSudokuMutation,
 } = interactiveApi;
