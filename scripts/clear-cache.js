@@ -8,11 +8,11 @@ if (fs.existsSync(cacheFolderPath)) {
     console.log('Cache folder exists.');
     fs.rm(cacheFolderPath, { recursive: true }, (err) => {
         if (err) {
-            console.error('Error deleting cache folder:', err);
+            console.error('Error deleting cache folder ===>', err);
         } else {
             console.log('Cache folder deleted successfully.');
         }
     });
 } else {
-    console.log('Error ---> Cache folder not found!');
+    console.error('Error deleting cache folder ===> Cache folder not found!');
 }
