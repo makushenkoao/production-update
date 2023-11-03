@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -7,7 +7,7 @@ import {
     useDeleteArticlesByUserIdMutation,
     useDeleteProfileMutation,
     useDeleteUserMutation,
-} from '../../../api/deleteAccount';
+} from '../../api/deleteAccount';
 
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';

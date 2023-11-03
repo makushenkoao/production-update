@@ -1,11 +1,10 @@
 import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { DeleteAccountButton } from './DeleteAccountButton/DeleteAccountButton';
-
 import { Page } from '@/widgets/Page';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { VStack } from '@/shared/ui/redesigned/Stack';
+import { DeleteAccountButton } from '@/features/deleteAccountButton';
 
 const SettingsPage = () => {
     const { t } = useTranslation();
