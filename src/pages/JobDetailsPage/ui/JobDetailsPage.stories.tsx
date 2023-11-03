@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import JobsPage from './JobDetailsPage';
+import JobDetailsPage from './JobDetailsPage';
 
 import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
 
-const meta: Meta<typeof JobsPage> = {
-    title: 'pages/JobsPage',
-    component: JobsPage,
+const meta: Meta<typeof JobDetailsPage> = {
+    title: 'pages/JobDetailsPage',
+    component: JobDetailsPage,
     decorators: [StoreDecorator({})],
 };
 
