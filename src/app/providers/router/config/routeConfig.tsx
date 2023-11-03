@@ -5,8 +5,6 @@ import { ArchiveArticlesPage } from '@/pages/ArchiveArticlesPage';
 import { ArticleDetailsPage } from '@/pages/ArticleDetailsPage';
 import { ArticleEditPage } from '@/pages/ArticleEditPage';
 import { ArticlesPage } from '@/pages/ArticlesPage';
-import { ChatPage } from '@/pages/ChatPage';
-import { ChatsPage } from '@/pages/ChatsPage';
 import { CreateInteractivePage } from '@/pages/CreateInteractivePage';
 import { ForbiddenPage } from '@/pages/ForbiddenPage';
 import { InteractivePage } from '@/pages/InteractivePage';
@@ -35,8 +33,6 @@ import {
     getRouteProfile,
     getRouteSettings,
     getRouteSearch,
-    getRouteChats,
-    getRouteChat,
     getRouteSavedArticles,
     getRouteInteractive,
     getRouteInteractiveTask,
@@ -104,16 +100,6 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.SEARCH]: {
         path: getRouteSearch(),
         element: <SearchPage />,
-        authOnly: true,
-    },
-    [AppRoutes.CHATS]: {
-        path: getRouteChats(),
-        element: <ChatsPage />,
-        authOnly: true,
-    },
-    [AppRoutes.CHAT]: {
-        path: getRouteChat(':id'),
-        element: <ChatPage />,
         authOnly: true,
     },
     [AppRoutes.SAVED_ARTICLES]: {

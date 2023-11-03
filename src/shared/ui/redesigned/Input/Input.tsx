@@ -8,7 +8,7 @@ import React, {
 } from 'react';
 
 import cls from './Input.module.scss';
-import { VStack } from '../Stack';
+import { HStack, VStack } from '../Stack';
 import { Text } from '../Text';
 
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
@@ -20,6 +20,8 @@ type HTMLInputProps = Omit<
 
 type InputSize = 's' | 'm' | 'l';
 
+type InputLabelDirection = 'col' | 'row';
+
 interface InputProps extends HTMLInputProps {
     className?: string;
     value?: string | number;
@@ -30,6 +32,7 @@ interface InputProps extends HTMLInputProps {
     addonLeft?: ReactNode;
     addonRight?: ReactNode;
     size?: InputSize;
+    labelDirection?: InputLabelDirection;
 }
 
 export const Input = memo((props: InputProps) => {
@@ -45,6 +48,7 @@ export const Input = memo((props: InputProps) => {
         addonRight,
         label,
         size = 'm',
+        labelDirection = 'col',
         ...otherProps
     } = props;
     const ref = useRef<HTMLInputElement>(null);
@@ -100,7 +104,7 @@ export const Input = memo((props: InputProps) => {
         </div>
     );
 
-    if (label) {
+    if (label && labelDirection === 'col') {
         return (
             <VStack
                 max
@@ -109,6 +113,18 @@ export const Input = memo((props: InputProps) => {
                 <Text text={label} />
                 {input}
             </VStack>
+        );
+    }
+
+    if (label && labelDirection === 'row') {
+        return (
+            <HStack
+                max
+                gap="8"
+            >
+                <Text text={label} />
+                {input}
+            </HStack>
         );
     }
 

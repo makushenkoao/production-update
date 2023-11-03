@@ -238,6 +238,7 @@ export const ProfileCardRedesigned = (props: ProfileCardProps) => {
                                 onChange={onChangeFirstname}
                                 readonly={readonly}
                                 data-testid="ProfileCard.firstname"
+                                labelDirection="row"
                             />
                             <Input
                                 value={data?.lastname}
@@ -246,6 +247,7 @@ export const ProfileCardRedesigned = (props: ProfileCardProps) => {
                                 onChange={onChangeLastname}
                                 readonly={readonly}
                                 data-testid="ProfileCard.lastname"
+                                labelDirection="row"
                             />
                             <Input
                                 value={data?.age}
@@ -253,6 +255,7 @@ export const ProfileCardRedesigned = (props: ProfileCardProps) => {
                                 label={t('Вік')}
                                 onChange={onChangeAge}
                                 readonly={readonly}
+                                labelDirection="row"
                             />
                             <Input
                                 value={data?.city}
@@ -260,6 +263,7 @@ export const ProfileCardRedesigned = (props: ProfileCardProps) => {
                                 label={t('Місто')}
                                 onChange={onChangeCity}
                                 readonly={readonly}
+                                labelDirection="row"
                             />
                         </VStack>
                         <VStack
@@ -272,6 +276,7 @@ export const ProfileCardRedesigned = (props: ProfileCardProps) => {
                                 label={t('Нікнейм')}
                                 onChange={onChangeUsername}
                                 readonly={readonly}
+                                labelDirection="row"
                             />
                             <Input
                                 value={data?.avatar}
@@ -279,6 +284,7 @@ export const ProfileCardRedesigned = (props: ProfileCardProps) => {
                                 label={t('Аватар')}
                                 onChange={onChangeAvatar}
                                 readonly={readonly}
+                                labelDirection="row"
                             />
                             <CurrencySelect
                                 value={data?.currency}

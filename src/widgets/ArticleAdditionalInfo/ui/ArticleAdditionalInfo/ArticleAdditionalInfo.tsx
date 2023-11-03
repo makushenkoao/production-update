@@ -6,7 +6,6 @@ import cls from './ArticleAdditionalInfo.module.scss';
 
 import { getUserAuthData, User } from '@/entities/User';
 import { DeleteModal } from '@/features/deleteModal';
-import { ShareModal } from '@/features/shareModal';
 import ArchiveIcon from '@/shared/assets/icons/archive.svg';
 import SaveIcon from '@/shared/assets/icons/save.svg';
 import ShareIcon from '@/shared/assets/icons/share.svg';
@@ -28,7 +27,6 @@ interface ArticleAdditionalInfoProps {
     onEdit: () => void;
     onDelete: () => void;
     onSave: () => void;
-    onShare: (user: User) => void;
     isSaved?: boolean;
     onArchive: () => void;
     isProfileLoading?: boolean;
@@ -43,7 +41,6 @@ export const ArticleAdditionalInfo = memo(
             createdAt,
             views,
             onEdit,
-            onShare,
             onDelete,
             onSave,
             isProfileLoading,
@@ -186,12 +183,6 @@ export const ArticleAdditionalInfo = memo(
                     isOpen={isOpen}
                     onClose={onClose}
                     onDelete={onDelete}
-                />
-                <ShareModal
-                    title={t('Поділитися з...')}
-                    isOpen={isOpenShareModal}
-                    onClose={onCloseShareModal}
-                    onShare={onShare}
                 />
             </VStack>
         );

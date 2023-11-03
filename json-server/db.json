@@ -813,7 +813,7 @@
       "title": "C# news",
       "subtitle": "Що нового за 2023 рік?",
       "img": "https://img-c.udemycdn.com/course/750x422/1793712_7b4d.jpg",
-      "views": 321000,
+      "views": 321001,
       "createdAt": 1690198971075,
       "userId": "1",
       "type": [
@@ -878,7 +878,23 @@
             "JavaScript - це мова, програми на якій можна виконувати в різних середовищах. У нашому випадку йдеться про браузери та про серверну платформу Node.js. Якщо досі ви не написали жодного рядка коду на JS і читаєте цей текст у браузері, на настільному комп'ютері, це означає, що ви буквально за лічені секунди від своєї першої JavaScript-програми."
           ]
         }
-      ]
+      ],
+      "user": {
+        "id": "1",
+        "username": "admin",
+        "password": "111",
+        "jsonSettings": {
+          "theme": "app_dark_theme",
+          "isArticlesPageWasOpened": true
+        },
+        "features": {
+          "isAppRedesigned": false
+        },
+        "roles": [
+          "ADMIN"
+        ],
+        "avatar": "https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-blue-tie-and-beard-face-png-image_5809515.png"
+      }
     },
     {
       "id": "8",

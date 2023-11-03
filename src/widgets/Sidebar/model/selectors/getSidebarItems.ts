@@ -6,7 +6,7 @@ import { getUserAuthData } from '@/entities/User';
 import {
     getRouteAbout,
     getRouteArticles,
-    getRouteChats, getRouteForum,
+    getRouteForum,
     getRouteInteractive,
     getRouteJobs,
     getRouteMain,
@@ -16,7 +16,6 @@ import MainIcon from '@/shared/assets/icons/home.svg';
 import AboutIcon from '@/shared/assets/icons/info.svg';
 import ArticleIcon from '@/shared/assets/icons/article-re.svg';
 import SearchIcon from '@/shared/assets/icons/search.svg';
-import ChatIcon from '@/shared/assets/icons/chat.svg';
 import InteractiveIcon from '@/shared/assets/icons/interactive.svg';
 import JobIcon from '@/shared/assets/icons/job.svg';
 import ForumIcon from '@/shared/assets/icons/forum.svg';
@@ -48,11 +47,6 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
                 text: 'Робота',
                 icon: JobIcon,
                 authOnly: true,
-            },
-            {
-                path: getRouteChats(),
-                text: 'Чати',
-                icon: ChatIcon,
             },
             {
                 path: getRouteForum(),

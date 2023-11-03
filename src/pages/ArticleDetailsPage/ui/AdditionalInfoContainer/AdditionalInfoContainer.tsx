@@ -6,15 +6,13 @@ import { archiveArticle } from '../../model/services/archiveArticle/archiveArtic
 import cls from './AdditionalInfoContainer.module.scss';
 
 import { deleteArticle, getArticleDetailsData } from '@/entities/Article';
-import { useWriteMessageMutation } from '@/entities/Message';
 import { useGetProfileDataQuery } from '@/entities/Profile';
-import { getUserAuthData, User } from '@/entities/User';
+import { getUserAuthData } from '@/entities/User';
 import { saveArticle } from '@/pages/SavedArticlesPage';
 import {
     getRouteArchiveArticles,
     getRouteArticleEdit,
     getRouteArticles,
-    getRouteChat,
 } from '@/shared/const/router';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Card } from '@/shared/ui/redesigned/Card';
@@ -32,7 +30,6 @@ export const AdditionalInfoContainer = memo(() => {
     } = useGetProfileDataQuery(authData?.id);
     const [isSaved, setIsSaved] = useState<boolean>(false);
     const [isLoading, setIsLoading] = useState(false);
-    const [writeMessage] = useWriteMessageMutation();
 
     useEffect(() => {
         setIsSaved(Boolean(profile?.saved?.includes(article?.id || '')));
@@ -79,19 +76,6 @@ export const AdditionalInfoContainer = memo(() => {
             });
     }, [authData?.id, dispatch, navigate, profile, refetch]);
 
-    const onShare = useCallback(
-        (user: User) => {
-            writeMessage({
-                id: Date.now().toString(),
-                sendAt: Date.now(),
-                message: window.location.href,
-                fromUser: authData?.id ?? '',
-                toUser: user.id,
-            }).then(() => navigate(getRouteChat(user.id)));
-        },
-        [authData?.id, navigate, writeMessage],
-    );
-
     if (!article) {
         return null;
     }
@@ -113,7 +97,6 @@ export const AdditionalInfoContainer = memo(() => {
                 isProfileLoading={isProfileLoading}
                 isLoading={isLoading}
                 onArchive={onArchive}
-                onShare={onShare}
             />
         </Card>
     );

@@ -17,7 +17,6 @@ import { Button } from '@/shared/ui/redesigned/Button';
 import { Card } from '@/shared/ui/redesigned/Card';
 import {
     getRouteArticleCreate,
-    getRouteChat,
     getRouteForumCreate,
     getRouteJobCreate,
 } from '@/shared/const/router';
@@ -66,12 +65,6 @@ export const EditableProfileCardHeader = memo(
         const onSave = useCallback(() => {
             dispatch(updateProfileData());
         }, [dispatch]);
-
-        const onNavigateToChat = useCallback(() => {
-            if (profileData?.id) {
-                navigate(getRouteChat(profileData?.id));
-            }
-        }, [navigate, profileData?.id]);
 
         const onFollow = useCallback(() => {
             onFollowClick?.();
@@ -150,14 +143,7 @@ export const EditableProfileCardHeader = memo(
                     ) : (
                         <HStack gap="8">
                             {!isBlocked && (
-                                <>
-                                    <Button
-                                        onClick={onNavigateToChat}
-                                        variant="filled"
-                                    >
-                                        {t('Написати')}
-                                    </Button>
-                                    <Button
+                                <Button
                                         onClick={onFollow}
                                         color={
                                             userIsFollowing ? 'error' : 'normal'
@@ -169,7 +155,6 @@ export const EditableProfileCardHeader = memo(
                                                 : 'Підписатися',
                                         )}
                                     </Button>
-                                </>
                             )}
                             <Tooltip
                                 title={t(
