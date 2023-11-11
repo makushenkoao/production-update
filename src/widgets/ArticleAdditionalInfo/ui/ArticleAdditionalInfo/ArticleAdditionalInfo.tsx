@@ -8,7 +8,6 @@ import { getUserAuthData, User } from '@/entities/User';
 import { DeleteModal } from '@/features/deleteModal';
 import ArchiveIcon from '@/shared/assets/icons/archive.svg';
 import SaveIcon from '@/shared/assets/icons/save.svg';
-import ShareIcon from '@/shared/assets/icons/share.svg';
 import UnSaveIcon from '@/shared/assets/icons/unsave.svg';
 import { getRouteProfile } from '@/shared/const/router';
 import { formatDate } from '@/shared/lib/utils/formatDate/formatDate';
@@ -50,7 +49,6 @@ export const ArticleAdditionalInfo = memo(
         } = props;
         const { t } = useTranslation();
         const [isOpen, setIsOpen] = useState(false);
-        const [isOpenShareModal, setIsOpenShareModal] = useState(false);
         const authData = useSelector(getUserAuthData);
 
         const onOpen = useCallback(() => {
@@ -59,14 +57,6 @@ export const ArticleAdditionalInfo = memo(
 
         const onClose = useCallback(() => {
             setIsOpen(false);
-        }, []);
-
-        const onOpenShareModal = useCallback(() => {
-            setIsOpenShareModal(true);
-        }, []);
-
-        const onCloseShareModal = useCallback(() => {
-            setIsOpenShareModal(false);
         }, []);
 
         return (
@@ -116,67 +106,54 @@ export const ArticleAdditionalInfo = memo(
                     justify="between"
                 >
                     <Text text={t('{{count}} переглядів', { count: views })} />
-                    <HStack gap="8">
-                        <Tooltip
-                            title={t('Поділитися')}
-                            direction="bottom left"
-                        >
-                            <ShareIcon
-                                width={20}
-                                height={20}
-                                onClick={onOpenShareModal}
-                                className={cls.icon}
-                            />
-                        </Tooltip>
+                    <Button
+                        variant="clear"
+                        disabled={isLoading || isProfileLoading}
+                    >
+                        {isSaved ? (
+                            <Tooltip
+                                title={t('Прибрати зі збережених')}
+                                direction="bottom left"
+                            >
+                                <UnSaveIcon
+                                    width={24}
+                                    height={24}
+                                    onClick={onSave}
+                                    className={cls.icon}
+                                />
+                            </Tooltip>
+                        ) : (
+                            <Tooltip
+                                title={t('Зберегти')}
+                                direction="bottom left"
+                            >
+                                <SaveIcon
+                                    width={20}
+                                    height={20}
+                                    onClick={onSave}
+                                    className={cls.icon}
+                                />
+                            </Tooltip>
+                        )}
+                    </Button>
+                    {authData?.id === author.id && (
                         <Button
                             variant="clear"
                             disabled={isLoading || isProfileLoading}
                         >
-                            {isSaved ? (
-                                <Tooltip
-                                    title={t('Прибрати зі збережених')}
-                                    direction="bottom left"
-                                >
-                                    <UnSaveIcon
-                                        width={24}
-                                        height={24}
-                                        onClick={onSave}
-                                        className={cls.icon}
-                                    />
-                                </Tooltip>
-                            ) : (
-                                <Tooltip
-                                    title={t('Зберегти')}
-                                    direction="bottom left"
-                                >
-                                    <SaveIcon
-                                        width={20}
-                                        height={20}
-                                        onClick={onSave}
-                                        className={cls.icon}
-                                    />
-                                </Tooltip>
-                            )}
-                        </Button>
-                        {authData?.id === author.id && (
-                            <Button
-                                variant="clear"
-                                disabled={isLoading || isProfileLoading}
+                            <Tooltip
+                                title={t('Архівувати')}
+                                direction="bottom left"
                             >
-                                <Tooltip
-                                    title={t('Архівувати')}
-                                    direction="bottom left"
-                                >
-                                    <ArchiveIcon
-                                        width={20}
-                                        height={20}
-                                        onClick={onArchive}
-                                        className={cls.icon}
-                                    />
-                                </Tooltip>
-                            </Button>
-                        )}
-                    </HStack>
+                                <ArchiveIcon
+                                    width={20}
+                                    height={20}
+                                    onClick={onArchive}
+                                    className={cls.icon}
+                                />
+                            </Tooltip>
+                        </Button>
+                    )}
                 </HStack>
                 <DeleteModal
                     title={t('Ви точно хочете видалити статтю?')}
