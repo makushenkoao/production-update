@@ -7,6 +7,7 @@ import { updateProfileData } from '../../model/services/updateProfileData/update
 import { profileActions } from '../../model/slice/ProfileSlice';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
+import { updateUserData } from '../../model/services/updateUserData/updateUserData';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { getUserAuthData } from '@/entities/User';
@@ -26,7 +27,6 @@ import BlockIcon from '@/shared/assets/icons/block.svg';
 import UnBlockIcon from '@/shared/assets/icons/unblock.svg';
 import { Dropdown, DropdownItem } from '@/shared/ui/redesigned/Popups';
 import PlusIcon from '@/shared/assets/icons/create.svg';
-import { updateUserData } from '@/features/editableProfileCard/model/services/updateUserData/updateUserData';
 
 interface EditableProfileCardHeaderProps {
     className?: string;
