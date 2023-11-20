@@ -26,6 +26,7 @@ import BlockIcon from '@/shared/assets/icons/block.svg';
 import UnBlockIcon from '@/shared/assets/icons/unblock.svg';
 import { Dropdown, DropdownItem } from '@/shared/ui/redesigned/Popups';
 import PlusIcon from '@/shared/assets/icons/create.svg';
+import { updateUserData } from '@/features/editableProfileCard/model/services/updateUserData/updateUserData';
 
 interface EditableProfileCardHeaderProps {
     className?: string;
@@ -62,8 +63,9 @@ export const EditableProfileCardHeader = memo(
             dispatch(profileActions.cancelEdit());
         }, [dispatch]);
 
-        const onSave = useCallback(() => {
-            dispatch(updateProfileData());
+        const onSave = useCallback(async () => {
+            await dispatch(updateProfileData());
+            await dispatch(updateUserData());
         }, [dispatch]);
 
         const onFollow = useCallback(() => {
@@ -144,17 +146,15 @@ export const EditableProfileCardHeader = memo(
                         <HStack gap="8">
                             {!isBlocked && (
                                 <Button
-                                        onClick={onFollow}
-                                        color={
-                                            userIsFollowing ? 'error' : 'normal'
-                                        }
-                                    >
-                                        {t(
-                                            userIsFollowing
-                                                ? 'Відписатися'
-                                                : 'Підписатися',
-                                        )}
-                                    </Button>
+                                    onClick={onFollow}
+                                    color={userIsFollowing ? 'error' : 'normal'}
+                                >
+                                    {t(
+                                        userIsFollowing
+                                            ? 'Відписатися'
+                                            : 'Підписатися',
+                                    )}
+                                </Button>
                             )}
                             <Tooltip
                                 title={t(
