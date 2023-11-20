@@ -1,6 +1,10 @@
 import { FormEvent, useCallback, useEffect, useState } from 'react';
 
-import { InteractivesType, Mystery, Quiz } from '../../../model/types/interactive';
+import {
+    InteractivesType,
+    Mystery,
+    Quiz,
+} from '../../../model/types/interactive';
 
 interface InterfaceResult {
     isOpen: boolean;

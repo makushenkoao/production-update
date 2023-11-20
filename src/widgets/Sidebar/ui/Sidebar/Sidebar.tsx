@@ -55,7 +55,10 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
             )}
         >
             <AppLink to="/">
-                <Tooltip title={t('Головна сторінка')} direction="bottom left">
+                <Tooltip
+                    title={t('Головна сторінка')}
+                    direction="bottom left"
+                >
                     <AppLogo
                         className={cls.appLogo}
                         width={collapsed ? 30 : 50}

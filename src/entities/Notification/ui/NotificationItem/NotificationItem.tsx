@@ -9,7 +9,6 @@ import { Text } from '@/shared/ui/redesigned/Text';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 import DeleteIcon from '@/shared/assets/icons/delete.svg';
 
-
 interface NotificationItemProps {
     className?: string;
     item: Notification;

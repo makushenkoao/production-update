@@ -55,7 +55,10 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
 
     const trigger = data?.length ? (
         <>
-            <Tooltip title={t('Повідомлення')} direction="bottom left">
+            <Tooltip
+                title={t('Повідомлення')}
+                direction="bottom left"
+            >
                 <Icon
                     svg={NotificationIcon}
                     clickable
@@ -70,7 +73,10 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
             />
         </>
     ) : (
-        <Tooltip title={t('Повідомлення')} direction="bottom left">
+        <Tooltip
+            title={t('Повідомлення')}
+            direction="bottom left"
+        >
             <Icon
                 svg={NotificationIcon}
                 clickable

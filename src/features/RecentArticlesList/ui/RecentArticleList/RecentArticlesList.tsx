@@ -16,7 +16,10 @@ export const RecentArticlesList = memo(() => {
     const { data, isLoading } = useGetRecentArticlesQuery();
 
     return (
-        <VStack gap="16" max>
+        <VStack
+            gap="16"
+            max
+        >
             <Text title={t('Останні статті')} />
             <ArticleList
                 articles={data?.slice(0, 10) || []}

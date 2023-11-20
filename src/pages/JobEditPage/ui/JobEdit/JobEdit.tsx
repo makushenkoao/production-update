@@ -10,7 +10,7 @@ import {
     getJobDetailsData,
     Job,
     updateJobService,
-    JobCategory
+    JobCategory,
 } from '@/entities/Job';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';

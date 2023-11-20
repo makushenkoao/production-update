@@ -1,6 +1,6 @@
 import React, { memo, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {useSelector} from "react-redux";
+import { useSelector } from 'react-redux';
 
 import { AddArticleBlocks } from '../AddArticleBlocks/AddArticleBlocks';
 import { ArticleEditorHeader } from '../ArticleEditerHeader/ArticleEditerHeader';
@@ -10,7 +10,7 @@ import { ArticleCreateUpdateButton } from '../ArticleCreateUpdateButton/ArticleC
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Article } from '@/entities/Article';
 import { getRouteForbidden } from '@/shared/const/router';
-import {getUserAuthData} from "@/entities/User";
+import { getUserAuthData } from '@/entities/User';
 
 interface EditArticleProps {
     data: Article;
@@ -20,7 +20,7 @@ export const EditArticle = memo((props: EditArticleProps) => {
     const { data } = props;
     const [article, setArticle] = useState<Article>(data);
     const navigate = useNavigate();
-    const authData = useSelector(getUserAuthData)
+    const authData = useSelector(getUserAuthData);
 
     useEffect(() => {
         if (data.user.id !== authData?.id) {

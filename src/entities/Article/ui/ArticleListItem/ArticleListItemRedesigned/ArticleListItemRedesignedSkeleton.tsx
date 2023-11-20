@@ -9,7 +9,6 @@ import { Card } from '@/shared/ui/redesigned/Card';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 
-
 export const ArticleListItemRedesignedSkeleton = memo(
     (props: ArticleListItemSkeletonProps) => {
         const { className, view } = props;

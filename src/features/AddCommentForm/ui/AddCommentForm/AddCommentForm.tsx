@@ -6,9 +6,7 @@ import EmojiPicker, {
     Theme as EmojiTheme,
 } from 'emoji-picker-react';
 
-import {
-    addCommentFormReducer,
-} from '../../model/slice/addCommentFormSlice';
+import { addCommentFormReducer } from '../../model/slice/addCommentFormSlice';
 import {
     getAddCommentFormError,
     getAddCommentFormIsLoading,
@@ -67,14 +65,11 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
         setText(v);
     }, []);
 
-    const onEmojiClick = useCallback(
-        (data: EmojiClickData) => {
-            // const updatedText = text + data.emoji;
-            // dispatch(addCommentFormActions.setText(updatedText));
-            setText((prevState) => prevState + data.emoji);
-        },
-        [],
-    );
+    const onEmojiClick = useCallback((data: EmojiClickData) => {
+        // const updatedText = text + data.emoji;
+        // dispatch(addCommentFormActions.setText(updatedText));
+        setText((prevState) => prevState + data.emoji);
+    }, []);
 
     const onClickIcon = useCallback(() => {
         setIsPickerVisible((prevState) => !prevState);

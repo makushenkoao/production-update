@@ -13,7 +13,6 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { Article } from '@/entities/Article';
 import { getRouteArticleDetails } from '@/shared/const/router';
 
-
 export const ArchiveArticleList = memo(() => {
     const [loading, setLoading] = useState(true);
     const authData = useSelector(getUserAuthData);

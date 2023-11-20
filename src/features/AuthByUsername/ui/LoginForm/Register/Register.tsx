@@ -25,7 +25,6 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { userActions } from '@/entities/User';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
-
 interface RegisterProps {
     setIsRegister: Dispatch<SetStateAction<boolean>>;
     onSuccess: () => void;

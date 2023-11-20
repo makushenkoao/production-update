@@ -14,7 +14,6 @@ import { Card } from '@/shared/ui/redesigned/Card';
 import { Article } from '@/entities/Article';
 import EyeIcon from '@/shared/assets/icons/eye-re.svg';
 
-
 interface ArchiveArticleItemProps {
     article: Article;
     onUnArchiveArticle: (article: Article) => void;

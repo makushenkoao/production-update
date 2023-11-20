@@ -22,7 +22,6 @@ import UserIcon from '@/shared/assets/icons/user.svg';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
-
 export const ProfileCardRedesigned = (props: ProfileCardProps) => {
     const {
         className,

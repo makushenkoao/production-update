@@ -35,7 +35,9 @@ export const Code = memo((props: CodeProps) => {
                 svg={CopyIconNew}
             />
             <code>{text}</code>
-            {isCopied && <div className={cls.copiedMessage}>{t('Скопійовано')}</div>}
+            {isCopied && (
+                <div className={cls.copiedMessage}>{t('Скопійовано')}</div>
+            )}
         </pre>
     );
 });

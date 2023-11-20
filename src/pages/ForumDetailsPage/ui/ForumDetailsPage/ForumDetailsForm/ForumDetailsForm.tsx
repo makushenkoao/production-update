@@ -13,7 +13,6 @@ import { addMessageForumDetailsService } from '@/entities/Forum';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getUserAuthData } from '@/entities/User';
 
-
 interface ForumDetailsFormProps {
     loading: boolean;
 }

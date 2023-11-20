@@ -11,7 +11,6 @@ import {
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { Page } from '@/widgets/Page';
 
-
 const reducers: ReducersList = {
     jobDetails: jobDetailsReducer,
 };

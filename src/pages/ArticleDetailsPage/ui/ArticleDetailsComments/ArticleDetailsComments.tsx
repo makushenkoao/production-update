@@ -25,7 +25,6 @@ import { getRouteArticleDetails } from '@/shared/const/router';
 import { getUserAuthData } from '@/entities/User';
 import { getArticleDetailsData } from '@/entities/Article';
 
-
 interface ArticleDetailsCommentsProps {
     className?: string;
     id?: string;

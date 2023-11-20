@@ -12,10 +12,9 @@ import {
     Forum,
     getForumDetailsData,
     getForumDetailsService,
-    ForumCategory
+    ForumCategory,
 } from '@/entities/Forum';
 import { getRouteForumDetails } from '@/shared/const/router';
-
 
 export const ForumEdit = memo(() => {
     const dispatch = useAppDispatch();

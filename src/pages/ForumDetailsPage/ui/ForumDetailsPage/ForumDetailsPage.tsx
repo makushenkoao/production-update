@@ -64,7 +64,12 @@ const ForumDetailsPage = () => {
                         </VStack>
                     </Page>
                 }
-                right={<ForumDetailsAdditionalInfo forum={forumDetails} loading={loading} />}
+                right={
+                    <ForumDetailsAdditionalInfo
+                        forum={forumDetails}
+                        loading={loading}
+                    />
+                }
             />
         </DynamicModuleLoader>
     );

@@ -35,7 +35,7 @@ export const JobCompanyAdditionalInfo = memo(
                             gap="8"
                         >
                             <div className={cls.line} />
-                            <Skeleton height={30}/>
+                            <Skeleton height={30} />
                             <div className={cls.line} />
                         </HStack>
                         <Skeleton height={30} />

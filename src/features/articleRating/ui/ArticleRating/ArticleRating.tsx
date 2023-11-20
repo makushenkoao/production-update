@@ -87,7 +87,14 @@ const ArticleRating = (props: ArticleRatingProps) => {
                 }),
             );
         },
-        [article?.title, article?.user.id, articleId, dispatch, handleRateArticle, userData?.username],
+        [
+            article?.title,
+            article?.user.id,
+            articleId,
+            dispatch,
+            handleRateArticle,
+            userData?.username,
+        ],
     );
 
     const Skeleton = SkeletonRedesigned;

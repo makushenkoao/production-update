@@ -45,12 +45,14 @@ import {
     getRouteJobResponses,
     getRouteJobMap,
     getRouteForum,
-    getRouteForumDetails, getRouteForumCreate, getRouteForumEdit,
+    getRouteForumDetails,
+    getRouteForumCreate,
+    getRouteForumEdit,
 } from '@/shared/const/router';
 import { AppRoutesProps } from '@/shared/types/router';
 import { ForumPage } from '@/pages/ForumPage';
 import { ForumDetailsPage } from '@/pages/ForumDetailsPage';
-import {ForumCreatePage} from "@/pages/ForumCreatePage";
+import { ForumCreatePage } from '@/pages/ForumCreatePage';
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.MAIN]: {

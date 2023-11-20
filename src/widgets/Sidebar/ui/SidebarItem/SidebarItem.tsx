@@ -10,7 +10,6 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { getUserAuthData } from '@/entities/User';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 
-
 interface SidebarItemProps {
     item: SidebarItemTypes;
     collapsed: boolean;

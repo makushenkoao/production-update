@@ -12,7 +12,6 @@ import { AvatarWithUsername } from '@/shared/ui/redesigned/AvatarWithUsername';
 import { Modal } from '@/shared/ui/redesigned/Modal';
 import { Text } from '@/shared/ui/redesigned/Text';
 
-
 interface FollowersAndFollowingsModalProps {
     isOpen?: boolean;
     onClose: () => void;
